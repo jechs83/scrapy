@@ -1,6 +1,6 @@
 import scrapy
 
-
+import time
 from ripley.spiders import url_list 
 import scrapy
 import json
@@ -43,13 +43,17 @@ class RippleScrapSpider(scrapy.Spider):
         item = RipleyItem()
      
         productos = response.css("div.catalog-product-item.catalog-product-item__container.col-xs-6.col-sm-6.col-md-4.col-lg-4")
-
+       
         for i in productos:
+           
           
-            try:
-                item["brand"] = i.css(".brand-logo::text").get()
-            except:
-                item["brand"] = "None"
+            # try:
+            #     item["brand"] = i.css(".brand-logo::text").get()
+            # except:
+            #     item["brand"] = "None"
+            
+            item["brand"] = i.xpath('//div[@class="brand-logo"]/span/text()').get()
+            
 
             item["product"] = i.css(".catalog-product-details__name::text").get()
 
@@ -65,7 +69,7 @@ class RippleScrapSpider(scrapy.Spider):
             item["_id"] = item["sku"] 
             
             try:
-                item["web_dsct"] = i.css(".catalog-product-details__discount-tag::text").get().replace("-", "").replace("%", "")
+                item["web_dsct"] = float(i.css(".catalog-product-details__discount-tag::text").get().replace("-", "").replace("%", ""))
             except:
                 item["web_dsct"] = 0
             
