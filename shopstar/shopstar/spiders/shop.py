@@ -47,38 +47,41 @@ class ShopSpider(scrapy.Spider):
 
      
         elements = response.xpath("//div[@class='product']")
-
+ 
         for idx, i in enumerate(elements):
+           
     
-        
-            item["sku"] = i.xpath(".//div[@class='buy-button-normal']/@id").get()
+            
+            item["sku"] = i.xpath("/html[1]/body[1]/div[1]/ul[1]/li/div[1]/div[4]/div[1]/@id").get()
 
             item["_id"] = item["sku"] 
            
               
 
             try:
-             item["brand"]  = i.xpath(".//h6[@class='x-brand']/text()")[0].get()
-            except:  item["brand"]  = i.xpath(".//h6[@class='x-brand']/text()").get()
+             item["brand"]  = i.xpath("//h6[@class='x-brand']").get()
+            except:item["brand"]   =  None
+           
+    
+            try:
+             item["product"] = i.xpath("//h6[@class='x-name']").get()
+            except:   item["product"] = None
 
             try:
-             item["product"] = i.xpath(".//h6[@class='x-name']/text()")[0].get()
-            except:   item["product"] = i.xpath(".//h6[@class='x-name']/text()").get()
-
-            try:
-                item["list_price"] = i.xpath(".//span[@class='product__old-price']/text()")[0].get()
-                item["list_price"] = item["list_price"].replace("S/. ", "").replace(",", "")
-            except:
-                item["list_price"] = 0
-            try:
-                item["best_price"] = i.xpath(".//span[@class='product__price']/text()")[0].get()
-                item["best_price"] = item["best_price"].replace("S/. ", "").replace(",", "")
+                item["best_price"] = i.xpath("//span[@class='product__price']//strong/text()").get()
+                item["best_price"] = float(item["best_price"].replace("S/. ", "").replace(",", ""))
             except:
                 item["best_price"] = 0
+            try:
+                item["list_price"] = i.xpath("//span[@class='product__old-price']/text()").get()
+                      
+                item["list_price"] = float(item["list_price"].replace("S/. ", "").replace(",", ""))
+            except:
+                item["list_price"] = 0
 
             try:
-                item["web_dsct"] = i.xpath(".//span[@class='product__discount']/text()")[0].get()
-                item["web_dsct"] = item["web_dsct"].replace("-", "").replace(",", ".").replace(" %", "").replace(" ", "")
+                item["web_dsct"] = i.xpath("/html[1]/body[1]/div[1]/ul[1]/li/div[1]/div[2]/span[1]/p/text()").get()
+                item["web_dsct"] = float(item["web_dsct"].replace("-", "").replace(",", ".").replace(" %", "").replace(" ", ""))
                
             except:
                 item["web_dsct"] = 0
@@ -97,10 +100,13 @@ class ShopSpider(scrapy.Spider):
                 item["card_price"] = 0
 
             try:
-                  item["image"] = i.xpath(".//img/@src")[0].get()
+                  item["image"] = i.xpath("//noscript").get().split()[1].replace("src=","").replace('"','')
             except:
                   item["image"] = "Null"
-            item["link"] = i.xpath(".//a/@href")[0].get()
+
+            try:
+             item["link"] = i.xpath("/html[1]/body[1]/div[1]/ul[1]/li/div[1]/div[3]/div[1]/h6[2]/a[1]/@href").get()
+            except: item["link"] =  None
             #item["category"] = i.xpath("./@data-cate").get()
 
             # bd_name_store = "shopstar"
