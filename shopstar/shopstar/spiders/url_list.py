@@ -1,25 +1,23 @@
-list0 = ["https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f452%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber="]
-        #"https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f452%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",]
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f457%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f463%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f466%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f1517%2f1518%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f1517%2f1519%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f1517%2f1521%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f1517%2f1522%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f477%2f485%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f477%2f499%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f477%2f501%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f694%2f695%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f551%2f554%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f551%2f1509%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f602%2f606%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
-        # "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f602%2f652%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=" ]
-        # "https://shopstar.pe/tecnologia/audio/home-theater"
-# "https://shopstar.pe/tecnologia/televisores/oled-tv",
-# "https://shopstar.pe/tecnologia/smart-home/seguridad-inteligente",
-# "https://shopstar.pe/tecnologia/televisores/nanocell-tv",
-#  ]
+list0 = [
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f452%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f457%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f463%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f466%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f1517%2f1518%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f1517%2f1519%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f1517%2f1521%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f1517%2f1522%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f477%2f485%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f477%2f499%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f477%2f501%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f694%2f695%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f551%2f554%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f551%2f1509%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f602%2f606%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f602%2f652%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=" ]
+
+
+ 
 
 
 list1 = [
@@ -79,3 +77,8 @@ list1 = [
 "https://shopstar.pe/buscapagina?fq=C%3a%2f441%2f521%2f529%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
 "https://shopstar.pe/buscapagina?fq=C%3a%2f441%2f521%2f531%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
 ]
+
+
+list3= [
+        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f452%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber="]
+       

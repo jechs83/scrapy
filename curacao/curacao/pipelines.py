@@ -1,6 +1,15 @@
+# Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
+
+# useful for handling different item types with a single interface
+from itemadapter import ItemAdapter
 import logging
 import pymongo
-from shopstar.settings import COLLECTION_NAME
+from curacao.settings import COLLECTION_NAME
+
 
 class MongoPipeline(object):
 
@@ -38,9 +47,3 @@ class MongoPipeline(object):
         result = collection.update_one(filter, update, upsert=True)
         spider.logger.debug('Item updated in MongoDB: %s', result)
         return item
-
-    # def process_item(self, item, spider):
-    #     ## how to handle each post
-    #     self.db[self.collection_name].insert_one(dict(item))
-    #     logging.debug("Post added to MongoDB")
-    #     return item

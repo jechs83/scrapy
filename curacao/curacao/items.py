@@ -6,7 +6,7 @@
 import scrapy
 
 
-class ShopstarItem(scrapy.Item):
+class CuracaoItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
    
@@ -29,3 +29,4 @@ class ShopstarItem(scrapy.Item):
     card_dsct = scrapy.Field()
   
     pass
+

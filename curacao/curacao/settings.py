@@ -7,13 +7,13 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "shopstar"
+BOT_NAME = "curacao"
 COLLECTION_NAME = "scrap"
-SPIDER_MODULES = ["shopstar.spiders"]
-NEWSPIDER_MODULE = "shopstar.spiders"
+SPIDER_MODULES = ["curacao.spiders"]
+NEWSPIDER_MODULE = "curacao.spiders"
 
 ITEM_PIPELINES = {
-    'shopstar.pipelines.MongoPipeline': 300,
+    'curacao.pipelines.MongoPipeline': 300,
 }
 MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
 
