@@ -52,7 +52,7 @@ class RippleScrapSpider(scrapy.Spider):
             # except:
             #     item["brand"] = "None"
             try:
-                item["brand"] = i.xpath('//div[@class="brand-logo"]/span/text()').get()
+                item["brand"] = i.css('div.brand-logo::text()').get()
             except:item["brand"] = None
             
             try:
