@@ -22,9 +22,11 @@ def loop ():
 
 
         command = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\demo\\demo\\spiders  && scrapy crawl saga -a u='+str(i+1)]
+        command2 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\curacao\\curacao\\spiders  && scrapy crawl cura -a u='+str(i+1)]
 
         # Use subprocess.Popen to run the command
         subprocess.Popen(command)
+        subprocess.Popen(command2)
        
     time.sleep(800)
     close()
