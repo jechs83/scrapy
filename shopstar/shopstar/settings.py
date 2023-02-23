@@ -8,7 +8,7 @@
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 BOT_NAME = "shopstar"
-COLLECTION_NAME = "scrap"
+COLLECTION_NAME = "shopstar"
 SPIDER_MODULES = ["shopstar.spiders"]
 NEWSPIDER_MODULE = "shopstar.spiders"
 

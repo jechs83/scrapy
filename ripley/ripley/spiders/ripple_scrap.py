@@ -51,13 +51,17 @@ class RippleScrapSpider(scrapy.Spider):
             #     item["brand"] = i.css(".brand-logo::text").get()
             # except:
             #     item["brand"] = "None"
+            try:
+                item["brand"] = i.xpath('//div[@class="brand-logo"]/span/text()').get()
+            except:item["brand"] = None
             
-            item["brand"] = i.xpath('//div[@class="brand-logo"]/span/text()').get()
-            
+            try:
+              item["product"] = i.css(".catalog-product-details__name::text").get()
+            except: item["product"] = None
 
-            item["product"] = i.css(".catalog-product-details__name::text").get()
-
-            item["image"] = i.css("img::attr(data-src)").get()
+            try:
+                item["image"] = i.css("img::attr(data-src)").get()
+            except:  item["image"] = None
 
             image_start = item["image"][:6]
             if image_start != "https:":
