@@ -1,4 +1,4 @@
-list0 = [
+list1 = [
         "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f452%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
         "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f457%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
         "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f463%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
@@ -20,7 +20,7 @@ list0 = [
  
 
 
-list1 = [
+list2 = [
 
     "https://www.shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f452%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
 "https://www.shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f457%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
