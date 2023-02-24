@@ -1,1 +1,1 @@
-list1 =[("https://www.tailoy.com.pe/electrohogar.html?p=",20)]
+list1 =[("https://www.tailoy.com.pe/electrohogar.html?p=",2)]

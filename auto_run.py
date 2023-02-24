@@ -17,6 +17,8 @@ def close():
 def loop ():
     command2 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\ripley\\ripley\\spiders  && scrapy crawl ripley_scrap -a u=0']
     subprocess.Popen(command2)
+    command4 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\metro\\metro\\spiders  && scrapy crawl metro1 -a u=1']
+    subprocess.Popen(command4)
 
     for i in range (3):
 

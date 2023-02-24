@@ -3,7 +3,8 @@ from scrapy import Selector
 from tailoy.items import TailoyItem
 from datetime import datetime
 from datetime import date
-from tailoy.settings import ROTATING_PROXY_LIST
+
+#from tailoy.settings import ROTATING_PROXY_LIST
 from tailoy.spiders import url_list
 import time
 
@@ -22,9 +23,9 @@ class TaiSpider(scrapy.Spider):
    
         
     def start_requests(self):
-        for url in self.start_urls:
-            return scrapy.Request(url=url, callback=self.parse,
-                       meta={"proxy": "http://"+ROTATING_PROXY_LIST})
+        # for url in self.start_urls:
+        #     return scrapy.Request(url=url, callback=self.parse,
+        #                meta={"proxy": "http://"+ROTATING_PROXY_LIST})
             
 
         u = int(getattr(self, 'u', '0'))
@@ -45,15 +46,24 @@ class TaiSpider(scrapy.Spider):
 
     def parse(self, response):
         item = TailoyItem
+
         productos = response.css("li.item.product.product-item")
+
+      
+
         for i in productos:
+            print("######")
+            link = i.css("a.product-item-link::attr(href)").get()
+            print(link)
+            print("#######3")
+            time.sleep(200)
+    
 
-            link = i.css("a::attr(href)").get()
 
-          
+
 
             yield 
             {
-               "link":link
+               "link":link,
 
             }
