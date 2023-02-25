@@ -22,11 +22,13 @@ class ShopSpider(scrapy.Spider):
     def start_requests(self):
         u = int(getattr(self, 'u', '0'))
 
-        if u == 1:
+        if u == 0:
             urls = url_list.list0
       
         elif u == 1:
                 urls = url_list.list1
+        elif u == 2:
+                urls = url_list.list2
         elif u == 3:
                 urls = url_list.list3
         else:

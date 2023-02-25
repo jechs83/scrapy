@@ -65,11 +65,11 @@ class VeaSpider(scrapy.Spider):
             item["best_price"] = i["items"][0]["sellers"][0]["commertialOffer"]["Price"]
 
             item["list_price"]  =i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"]
-            item["web_dsct"] = round((item["best_price"]*100 /item["list_price"]),2)
-            item["web_dsct"] = round((item["web_dsct"]),2)
+            item["web_dsct"] = round((item["best_price"]*100 /item["list_price"]))
+            item["web_dsct"] = round((item["web_dsct"]))
             if item["web_dsct"] > 0:
                 item["web_dsct"] = 100-item["web_dsct"]
-                item["web_dsct"] =round((item["web_dsct"]) , 2)
+                item["web_dsct"] =round((item["web_dsct"]))
             if  item["web_dsct"] == 100:
                  item["web_dsct"] = 0
             item["home_list"]="https://wwww.plazavea.com.pe"
