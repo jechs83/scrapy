@@ -84,9 +84,9 @@ class ShopSpider(scrapy.Spider):
                 ibk_dsct = i.xpath(".//div[@class='contentFlag']/text()")[0].get()
                 ibk_dsct = ibk_dsct.split()[1].replace("%", "")
                 item["card_dsct"] = float(item["web_dsct"]) + float(ibk_dsct)
-                item["card_dsct"] = round(item["card_dsct"], 2)
+                item["card_dsct"] = round(item["card_dsct"])
                 item["card_price"] = (float(item["best_priece"]) * (100 - float(ibk_dsct)) / 100)
-                item["card_price"] = round(item["card_price"], 2)
+                item["card_price"] = round(item["card_price"])
             except:
                 item["card_dsct"] = 0
 
@@ -104,9 +104,6 @@ class ShopSpider(scrapy.Spider):
             try:
              item["link"] = i.css('a::attr(href)').get()
             except: item["link"] =  None
-
-
-
 
 
             item["market"] = "shopstar"  # COLECCION
