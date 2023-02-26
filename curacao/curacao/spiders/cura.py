@@ -76,13 +76,13 @@ class CuraSpider(scrapy.Spider):
                 item["best_price"] = 0
 
          
-            
-            if float(item["best_price"]) > 0:
-                        web_dsct = (float(item["best_price"]) * 100) / float(item["list_price"])
-                        # web_dsct = 100 - web_dsct
-                        web_dsct = str(round(web_dsct)).replace("-","")
-            item["web_dsct"]= 100- float(web_dsct)
-            
+            try:
+                if float(item["best_price"]) > 0:
+                            web_dsct = (float(item["best_price"]) * 100) / float(item["list_price"])
+                            # web_dsct = 100 - web_dsct
+                            web_dsct = str(round(web_dsct)).replace("-","")
+                item["web_dsct"]= 100- float(web_dsct)
+            except: item["web_dsct"]= 0
         
             item["card_price"] = 0
             item["card_dsct"] = 0

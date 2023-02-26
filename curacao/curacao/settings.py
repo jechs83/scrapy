@@ -17,8 +17,8 @@ ITEM_PIPELINES = {
     'curacao.pipelines.MongoPipeline': 300,
 }
 
-MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
-#MONGO_URI = config("MONGO_DB")
+#MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
+MONGO_URI = config("MONGO_DB")
 
 MONGO_DATABASE = 'scrap'
 
@@ -33,6 +33,9 @@ USER_AGENT='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 32
+LOG_ENABLED = True
+LOG_LEVEL = 'DEBUG'
+LOG_FILE = 'scrapy.log'
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
