@@ -36,13 +36,13 @@ class CuraSpider(scrapy.Spider):
                 urls = url_list.list4
         else:
             urls = []
-
+        count = 0
         for i, v in enumerate(urls):
             for e in range(v[2]):
                 if e == 0:
                      url = v[0]+str(0)+v[1]
                 else:   
-                    url = v[0]+str(18*(18*(e+1)))+v[1]
+                    url = v[0]+str(count*e)+v[1]
                 yield scrapy.Request(url, self.parse)
 
 
