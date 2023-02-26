@@ -44,7 +44,3 @@ list0=[
 ("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=5.0&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616820177&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex",240)#todo
 
 ]
-
-
-
-]
