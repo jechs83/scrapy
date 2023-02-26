@@ -33,13 +33,14 @@ list3=[
 
 list0=[
 ("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616676988&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=", 15), #televisor 10 
-("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616720192&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=12&pageSize=12&pageGroup=Category&urlLangId=-24",70),
-("",),
-("",),
-("",),
-("",),
-("",),
-("",),
+("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616720192&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=",70),#computo
+("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616677019&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=",35),#gaming
+("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616820183&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=",25),#celular
+("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616820668&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=",35),# audifonos
+("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616677011&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=",50),# fotos
+("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616749169&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=",60),#samrt
+("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616676984&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=",35),# videojuegos
+("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616676991&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=",38 ), #audio
 
 
 

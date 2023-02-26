@@ -38,8 +38,8 @@ class CuraSpider(scrapy.Spider):
             urls = []
 
         for i, v in enumerate(urls):
-            for e in range(150):
-                url = v+str(e+1)
+            for e in range(v[1]):
+                url = v[0]+str(e+1)
                 yield scrapy.Request(url, self.parse)
 
 
