@@ -41,7 +41,9 @@ list0=[
 ("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616749169&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=",60),#samrt
 ("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616676984&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=",35),# videojuegos
 ("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616676991&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=",38 ), #audio
-("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=5.0&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616820177&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex,"240)#todo
+("https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=5.0&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616820177&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex",240)#todo
+
+]
 
 
 
