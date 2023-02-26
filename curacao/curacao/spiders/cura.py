@@ -6,6 +6,7 @@ from curacao.spiders import url_list
 import time
 
 
+
 def load_datetime():
     
  today = date.today()
