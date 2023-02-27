@@ -4,6 +4,7 @@ from datetime import datetime
 from datetime import date
 from curacao.spiders import url_list 
 import time
+import logging
 
 
 
@@ -34,21 +35,25 @@ class CuraSpider(scrapy.Spider):
                 urls = url_list.list3
         elif u == 4:
                 urls = url_list.list4
+        elif u == 10:
+                urls = url_list.list10
         else:
             urls = []
         
+        count = 18
         for i, v in enumerate(urls):
             count = 18
-            for e in range(v[2]):
+            for e in range(200):
                 if e == 0:
                      url = v[0]+str(0)+v[1]
                 else:   
                     url = v[0]+str(count*e)+v[1]
-                print(url)
+    
                 yield scrapy.Request(url, self.parse)
 
 
     def parse(self, response):
+        count = 0
         item = CuracaoItem()
         products = response.css('li')
         for product in products:
@@ -91,8 +96,16 @@ class CuraSpider(scrapy.Spider):
             item["time"]= load_datetime()[1]
             item["home_list"]="https://curacao.pe"
 
+            count = count +1
 
             yield item
+        
+        if count < 18:
+            logging.info("ESTA PAGINA SOLO TIENE MENOS ELEMENTOS\n"+str(response ))
+        if count == 18:
+            logging.info("PASO CON EXITO EL SCRAPPING" )
+
+             
 
 
 

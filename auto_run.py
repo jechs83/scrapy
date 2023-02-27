@@ -19,12 +19,13 @@ def loop ():
     subprocess.Popen(command2)
     command4 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\metro\\metro\\spiders  && scrapy crawl metro1 -a u=1']
     subprocess.Popen(command4)
+    command5 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\curacao\\curacao\\spiders  && scrapy crawl cura -a u=10']
+    subprocess.Popen(command5)
 
     for i in range (3):
 
 
         command = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\demo\\demo\\spiders  && scrapy crawl saga -a u='+str(i+1)]
-        command2 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\curacao\\curacao\\spiders  && scrapy crawl cura -a u='+str(i+1)]
         command3 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\shopstar\\shopstar\\spiders  && scrapy crawl shop -a u='+str(i+1)]
 
 

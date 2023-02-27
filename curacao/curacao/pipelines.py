@@ -9,10 +9,9 @@ from itemadapter import ItemAdapter
 import logging
 import pymongo
 from curacao.settings import COLLECTION_NAME
-
+from decouple import config
 
 class MongoPipeline(object):
-
     collection_name = COLLECTION_NAME
 
     def __init__(self, mongo_uri, mongo_db):
