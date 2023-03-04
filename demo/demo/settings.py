@@ -8,7 +8,6 @@
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 BOT_NAME = "demo"
-
 SPIDER_MODULES = ["demo.spiders"]
 NEWSPIDER_MODULE = "demo.spiders"
 

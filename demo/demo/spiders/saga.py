@@ -34,6 +34,14 @@ class SagaSpider(scrapy.Spider):
             urls = url_list.list2
         elif u == 3:
                 urls = url_list.list3
+        elif u == 4:
+                urls = url_list.list4
+        elif u == 5:
+                urls = url_list.list5
+        elif u == 6:
+                urls = url_list.list6
+        elif u == 7:
+                urls = url_list.list7
         else:
             urls = []
 
@@ -62,7 +70,6 @@ class SagaSpider(scrapy.Spider):
                     item["sku"] = i["skuId"]
                     item["_id"] = i["skuId"]
 
-                    
 
                     try:
                         item["best_price"] = float(i["prices"][0]["price"][0].replace(",",""))
