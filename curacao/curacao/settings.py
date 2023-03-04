@@ -17,8 +17,8 @@ ITEM_PIPELINES = {
     'curacao.pipelines.MongoPipeline': 300,
 }
 
-#MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
-MONGO_URI = config("MONGO_DB")
+MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
+#MONGO_URI = config("MONGO_DB")
 
 MONGO_DATABASE = 'scrap'
 

@@ -76,7 +76,7 @@ class Metro1Spider(scrapy.Spider):
             item["card_dsct"] = 0
 
             yield item
-
+ 
         
         # for i in productos:
                         

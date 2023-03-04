@@ -1,27 +1,24 @@
 
 import subprocess
-import time
 
-# Iniciar el proceso
+command = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\metro\\metro\\spiders  && scrapy crawl metro1 -a u=1']
 
-command4 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\metro\\metro\\spiders  && scrapy crawl metro1 -a u=1']
+# start the subprocess
+proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+pid1 = proc.pid
+print(pid1)
 
-proc = subprocess.Popen([command4])
+# wait for the subprocess to complete and get its output
+stdout, stderr = proc.communicate()
+print(stdout)
+print(type(stdout))
+e = str(stdout)
+    
+    
+if  e == "b''":
+    print("Subprocess ended.")
+    loop()
+loop()
 
-# Esperar un momento para que el proceso se inicie completamente
-time.sleep(1)
 
-# Capturar el PID del proceso
-pid = proc.pid
-
-# Imprimir el PID del proceso
-print(f"PID del proceso: {pid}")
-
-# Terminar el proceso
-proc.terminate()
-
-# Esperar a que el proceso termine completamente
-proc.wait()
-
-# Reiniciar el proceso
-proc = subprocess.Popen([command4])
+# do something else after the subprocess completes
