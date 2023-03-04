@@ -22,6 +22,11 @@ def loop ():
     command5 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\curacao\\curacao\\spiders  && scrapy crawl cura -a u=10']
     subprocess.Popen(command5)
 
+    oechsle1 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\oechsle\\oechsle\\spiders  && scrapy crawl oh -a u=1']
+    subprocess.Popen(oechsle1)
+    oechsle2 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\oechsle\\oechsle\\spiders  && scrapy crawl oh -a u=2']
+    subprocess.Popen(oechsle2)
+
     for i in range (3):
 
 
