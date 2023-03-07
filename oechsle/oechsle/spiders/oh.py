@@ -4,8 +4,6 @@ from oechsle.items import OechsleItem
 from datetime import datetime
 from datetime import date
 from oechsle.spiders import url_list 
-import time
-import json
 
 
 def load_datetime():
@@ -63,16 +61,31 @@ class OhSpider(scrapy.Spider):
             item["product"] =i.css("div.product.instock::attr(data-name)").get()
             item["link"] =i.css("div.product.instock::attr(data-link)").get()
             item["image"]= i.css("div.productImage.prod-img.img_one img::attr(src)").get()
-        
-            item["list_price"] = i.css("span.text.text-gray-light.text-del.fz-11.fz-lg-13.ListPrice::text").get()
-            item["best_price"]  =i.css("span.text.fz-lg-15.fw-bold BestPrice::text").get()
+            try:
+                item["list_price"] = i.css("span.text.text-gray-light.text-del.fz-11.fz-lg-13.ListPrice::text").get()
+                item["list_price"] = round(float(item["list_price"].replace(",","").replace("S/.","")))
+            except:item["list_price"]  = 0
+
+            try:
+                item["best_price"]  =i.css("span.text.fz-lg-15.fw-bold BestPrice::text").get()
+                item["best_price"] = round(float(str(item["best_price"]).replace(",","").replace("S/.","")))
+
+
+            except: item["best_price"] = None
+
             if item["best_price"] == None:
-                item["best_price"] = i.css("span.text.fz-lg-15.fw-bold.BestPrice::text").get()
+                    item["best_price"] = i.css("span.text.fz-lg-15.fw-bold.BestPrice::text").get()
+                    try:
+                        item["best_price"] = round(float(str(item["best_price"]).replace(",","").replace("S/.","")))
+                    except:  item["best_price"] = 0
+
+           
 
             item["web_dsct"] = i.css("span.flag-of.ml-10::text").get()
             if item["web_dsct"] != None:
                 item["web_dsct"] = item["web_dsct"].replace("-","").replace("%","").replace(",",".")
-                item["web_dsct"] = float( item["web_dsct"])
+                item["web_dsct"] = round(float( item["web_dsct"]))
+            else: item["web_dsct"]  = 0
 
            
             item["home_list"]="https://wwww.oechsle.com.pe"
