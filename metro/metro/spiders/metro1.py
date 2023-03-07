@@ -53,20 +53,29 @@ class Metro1Spider(scrapy.Spider):
             item["image"] = i.css('a.product-item__image-link div.js--lazyload img::attr(src)').get()
             item["product"] = i.css('div.product-item__info a::text').get()
             item["brand"] = i.css('div.product-item__brand p::text').get()
-    
-            item["best_price"] = i.css('span.product-prices__value.product-prices__value--best-price::text').get()
+
+            try:
+                item["best_price"] = i.css('span.product-prices__value.product-prices__value--best-price::text').get()
+                item["best_price"] = float(item["best_price"].replace(",","").replace("S/.",""))
+            except:  item["best_price"]  = None
+
             if item["best_price"] == None:
                 item["best_price"] = 0
-            
+                
 
-            
-            item["list_price"] = i.css('div.product-prices__price.product-prices__price--former-price span.product-prices__value::text').get()
+            try:
+                item["list_price"] = i.css('div.product-prices__price.product-prices__price--former-price span.product-prices__value::text').get()
+                item["list_price"] = float(item["list_price"].replace(",","").replace("S/.",""))
+            except: item["list_price"]  = None
+
             if item["list_price"] == None:
                 item["list_price"] = 0
+
+            
             
             item["web_dsct"] = i.css('div.flag.discount-percent::text').get()
             item["web_dsct"] = str(item["web_dsct"]).replace(",",".").replace("%","")
-            item["web_dsct"] = float(item["web_dsct"])
+            item["web_dsct"] = round(float(item["web_dsct"]))
             
             item["market"] = str("metro") # COLECCION
             item["date"] = load_datetime()[0]
