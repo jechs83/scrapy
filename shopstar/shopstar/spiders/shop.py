@@ -76,8 +76,14 @@ class ShopSpider(scrapy.Spider):
                 item["list_price"] = 0
 
             try:
+                
                 item["web_dsct"] = i.xpath("/html[1]/body[1]/div[1]/ul[1]/li/div[1]/div[2]/span[1]/p/text()").get()
-                item["web_dsct"] = float(item["web_dsct"].replace("-", "").replace(",", ".").replace(" %", "").replace(" ", ""))
+                item["web_dsct"] = round(float(item["web_dsct"].replace("-", "").replace(",", ".").replace(" %", "").replace(" ", "")))
+
+                if not item["web_dsct"] :
+                    item["web_dsct"] = round((100)-(float(item["best_price"])*100/float(item["list_price"])))
+                
+                
                
             except:
                 item["web_dsct"] = 0
