@@ -56,6 +56,8 @@ class OhSpider(scrapy.Spider):
         for i in productos:
 
             item["sku"] = i.css("div.product.instock::attr(data-id)").get()
+            if  item["sku"] == None:
+                 continue
             item["_id"] = item["sku"]
             item["brand"]= i.css("div.product.instock::attr(data-brand)").get()
             item["product"] =i.css("div.product.instock::attr(data-name)").get()
