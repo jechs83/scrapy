@@ -27,8 +27,8 @@ class RippleScrapSpider(scrapy.Spider):
         if u == 1:
             urls = url_list.list1
     
-        elif u == 0:
-                urls = url_list.list0
+        elif u == 2:
+                urls = url_list.list2
         else:
             urls = []
 
@@ -51,9 +51,12 @@ class RippleScrapSpider(scrapy.Spider):
             #     item["brand"] = i.css(".brand-logo::text").get()
             # except:
             #     item["brand"] = "None"
-            try:
-                item["brand"] = i.css('div.brand-logo::text()').get()
-            except:item["brand"] = None
+            
+            item["brand"] = i.css('div.brand-logo span::text').get()
+            if item["brand"] == None:
+                item["brand"] = "Revisar codigo"
+            
+          
             
             try:
               item["product"] = i.css(".catalog-product-details__name::text").get()
@@ -73,7 +76,7 @@ class RippleScrapSpider(scrapy.Spider):
             item["_id"] = item["sku"] 
             
             try:
-                item["web_dsct"] = float(i.css(".catalog-product-details__discount-tag::text").get().replace("-", "").replace("%", ""))
+                item["web_dsct"] = round(float(i.css(".catalog-product-details__discount-tag::text").get().replace("-", "").replace("%", "")))
             except:
                 item["web_dsct"] = 0
             

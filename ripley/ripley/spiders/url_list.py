@@ -1,5 +1,5 @@
 
-list0 = [("https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/ver-todo?source=menu&page=", 12),
+list1 = [("https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/ver-todo?source=menu&page=", 12),
 ("https://simple.ripley.com.pe/tecnologia/celulares/celulares-y-smartphones?page=", 15),
 ("https://simple.ripley.com.pe/tecnologia/computacion/ver-todo-laptops?page=", 15),
 ("https://simple.ripley.com.pe/tecnologia/computacion-gamer/ver-todo?source=menu&page=", 15),
@@ -48,4 +48,4 @@ list0 = [("https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/ver-todo?so
 ("https://simple.ripley.com.pe/mejoramiento-del-hogar/pinturas-y-acabados/ver-todo-pintura-y-acabados?source=menu&page=", 30),
 ("https://simple.ripley.com.pe/mejoramiento-del-hogar/ferreteria/ver-todo?source=menu&page=", 40)]
 
-list1 = [("https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/ver-todo?source=menu&page=", 12) ]
+list2 = [("https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/ver-todo?source=menu&page=", 12) ]
