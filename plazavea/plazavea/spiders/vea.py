@@ -19,7 +19,10 @@ def load_datetime():
 class VeaSpider(scrapy.Spider):
     name = "vea"
     allowed_domains = ["plazavea.com.pe"]
+    start_urls=[ "https://www.plazavea.com.pe/api/catalog_system/pub/products/search?fq=C:/679/&_from=2041&_to=2061&O=OrderByScoreDESC&"]
+ 
     
+    '''
     def start_requests(self):
         u = int(getattr(self, 'u', '0'))
 
@@ -41,10 +44,10 @@ class VeaSpider(scrapy.Spider):
                     print(url)
 
                     yield scrapy.Request(url, self.parse)
-            time.sleep(100)
+           
+    '''
 
-
-
+      
 
     def parse(self, response):
     
@@ -56,6 +59,8 @@ class VeaSpider(scrapy.Spider):
 
             print()
             item["sku"] = i["items"][0]["referenceId"][0]["Value"]
+            if not  item["sku"] :
+                continue 
             item["_id"] = item["sku"]
             item["brand"]= i["brand"]
             item["product"] =i["productName"]
