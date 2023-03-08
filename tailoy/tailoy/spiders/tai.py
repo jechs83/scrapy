@@ -45,7 +45,7 @@ class TaiSpider(scrapy.Spider):
 
 
     def parse(self, response):
-        item = TailoyItem
+        item = TailoyItem()
 
         productos = response.css("li.item.product.product-item")
 
@@ -53,52 +53,53 @@ class TaiSpider(scrapy.Spider):
 
         for i in productos:
             print("######")
-            link = i.css("a::attr(href)").get()
-            brand = i.css("div.brand-label  span::text").get()
-            product = i.css("strong.product.name.product-item-name a.product-item-link::text").get()
-            product = product.strip()
+
+            item["sku"]= i.css("div.price-box.price-final_price::attr(data-product-id)").get()
+            item["_id"] =i.css("div.price-box.price-final_price::attr(data-product-id)").get()
+            item["link"] = i.css("a::attr(href)").get()
+            item["brand"] = i.css("div.brand-label  span::text").get()
+            item["product"] = i.css("strong.product.name.product-item-name a.product-item-link::text").get()
+            item["product"] = item["product"].strip()
 
             try:
-                best_price = i.css('span.price-container span.price-wrapper span.price::text').get()
-                best_price = str(best_price).replace("S/","").replace(",","")
-                best_price= float(best_price)
-            except: best_price = 0
+                item["best_price"] = i.css('span.price-container span.price-wrapper span.price::text').get()
+                item["best_price"] = str(item["best_price"]).replace("S/","").replace(",","")
+                item["best_price"]= float(item["best_price"])
+            except: item["best_price"] = 0
 
    
         
             try:
-                list_price = i.css('span.old-price span.price-container.price-final_price.tax.weee span.price-wrapper span.price::text').get()
+                item["list_price"] = i.css('span.old-price span.price-container.price-final_price.tax.weee span.price-wrapper span.price::text').get()
 
-                list_price = str(list_price).replace("S/","").replace(",","")
-                list_price = float(list_price )
-            except: list_price = None
+                item["list_price"] = str(item["list_price"]).replace("S/","").replace(",","")
+                item["list_price"] = float(item["list_price"] )
+            except: item["list_price"] = None
 
-            if list_price == None:
+            if item["list_price"] == None:
                 try:
-                    list_price = i.css("span.price-container.price-final_price.tax.weee").get()
-                    list_price = str(list_price).replace("S/","") .replace(",","")
-                    list_price = float(list_price)
-                except: list_price = 0
+                    item["list_price"] = i.css("span.price-container.price-final_price.tax.weee").get()
+                    item["list_price"] = str(item["list_price"]).replace("S/","") .replace(",","")
+                    item["list_price"] = float(item["list_price"])
+                except: item["list_price"] = 0
+
+            item["image"] = i.css("img::attr(src)").get()
+
+            try:
+                item["web_dsct"] = i.css("span.discount-value::text").get()
+                item["web_dsct"] = round(float(str(item["web_dsct"]).replace("-","").replace("%","")))
+            except:
+                item["web_dsct"] = 0
+
+
+            item["market"]= "tailoy"
+            item["date"] =load_datetime()[0]
+            item["time"] = load_datetime()[1]
+            item["home_list"] = "https://www.tailoy.com.pe/"
+            item["card_price"] = 0
+            item["card_dsct"] = 0
 
 
 
-            print(link)
-            print(brand)
-            print(product)
-            print(list_price)
-            print(best_price)
-            print("#######3")
-
-
-
- 
-    
-
-
-
-
-            yield 
-            {
-               "link":link,
-
-            }
+            yield item
+            
