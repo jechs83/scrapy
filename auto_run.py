@@ -19,7 +19,7 @@ def loop ():
     subprocess.Popen(command2)
     command4 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\metro\\metro\\spiders  && scrapy crawl metro1 -a u=1']
     subprocess.Popen(command4)
-    command5 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\curacao\\curacao\\spiders  && scrapy crawl cura -a u=10']
+    command5 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\curacao\\curacao\\spiders && scrapy crawl cura -a u=10']
     subprocess.Popen(command5)
 
     oechsle1 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\oechsle\\oechsle\\spiders  && scrapy crawl oh -a u=1']
@@ -36,7 +36,6 @@ def loop ():
 
         # Use subprocess.Popen to run the command
         subprocess.Popen(command)
-        subprocess.Popen(command2)
         subprocess.Popen(command3)
        
     time.sleep(800)
