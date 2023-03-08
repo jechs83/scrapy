@@ -4,7 +4,7 @@ from tailoy.items import TailoyItem
 from datetime import datetime
 from datetime import date
 
-#from tailoy.settings import ROTATING_PROXY_LIST
+from tailoy.settings import ROTATING_PROXY_LIST
 from tailoy.spiders import url_list
 import time
 
@@ -23,9 +23,9 @@ class TaiSpider(scrapy.Spider):
    
         
     def start_requests(self):
-        # for url in self.start_urls:
-        #     return scrapy.Request(url=url, callback=self.parse,
-        #                meta={"proxy": "http://"+ROTATING_PROXY_LIST})
+        for url in self.start_urls:
+            return scrapy.Request(url=url, callback=self.parse,
+                       meta={"proxy": "http://"+ROTATING_PROXY_LIST})
             
 
         u = int(getattr(self, 'u', '0'))
@@ -53,10 +53,45 @@ class TaiSpider(scrapy.Spider):
 
         for i in productos:
             print("######")
-            link = i.css("a.product-item-link::attr(href)").get()
+            link = i.css("a::attr(href)").get()
+            brand = i.css("div.brand-label  span::text").get()
+            product = i.css("strong.product.name.product-item-name a.product-item-link::text").get()
+            product = product.strip()
+
+            try:
+                best_price = i.css('span.price-container span.price-wrapper span.price::text').get()
+                best_price = str(best_price).replace("S/","").replace(",","")
+                best_price= float(best_price)
+            except: best_price = 0
+
+   
+        
+            try:
+                list_price = i.css('span.old-price span.price-container.price-final_price.tax.weee span.price-wrapper span.price::text').get()
+
+                list_price = str(list_price).replace("S/","").replace(",","")
+                list_price = float(list_price )
+            except: list_price = None
+
+            if list_price == None:
+                try:
+                    list_price = i.css("span.price-container.price-final_price.tax.weee").get()
+                    list_price = str(list_price).replace("S/","") .replace(",","")
+                    list_price = float(list_price)
+                except: list_price = 0
+
+
+
             print(link)
+            print(brand)
+            print(product)
+            print(list_price)
+            print(best_price)
             print("#######3")
-            time.sleep(200)
+
+
+
+ 
     
 
 

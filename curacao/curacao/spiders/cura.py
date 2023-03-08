@@ -76,9 +76,13 @@ class CuraSpider(scrapy.Spider):
 
             try:
                 item["best_price"] = product.css('#offerPriceValue::text').get()
-                item["best_price"] = item["best_price"].strip().replace(",", "")
+                item["best_price"] = item["best_price"].strip().replace(",", "").replace("S/", "")
             except:
-                item["best_price"] = 0
+                try:
+                    item["best_price"] = product.css("div.product_price span.price::text").get()
+                    item["best_price"] = item["best_price"].strip().replace(",", "").replace("S/", "")
+                except:
+                     item["best_price"] = 0
 
          
             try:
