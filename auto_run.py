@@ -40,7 +40,7 @@ def loop ():
         subprocess.Popen(command)
         subprocess.Popen(command3)
        
-    time.sleep(800)
+    time.sleep(60 * 20)
     close()
     time.sleep(30)
     loop()
