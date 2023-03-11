@@ -29,11 +29,13 @@ class RippleScrapSpider(scrapy.Spider):
     
         elif u == 2:
                 urls = url_list.list2
+        elif u == 0:
+                urls = url_list.list0
         else:
             urls = []
 
         for i, v in enumerate(urls):
-            for e in range(v[1]):
+            for e in range((round(v[1]/48)+1)):
                 url = v[0]+str(e+1)
                 yield scrapy.Request(url, self.parse)
 
