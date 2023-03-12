@@ -65,28 +65,32 @@ class ShopSpider(scrapy.Spider):
 
             try:
                 item["best_price"] = i.css('span.product__price strong::text').get()
-
                 item["best_price"] = float(item["best_price"].replace("S/. ", "").replace(",", ""))
             except:
                 item["best_price"] = 0
+
             try:
                 item["list_price"] = i.css('span.product__old-price::text').get()
                 item["list_price"] = float(item["list_price"].replace("S/. ", "").replace(",", ""))
             except:
                 item["list_price"] = 0
 
+
             try:
                 
                 item["web_dsct"] = i.xpath("/html[1]/body[1]/div[1]/ul[1]/li/div[1]/div[2]/span[1]/p/text()").get()
                 item["web_dsct"] = round(float(item["web_dsct"].replace("-", "").replace(",", ".").replace(" %", "").replace(" ", "")))
-
+                
                 if item["web_dsct"] == None :
                     item["web_dsct"] = round(100-(float(item["best_price"])*100/float(item["list_price"])))
                 
-                
+
                
             except:
                 item["web_dsct"] = 0
+
+            if item["list_price"]== 0:
+                      item["web_dsct"] = 0
 
             try:
                 ibk_dsct = i.xpath(".//div[@class='contentFlag']/text()")[0].get()
