@@ -203,30 +203,177 @@ list0 = [
     "https://shopstar.pe/buscapagina?fq=C%3a%2f624%2f634%2f784%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",#zapillas training
     "https://shopstar.pe/buscapagina?fq=C%3a%2f624%2f634%2f787%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",#zapatillas outdoor
     "https://shopstar.pe/buscapagina?fq=C%3a%2f624%2f634%2f1018%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",#zatills footbol
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
-    "",#
+   #HOGAR
+#DECORACION
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f536%2f537%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#ORGANIZACION
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f536%2f553%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#MENAJE DE COCINA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f536%2f538%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#LIMPIEZA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f536%2f538%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#BAÑO
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f536%2f546%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#MENAJE
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f443%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#PARRILLAS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f536%2f544%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#ILUMINACION
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f536%2f557%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#MALETAS Y VIAJE
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f536%2f548%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#COCINA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f536%2f994%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#JARDINERIA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f536%2f929%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#DORMITORIO
+#COLCHONES
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f539%2f540%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#JUEGOS DE DORMITORIO
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f539%2f545%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CAMA BOX TARIMA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f539%2f542%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#MUEBLES DE DORMITORIO
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f444%2f459%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CAMAS FUNCIONALES
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f539%2f543%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#ROPA DE CAMA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f539%2f549%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#INFANTIL
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f539%2f550%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#CALZADO
+#CALZADO HOMBRE
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f624%2f630%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#ZAPATILLAS HOMBRE
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f624%2f634%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CALZADO MUJER
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f624%2f626%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#ZAPATILLAS MUJER
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f624%2f632%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CALZADO INFANTIL
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f624%2f632%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#CDEPORTE
+#CROPA DEPORTE HOMBRE
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f577%2f603%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CACCESORIOS DEPORTIVOS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f577%2f1648%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CAIRE LIBRE Y CAMPING
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f577%2f615%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CROPA DEPORTE MUJER
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f577%2f595%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CMUNDO FITNESS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f577%2f609%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CBICICLETAS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f577%2f612%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#mODA
+#CHOMBRE
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f716%2f768%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CMUJERES
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f716%2f757%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CNIÑO
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f716%2f785%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CNIÑA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f716%2f788%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#CINFANTIL
+#CJUGUETES
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f703%2f711%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CMUNDO BEBE
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f703%2f708%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CJUEGOS DE EXTERIOR
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f703%2f710%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CJUGUETES DE BEBE
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f703%2f713%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CESCOLAR
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f703%2f1003%2f&O=OrderByReleaseDateDESC&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#C#CBELLEZA Y CUIDADO PERSONAL#
+#CFEITADO
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f801%2f&ft=afeitado&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CUIDADO PERSONAL
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f801%2f1364%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CUIDADO DE LA PIEL
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f801%2f1365%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CUIDADO DEL CABELLO
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f801%2f1445%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#DERMOCOSMETICA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f801%2f1550%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#PERFUMERIA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f801%2f1382%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#MAQUILLAJE
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f801%2f824%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#ELECTRO BEAUTY
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f801%2f1606%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#ACCESORIOS DE MODA
+#RELOJES
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f1444%2f828%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#CARTERAS Y ACCESORIOS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f1444%2f834%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#LENTES
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f1444%2f840%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#JOYAS Y BIJOUTERIA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f1444%2f1027%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#MOCHILAS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f1444%2f848%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#GORRAS Y SOMBREROS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f1444%2f1508%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#BILLETERAS Y MONEDEROS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f1444%2f855%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#CONSTRUCCION Y HERRAMIENTAS
+#MATERIALES DE CONSTRUCCION
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f826%2f829%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#PINTURAS Y ACABADOS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f826%2f830%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#PISOS Y CERAMICOS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f826%2f830%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#GASFITERIA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f826%2f836%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#ELECTRICIDAD
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f826%2f838%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#HERRAMIENTAS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f826%2f839%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#FERRETERIA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f826%2f841%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#SEGURIDAD
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f826%2f843%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#SALUD Y BIENESTAR
+#NUTRICION DEPORTIVA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f1458%2f1460%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#SALUD Y REHABILITACION
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f1458%2f1461%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#MASAJES Y SPA
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f1458%2f1462%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#AUTOMOVIL
+#ACCESORIOS Y BATERIAS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f802%2f803%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#LIMPIEZA PARA AUTOS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f802%2f806%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#MASCOTAS
+#PERROS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f562%2f723%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#GATOS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f562%2f727%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+#ACCESORIOS
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f562%2f729%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#MUNDO GEEK
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f2118%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+#UTILES
+"https://www.shopstar.pe/buscapagina?fq=C%3a%2f1427%2f2225%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
+
+
+
 
 
 

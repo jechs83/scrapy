@@ -75,9 +75,10 @@ class ShopSpider(scrapy.Spider):
             except:
                 item["list_price"] = 0
 
-
-            try:
-                
+            
+            if item["list_price"] == 0:
+                item["web_dsct"] = 0
+            else:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
                 item["web_dsct"] = i.xpath("/html[1]/body[1]/div[1]/ul[1]/li/div[1]/div[2]/span[1]/p/text()").get()
                 item["web_dsct"] = round(float(item["web_dsct"].replace("-", "").replace(",", ".").replace(" %", "").replace(" ", "")))
                 
@@ -85,13 +86,7 @@ class ShopSpider(scrapy.Spider):
                     item["web_dsct"] = round(100-(float(item["best_price"])*100/float(item["list_price"])))
                 
 
-               
-            except:
-                item["web_dsct"] = 0
-
-            if item["list_price"]== 0:
-                      item["web_dsct"] = 0
-
+         
             try:
                 ibk_dsct = i.xpath(".//div[@class='contentFlag']/text()")[0].get()
                 ibk_dsct = ibk_dsct.split()[1].replace("%", "")
