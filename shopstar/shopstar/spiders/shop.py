@@ -83,7 +83,7 @@ class ShopSpider(scrapy.Spider):
                 item["web_dsct"] = round(float(item["web_dsct"].replace("-", "").replace(",", ".").replace(" %", "").replace(" ", "")))
                 
                 if item["web_dsct"] == None :
-                    item["web_dsct"] = round(100-(float(item["best_price"])*100/float(item["list_price"])))
+                    item["web_dsct"] = round((float(item["best_price"])*100/float(item["list_price"])))
                 
 
          
