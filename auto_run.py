@@ -15,6 +15,8 @@ def close():
 
 
 def loop ():
+    promart = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\promart\\promart\\spiders  && scrapy crawl pro -a u=1']
+    subprocess.Popen(promart)
     tailoy = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\tailoy\\tailoy\\spiders  && scrapy crawl tai -a u=1']
     subprocess.Popen(tailoy)
     command2 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\ripley\\ripley\\spiders  && scrapy crawl ripley_scrap -a u=1']
