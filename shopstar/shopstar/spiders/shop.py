@@ -76,14 +76,17 @@ class ShopSpider(scrapy.Spider):
                 item["list_price"] = 0
 
             
-            if item["list_price"] == 0:
-                item["web_dsct"] = 0
-            else:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-                item["web_dsct"] = i.xpath("/html[1]/body[1]/div[1]/ul[1]/li/div[1]/div[2]/span[1]/p/text()").get()
-                item["web_dsct"] = round(float(item["web_dsct"].replace("-", "").replace(",", ".").replace(" %", "").replace(" ", "")))
-                
-                if item["web_dsct"] == None :
-                    item["web_dsct"] = round((float(item["best_price"])*100/float(item["list_price"])))
+            # if item["list_price"] or item["best_price"]  == 0:
+            #     item["web_dsct"] = 0
+            # else:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+                #item["web_dsct"] = i.xpath("/html[1]/body[1]/div[1]/ul[1]/li/div[1]/div[2]/span[1]/p/text()").get()
+            try:
+                item["web_dsct"] = i.css("div.product__image span.product__discount p::text").get()
+                item["web_dsct"] = str(item["web_dsct"]).replace("-", "").replace(",", ".").replace(" %", "")
+                item["web_dsct"] = round(float(item["web_dsct"] ))
+            except: item["web_dsct"]  = 0
+            # if item["web_dsct"] == None :
+            #         item["web_dsct"] = round((float(item["best_price"])*100/float(item["list_price"])))
                 
 
          
