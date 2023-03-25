@@ -12,7 +12,8 @@
 # class DemoPipeline:
 #     def process_item(self, item, spider):
 #         return item
-
+from datetime import date, datetime, timedelta
+import time
 import logging
 import pymongo
 from demo.settings import COLLECTION_NAME
@@ -45,18 +46,61 @@ class MongoPipeline(object):
         self.client.close()
 
 
-
-
     def process_item(self, item, spider):
+    
         collection = self.db[self.collection_name]
-        filter = {'_id': item['_id'], "sku": item["sku"]}
+        filter = { "sku": item["sku"]}
         update = {'$set': dict(item)}
         result = collection.update_one(filter, update, upsert=True)
         spider.logger.debug('Item updated in MongoDB: %s', result)
         return item
+       
 
+
+  
+    
+ 
+
+        
     # def process_item(self, item, spider):
-    #     ## how to handle each post
-    #     self.db[self.collection_name].insert_one(dict(item))
-    #     logging.debug("Post added to MongoDB")
-    #     return item
+
+
+    #     def load_datetime():
+    #         today = date.today()
+    #         now = datetime.now()
+    #         date_now = today.strftime("%d/%m/%Y")
+    #         time_now = now.strftime("%H:%M:%S")
+    #         return date_now,time_now
+
+    #     collection = self.db[self.collection_name]
+    #     producto = collection.find_one({"sku":str(item["sku"])})
+    #     if  producto == None :
+
+    #         result = collection.insert_one(item)
+    #         spider.logger.debug('Item Inserted in MongoDB: %s', result)
+    #         print("PRODUCTO NO EXISTE SE GRABA    ############################")
+    #         print("SE GRABO PRODUCTO")
+    #         time.sleep(3)
+    #         return item
+            
+    #     else:  
+    #         # tiempo = load_datetime()[1]
+    #         # print(tiempo)
+    #         # tiempo_bd = producto.get("time")
+    #         # print(tiempo_bd)
+
+            
+    #         filter = {"_id": item["_id"], "sku": item["sku"]}
+    #         update = {'$set': dict(item)}
+    #         result = collection.update_one(filter, update, upsert=True)
+
+    #         # filter = {"sku":item["sku"]}
+    #         # update = {'$set': dict(item)}
+    #         # result = collection.update_one(filter, update, upsert=True)
+    #         # spider.logger.debug('Item updated in MongoDB: %s', result)
+    #         # print("SE ACTUALIZO NUEVO############################################################")
+    #         return item
+       
+   
+
+    

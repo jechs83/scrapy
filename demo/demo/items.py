@@ -4,6 +4,7 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+import uuid
 
 
 class DemoItem(scrapy.Item):
@@ -11,7 +12,8 @@ class DemoItem(scrapy.Item):
     # name = scrapy.Field()
     product = scrapy.Field()
     sku = scrapy.Field()
-    _id = scrapy.Field()
+    _id = scrapy.Field(default=str(uuid.uuid4()))
+    #_id = scrapy.Field()
     brand = scrapy.Field()
     link = scrapy.Field()
     best_price = scrapy.Field()

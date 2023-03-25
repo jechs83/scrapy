@@ -17,7 +17,8 @@ ITEM_PIPELINES = {
 MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
 
 MONGO_DATABASE = 'scrap'
-COLLECTION_NAME = 'scrap'
+COLLECTION_NAME = 'TEST'
+
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

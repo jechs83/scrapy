@@ -18,7 +18,9 @@ def load_datetime():
  now = datetime.now()
  date_now = today.strftime("%d/%m/%Y")  
  time_now = now.strftime("%H:%M:%S")
+    
  return date_now, time_now
+
 
 
 class SagaSpider(scrapy.Spider):
@@ -68,8 +70,7 @@ class SagaSpider(scrapy.Spider):
                     item["product"]=  i["displayName"]
 
                     item["sku"] = i["skuId"]
-                    item["_id"] = i["skuId"]
-
+                    item["_id"] = i["skuId"]+str(load_datetime()[1])
 
                     try:
                         item["best_price"] = float(i["prices"][0]["price"][0].replace(",",""))
@@ -94,6 +95,7 @@ class SagaSpider(scrapy.Spider):
                           item["web_dsct"]=0
 
                     item["market"]= "saga"
+
 
                     item["date"]= load_datetime()[0]
                     item["time"]= load_datetime()[1]
