@@ -70,7 +70,7 @@ class SagaSpider(scrapy.Spider):
                     item["product"]=  i["displayName"]
 
                     item["sku"] = i["skuId"]
-                    item["_id"] = i["skuId"]+str(load_datetime()[1])
+                    item["_id"] = i["skuId"]+str(load_datetime()[0])
 
                     try:
                         item["best_price"] = float(i["prices"][0]["price"][0].replace(",",""))
