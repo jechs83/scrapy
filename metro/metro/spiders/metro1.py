@@ -48,7 +48,7 @@ class Metro1Spider(scrapy.Spider):
 
             item["sku"] = i.css('button.product-item__add-to-cart::attr(data-productid)').get()
 			#<button class="product-item__add-to-cart product-add-to-cart btn red add-to-cart" data-productid="957181">
-            item["_id"]=item["sku"] 
+            item["_id"] =  item["sku"]+str(load_datetime()[0])
             item["link"] = i.css("a.product-item__image-link::attr('href')").get()
             item["image"] = i.css('a.product-item__image-link div.js--lazyload img::attr(src)').get()
             item["product"] = i.css('div.product-item__info a::text').get()

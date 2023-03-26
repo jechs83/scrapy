@@ -56,6 +56,8 @@ class TaiSpider(scrapy.Spider):
 
             item["sku"]= i.css("div.price-box.price-final_price::attr(data-product-id)").get()
             item["_id"] =i.css("div.price-box.price-final_price::attr(data-product-id)").get()
+            item["_id"] =  item["sku"]+str(load_datetime()[0])
+            
             item["link"] = i.css("a::attr(href)").get()
             item["brand"] = i.css("div.brand-label  span::text").get()
             item["product"] = i.css("strong.product.name.product-item-name a.product-item-link::text").get()
