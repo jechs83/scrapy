@@ -59,7 +59,7 @@ class CuraSpider(scrapy.Spider):
         for product in products:
 
             item["sku"] = product.css("div.PartNumber::text").get()
-            item["_id"] = item["sku"] 
+            item["_id"] = item["sku"]+str(load_datetime()[0])
             item["brand"] = product.css('div.Manufacturer::text').get()
             item["product"] = product.css('a::attr(title)').get()
             item["link"] = product.css('a::attr(href)').get()

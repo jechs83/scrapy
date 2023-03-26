@@ -45,9 +45,8 @@ class MongoPipeline(object):
         ## clean up when spider is closed
         self.client.close()
 
-
     def process_item(self, item, spider):
-    
+        
         collection = self.db[self.collection_name]
         filter = { "_id":item["_id"], "sku": item["sku"]}
         update = {'$set': dict(item)}
@@ -55,6 +54,7 @@ class MongoPipeline(object):
         spider.logger.debug('Item updated in MongoDB: %s', result)
         return item
        
+
 
 
   

@@ -52,7 +52,7 @@ class ShopSpider(scrapy.Spider):
            
     
             item["sku"] = i.css('div.buy-button-normal::attr(id)').get()
-            item["_id"] =   item["sku"]
+            item["_id"] =  item["sku"]+str(load_datetime()[0])
           
             try:
              item["brand"]  = i.css('h6.x-brand strong::text').get()

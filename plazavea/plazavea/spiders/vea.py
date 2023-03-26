@@ -60,7 +60,7 @@ class VeaSpider(scrapy.Spider):
             item["sku"] = i["items"][0]["referenceId"][0]["Value"]
             if not  item["sku"] :
                 continue 
-            item["_id"] = item["sku"]
+            item["_id"] =  item["sku"]+str(load_datetime()[0])
             item["brand"]= i["brand"]
             item["product"] =i["productName"]
             item["link"] =i["link"]

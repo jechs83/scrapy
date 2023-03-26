@@ -74,8 +74,7 @@ class RippleScrapSpider(scrapy.Spider):
 
             item["sku"] = i.css(".catalog-product-item.catalog-product-item__container.undefined::attr(id)").get()
             item["sku"] = str( item["sku"])
-
-            item["_id"] = item["sku"] 
+            item["_id"] =  item["sku"]+str(load_datetime()[0])
             
             try:
                 item["web_dsct"] = round(float(i.css(".catalog-product-details__discount-tag::text").get().replace("-", "").replace("%", "")))
