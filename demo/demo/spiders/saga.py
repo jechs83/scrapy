@@ -19,7 +19,7 @@ def load_datetime():
  date_now = today.strftime("%d/%m/%Y")  
  time_now = now.strftime("%H:%M:%S")
     
- return date_now, time_now
+ return date_now, time_now, today
 
 
 
@@ -44,6 +44,9 @@ class SagaSpider(scrapy.Spider):
                 urls = url_list.list6
         elif u == 7:
                 urls = url_list.list7
+
+        elif u == 8:
+                urls = url_list.list8
         else:
             urls = []
 
@@ -99,6 +102,7 @@ class SagaSpider(scrapy.Spider):
 
                     item["date"]= load_datetime()[0]
                     item["time"]= load_datetime()[1]
+                    item["server_date"]= load_datetime()[2]
                     item["home_list"] = "https://www.falabella.com.pe/"
                     item["card_price"] = 0
                     item["card_dsct"] = 0

@@ -21,6 +21,8 @@ def loop ():
     subprocess.Popen(tailoy)
     command2 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\ripley\\ripley\\spiders  && scrapy crawl ripley_scrap -a u=1']
     subprocess.Popen(command2)
+    ripley2 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\ripley\\ripley\\spiders  && scrapy crawl ripley_scrap -a u=2']
+    subprocess.Popen(ripley2)
     command4 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\metro\\metro\\spiders  && scrapy crawl metro1 -a u=1']
     subprocess.Popen(command4)
     command5 = ['cmd', '/c', 'start', 'cmd', '/k', 'cd /d C:\\GIT\\scrapy\\curacao\\curacao\\spiders && scrapy crawl cura -a u=10']

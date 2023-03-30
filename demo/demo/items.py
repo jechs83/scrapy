@@ -22,6 +22,7 @@ class DemoItem(scrapy.Item):
     link = scrapy.Field()
     image = scrapy.Field()
     product = scrapy.Field()
+    server_date = scrapy.Field()
     market= scrapy.Field()
     date =scrapy.Field()
     time = scrapy.Field()
