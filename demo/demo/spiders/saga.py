@@ -102,7 +102,6 @@ class SagaSpider(scrapy.Spider):
 
                     item["date"]= load_datetime()[0]
                     item["time"]= load_datetime()[1]
-                    item["server_date"]= load_datetime()[2]
                     item["home_list"] = "https://www.falabella.com.pe/"
                     item["card_price"] = 0
                     item["card_dsct"] = 0
