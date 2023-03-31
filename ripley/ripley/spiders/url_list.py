@@ -1,6 +1,7 @@
 
 
 list1 = [
+   ( "https://simple.ripley.com.pe/mejoramiento-del-hogar/herramientas-electricas/ver-todo-herramientas-electricas?page=",1820 ),
 
     ("https://simple.ripley.com.pe/infantil/jugueteria/todo-juguetes?page=",1000), # juguetes
     ("https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/ver-todo?page=", 528),#telvision
@@ -49,9 +50,6 @@ list1 = [
     ("https://simple.ripley.com.pe/muebles/muebles-de-dormitorio/muebles-infantiles?page=",99 ), #ninios
     ("https://simple.ripley.com.pe/muebles/colecciones?source=menu&page=",66 ), #collecion
     ("https://simple.ripley.com.pe/hogar/complementos-deco/alfombras?page=", 110), #akfombrqs 
-
-
-
     ("https://simple.ripley.com.pe/mejoramiento-del-hogar/pisos-y-revestimientos/ver-todo-pisos-y-revestimientos?page=",408 ), #psios
     ("https://simple.ripley.com.pe/mejoramiento-del-hogar/bano/ver-todo-bano?source=search&term=baños&page=", 941), #banios
     ("https://simple.ripley.com.pe/hogar/cocina/ver-todo-cocina?page=",4601 ), #sartenes cocina
@@ -62,24 +60,20 @@ list1 = [
     ("https://simple.ripley.com.pe/mejoramiento-del-hogar/pinturas-y-acabados/ver-todo-pintura-y-acabados?source=menu&page=",1146 ), #pintura
     ("https://simple.ripley.com.pe/mejoramiento-del-hogar/herramientas-manuales/ver-todo-herramientas-manuales?page=", 4642), #hermanie manuales
     ("https://simple.ripley.com.pe/mejoramiento-del-hogar/herramientas-electricas/ver-todo-herramientas-electricas?page=",2009 ), #herramientas electri
-
-
     ("https://simple.ripley.com.pe/calzado/marcas-zapatillas/ver-todo?page=",6791), #todo zapatillas
     ("https://simple.ripley.com.pe/calzado/zapatos-mujer/ver-todo?page=",5917), #zapatos mujer
     ("https://simple.ripley.com.pe/calzado/zapatos-hombre/ver-todo?page=",3024,), #zapatos hombres
     ("https://simple.ripley.com.pe/calzado/zapatos-ninos-y-ninas/ver-todo?page=",2969), #ninios
     ("https://simple.ripley.com.pe/calzado/especiales/ver-todo-calzado?page=",1000), #todo calzado
-    
-
-            ("https://simple.ripley.com.pe/deporte/ropa-deportiva-mujer/ver-todo?page=",2181),# deporte mujer
-           ( "https://simple.ripley.com.pe/deporte/ropa-deportiva-hombre/ver-todo?page=",2433),# deporte hombre
-            ("https://simple.ripley.com.pe/deporte/futbol/ver-todo?source=menu&page=",677),# futbol
-            ("https://simple.ripley.com.pe/deporte/deportes/ver-todo?page=",5461),#deporte ver todo
-          (  "https://simple.ripley.com.pe/deporte/accesorios/ver-todo?page=",2764),#accesorios deporte
-           ("https://simple.ripley.com.pe/deporte/maquinas-y-fitness/ver-todo?page=",703),#maquinas deporte
-            ("https://simple.ripley.com.pe/deporte/bicicletas/ver-todo?page=",2080),#biciclteas
-            ("https://simple.ripley.com.pe/deporte/accesorios-y-ropa-deportiva/ver-todo?s=mdco&page=",1000),#aceoriso deprote ropa
-]
+    ("https://simple.ripley.com.pe/deporte/ropa-deportiva-mujer/ver-todo?page=",2181),# deporte mujer
+    ( "https://simple.ripley.com.pe/deporte/ropa-deportiva-hombre/ver-todo?page=",2433),# deporte hombre
+    ("https://simple.ripley.com.pe/deporte/futbol/ver-todo?source=menu&page=",677),# futbol
+    ("https://simple.ripley.com.pe/deporte/deportes/ver-todo?page=",5461),#deporte ver todo
+    ("https://simple.ripley.com.pe/deporte/accesorios/ver-todo?page=",2764),#accesorios deporte
+    ("https://simple.ripley.com.pe/deporte/maquinas-y-fitness/ver-todo?page=",703),#maquinas deporte
+    ("https://simple.ripley.com.pe/deporte/bicicletas/ver-todo?page=",2080),#biciclteas
+    ("https://simple.ripley.com.pe/deporte/accesorios-y-ropa-deportiva/ver-todo?s=mdco&page=",1000),#aceoriso deprote ropa
+    ]
 
 list2 =[
     ("https://simple.ripley.com.pe/mujer/ropa-mujer/ver-todo?page=",9189), # todo mujer
@@ -134,3 +128,5 @@ list2 =[
 
 
 ]
+
+
