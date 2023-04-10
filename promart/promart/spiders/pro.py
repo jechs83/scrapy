@@ -43,9 +43,12 @@ class ProSpider(scrapy.Spider):
         for i, v in enumerate(urls):
      
             for e in range(50):
+
+                
         
-                url = v+str(e)
+                url = v[0]+str(e)+v[1]
                 print(url)
+
     
                 yield scrapy.Request(url, self.parse)
 
