@@ -9,7 +9,7 @@
 from decouple import config
 
 BOT_NAME = "curacao"
-COLLECTION_NAME = "scrap"
+COLLECTION_NAME = "prueba"
 SPIDER_MODULES = ["curacao.spiders"]
 NEWSPIDER_MODULE = "curacao.spiders"
 

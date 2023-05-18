@@ -8,6 +8,7 @@
 from itemadapter import ItemAdapter
 import logging
 import pymongo
+import time
 from curacao.settings import COLLECTION_NAME
 from decouple import config
 
@@ -40,9 +41,46 @@ class MongoPipeline(object):
 
 
     def process_item(self, item, spider):
+        
         collection = self.db[self.collection_name]
         filter = {"_id": item['_id'], "sku":item["sku"]}
-        update = {'$set': dict(item)}
+      
+
+        update = {'$set':
+            {
+            "sku" : item["sku"],
+            "_id" : item["_id"],
+            "product" : item["product"],
+            "brand" : item["brand"],
+            "link" : item["link"],
+            # "best_price" : item[""],
+            "list_price" : item["list_price"],
+            "web_dsct" : item["web_dsct"],
+            "image" : item["image"],
+            "market": item["market"],
+            "date" :item["date"],
+            "time" : item["time"],
+            "home_list" : item["home_list"],
+            "card_price" : item["card_price"],
+            "card_dsct" : item["card_dsct"],
+            }
+        }
+                
         result = collection.update_one(filter, update, upsert=True)
+        update =  {'$push':{'best_price': {'$each': [{'_id': item['best_price']['_id'], 'price': item['best_price']['price'], 'date': item['best_price']['date']}]}}}
+        result = collection.update_one(filter,update, upsert=True)
+
+        # result = collection.insert_one(filter, update, upsert=True)
         spider.logger.debug('Item updated in MongoDB: %s', result)
         return item
+    
+    # def process_item(self, item,item2 ,spider):
+    #     collection = self.db[self.collection_name]
+    #     filter = {"_id": item['_id']} # Update filter to include only '_id' field
+    #     update = {'$set': dict(item)} # Update all fields in the item
+        
+ 
+        
+    #     result = collection.update_one(filter, update, upsert=True)
+    #     spider.logger.debug('Item updated in MongoDB: %s', result)
+    #     return item

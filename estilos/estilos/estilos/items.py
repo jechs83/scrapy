@@ -6,10 +6,9 @@
 import scrapy
 
 
-class CuracaoItem(scrapy.Item):
-    # define the fields for your item here like:
+class EstilosItem(scrapy.Item):
+        # define the fields for your item here like:
     # name = scrapy.Field()
-   
     sku = scrapy.Field()
     _id = scrapy.Field()
     product = scrapy.Field()
@@ -17,8 +16,9 @@ class CuracaoItem(scrapy.Item):
     link = scrapy.Field()
     best_price = scrapy.Field()
     list_price = scrapy.Field()
-    web_dsct = scrapy.Field()
+    # web_dsct = scrapy.Field()
     image = scrapy.Field()
+    # product = scrapy.Field()
     market= scrapy.Field()
     date =scrapy.Field()
     time = scrapy.Field()
@@ -27,4 +27,3 @@ class CuracaoItem(scrapy.Item):
     card_dsct = scrapy.Field()
   
     pass
-

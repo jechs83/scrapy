@@ -55,11 +55,13 @@ class CuraSpider(scrapy.Spider):
     def parse(self, response):
         count = 0
         item = CuracaoItem()
+      
         products = response.css('li')
         for product in products:
 
             item["sku"] = product.css("div.PartNumber::text").get()
-            item["_id"] = item["sku"]+str(load_datetime()[0])
+            #item["_id"] = item["sku"]+str(load_datetime()[0])
+            item["_id"] = item["sku"]
             item["brand"] = product.css('div.Manufacturer::text').get()
             item["product"] = product.css('a::attr(title)').get()
             item["link"] = product.css('a::attr(href)').get()
@@ -77,13 +79,24 @@ class CuraSpider(scrapy.Spider):
             try:
                 item["best_price"] = product.css('#offerPriceValue::text').get()
                 item["best_price"] = item["best_price"].strip().replace(",", "").replace("S/", "")
+     
             except:
                 try:
                     item["best_price"] = product.css("div.product_price span.price::text").get()
                     item["best_price"] = item["best_price"].strip().replace(",", "").replace("S/", "")
+                   
                 except:
-                     item["best_price"] = 0
+                    item["best_price"] = 0
 
+            # item["best_price"] ={ "_id" : 6,
+            #                      "price": item["best_price"],
+            #                      "date":load_datetime()[0] } 
+            
+            item["best_price"] ={ "_id" :"17",
+                                 "price": 90.33,
+                                 "date":"22/04/2023" } 
+
+                   
          
             try:
                 if float(item["best_price"]) > 0:
@@ -92,6 +105,9 @@ class CuraSpider(scrapy.Spider):
                             web_dsct = str(round(web_dsct)).replace("-","")
                 item["web_dsct"]= 100- float(web_dsct)
             except: item["web_dsct"]= 0
+
+
+            #item["best_price"] =  "date": load_datetime()[0]date, "price": item"["best_price"], 
         
             item["card_price"] = 0
             item["card_dsct"] = 0
@@ -100,10 +116,11 @@ class CuraSpider(scrapy.Spider):
             item["time"]= load_datetime()[1]
             item["home_list"]="https://curacao.pe"
 
+    
+
             count = count +1
 
-            yield item
-        
+            yield item        
         if count < 18:
             logging.info("ESTA PAGINA SOLO TIENE MENOS ELEMENTOS\n"+str(response ))
         if count == 18:
