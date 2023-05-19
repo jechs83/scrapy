@@ -77,8 +77,11 @@ class SagaSpider(scrapy.Spider):
 
                     try:
                         item["best_price"] = float(i["prices"][0]["price"][0].replace(",",""))
+             
                     except:
                         item["best_price"] = 0
+                    print("#######")
+                    print(item["best_price"])
          
                     try:
                         item["list_price"] = float(i["prices"][1]["price"][0].replace(",",""))
@@ -105,6 +108,8 @@ class SagaSpider(scrapy.Spider):
                     item["home_list"] = "https://www.falabella.com.pe/"
                     item["card_price"] = 0
                     item["card_dsct"] = 0
+
+        
 
                     yield item
            
