@@ -17,7 +17,7 @@ ITEM_PIPELINES = {
 MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
 
 MONGO_DATABASE = 'scrap'
-COLLECTION_NAME = 'testing'
+COLLECTION_NAME = 'scrap'
 
 
 
