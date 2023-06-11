@@ -1,5 +1,12 @@
+list0=["https://shopstar.pe/tecnologia/televisores?page=",
+       "https://shopstar.pe/tecnologia/computo?page=",
+       "https://shopstar.pe/tecnologia/videojuegos?page=",
+       "https://shopstar.pe/tecnologia/audio?page=",
+       "https://shopstar.pe/tecnologia/camaras?page=",
+       "https://shopstar.pe/tecnologia/telefonia?page=",
+       "https://shopstar.pe/tecnologia/smart-home?page="]
+
 list1 = [
-        "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f452%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
         "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f457%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
         "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f463%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
         "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f466%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",
@@ -84,7 +91,7 @@ list3= [
        
 
 
-list0 = [
+list2220 = [
     "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f449%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=", #tevidor
     "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f1517%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",#smart
     "https://shopstar.pe/buscapagina?fq=C%3a%2f443%2f477%2f&PS=24&sl=980125a2-9928-4068-912c-83001d75bb51&cc=24&sm=0&PageNumber=",# computadoras

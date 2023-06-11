@@ -92,9 +92,9 @@ class CuraSpider(scrapy.Spider):
             #                      "price": item["best_price"],
             #                      "date":load_datetime()[0] } 
             
-            item["best_price"] ={ "_id" :"17",
-                                 "price": 90.33,
-                                 "date":"22/04/2023" } 
+            # item["best_price"] ={ "_id" :"17",
+            #                      "price": 90.33,
+            #                      "date":"22/04/2023" } 
 
                    
          

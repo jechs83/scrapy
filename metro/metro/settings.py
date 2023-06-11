@@ -6,18 +6,21 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-
+from decouple import config
 BOT_NAME = "metro"
-COLLECTION_NAME = "scrap"
+
 SPIDER_MODULES = ["metro.spiders"]
 NEWSPIDER_MODULE = "metro.spiders"
 
 ITEM_PIPELINES = {
     'metro.pipelines.MongoPipeline': 300,
 }
-MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
+MONGO_URI = config("MONGO_DB")
 
-MONGO_DATABASE = 'scrap'
+MONGO_DATABASE = config("database")
+COLLECTION_NAME = config("collection")
+
+
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

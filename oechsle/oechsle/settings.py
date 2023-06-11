@@ -9,7 +9,7 @@
 from decouple import config
 
 BOT_NAME = "oechsle"
-COLLECTION_NAME = "scrap"
+
 SPIDER_MODULES = ["oechsle.spiders"]
 NEWSPIDER_MODULE = "oechsle.spiders"
 
@@ -17,10 +17,10 @@ ITEM_PIPELINES = {
     'oechsle.pipelines.MongoPipeline': 300,
 }
 
-MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
-#MONGO_URI = config("MONGO_DB")
+MONGO_URI = config("MONGO_DB")
 
-MONGO_DATABASE = 'scrap'
+MONGO_DATABASE = config("database")
+COLLECTION_NAME = config("collection")
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

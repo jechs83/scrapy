@@ -6,9 +6,9 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-
+from decouple import config 
 BOT_NAME = "tailoy"
-COLLECTION_NAME = "scrap"
+
 SPIDER_MODULES = ["tailoy.spiders"]
 NEWSPIDER_MODULE = "tailoy.spiders"
 
@@ -16,9 +16,10 @@ ITEM_PIPELINES = {
     'tailoy.pipelines.MongoPipeline': 300,
 }
 MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
+MONGO_URI = config("MONGO_DB")
 
-MONGO_DATABASE = 'scrap'
-
+MONGO_DATABASE = config("database")
+COLLECTION_NAME = config("collection")
 #DOWNLOAD_DELAY = 1 # 2 seconds of delay
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "demo (+http://www.yourdomain.com)"

@@ -6,6 +6,7 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+from decouple import config
 
 BOT_NAME = "demo"
 SPIDER_MODULES = ["demo.spiders"]
@@ -14,10 +15,10 @@ NEWSPIDER_MODULE = "demo.spiders"
 ITEM_PIPELINES = {
     'demo.pipelines.MongoPipeline': 300,
 }
-MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
+MONGO_URI = config("MONGO_DB")
 
-MONGO_DATABASE = 'scrap'
-COLLECTION_NAME = 'scrap'
+MONGO_DATABASE = config("database")
+COLLECTION_NAME = config("collection")
 
 
 
