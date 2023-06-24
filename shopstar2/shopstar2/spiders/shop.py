@@ -1,6 +1,6 @@
 import scrapy
 from scrapy_playwright.page import PageMethod
-
+import time
 
 class ShopSpider(scrapy.Spider):
     name = "shop"
@@ -12,20 +12,26 @@ class ShopSpider(scrapy.Spider):
                 meta=dict (
                     playwright= True,
                     playwright_include_page = True,
+                    playwright_page_methods= [
+                        PageMethod("wait_for_timeout", 5000),  # Wait for 2 seconds after navigation
+                        PageMethod("wait_for_selector", "div.vtex-button__label.flex.items-center.justify-center.h-100.ph5"),
+                        
+
+                        PageMethod("evaluate", "window.scrollTo(0, document.body.scrollHeight)"),
+
+                        # PageMethod("wait_for_selector", "//div[24]/section[1]/a[1]/article[1]")
+
+                    ],
+                  
+
+        ))
 
     
 
-                   playwright_page_coroutines = [
-                       PageMethod("wait_for_selector", "div.vtex-stack-layout-0-x-stackItem.vtex-stack-layout-0-x-stackItem--summary-header.absolute.top-0.left-0.w-auto.h-auto"),
-                     PageMethod("evaluate", "window.scrollBy(0, document.body.scrollHeight)"),
-
-                        PageMethod('wait_for_selector', 'div.pr3.items-stretch.vtex-flex-layout-0-x-stretchChildrenWidth.flex')
-                    ]
-
-        ))
 
     async def parse(self, response): 
         yield{
             'text':response.text
         }
         pass
+
