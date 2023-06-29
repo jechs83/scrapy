@@ -6,12 +6,29 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+from decouple import config
 
 BOT_NAME = "juntoz"
 
 SPIDER_MODULES = ["juntoz.spiders"]
 NEWSPIDER_MODULE = "juntoz.spiders"
 
+
+ITEM_PIPELINES = {
+    'juntoz.pipelines.MongoPipeline': 300,
+}
+MONGO_URI = config("MONGO_DB")
+
+MONGO_DATABASE = config("database")
+COLLECTION_NAME = config("collection")
+
+
+# Crawl responsibly by identifying yourself (and your website) on the user-agent
+#USER_AGENT = "demo (+http://www.yourdomain.com)"
+
+# Obey robots.txt rules
+#ROBOTSTXT_OBEY = True
+USER_AGENT='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "juntoz (+http://www.yourdomain.com)"

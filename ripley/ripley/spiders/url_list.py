@@ -9,20 +9,15 @@ list1 = [
                      ("https://simple.ripley.com.pe/tecnologia/celulares/powerbanks-y-baterias-portatiles?source=menu&page=",1300),
                       ("https://simple.ripley.com.pe/tecnologia/celulares/otros-accesorios?source=menu&page=7&s=mdco",1050),
 
-                    #    ("https://simple.ripley.com.pe/tecnologia/computacion/laptops?source=menu&page=",700),
-                    #     ("https://simple.ripley.com.pe/tecnologia/computacion/tablets?source=menu&page=",800),
-                    #      ("https://simple.ripley.com.pe/tecnologia/computacion/impresoras-y-tintas?source=menu&page=",1200),
-                    #          ("https://simple.ripley.com.pe/tecnologia/computacion/computadoras-de-escritorio?source=menu&page=",150),
-                    #              ("https://simple.ripley.com.pe/tecnologia/computacion/monitores?source=menu&page=",300),
-                    #                  ("https://simple.ripley.com.pe/tecnologia/computacion/disco-duro-y-memorias?source=menu&page=",750),
-                    #                      ("https://simple.ripley.com.pe/tecnologia/computacion-gamer/laptops-gamer?source=menu&page=",100),
-                    #                          ("https://simple.ripley.com.pe/tecnologia/computacion-gamer/monitores-gamer?source=menu&page=",150),
-                    #                           ("",800),
-                    #                            ("",800),
-                    #                             ("",800),
-                    #                              ("",800),
-                    #                               ("",800),
-                       
+                       ("https://simple.ripley.com.pe/tecnologia/computacion/laptops?source=menu&page=",700),
+                        ("https://simple.ripley.com.pe/tecnologia/computacion/tablets?source=menu&page=",800),
+                         ("https://simple.ripley.com.pe/tecnologia/computacion/impresoras-y-tintas?source=menu&page=",1200),
+                             ("https://simple.ripley.com.pe/tecnologia/computacion/computadoras-de-escritorio?source=menu&page=",150),
+                                 ("https://simple.ripley.com.pe/tecnologia/computacion/monitores?source=menu&page=",300),
+                                     ("https://simple.ripley.com.pe/tecnologia/computacion/disco-duro-y-memorias?source=menu&page=",750),
+                                         ("https://simple.ripley.com.pe/tecnologia/computacion-gamer/laptops-gamer?source=menu&page=",100),
+                                             ("https://simple.ripley.com.pe/tecnologia/computacion-gamer/monitores-gamer?source=menu&page=",150),
+                    
     
      
 #    ( "https://simple.ripley.com.pe/mejoramiento-del-hogar/herramientas-electricas/ver-todo-herramientas-electricas?page=",1820 ),

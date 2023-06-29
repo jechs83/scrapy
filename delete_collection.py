@@ -4,7 +4,7 @@ from decouple import config
 # Configure the MongoDB connection
 MONGODB_URL = config("MONGO_DB")
 MONGODB_DB = config("database")
-MONGODB_COLLECTION =  "TEST"
+MONGODB_COLLECTION =  "enterprise2"
 
 
 

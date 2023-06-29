@@ -64,11 +64,18 @@ class SagaSpider(scrapy.Spider):
 
         elif u == 14:
                 urls = url_list.list14
+
+        elif u == 100:
+                urls = url_list.list100
+        elif u == 200:
+                urls = url_list.list200
+        elif u == 300:
+                urls = url_list.list300
         else:
             urls = []
 
         for i, v in enumerate(urls):
-            for e in range(201):
+            for e in range(int(v[2]/56)):
                 url = v[0] + str(e+1) + v[1]
                 yield scrapy.Request(url, self.parse)
 

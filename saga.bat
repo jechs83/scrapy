@@ -17,8 +17,10 @@ start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 13 demo
 
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py pro 1 promart
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py tai 1 tailoy
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 1 ripley
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 2 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 3 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 4 ripley
+
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 10 curacao
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py vea 1 plazavea
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py metro1 1 metro
