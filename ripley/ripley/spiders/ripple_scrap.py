@@ -30,6 +30,8 @@ class RippleScrapSpider(scrapy.Spider):
                 urls = url_list.list2
         elif u == 3:
                 urls = url_list.list3
+        elif u == 4:
+                urls = url_list.list4
         elif u == 0:
                 urls = url_list.list0
         else:
@@ -90,6 +92,10 @@ class RippleScrapSpider(scrapy.Spider):
                     item["card_price"] = i.css(".catalog-prices__card-price::text").get().replace("S/", "").replace(",", "")
                 except:
                     item["card_price"] = 0
+
+                item["list_price"]     = float(item["list_price"] )
+                item["best_price"]     = float(item["best_price"] )
+                item["web_dsct"]     = float(item["web_dsct"] )
 
                 item["link"] = i.css(".catalog-product-item.catalog-product-item__container.undefined::attr(href)").get()
                 item["link"] = "https://simple.ripley.com.pe" + item["link"]
