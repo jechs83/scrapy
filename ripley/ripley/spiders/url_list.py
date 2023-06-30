@@ -583,3 +583,12 @@ list4 = [(" https://simple.ripley.com.pe/muebles/oficina/ver-todo-oficina?page="
 (" https://simple.ripley.com.pe/calzado/zapatos-hombre/zapatillas-urbanas?facet=Marca%3AADIDAS&page=",295 ),
 (" https://simple.ripley.com.pe/calzado/zapatos-hombre/zapatillas-urbanas?page=",2111 ),
 ]
+
+
+list100 =[
+ 
+ ("https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/ver-todo?source=menu&page=", 1000),
+ ("https://simple.ripley.com.pe/tecnologia/celulares/celulares-y-smartphones?page=",2000),
+ ("https://simple.ripley.com.pe/tecnologia/computacion/ver-todo-laptops?page=",1000),
+
+]

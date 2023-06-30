@@ -34,6 +34,14 @@ class RippleScrapSpider(scrapy.Spider):
                 urls = url_list.list4
         elif u == 0:
                 urls = url_list.list0
+
+        elif u == 100:
+                urls = url_list.list100
+        elif u == 200:
+                urls = url_list.list200
+        elif u == 300:
+                urls = url_list.list300
+
         else:
             urls = []
 
