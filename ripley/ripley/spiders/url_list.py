@@ -590,5 +590,11 @@ list100 =[
  ("https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/ver-todo?source=menu&page=", 1000),
  ("https://simple.ripley.com.pe/tecnologia/celulares/celulares-y-smartphones?page=",2000),
  ("https://simple.ripley.com.pe/tecnologia/computacion/ver-todo-laptops?page=",1000),
+ ("https://simple.ripley.com.pe/tecnologia/computacion-gamer/ver-todo?source=menu&page=",600),
+ ("https://simple.ripley.com.pe/tecnologia/videojuegos/ver-todo?source=menu&page=",4000),
+ ("https://simple.ripley.com.pe/tecnologia/audio/ver-todo?source=menu&page=",2000),
+ ("https://simple.ripley.com.pe/tecnologia/smart-home/ver-todo?source=menu&page=",300),
+ ("https://simple.ripley.com.pe/tecnologia/camara-de-fotos/ver-todo?source=menu&page=6&s=mdco",2000),
+
 
 ]
