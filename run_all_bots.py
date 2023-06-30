@@ -5,7 +5,7 @@ import subprocess
 script_path = "/Users/ussdiscovery/Scrap/saga.sh"
 
 # Wait for 10 minutes
-wait_time = 30  # 10 minutes in seconds
+wait_time = 10 * 60 # 10 minutes in seconds
 
 
 
