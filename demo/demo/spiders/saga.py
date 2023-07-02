@@ -27,6 +27,9 @@ class SagaSpider(scrapy.Spider):
     name = "saga"
     allowed_domains = ["falabella.com.pe"]
 
+
+  
+
     def start_requests(self):
         u = int(getattr(self, 'u', '0'))
 
@@ -135,8 +138,8 @@ class SagaSpider(scrapy.Spider):
 
         
 
+                    
                     yield item
-           
 
 
 

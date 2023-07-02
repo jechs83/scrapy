@@ -2,7 +2,9 @@ import time
 import subprocess
 
 # Specify the path to your shell script
-script_path = "/Users/ussdiscovery/Scrap/saga.sh"
+#script_path = "/Users/ussdiscovery/Scrap/saga.sh"
+script_path = "/Users/javier/GIT/scrapy_saga/run_all_bots.py"
+
 
 # Wait for 10 minutes
 wait_time = 10 * 60 # 10 minutes in seconds

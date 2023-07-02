@@ -591,10 +591,26 @@ list100 =[
  ("https://simple.ripley.com.pe/tecnologia/celulares/celulares-y-smartphones?page=",2000),
  ("https://simple.ripley.com.pe/tecnologia/computacion/ver-todo-laptops?page=",1000),
  ("https://simple.ripley.com.pe/tecnologia/computacion-gamer/ver-todo?source=menu&page=",600),
- ("https://simple.ripley.com.pe/tecnologia/videojuegos/ver-todo?source=menu&page=",4000),
+
+
+
+]
+
+list200 = [
+     ("https://simple.ripley.com.pe/tecnologia/videojuegos/ver-todo?source=menu&page=",4000),
  ("https://simple.ripley.com.pe/tecnologia/audio/ver-todo?source=menu&page=",2000),
  ("https://simple.ripley.com.pe/tecnologia/smart-home/ver-todo?source=menu&page=",300),
  ("https://simple.ripley.com.pe/tecnologia/camara-de-fotos/ver-todo?source=menu&page=6&s=mdco",2000),
+]
 
-
+list300 = [
+    ("https://simple.ripley.com.pe/electrohogar/refrigeracion/refrigeradoras?source=menu&page=",500),
+    ("https://simple.ripley.com.pe/electrohogar/lavado/lavadoras?source=menu&page=",300),
+    ("https://simple.ripley.com.pe/electrohogar/cocina/cocinas-de-pie?source=menu&page=",500),
+    ("https://simple.ripley.com.pe/electrohogar/aspiradoras/ver-todo?page=",400),
+    ("https://simple.ripley.com.pe/electrohogar/electrodomesticos/ver-todo?source=menu&page=",1500),
+    ("https://simple.ripley.com.pe/electrohogar/cuidado-personal/ver-todo?source=menu&page=", 500),
+      ("https://simple.ripley.com.pe/electrohogar/climatizacion/ver-todo?source=menu&page=",600),
+      
+    
 ]
