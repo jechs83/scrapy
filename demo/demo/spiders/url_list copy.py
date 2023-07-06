@@ -4,65 +4,59 @@ sodimac ="https://www.falabella.com.pe/s/browse/v1/listing/pe?subdomain=sodimac&
 linio="https://www.falabella.com.pe/s/browse/v1/listing/pe?subdomain=linio&page="
 linio2="https://www.falabella.com.pe/s/browse/v1/collection/pe?page="
 
-list1 =[
-    (fala1, "&categoryId=CATG19032&categoryName=Refrigeracion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 1200), # refrigeracion  8 segundos
-     (fala1, "&categoryId=cat6370558&categoryName=Electrodomesticos-de-Cocina&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 12000),   #electrodomesticos 80 segundos
-     (fala1, "&categoryId=cat40538&categoryName=Cocina&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 2000),#  cocina 13 segundos 
-     (fala1, "&categoryId=cat11170486&categoryName=Climatizacion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",1200 ), #climatizacion 7 segundos
-     (fala1,"&categoryId=cat40662&categoryName=Lavado&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",1000 ), #lavado 6 segundos
-     (fala1,"&categoryId=cat40487&categoryName=Aspirado-y-Limpieza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",1000 ), #aspirado_limpieza 8 segundos
-     (fala1,"&categoryId=cat40567&categoryName=Tecnologia-para-la-Belleza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",4800 ), #tecnologia_belleza 30 segundos
-     (fala1,"&categoryId=cat3960464&categoryName=Maquinas-de-Coser&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 600), #maquinas_cose 3 segudnos
+refrigeracion = "&categoryId=CATG19032&categoryName=Refrigeracion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 
-     (fala1, "&categoryId=cat40584&categoryName=Electrohogar&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 25000),# todo 80 segudnos
+Electrodomésticos_de_Cocina="&categoryId=cat6370558&categoryName=Electrodomesticos-de-Cocina&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+Cocina= "&categoryId=cat40538&categoryName=Cocina&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+climatizacion="&categoryId=cat11170486&categoryName=Climatizacion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+lavado="&categoryId=cat40662&categoryName=Lavado&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+aspirado_limpieza="&categoryId=cat40487&categoryName=Aspirado-y-Limpieza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+tecnologia_belleza="&categoryId=cat40567&categoryName=Tecnologia-para-la-Belleza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+maquinas_cose="&categoryId=cat3960464&categoryName=Maquinas-de-Coser&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000" 
+
+
+list1 =[
+    (fala1, refrigeracion),
+    (fala1, Electrodomésticos_de_Cocina),
+    (fala1, Cocina),
+    (fala1, climatizacion),
+    (fala1, lavado),
+    (fala1, aspirado_limpieza),
+    (fala1, tecnologia_belleza),
+    (fala1, maquinas_cose),
 ]
+
+celulares="&categoryId=cat760702&categoryName=Telefonia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+computadoras="&categoryId=cat50678&categoryName=Computadoras&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+televisores="&categoryId=cat210477&categoryName=TV-Televisores&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+videojuegos="&categoryId=cat40556&categoryName=Videojuegos&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+smartwatch="&categoryId=cat1830468&categoryName=Smartwatch-y-wearables&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+camaras="&categoryId=cat40812&categoryName=Camaras-y-accesorios-de-fotografia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+audio="&categoryId=cat40488&categoryName=Audio&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+domotica="&categoryId=cat11190471&categoryName=Domotica-y-Smart-Home&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 
 
 
 list2 =[
-    #(fala1, "&categoryId=cat40793&categoryName=Tecnologia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 12000),#75
-     (fala1, "&categoryId=cat50678&categoryName=Computadoras&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 12000), #98 segundos
-
-     (fala1, "&categoryId=cat40556&categoryName=Videojuegos&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",3500), #25 segunods
-
+    (fala1, celulares),
+    (fala1, computadoras),
+    (fala1, televisores),
+    (fala1, videojuegos),
+    (fala1, smartwatch),
+    (fala1, camaras),
+    (fala1, audio),
+    (fala1, domotica),
 ]
-
-
-list3 = [
-    
-     (fala1, "&categoryId=cat1830468&categoryName=Smartwatch-y-wearables&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",8500),#60 segund
-     (fala1, "&categoryId=cat40488&categoryName=Audio&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",12000), #93 segundos
-
-
-]
-
-
-
-list4 = [
-         (fala1, "&categoryId=cat760702&categoryName=Telefonia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 12000), # celulares 102 segundos
-              (fala1, "&categoryId=cat40812&categoryName=Camaras-y-accesorios-de-fotografia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",3000), #22 segundos
-]
-
-list5 = [
-         (fala1, "&categoryId=cat11190471&categoryName=Domotica-y-Smart-Home&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",7000), # 60 seg
-              (fala1, "&categoryId=cat210477&categoryName=TV-Televisores&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",6000), #46 segundos
-]
-
-
-
-
-
 mujer = "&categoryId=CATG12023&categoryName=Mujer&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 moda_mujer="&categoryId=cat4100462&categoryName=Moda-Mujer&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 ropa_interior="&categoryId=cat7720500&categoryName=Ropa-interior-y-pijamas&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 mujer_accerorios="&categoryId=CATG14326&categoryName=Accesorios&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 mujer_zapatos="&categoryId=cat1470526&categoryName=Zapatos-mujeres&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-
-list6 = [(fala1, mujer,12000),
-         (fala1, moda_mujer,12000),
-         (fala1, ropa_interior,12000),
-         (fala1, mujer_accerorios,12000),
-         (fala1, mujer_zapatos,12000),
+list3 = [#(fala1, mujer),
+         (fala1, moda_mujer),
+         (fala1, ropa_interior),
+         (fala1, mujer_accerorios),
+         (fala1, mujer_zapatos),
          ]
 
 hombre_zapatos="&categoryId=cat1470538&categoryName=Zapatos&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
@@ -72,12 +66,12 @@ Tecnoclogia_belleza_hombre="&categoryId=cat40567&categoryName=Tecnologia-para-la
 hombre_interior="&categoryId=cat4100491&categoryName=Ropa-interior-y-pijamas&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 hombre_moda="&categoryId=cat4100481&categoryName=Moda-Hombre&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 
-list7 = [(fala1, hombre_zapatos,12000),
-         (fala1, hombre_acc,1200),
-         (fala1, mundo_surf,1200),
-         (fala1, Tecnoclogia_belleza_hombre,12000),
-         (fala1, hombre_interior,12000),
-          (fala1, hombre_moda,12000),
+list4 = [(fala1, hombre_zapatos),
+         (fala1, hombre_acc),
+         (fala1, mundo_surf),
+         (fala1, Tecnoclogia_belleza_hombre),
+         (fala1, hombre_interior),
+          (fala1, hombre_moda),
           ]
 
 
@@ -94,15 +88,15 @@ OFICINA="&categoryId=cat7040498&categoryName=Oficina-y-escritorio&pgid=2&pid=86e
 COMEDOR="&categoryId=cat40549&categoryName=Muebles-de-comedor&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
 organiza="&categoryId=CATG12025&categoryName=Organizacion&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
 
-list8 = [(fala1, MALETAS,1200),
-         (fala1, CARTERAS,1200),
-         (fala1, JOYERIAS,1200),
-         (fala1, ACCESORIOSHOMBRE,1200),
-         (fala1, TIPO,1200),
-         (fala1, SALA,1200),
-         (fala1, OFICINA,1200),
-         (fala1, COMEDOR,1200),
-          (fala1, organiza,1200),
+list5 = [(fala1, MALETAS),
+         (fala1, CARTERAS),
+         (fala1, JOYERIAS),
+         (fala1, ACCESORIOSHOMBRE),
+         (fala1, TIPO),
+         (fala1, SALA),
+         (fala1, OFICINA),
+         (fala1, COMEDOR),
+          (fala1, organiza),
       
       
           ]
@@ -126,22 +120,22 @@ ZAPATOSNA="&categoryId=cat11850461&categoryName=Juegos-de-exterior&pgid=2&pid=86
 ZAPATOSNO="&categoryId=cat6630546&categoryName=Zapatos-Nino&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
 
 
-list9 = [(fala1, CAMAS,12000),
-         (fala1, COLCHONES,12000),
-         (fala1, MUEBLESP,12000),
-         (fala1, ACCESORIOSHOMBRE,12000),
-         (fala1, TIPOSP,12000),
-         (fala1, ROPAP,12000),
-         (fala1, NINOS,12000),
-         (fala1, DORMI,12000),
-         (fala1, JUEGUETES,12000),
-         (fala1, XEDAD,12000),
-         (fala1, TIPOSP,12000),
-         (fala1, ROPNINAS,12000),
-         (fala1, ROPANINOS,12000),
-         (fala1, JUEGOSEXT,12000),
-          (fala1, ZAPATOSNA,12000),
-        (fala1, ZAPATOSNO,12000),
+list6 = [(fala1, CAMAS),
+         (fala1, COLCHONES),
+         (fala1, MUEBLESP),
+         (fala1, ACCESORIOSHOMBRE),
+         (fala1, TIPOSP),
+         (fala1, ROPAP),
+         (fala1, NINOS),
+         (fala1, DORMI),
+         (fala1, JUEGUETES),
+         (fala1, XEDAD),
+         (fala1, TIPOSP),
+         (fala1, ROPNINAS),
+         (fala1, ROPANINOS),
+         (fala1, JUEGOSEXT),
+          (fala1, ZAPATOSNA),
+        (fala1, ZAPATOSNO),
           ]
 
 
@@ -159,18 +153,18 @@ CAMPINGR="&categoryId=cat6630576&categoryName=Camping&pgid=2&pid=86e11e94-8c0b-4
 ELECTROR="&categoryId=cat3930550&categoryName=Electromovilidad&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
 ZAPATILLASR="&categoryId=cat1470548&categoryName=Zapatillas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
 ACCESORIOSR="&categoryId=cat14410473&categoryName=Accesorios-deportivos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-list10 = [(fala1, MUJERZ,12000),
-         (fala1, HOMBREZ,12000),
-         (fala1, MARCASZ,12000),
-         (fala1, ROPADEMUR,12000),
-         (fala1, FITNESSR,12000),
-         (fala1, BICICLETASR,12000),
-         (fala1, DEPORTER,12000),
-         (fala1, ROPADEHOR,12000),
-         (fala1, CAMPINGR,12000),
-         (fala1, ELECTROR,12000),
-         (fala1, ZAPATILLASR,12000),
-         (fala1, ACCESORIOSR,12000),
+list7 = [(fala1, MUJERZ),
+         (fala1, HOMBREZ),
+         (fala1, MARCASZ),
+         (fala1, ROPADEMUR),
+         (fala1, FITNESSR),
+         (fala1, BICICLETASR),
+         (fala1, DEPORTER),
+         (fala1, ROPADEHOR),
+         (fala1, CAMPINGR),
+         (fala1, ELECTROR),
+         (fala1, ZAPATILLASR),
+         (fala1, ACCESORIOSR),
           ]
 
 
@@ -194,22 +188,22 @@ HERRA="&categoryId=CATG14446&categoryName=Herramientas-y-maquinaria-de-jardin&pg
 PARRILLAS="&categoryId=cat2660494&categoryName=Parrillas-y-accesorios&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
 PISCINA="&categoryId=CATG12012&categoryName=Piscinas--spa-e-inflables&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
 ILUMINACION="&categoryId=CATG14536&categoryName=Iluminacion-Exterior&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-list11 = [(fala1, MENAJE,12000),
-         (fala1, MENAJE2,12000),
-         (fala1, GRIFERIA,12000),
-         (fala1, DUCHA,12000),
-         (fala1, COMPLEMENTO,12000),
-         (fala1, LAVAMANOS,12000),
-         (fala1, SEGURIDAD,12000),
-         (fala1, TERMAS,12000),
-         (fala1, TERRAZA,12000),
-         (fala1, JARDIN,12000),
-         (fala1, JUEGOSEXTE,12000),
-         (fala1, HERRA,12000),
-          (fala1, PARRILLAS,12000),
-         (fala1, CAMPINGR,12000),
-         (fala1, PISCINA,12000),
-         (fala1, ILUMINACION,12000),
+list8 = [(fala1, MENAJE),
+         (fala1, MENAJE2),
+         (fala1, GRIFERIA),
+         (fala1, DUCHA),
+         (fala1, COMPLEMENTO),
+         (fala1, LAVAMANOS),
+         (fala1, SEGURIDAD),
+         (fala1, TERMAS),
+         (fala1, TERRAZA),
+         (fala1, JARDIN),
+         (fala1, JUEGOSEXTE),
+         (fala1, HERRA),
+          (fala1, PARRILLAS),
+         (fala1, CAMPINGR),
+         (fala1, PISCINA),
+         (fala1, ILUMINACION),
           ]
 
 
@@ -230,19 +224,19 @@ LIMPIEZA="&categoryId=CATG11968&categoryName=Limpieza-para-Autos&pgid=2&pid=86e1
 SEGURIDAD="&categoryId=CATG11973&categoryName=Seguridad-para-autos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
 REPUESTOS="&categoryId=CATG11972&categoryName=Repuestos-y-autopartes&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
 
-list12= [(fala1, PERROS,12000),
-         (fala1, GATOS,12000),
-         (fala1, AUDIOVIDEO,12000),
-         (fala1, ACCESIORIOINTE,12000),
-         (fala1, LIQUIDOLUBRI,12000),
-         (fala1, HERRAMIENTAS,12000),
-         (fala1, LLANTAS,12000),
-         (fala1, ACCESORIOS,12000),
-         (fala1, AUTOMOTRIZ,12000),
-         (fala1, BATERIA,12000),
-         (fala1, LIMPIEZA,12000),
-         (fala1, SEGURIDAD,12000),
-          (fala1, REPUESTOS,12000),
+list9 = [(fala1, PERROS),
+         (fala1, GATOS),
+         (fala1, AUDIOVIDEO),
+         (fala1, ACCESIORIOINTE),
+         (fala1, LIQUIDOLUBRI),
+         (fala1, HERRAMIENTAS),
+         (fala1, LLANTAS),
+         (fala1, ACCESORIOS),
+         (fala1, AUTOMOTRIZ),
+         (fala1, BATERIA),
+         (fala1, LIMPIEZA),
+         (fala1, SEGURIDAD),
+          (fala1, REPUESTOS),
           ]
 
 #HERRAMIENTAS
@@ -264,20 +258,20 @@ EPPS="&categoryId=CATG14513&categoryName=Equipo-de-proteccion-personal&pgid=2&pi
 MUDAZA="&categoryId=CATG14653&categoryName=Mudanza&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
 SEGURIDAD="&categoryId=CATG12003&categoryName=Seguridad&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
 
-list13= [(fala1, ELECTRICA,12000),
-         (fala1, MAQUINA,12000),
-         (fala1, CAJAS,12000),
-         (fala1, ACCESORIOS,12000),
-         (fala1, MEDICION,12000),
-         (fala1, JARDIN,12000),
-         (fala1, CHAPAS,12000),
-         (fala1, TORNILLOS,12000),
-         (fala1, GASFITERIOA,12000),
-         (fala1, ELECTRICIDAD,12000),
-         (fala1, HERRAJERIA,12000),
-         (fala1, EPPS,12000),
-          (fala1, MUDAZA,12000),
-          (fala1, SEGURIDAD,12000),
+list10 = [(fala1, ELECTRICA),
+         (fala1, MAQUINA),
+         (fala1, CAJAS),
+         (fala1, ACCESORIOS),
+         (fala1, MEDICION),
+         (fala1, JARDIN),
+         (fala1, CHAPAS),
+         (fala1, TORNILLOS),
+         (fala1, GASFITERIOA),
+         (fala1, ELECTRICIDAD),
+         (fala1, HERRAJERIA),
+         (fala1, EPPS),
+          (fala1, MUDAZA),
+          (fala1, SEGURIDAD),
           ]
 
 
@@ -296,21 +290,21 @@ t_smartwatch = "&store=tottus&categoryId=cat1830468&categoryName=Smartwatch-y-we
 t_aspiradora = "&store=tottus&categoryId=cat40487&categoryName=Aspirado-y-Limpieza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 t_cilimatizacion = "&store=tottus&categoryId=cat11170486&categoryName=Climatizacion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 
-list14 =[
-     (totus, t_compurtadoras,12000),
-     (totus, t_celulares,12000),
-     (totus, t_cocina,12000),
-     (totus, t_electrodomesticos,12000),
-     (totus, t_tecnlogia_belleza,12000),
-     (totus, t_audio,12000),
-     (totus, t_refigeracion,12000),
-     (totus, t_lavadoras,12000),
-      (totus, t_televisores,12000),
-     (totus, t_telefonia,12000),
-     (totus, t_videojuegos,12000),
-     (totus, t_smartwatch,12000),
-     (totus, t_aspiradora,12000),
-     (totus, t_cilimatizacion,12000),
+list11 =[
+     (totus, t_compurtadoras),
+     (totus, t_celulares),
+     (totus, t_cocina),
+     (totus, t_electrodomesticos),
+     (totus, t_tecnlogia_belleza),
+     (totus, t_audio),
+     (totus, t_refigeracion),
+     (totus, t_lavadoras),
+      (totus, t_televisores),
+     (totus, t_telefonia),
+     (totus, t_videojuegos),
+     (totus, t_smartwatch),
+     (totus, t_aspiradora),
+     (totus, t_cilimatizacion),
 ]
 
 
@@ -322,13 +316,13 @@ s_herramienta_manual="&store=sodimac&categoryId=CATG14445&categoryName=Herramien
 s_herramienta_medicion="&store=sodimac&categoryId=CATG14443&categoryName=Herramientas-de-medicion-y-trazado&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 s_cajas_herramienta="&store=sodimac&categoryId=CATG14440&categoryName=Cajas-de-herramientas-y-organizadores&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 
-list15 =[
-     (sodimac, s_herramien_electrica,12000),
-     (sodimac, s_accesorios_herramientas,12000),
-     (sodimac, s_maquinarias_comple,12000),
-     (sodimac, s_herramienta_manual,12000),
-     (sodimac, s_herramienta_medicion,12000),
-     (sodimac, s_cajas_herramienta,12000),
+list12 =[
+     (sodimac, s_herramien_electrica),
+     (sodimac, s_accesorios_herramientas),
+     (sodimac, s_maquinarias_comple),
+     (sodimac, s_herramienta_manual),
+     (sodimac, s_herramienta_medicion),
+     (sodimac, s_cajas_herramienta),
 
 ]
 
@@ -363,34 +357,34 @@ l_planchas="&store=linio&categoryId=cat40732&categoryName=Planchas&pgid=2&pid=16
 l_aspiradora = "&store=linio&categoryId=cat40487&categoryName=Aspirado-y-Limpieza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 
 linio2_hogar ="&collectionId=hogar&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-list16 =[
-     (linio, l_celulares,12000),
-     (linio, l_smartwatch,12000),
-     (linio, l_acce_celulares,12000),
-     (linio, l_computadoras,12000),
-     (linio, l_acc_computadoras,12000),
-     (linio, l_videojuegos,12000),
-     (linio, l_gaming_computer,12000),
-     (linio, l_audio,12000),
-     (linio, l_televisor,12000),
-     (linio, l_electro,12000),
-     (linio, l_cocina,12000),
-     (linio, l_domotica,12000),
-     (linio, l_tecnologiabelleza,12000),
-     (linio, l_aire_acc,12000),
-     (linio, l_deshumedecedor,12000),
-     (linio, l_calefaccion,12000),
-     (linio, l_ventilador,12000),
-     (linio, l_camaras_acc,12000),
-     (linio, l_acce_foto,12000),
-     (linio, l_modaacc,12000),
-     (linio, l_deortes,12000),
-     (linio, l_juguetes,12000),
-     (linio, l_higiene,12000),
-     (linio, l_planchas,12000),
-      (linio, l_aspiradora,12000),
-     (linio, linio2_hogar,12000),
-     (linio2, l_planchas,12000),
+list13 =[
+     (linio, l_celulares),
+     (linio, l_smartwatch),
+     (linio, l_acce_celulares),
+     (linio, l_computadoras),
+     (linio, l_acc_computadoras),
+     (linio, l_videojuegos),
+     (linio, l_gaming_computer),
+     (linio, l_audio),
+     (linio, l_televisor),
+     (linio, l_electro),
+     (linio, l_cocina),
+     (linio, l_domotica),
+     (linio, l_tecnologiabelleza),
+     (linio, l_aire_acc),
+     (linio, l_deshumedecedor),
+     (linio, l_calefaccion),
+     (linio, l_ventilador),
+     (linio, l_camaras_acc),
+     (linio, l_acce_foto),
+     (linio, l_modaacc),
+     (linio, l_deortes),
+     (linio, l_juguetes),
+     (linio, l_higiene),
+     (linio, l_planchas),
+      (linio, l_aspiradora),
+     (linio, linio2_hogar),
+     (linio2, l_planchas),
 
 ]
 

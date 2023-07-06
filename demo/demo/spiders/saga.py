@@ -68,6 +68,12 @@ class SagaSpider(scrapy.Spider):
         elif u == 14:
                 urls = url_list.list14
 
+        elif u == 15:
+                urls = url_list.list15
+
+        elif u == 16:
+                urls = url_list.list16
+
         elif u == 100:
                 urls = url_list.list100
         elif u == 200:
