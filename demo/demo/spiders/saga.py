@@ -109,7 +109,7 @@ class SagaSpider(scrapy.Spider):
                     item["_id"] = i["skuId"]+str(load_datetime()[0])
 
                     try:
-                        item["best_price"] = float(i["prices"][0]["price"][0].replace(",",""))
+                        item["best_price"] = float(i["prices"][1]["price"][0].replace(",",""))
              
                     except:
                         item["best_price"] = 0
@@ -117,9 +117,15 @@ class SagaSpider(scrapy.Spider):
                     print(item["best_price"])
          
                     try:
-                        item["list_price"] = float(i["prices"][1]["price"][0].replace(",",""))
+                        item["list_price"] = float(i["prices"][2]["price"][0].replace(",",""))
                     except: 
                          item["list_price"] = 0
+                
+                    try:
+
+                        item["card_price"] = float(i["prices"][0]["price"][0].replace(",",""))
+                    except:item["card_price"] =0
+
 
                     item["link"]=i["url"]
 
@@ -127,7 +133,7 @@ class SagaSpider(scrapy.Spider):
                      item["image"]=i["mediaUrls"][0]
                     except:
                         item["image"]=str(i["mediaUrls"])
-
+                
                     try:
                      item["web_dsct"]=float(i["discountBadge"]["label"].replace("-","").replace("%",""))
                     except:
@@ -139,7 +145,6 @@ class SagaSpider(scrapy.Spider):
                     item["date"]= load_datetime()[0]
                     item["time"]= load_datetime()[1]
                     item["home_list"] = "https://www.falabella.com.pe/"
-                    item["card_price"] = 0
                     item["card_dsct"] = 0
 
         
