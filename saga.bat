@@ -28,6 +28,11 @@ start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 100 ripley
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 200 ripley
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 300 ripley
 
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 1 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 2 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 3 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 4 ripley
+
 ::start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 10 curacao
 ::start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py vea 1 plazavea
 ::start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py metro1 1 metro
