@@ -31,6 +31,8 @@ class VeaSpider(scrapy.Spider):
 
         elif u == 2:
                 urls = url_list.list2
+        elif u == 3:
+                urls = url_list.list3
         else:
             urls = []
         count= 20
@@ -69,7 +71,12 @@ class VeaSpider(scrapy.Spider):
             item["best_price"] = i["items"][0]["sellers"][0]["commertialOffer"]["Price"]
 
             item["list_price"]  =i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"]
-            item["web_dsct"] = round((item["best_price"]*100 /item["list_price"]))
+            if item["list_price"] == 0 :
+                item["web_dsct"] =0
+            else:
+                item["web_dsct"] = round((item["best_price"]*100 /item["list_price"]))
+           
+
             item["web_dsct"] = round((item["web_dsct"]))
             if item["web_dsct"] > 0:
                 item["web_dsct"] = 100-item["web_dsct"]
@@ -82,6 +89,8 @@ class VeaSpider(scrapy.Spider):
             item["market"]= "plazavea"  # COLECCION
             item["date"] = load_datetime()[0]
             item["time"]= load_datetime()[1]
+            if item["list_price"]  and item["best_price"] == 0.0:
+                continue
 
             yield item
              

@@ -30,8 +30,8 @@ class Metro1Spider(scrapy.Spider):
         if u == 1:
             urls = url_list.list1
 
-        elif u == 3:
-                urls = url_list.list3
+        elif u == 2:
+                urls = url_list.list2
         else:
             urls = []
 

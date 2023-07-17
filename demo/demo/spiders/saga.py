@@ -80,6 +80,9 @@ class SagaSpider(scrapy.Spider):
                 urls = url_list.list200
         elif u == 300:
                 urls = url_list.list300
+
+        elif u == 400:
+                urls = url_list.list400
         else:
             urls = []
 

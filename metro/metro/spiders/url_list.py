@@ -9,7 +9,10 @@ list1 =[
     ("https://www.metro.pe/buscapagina?sl=19ccd66b-b568-43cb-a106-b52f9796f5cd&PS=18&cc=18&sm=0&PageNumber=","&&fq=C%3a%2f1001499%2f"),#ropa y calzado
     ("https://www.metro.pe/buscapagina?sl=19ccd66b-b568-43cb-a106-b52f9796f5cd&PS=18&cc=18&sm=0&PageNumber=", "&&fq=C%3a%2f1001467%2f1001177%2f") #juegutes exterior
 
-
-
-
         ]
+
+list2 = [
+    ("https://www.metro.pe/buscapagina?sl=19ccd66b-b568-43cb-a106-b52f9796f5cd&PS=18&cc=18&sm=0&PageNumber=","&&fq=C%3a%2f1000144%2f"),
+    ("https://www.metro.pe/buscapagina?sl=19ccd66b-b568-43cb-a106-b52f9796f5cd&PS=18&cc=18&sm=0&PageNumber=","&&fq=C%3a%2f1000003%2f"),
+    ("https://www.metro.pe/buscapagina?sl=19ccd66b-b568-43cb-a106-b52f9796f5cd&PS=18&cc=18&sm=0&PageNumber=","&&fq=C%3a%2f1001467%2f")
+    ]

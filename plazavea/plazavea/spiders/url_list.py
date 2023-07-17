@@ -135,6 +135,16 @@ list2=[
 
 ]
 
+list3 =[
 
+    ("https://www.plazavea.com.pe/api/catalog_system/pub/products/search?fq=C:/678/683/766/&_from=","&_to=","&O=OrderByScoreDESC&"),
+   ("https://www.plazavea.com.pe/api/catalog_system/pub/products/search?fq=C:/678/683/1090/&_from=","&_to=","&O=OrderByScoreDESC&"),
+    ("https://www.plazavea.com.pe/api/catalog_system/pub/products/search?fq=C:/678/686/917/&_from=","&_to=","&O=OrderByScoreDESC&"),
+    ("https://www.plazavea.com.pe/api/catalog_system/pub/products/search?fq=C:/678/682/761/&_from=","&_to=","&O=OrderByScoreDESC&"),
+    ("https://www.plazavea.com.pe/api/catalog_system/pub/products/search?fq=C:/678/682/763/&_from=","&_to=","&O=OrderByScoreDESC&"),
+    ("https://www.plazavea.com.pe/api/catalog_system/pub/products/search?fq=C:/678/682/764/&_from=","&_to=","&O=OrderByScoreDESC&"),
+    ("https://www.plazavea.com.pe/api/catalog_system/pub/products/search?fq=C:/678/682/762/&_from=","&_to=","&O=OrderByScoreDESC&"),
+    ("https://www.plazavea.com.pe/api/catalog_system/pub/products/search?fq=C:/679/694/753/&_from=","&_to=","&O=OrderByScoreDESC&"),
 
+]
 

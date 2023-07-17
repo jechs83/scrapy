@@ -35,15 +35,15 @@ Arma_PC="3074457345616809695"
 Otros_Gamer="3074457345616677097"
 list1= [
         (url1+televisor+url2, url3, 100),
-        (url1+computacion+url2, url3, 100),
-        (url1+gaming+url2, url3, 100),
-        (url1+celulares+url2, url3, 100),
-        (url1+audifonos+url2, url3, 100),
-        (url1+audio+url2, url3, 100),
-        (url1+videojuegos+url2, url3, 100),
-        (url1+smart_home_domotica+url2, url3, 100),
-        (url1+fotografia+url2, url3, 100),
-        (url1+marcas+url2, url3, 100),
+        # (url1+computacion+url2, url3, 100),
+        # (url1+gaming+url2, url3, 100),
+        # (url1+celulares+url2, url3, 100),
+        # (url1+audifonos+url2, url3, 100),
+        # (url1+audio+url2, url3, 100),
+        # (url1+videojuegos+url2, url3, 100),
+        # (url1+smart_home_domotica+url2, url3, 100),
+        # (url1+fotografia+url2, url3, 100),
+        # (url1+marcas+url2, url3, 100),
 ]
 
 list2= [
@@ -179,3 +179,7 @@ list10= [
     
         ]
 
+# liss5=[
+#    "https://www.lacuracao.pe/webapp/wcs/stores/servlet/CategoryNavigationResultsGridScrollView?facet=&totalRows=3&env_resultsPerRow=4&searchTerm=&manufacturer=&filterTerm=&facet=&metaData=&searchType=&categoryId=3074457345616676988&storeId=10151&catalogId=3074457345616676668&orderBy=&minPrice=&maxPrice=&beginIndex=", "&pageSize=12&pageGroup=Category&urlLangId=-24
+
+# ]

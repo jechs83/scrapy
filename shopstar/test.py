@@ -1,73 +1,31 @@
-# import requests
-# import json
-
-# url = 'https://shopstar.pe/tecnologia/televisores?page=5'
-# headers = {
-#     'Accept': 'application/json'  # Set the Accept header to indicate JSON response
-# }
-
-# response = requests.get(url, headers=headers)
-
-
-# # Check the response content
-# content = response.content.decode('utf-8')
-# print(content)
-
-# # Extract the JSON portion from the response content
-# json_start = content.find('{')  # Find the start of the JSON
-# json_end = content.rfind('}') + 1  # Find the end of the JSON
-# json_data = content[json_start:json_end]
-
-# # Parse the extracted JSON data
-# try:
-#     parsed_json = json.loads(json_data)
-#     # Process the parsed JSON data
-#     # ...
-
-#     # Example: Print the parsed JSON to the console
-#     print(parsed_json)
-# except json.JSONDecodeError as e:
-#     print(f"Error parsing JSON: {e}")
-
-
 import requests
 import json
-import time
-import re
-import json
 
+# Send an HTTP GET request to the URL
+url = 'https://shopstar.pe/tecnologia/televisores'
+response = requests.get(url)
 
-r = requests.get('https://shopstar.pe/tecnologia/televisores?page=5')
-# you can use r.content to print the webpage data
+print(response)
 
-f=r.content
+# Check if the request was successful
+if response.status_code == 200:
+    # Extract the HTML content from the response
+    html_content = response.text
+    print("se encontro web")
+   
 
+    # Find the starting and ending indices of the JSON data within the HTML template
+    start_index = html_content.find('{"__STATE__":')
+    print(start_index)
+    end_index = html_content.find('</script>', start_index)
 
-  
-# json.loads(data) `json_loads` is to convert data into `json string`
-#print (json.loads(r.content))
-# f= r.content
+    # Extract the JSON data string from the HTML template
+    json_data = html_content[start_index:end_index]
 
-# with open("output.txt", "w") as file:
-#     file.write(str(f))
+    # Parse the JSON data into a Python dictionary
+    data_object = json.loads(json_data)
 
-
-
-text = str(f)
-print(text)
-
-# Search for JSON pattern using regular expression
-json_pattern = r"\{.*\}"
-
-matches = re.findall(json_pattern, text, re.DOTALL)
-
-if matches:
-    # Extract the first JSON match
-    json_data = matches[0]
-
-    # Parse the JSON data
-    json_obj = json.loads(json_data)
-
-    print(json_obj)
+    # Now you can access the data using the 'data_object' variable
+    print(data_object)
 else:
-    print("No JSON format found in the text.")
+    print('Failed to retrieve data from the URL')
