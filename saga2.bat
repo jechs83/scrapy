@@ -1,13 +1,7 @@
-::start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 100 demo
-::start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 200 demo
-::start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 300 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 1 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 2 demo
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 100 demo
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 200 demo
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 300 demo
 
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 4 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 5 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 6 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 3 demo
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 7 demo
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 8 demo
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 9 demo
