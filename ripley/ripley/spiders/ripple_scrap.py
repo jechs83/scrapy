@@ -112,5 +112,6 @@ class RippleScrapSpider(scrapy.Spider):
                 item["date"]= load_datetime()[0]
                 item["time"]= load_datetime()[1]
                 item["home_list"] = "https://www.ripley.com.pe/"
+                time.sleep(0.5)
             
                 yield item
