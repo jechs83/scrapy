@@ -117,4 +117,4 @@ class RippleScrapSpider(scrapy.Spider):
                 yield item
 
 
-            time.sleep(0.6)
+            time.sleep(0.7)
