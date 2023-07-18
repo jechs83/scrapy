@@ -56,7 +56,7 @@ class RippleScrapSpider(scrapy.Spider):
     def parse(self, response):
             item = RipleyItem()
             productos = response.css("div.catalog-product-item.catalog-product-item__container.col-xs-6.col-sm-6.col-md-4.col-lg-4")
-        
+
             for i in productos:
             
                 item["brand"] = i.css('div.brand-logo span::text').get()
@@ -115,3 +115,6 @@ class RippleScrapSpider(scrapy.Spider):
                 time.sleep(0.6)
             
                 yield item
+
+                
+            time.sleep(0.6)
