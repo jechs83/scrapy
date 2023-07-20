@@ -109,3 +109,4 @@ class JunSpider(scrapy.Spider):
             time.sleep(0.05)
 
             yield item
+        time.sleep(0.5)
