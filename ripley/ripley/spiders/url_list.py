@@ -614,3 +614,5 @@ list300 = [
       
     
 ]
+
+list400=[("https://simple.ripley.com.pe/calzado/especiales/ver-todo-calzado?page=", 16000)]

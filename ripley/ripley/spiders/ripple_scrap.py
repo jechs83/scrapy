@@ -41,6 +41,9 @@ class RippleScrapSpider(scrapy.Spider):
                 urls = url_list.list200
         elif u == 300:
                 urls = url_list.list300
+        elif u == 400:
+                urls = url_list.list400
+
 
         else:
             urls = []
@@ -117,4 +120,4 @@ class RippleScrapSpider(scrapy.Spider):
                 yield item
 
 
-            time.sleep(0.2)
+            time.sleep(0.6)
