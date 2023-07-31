@@ -427,3 +427,5 @@ list300 = [
 ("https://www.falabella.com.pe/s/browse/v1/listing/pe?subdomain=tottus&page=","&store=tottus&categoryId=cat6630620&categoryName=Fitness&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 300),
 ("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=CATG33556&categoryName=Ejercicio-y-Fitness&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 5000),
 ]
+list400=["https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion?page="]
+

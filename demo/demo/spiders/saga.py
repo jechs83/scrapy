@@ -4,6 +4,7 @@ from demo.items import DemoItem
 from datetime import datetime
 from datetime import date
 from  demo.spiders import url_list 
+from  demo.spiders import json_extractor 
 import sys
 import time
 
@@ -86,12 +87,23 @@ class SagaSpider(scrapy.Spider):
 
         elif u == 500:
                 urls = url_list.list500
+
+        elif u == 600:
+                urls = url_list.list600
         else:
             urls = []
 
+        # for i, v in enumerate(urls):
+        #     for e in range(int(v[2]/56)):
+
+        #         url = v[0] + str(e+1) + v[1]
+        #         yield scrapy.Request(url, self.parse)
+
         for i, v in enumerate(urls):
-            for e in range(int(v[2]/56)):
-                url = v[0] + str(e+1) + v[1]
+            for e in range(1):
+                url = v+str(e+1)
+                url = str(json_extractor.get_json(url))
+        
                 yield scrapy.Request(url, self.parse)
 
 
