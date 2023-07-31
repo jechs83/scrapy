@@ -4,7 +4,6 @@ sodimac ="https://www.falabella.com.pe/s/browse/v1/listing/pe?subdomain=sodimac&
 linio="https://www.falabella.com.pe/s/browse/v1/listing/pe?subdomain=linio&page="
 linio2="https://www.falabella.com.pe/s/browse/v1/collection/pe?page="
 
-&categoryId=CATG34760&categoryName=Zona-Gamer&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000
 
 
 list1 =[
