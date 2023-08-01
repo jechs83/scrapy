@@ -93,18 +93,17 @@ class SagaSpider(scrapy.Spider):
         else:
             urls = []
 
-        # for i, v in enumerate(urls):
-        #     for e in range(int(v[2]/56)):
-
-        #         url = v[0] + str(e+1) + v[1]
-        #         yield scrapy.Request(url, self.parse)
-
         for i, v in enumerate(urls):
-            for e in range(1):
-                url = v+str(e+1)
-                url = str(json_extractor.get_json(url))
-        
+            for e in range(int(v[2]/56)):
+                url = v[0] + str(e+1) + v[1]
                 yield scrapy.Request(url, self.parse)
+
+        # for i, v in enumerate(urls):
+        #     for e in range(v[2]/56):
+        #         url = v+str(e+1)
+        #         url = str(json_extractor.get_json(url))
+        
+        #         yield scrapy.Request(url, self.parse)
 
 
 
