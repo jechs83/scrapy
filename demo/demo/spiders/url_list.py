@@ -1,455 +1,268 @@
-fala1 = "https://www.falabella.com.pe/s/browse/v1/listing/pe?page="
-totus="https://www.falabella.com.pe/s/browse/v1/listing/pe?subdomain=tottus&page="
-sodimac ="https://www.falabella.com.pe/s/browse/v1/listing/pe?subdomain=sodimac&page="
-linio="https://www.falabella.com.pe/s/browse/v1/listing/pe?subdomain=linio&page="
-linio2="https://www.falabella.com.pe/s/browse/v1/collection/pe?page="
-
-
-
+#tecnologia tiempo  577
 list1 =[
-    (fala1,"&categoryId=cat6370521&categoryName=Linea-blanca&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",4500),
-    (fala1, "&categoryId=cat50678&categoryName=Computadoras&pgid=2&pid=799c102f-9b4c-44be-a421-23e366a63b82&zones=IMP_2%2C912_LIMA_2%2COLVAA_81%2CLIMA_URB1_DIRECTO%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_LIMA_1%2C150101%2CPERF_TEST%2C150000",7000),
-    (fala1,"&categoryId=CATG34760&categoryName=Zona-Gamer&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",7000),
-    (fala1, "&categoryId=CATG19032&categoryName=Refrigeracion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 1200), # refrigeracion  8 segundos
-     (fala1, "&categoryId=cat6370558&categoryName=Electrodomesticos-de-Cocina&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 12000),   #electrodomesticos 80 segundos
-     (fala1, "&categoryId=cat40538&categoryName=Cocina&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 2000),#  cocina 13 segundos 
-     (fala1, "&categoryId=cat11170486&categoryName=Climatizacion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",1200 ), #climatizacion 7 segundos
-     (fala1,"&categoryId=cat40662&categoryName=Lavado&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",1000 ), #lavado 6 segundos
-     (fala1,"&categoryId=cat40487&categoryName=Aspirado-y-Limpieza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",1000 ), #aspirado_limpieza 8 segundos
-     (fala1,"&categoryId=cat40567&categoryName=Tecnologia-para-la-Belleza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",4800 ), #tecnologia_belleza 30 segundos
-     (fala1,"&categoryId=cat3960464&categoryName=Maquinas-de-Coser&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 600), #maquinas_cose 3 segudnos
-
-     (fala1, "&categoryId=cat40584&categoryName=Electrohogar&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 25000),# todo 80 segudnos
-]
+     ("https://www.falabella.com.pe/falabella-pe/category/cat760702/Telefonia?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat50678/Computadoras?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat210477/TV-Televisores?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat40556/Videojuegos?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat1830468/Smartwatch-y-wearables?page="),
+     ("https://www.falabella.com.pe/falabella-pe/page/set-up-gamer?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat40488/Audio?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat11190471/Domotica-y-Smart-Home?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat40812/Camaras-y-accesorios-de-fotografia?page="),
+     ]
 
 
-
+#electroeomestico tiempo  533
 list2 =[
-    #(fala1, "&categoryId=cat40793&categoryName=Tecnologia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 12000),#75
-     (fala1, "&categoryId=cat50678&categoryName=Computadoras&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 12000), #98 segundos
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat6370558/Electrodomesticos-de-Cocina?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat40538/Cocina?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat11170486/Climatizacion?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat40662/Lavado?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat40487/Aspirado-y-Limpieza?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat40567/Tecnologia-para-la-Belleza?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat3960464/Maquinas-de-Coser?page="),    
+     ]
 
-     (fala1, "&categoryId=cat40556&categoryName=Videojuegos&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",3500), #25 segunods
-          (fala1, "&categoryId=cat50588&categoryName=Ropa-de-Cama&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",6000), #25 segunods
-
-
-]
-
-
+#moda mujer tiempo 306
 list3 = [
-    
-     (fala1, "&categoryId=cat1830468&categoryName=Smartwatch-y-wearables&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",8500),#60 segund
-     (fala1, "&categoryId=cat40488&categoryName=Audio&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",12000), #93 segundos
-
+     ("https://www.falabella.com.pe/falabella-pe/category/cat4100462/Moda-Mujer?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat7720500/Ropa-interior-y-pijamas?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG14326/Accesorios?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat1470526/Zapatos-mujeres?page="),
 
 ]
 
 
-
+#moda hombre tiempo  348
 list4 = [
-         (fala1, "&categoryId=cat760702&categoryName=Telefonia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 12000), # celulares 102 segundos
-              (fala1, "&categoryId=cat40812&categoryName=Camaras-y-accesorios-de-fotografia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",3000), #22 segundos
-]
-
+     ("https://www.falabella.com.pe/falabella-pe/category/cat4100481/Moda-Hombre?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat1470538/Zapatos?page="),
+     ("https://www.falabella.com.pe/falabella-pe/collection/mundo-surf?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat7230497/Accesorios?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat40567/Tecnologia-para-la-Belleza?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/cat4100491/Ropa-interior-y-pijamas?page="),
+     ]
+    
+#muebles tiempo 15
 list5 = [
-         (fala1, "&categoryId=cat11190471&categoryName=Domotica-y-Smart-Home&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",7000), # 60 seg
-              (fala1, "&categoryId=cat210477&categoryName=TV-Televisores&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",6000), #46 segundos
-]
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat7040499/Sala?subdomain=sodimac&page="),
+    ("sodimac.falabella.com.pe/sodimac-pe/category/cat7040498/Oficina-y-escritorio?subdomain=sodimac&page="),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat250477/Camas?subdomain=sodimac&page="),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG33777/Juego-de-dormitorio=sodimac&page="),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat2200544/Muebles-de-Dormitorio?subdomain=sodimac&page="),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat250473/Colchones?subdomain=sodimac&page="),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40549/Muebles-de-comedor?subdomain=sodimac&page="),
+     ]
+
+#herramientas electricas tiempo 92
+list6 = [
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG14444/Herramientas-electricas-e-inalambricas?subdomain=sodimac&page="),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG15004/Accesorios-de-Herramientas-electricas?subdomain=sodimac&page="),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG14441/Maquinarias-y-complementos?subdomain=sodimac&page="),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG11996/Maquinarias-y-Herramientas-Constructor=sodimac&page="),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG14445/Herramientas-manuales?subdomain=sodimac&page="),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG14443/Herramientas-de-medicion-y-trazado?subdomain=sodimac&page="),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG14440/Cajas-de-herramientas-y-organizadores?subdomain=sodimac&page=")
+     ]
+
+#tiempo 640
+list7 = [("https://linio.falabella.com.pe/linio-pe/category/cat760706/Celulares-y-Telefonos?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat1830468/Smartwatch-y-wearables?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat12020463/Accesorios-Celulares?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat50678/Computadoras?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat40509/Accesorios-Computacion?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat13000461/Computacion-gamer?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat40556/Videojuegos?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat13000461/Computacion-gamer?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat40488/Audio?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat210477/TV-Televisores?subdomain=linio&page="),
+          ]
+
+#tiempo 123
+list8 = [("https://linio.falabella.com.pe/linio-pe/category/CATG19032/Refrigeracion?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat6370558/Electrodomesticos-de-Cocina?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat40538/Cocina?subdomain=linio&page="),
+         ("https://linio.falabella.com.pe/linio-pe/category/cat40662/Lavado?subdomain=linio&page="),
+        ]
 
 
+#tiempo 557
+list9 = [
+          ("https://linio.falabella.com.pe/linio-pe/category/cat6370580/Aire-Acondicionado"),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat6370580/Aire-Acondicionado?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/CATG33830/Deshumedecedor?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat5600476/Calefaccion?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat40819/Ventiladores?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat40812/Camaras-y-accesorios-de-fotografia?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat830490/Accesorios-de-fotografia?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat7040499/Sala?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat7040498/Oficina-y-escritorio?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat50684/Dormitorio?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat40474/Decoracion-e-iluminacion?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat40685/Menaje-Cocina?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat2200544/Muebles-de-Dormitorio?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat2660494/Parrillas-y-accesorios?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/CATG12014/Terrazas?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat40549/Muebles-de-comedor?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat11190471/Domotica-y-Smart-Home?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat40567/Tecnologia-para-la-Belleza?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat40487/Aspirado-y-Limpieza?subdomain=linio&page="),
+          ]
+
+#tiempo 350
+list10 = [("https://linio.falabella.com.pe/linio-pe/category/CATG11950/Moda-y-accesorios?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat40571/Deportes-y-aire-libre?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/CATG33544/Ninos-y-Jugueteria?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat40498/Belleza--higiene-y-salud?subdomain=linio&page="),
+          ("https://linio.falabella.com.pe/linio-pe/category/cat40732/Planchas?subdomain=linio&page="),
+          ]
 
 
+#tiempo 343
 
-mujer = "&categoryId=CATG12023&categoryName=Mujer&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-moda_mujer="&categoryId=cat4100462&categoryName=Moda-Mujer&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-ropa_interior="&categoryId=cat7720500&categoryName=Ropa-interior-y-pijamas&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-mujer_accerorios="&categoryId=CATG14326&categoryName=Accesorios&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-mujer_zapatos="&categoryId=cat1470526&categoryName=Zapatos-mujeres&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-
-list6 = [(fala1, mujer,12000),
-         (fala1, moda_mujer,12000),
-         (fala1, ropa_interior,12000),
-         (fala1, mujer_accerorios,12000),
-         (fala1, mujer_zapatos,12000),
+list11 = [
+          ("https://www.falabella.com.pe/falabella-pe/category/cat40700/Muebles?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat7040499/Sala?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat7040498/Oficina-y-escritorio?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat2200544/Muebles-de-Dormitorio?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat40549/Muebles-de-comedor?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/CATG15503/Bar?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/CATG12025/Organizacion?page="),
          ]
 
-hombre_zapatos="&categoryId=cat1470538&categoryName=Zapatos&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-hombre_acc="&categoryId=cat7230497&categoryName=Accesorios&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-mundo_surf="collectionId=mundo-surf&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-Tecnoclogia_belleza_hombre="&categoryId=cat40567&categoryName=Tecnologia-para-la-Belleza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-hombre_interior="&categoryId=cat4100491&categoryName=Ropa-interior-y-pijamas&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-hombre_moda="&categoryId=cat4100481&categoryName=Moda-Hombre&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
 
-list7 = [(fala1, hombre_zapatos,12000),
-         (fala1, hombre_acc,1200),
-         (fala1, mundo_surf,1200),
-         (fala1, Tecnoclogia_belleza_hombre,12000),
-         (fala1, hombre_interior,12000),
-          (fala1, hombre_moda,12000),
+#tiempo 172
+
+list12= [
+          ("https://www.falabella.com.pe/falabella-pe/category/cat250473/Colchones?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat2200544/Muebles-de-Dormitorio?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat800486/Dormitorio-Infantil?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat50588/Ropa-de-Cama?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat250477/Camas?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/CATG33777/Juego-de-dormitorio?page="),
+          ]
+
+#tiempo 288
+list13= [
+          ("https://www.falabella.com.pe/falabella-pe/category/CATG34943/Jugueteria?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat11850461/Juegos-de-exterior?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat7350564/Ropa-de-ninas?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat7350562/Ropa-de-ninos?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat6630545/Zapatos-Nina?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat6630546/Zapatos-Nino?page="),
           ]
 
 
-#ACCESORIOS MODA
-MALETAS="&categoryId=cat6880492&categoryName=Maletas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-CARTERAS="&categoryId=cat4220604&categoryName=Carteras&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-JOYERIAS="&categoryId=CATG15653&categoryName=Bisuteria&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ACCESORIOSHOMBRE="&categoryId=cat7230497&categoryName=Accesorios&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-#MUEBLES Y ORGANIZACIÓN
-TIPO="&categoryId=cat40700&categoryName=Muebles&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-SALA="&categoryId=cat7040499&categoryName=Sala&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-DORMITORIO="&categoryId=cat2200544&categoryName=Muebles-de-Dormitorio&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-OFICINA="&categoryId=cat7040498&categoryName=Oficina-y-escritorio&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-COMEDOR="&categoryId=cat40549&categoryName=Muebles-de-comedor&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-organiza="&categoryId=CATG12025&categoryName=Organizacion&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-
-list8 = [(fala1, MALETAS,1200),
-         (fala1, CARTERAS,1200),
-         (fala1, JOYERIAS,1200),
-         (fala1, ACCESORIOSHOMBRE,1200),
-         (fala1, TIPO,1200),
-         (fala1, SALA,1200),
-         (fala1, OFICINA,1200),
-         (fala1, COMEDOR,1200),
-          (fala1, organiza,1200),
-      
-      
-          ]
-
-#DORMITORIO
-CAMAS="&categoryId=cat250477&categoryName=Camas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-COLCHONES="&categoryId=cat250473&categoryName=Colchones&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-MUEBLESP="&categoryId=cat2200544&categoryName=Muebles-de-Dormitorio&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-TIPOSP="&categoryId=cat250477&categoryName=Camas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ROPAP="&categoryId=cat250477&categoryName=Camas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-NINOS="&categoryId=cat800486&categoryName=Dormitorio-Infantil&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-DORMI="&categoryId=cat800486&categoryName=Dormitorio-Infantil&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-
-#NIÑOYJUGUETE
-JUEGUETES="&categoryId=cat11810534&categoryName=Jugueteria&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-XEDAD="&facetSelected=true&isPLP=1&page=2&categoryId=cat11810534&categoryName=Jugueteria&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ROPNINAS="&facetSelected=true&isPLP=1&page=2&categoryId=cat11810534&categoryName=Jugueteria&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ROPANINOS="&categoryId=cat7350562&categoryName=Ropa-de-ninos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-JUEGOSEXT="&categoryId=cat11850461&categoryName=Juegos-de-exterior&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ZAPATOSNA="&categoryId=cat11850461&categoryName=Juegos-de-exterior&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ZAPATOSNO="&categoryId=cat6630546&categoryName=Zapatos-Nino&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-
-
-list9 = [(fala1, CAMAS,12000),
-         (fala1, COLCHONES,12000),
-         (fala1, MUEBLESP,12000),
-         (fala1, ACCESORIOSHOMBRE,12000),
-         (fala1, TIPOSP,12000),
-         (fala1, ROPAP,12000),
-         (fala1, NINOS,12000),
-         (fala1, DORMI,12000),
-         (fala1, JUEGUETES,12000),
-         (fala1, XEDAD,12000),
-         (fala1, TIPOSP,12000),
-         (fala1, ROPNINAS,12000),
-         (fala1, ROPANINOS,12000),
-         (fala1, JUEGOSEXT,12000),
-          (fala1, ZAPATOSNA,12000),
-        (fala1, ZAPATOSNO,12000),
-          ]
-
-
-#ZAPATOS
-MUJERZ="&categoryId=cat1470526&categoryName=Zapatos-mujeres&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-HOMBREZ="&categoryId=cat1470538&categoryName=Zapatos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-MARCASZ="&categoryId=cat1470548&categoryName=Zapatillas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-#DEPORTE
-ROPADEMUR="&categoryId=cat6630630&categoryName=Ropa-deportiva-mujer&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-FITNESSR="&categoryId=cat6630620&categoryName=Fitness&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-BICICLETASR="&categoryId=cat6630620&categoryName=Fitness&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-DEPORTER="&categoryId=CATG33554&categoryName=Deportes-Colectivos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ROPADEHOR="&categoryId=cat6630655&categoryName=Ropa-deportiva-hombre&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-CAMPINGR="&categoryId=cat6630576&categoryName=Camping&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ELECTROR="&categoryId=cat3930550&categoryName=Electromovilidad&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ZAPATILLASR="&categoryId=cat1470548&categoryName=Zapatillas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ACCESORIOSR="&categoryId=cat14410473&categoryName=Accesorios-deportivos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-list10 = [(fala1, MUJERZ,12000),
-         (fala1, HOMBREZ,12000),
-         (fala1, MARCASZ,12000),
-         (fala1, ROPADEMUR,12000),
-         (fala1, FITNESSR,12000),
-         (fala1, BICICLETASR,12000),
-         (fala1, DEPORTER,12000),
-         (fala1, ROPADEHOR,12000),
-         (fala1, CAMPINGR,12000),
-         (fala1, ELECTROR,12000),
-         (fala1, ZAPATILLASR,12000),
-         (fala1, ACCESORIOSR,12000),
-          ]
-
-
-
-#COCINA
-MENAJE="&categoryId=cat40685&categoryName=Menaje-Cocina&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-MENAJE2="&categoryId=cat1450466&categoryName=Menaje-Comedor&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-#BAÑO
-GRIFERIA="&categoryId=CATG14400&categoryName=Griferia-para-Bano&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-DUCHA="&categoryId=CATG14408&categoryName=Tinas-e-Hidromasajes&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-COMPLEMENTO="&categoryId=cat2020468&categoryName=Complementos-de-bano&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-LAVAMANOS="&categoryId=CATG14406&categoryName=Lavatorios-y-vanitorios&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-SAUNAS="&categoryId=CATG14407&categoryName=Saunas-y-Spa&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-SEGURIDAD="&categoryId=CATG14403&categoryName=Seguridad-Bano-y-Movilidad-Reducida&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-TERMAS="&categoryId=cat40796&categoryName=Termas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-#JARDIN
-TERRAZA="&categoryId=CATG12014&categoryName=Terrazas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-JARDIN="&categoryId=CATG12014&categoryName=Terrazas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-JUEGOSEXTE="&categoryId=cat11850461&categoryName=Juegos-de-exterior&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-HERRA="&categoryId=CATG14446&categoryName=Herramientas-y-maquinaria-de-jardin&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-PARRILLAS="&categoryId=cat2660494&categoryName=Parrillas-y-accesorios&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-PISCINA="&categoryId=CATG12012&categoryName=Piscinas--spa-e-inflables&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ILUMINACION="&categoryId=CATG14536&categoryName=Iluminacion-Exterior&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-list11 = [(fala1, MENAJE,12000),
-         (fala1, MENAJE2,12000),
-         (fala1, GRIFERIA,12000),
-         (fala1, DUCHA,12000),
-         (fala1, COMPLEMENTO,12000),
-         (fala1, LAVAMANOS,12000),
-         (fala1, SEGURIDAD,12000),
-         (fala1, TERMAS,12000),
-         (fala1, TERRAZA,12000),
-         (fala1, JARDIN,12000),
-         (fala1, JUEGOSEXTE,12000),
-         (fala1, HERRA,12000),
-          (fala1, PARRILLAS,12000),
-         (fala1, CAMPINGR,12000),
-         (fala1, PISCINA,12000),
-         (fala1, ILUMINACION,12000),
-          ]
-
-
-
-#MASCOTAS
-PERROS="&categoryId=CATG12020&categoryName=Perros&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-GATOS="&categoryId=CATG12019&categoryName=Gatos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-#AUTOMOTRIZ
-AUDIOVIDEO="&categoryId=CATG11966&categoryName=Audio-y-video-para-autos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ACCESIORIOINTE="&categoryId=CATG14262&categoryName=Accesorios-de-interior-para-autos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-LIQUIDOLUBRI="&categoryId=CATG11969&categoryName=Liquidos-y-lubricantes&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-HERRAMIENTAS="&categoryId=CATG11967&categoryName=Herramientas-y-Equipos-Mecanicos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-LLANTAS="&categoryId=CATG11971&categoryName=Neumaticos-y-Llantas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ACCESORIOS="&categoryId=CATG14261&categoryName=Accesorios-de-exterior-para-autos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-AUTOMOTRIZ="&categoryId=CATG11970&categoryName=Accesorios-para-Motos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-BATERIA="&categoryId=CATG14299&categoryName=Baterias-para-Auto&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-LIMPIEZA="&categoryId=CATG11968&categoryName=Limpieza-para-Autos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-SEGURIDAD="&categoryId=CATG11973&categoryName=Seguridad-para-autos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-REPUESTOS="&categoryId=CATG11972&categoryName=Repuestos-y-autopartes&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-
-list12= [(fala1, PERROS,12000),
-         (fala1, GATOS,12000),
-         (fala1, AUDIOVIDEO,12000),
-         (fala1, ACCESIORIOINTE,12000),
-         (fala1, LIQUIDOLUBRI,12000),
-         (fala1, HERRAMIENTAS,12000),
-         (fala1, LLANTAS,12000),
-         (fala1, ACCESORIOS,12000),
-         (fala1, AUTOMOTRIZ,12000),
-         (fala1, BATERIA,12000),
-         (fala1, LIMPIEZA,12000),
-         (fala1, SEGURIDAD,12000),
-          (fala1, REPUESTOS,12000),
-          ]
-
-#HERRAMIENTAS
-ELECTRICA="&categoryId=CATG14444&categoryName=Herramientas-electricas-e-inalambricas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-MAQUINA="&categoryId=CATG14441&categoryName=Maquinarias-y-complementos&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-MANUAL="&categoryId=CATG14445&categoryName=Herramientas-manuales&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-CAJAS="&categoryId=CATG14440&categoryName=Cajas-de-herramientas-y-organizadores&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ACCESORIOS="&categoryId=CATG15004&categoryName=Accesorios-de-Herramientas-electricas&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-MEDICION="&categoryId=CATG14446&categoryName=Herramientas-y-maquinaria-de-jardin&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-JARDIN="&categoryId=CATG14446&categoryName=Herramientas-y-maquinaria-de-jardin&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-
-#FERRETERIA
-CHAPAS="&categoryId=CATG14446&categoryName=Herramientas-y-maquinaria-de-jardin&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-TORNILLOS="&categoryId=CATG12005&categoryName=Tornillos--clavos-y-fijaciones&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-GASFITERIOA="&categoryId=CATG11994&categoryName=Gasfiteria&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-ELECTRICIDAD="&categoryId=CATG11992&categoryName=Electricidad&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-HERRAJERIA="&categoryId=CATG11991&categoryName=Cerraduras-y-quincalleria&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-EPPS="&categoryId=CATG14513&categoryName=Equipo-de-proteccion-personal&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-MUDAZA="&categoryId=CATG14653&categoryName=Mudanza&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-SEGURIDAD="&categoryId=CATG12003&categoryName=Seguridad&pgid=2&pid=86e11e94-8c0b-4580-9124-f1829bf16e91&zones=200104%2CIBIS_34%2C912_CASTILLA_PIURA%2CIBIS_3PL_103%2COLVAA_99%2CURBANO_103%2C200000"
-
-list13= [(fala1, ELECTRICA,12000),
-         (fala1, MAQUINA,12000),
-         (fala1, CAJAS,12000),
-         (fala1, ACCESORIOS,12000),
-         (fala1, MEDICION,12000),
-         (fala1, JARDIN,12000),
-         (fala1, CHAPAS,12000),
-         (fala1, TORNILLOS,12000),
-         (fala1, GASFITERIOA,12000),
-         (fala1, ELECTRICIDAD,12000),
-         (fala1, HERRAJERIA,12000),
-         (fala1, EPPS,12000),
-          (fala1, MUDAZA,12000),
-          (fala1, SEGURIDAD,12000),
-          ]
-
-
-t_compurtadoras= "&store=tottus&categoryId=cat50678&categoryName=Computadoras&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_celulares="&store=tottus&categoryId=cat760702&categoryName=Telefonia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_cocina="&store=tottus&categoryId=cat40538&categoryName=Cocina&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_electrodomesticos="&store=tottus&categoryId=cat6370558&categoryName=Electrodomesticos-de-Cocina&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_tecnlogia_belleza="&store=tottus&categoryId=cat40567&categoryName=Tecnologia-para-la-Belleza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_audio="&store=tottus&categoryId=cat40488&categoryName=Audio&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_refigeracion="&store=tottus&categoryId=cat780530&categoryName=Refrigerador&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_lavadoras="&store=tottus&categoryId=cat40662&categoryName=Lavado&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_televisores = "&store=tottus&categoryId=cat210477&categoryName=TV-Televisores&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_telefonia = "&store=tottus&categoryId=cat760702&categoryName=Telefonia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_videojuegos = "&store=tottus&categoryId=cat40556&categoryName=Videojuegos&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_smartwatch = "&store=tottus&categoryId=cat1830468&categoryName=Smartwatch-y-wearables&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_aspiradora = "&store=tottus&categoryId=cat40487&categoryName=Aspirado-y-Limpieza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-t_cilimatizacion = "&store=tottus&categoryId=cat11170486&categoryName=Climatizacion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-
+#tiempo 371
 list14 =[
-     (totus, t_compurtadoras,12000),
-     (totus, t_celulares,12000),
-     (totus, t_cocina,12000),
-     (totus, t_electrodomesticos,12000),
-     (totus, t_tecnlogia_belleza,12000),
-     (totus, t_audio,12000),
-     (totus, t_refigeracion,12000),
-     (totus, t_lavadoras,12000),
-      (totus, t_televisores,12000),
-     (totus, t_telefonia,12000),
-     (totus, t_videojuegos,12000),
-     (totus, t_smartwatch,12000),
-     (totus, t_aspiradora,12000),
-     (totus, t_cilimatizacion,12000),
-]
+          ("https://www.falabella.com.pe/falabella-pe/category/cat1470538/Zapatos?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat1470526/Zapatos-mujeres?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat6630545/Zapatos-Nina?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat6630546/Zapatos-Nino?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat1470548/Zapatillas?page="),
+          ("https://www.falabella.com.pe/falabella-pe/collection/ver-todo-zapatos?page="),
+          ]
 
-
-#SODIMAC
-s_herramien_electrica= "&store=sodimac&categoryId=CATG14444&categoryName=Herramientas-electricas-e-inalambricas&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-s_accesorios_herramientas="&store=sodimac&categoryId=CATG15004&categoryName=Accesorios-de-Herramientas-electricas&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-s_maquinarias_comple="&store=sodimac&categoryId=CATG14441&categoryName=Maquinarias-y-complementos&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-s_herramienta_manual="&store=sodimac&categoryId=CATG14445&categoryName=Herramientas-manuales&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-s_herramienta_medicion="&store=sodimac&categoryId=CATG14443&categoryName=Herramientas-de-medicion-y-trazado&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-s_cajas_herramienta="&store=sodimac&categoryId=CATG14440&categoryName=Cajas-de-herramientas-y-organizadores&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-
+#tiempo 315
 list15 =[
-     (sodimac, s_herramien_electrica,12000),
-     (sodimac, s_accesorios_herramientas,12000),
-     (sodimac, s_maquinarias_comple,12000),
-     (sodimac, s_herramienta_manual,12000),
-     (sodimac, s_herramienta_medicion,12000),
-     (sodimac, s_cajas_herramienta,12000),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat6630630/Ropa-deportiva-mujer?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat6630620/Fitness?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat40500/Bicicletas?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/CATG33554/Deportes-Colectivos?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat1470548/Zapatillas?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat6630655/Ropa-deportiva-hombre?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat6630576/Camping?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat3930550/Electromovilidad?page="),
+          ("https://www.falabella.com.pe/falabella-pe/category/cat14410473/Accesorios-deportivos?page="),
+          ]
 
-]
 
-
-#LINIO 
-
-
-l_celulares="&store=linio&categoryId=cat760706&categoryName=Celulares-y-Telefonos&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_smartwatch="&store=linio&categoryId=cat1830468&categoryName=Smartwatch-y-wearables&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_acce_celulares="&store=linio&categoryId=cat12020463&categoryName=Accesorios-Celulares&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_computadoras="&store=linio&categoryId=cat50678&categoryName=Computadoras&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_acc_computadoras="&store=linio&categoryId=cat40509&categoryName=Accesorios-Computacion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_videojuegos="&store=linio&categoryId=cat40556&categoryName=Videojuegos&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_gaming_computer="&store=linio&categoryId=cat13000461&categoryName=Computacion-gamer&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_audio="&store=linio&categoryId=cat40488&categoryName=Audio&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_televisor="&store=linio&categoryId=cat210477&categoryName=TV-Televisores&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_electro="&store=linio&categoryId=cat6370558&categoryName=Electrodomesticos-de-Cocina&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_cocina="&store=linio&categoryId=cat6370566&categoryName=Cocina-Entretenida&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_domotica="&store=linio&categoryId=cat11190471&categoryName=Domotica-y-Smart-Home&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_tecnologiabelleza="&store=linio&categoryId=cat40567&categoryName=Tecnologia-para-la-Belleza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_aire_acc="&store=linio&categoryId=cat6370580&categoryName=Aire-Acondicionado&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_deshumedecedor="&store=linio&categoryId=CATG33830&categoryName=Deshumedecedor&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_calefaccion="&store=linio&categoryId=cat5600476&categoryName=Calefaccion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_ventilador="&store=linio&categoryId=cat40819&categoryName=Ventiladores&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_camaras_acc="&store=linio&categoryId=cat40812&categoryName=Camaras-y-accesorios-de-fotografia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_acce_foto="&store=linio&categoryId=cat830490&categoryName=Accesorios-de-fotografia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_modaacc="&store=linio&categoryId=CATG11950&categoryName=Moda-y-accesorios&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_deortes="&store=linio&categoryId=cat40571&categoryName=Deportes-y-aire-libre&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_juguetes="&store=linio&categoryId=CATG33544&categoryName=Ninos-y-Jugueteria&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_higiene="&store=linio&categoryId=cat40498&categoryName=Belleza--higiene-y-salud&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_planchas="&store=linio&categoryId=cat40732&categoryName=Planchas&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-l_aspiradora = "&store=linio&categoryId=cat40487&categoryName=Aspirado-y-Limpieza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
-
-linio2_hogar ="&collectionId=hogar&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000"
+#tiempo 336
 list16 =[
-     (linio, l_celulares,12000),
-     (linio, l_smartwatch,12000),
-     (linio, l_acce_celulares,12000),
-     (linio, l_computadoras,12000),
-     (linio, l_acc_computadoras,12000),
-     (linio, l_videojuegos,12000),
-     (linio, l_gaming_computer,12000),
-     (linio, l_audio,12000),
-     (linio, l_televisor,12000),
-     (linio, l_electro,12000),
-     (linio, l_cocina,12000),
-     (linio, l_domotica,12000),
-     (linio, l_tecnologiabelleza,12000),
-     (linio, l_aire_acc,12000),
-     (linio, l_deshumedecedor,12000),
-     (linio, l_calefaccion,12000),
-     (linio, l_ventilador,12000),
-     (linio, l_camaras_acc,12000),
-     (linio, l_acce_foto,12000),
-     (linio, l_modaacc,12000),
-     (linio, l_deortes,12000),
-     (linio, l_juguetes,12000),
-     (linio, l_higiene,12000),
-     (linio, l_planchas,12000),
-      (linio, l_aspiradora,12000),
-     (linio, linio2_hogar,12000),
-     (linio2, l_planchas,12000),
-
+    ("https://www.falabella.com.pe/falabella-pe/category/cat40538/Cocina?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat6370558/Electrodomesticos-de-Cocina?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat40685/Menaje-Cocina?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat1450466/Menaje-Comedor?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat13670461/Muebles-de-Cocina?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat780530/Refrigerador?page="),
 ]
 
 
-
-###################################################################################################################
-
-
-
-
-
-list100 =[
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=", "&categoryId=CATG19032&categoryName=Refrigeracion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 1000), #electro
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=", "&categoryId=cat40538&categoryName=Cocina&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 2000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=", "&categoryId=cat11170486&categoryName=Climatizacion&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 1200),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat40662&categoryName=Lavado&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",1000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat40487&categoryName=Aspirado-y-Limpieza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",1000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=", "&categoryId=cat760706&categoryName=Celulares-y-Telefonos&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 7000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat40712&categoryName=Laptops&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 3000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat40695&categoryName=Monitores&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",3000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=", "&categoryId=cat270476&categoryName=Tablets&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 800),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat40480&categoryName=Almacenamiento&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 4000),
-
+  #tiempo   125
+list17 =[
+    ("https://www.falabella.com.pe/falabella-pe/category/cat40796/Termas?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14405/Duchas-y-Cabinas?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat2020468/Complementos-de-bano?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14400/Griferia-para-Bano?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14407/Saunas-y-Spa?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat7040490/Muebles-de-Bano?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14403/Seguridad-Bano-y-Movilidad-Reducida?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14406/Lavatorios-y-vanitorios?page="),
+   
 ]
 
-list200 = [("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat6370558&categoryName=Electrodomesticos-de-Cocina&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",10900),
-           ("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat40567&categoryName=Tecnologia-para-la-Belleza&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",5000),
+#tiempo 259
+list18 =[
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG12014/Terrazas?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG12013/Jardin?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat11850461/Juegos-de-exterior?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14446/Herramientas-y-maquinaria-de-jardin?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG14536/Iluminacion-Exterior?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG12012/Piscinas--spa-e-inflables?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat2660494/Parrillas-y-accesorios?page="), 
+    ]
 
-]
 
-list300 = [
-    
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat210477&categoryName=TV-Televisores&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",7000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat40556&categoryName=Videojuegos&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",3000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat40488&categoryName=Audio&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",10000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat11190471&categoryName=Domotica-y-Smart-Home&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",7000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat40812&categoryName=Camaras-y-accesorios-de-fotografia&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 3000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat1830468&categoryName=Smartwatch-y-wearables&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",8500),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat8000471&categoryName=Herramientas-y-maquinas&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 12000),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?subdomain=tottus&page=","&store=tottus&categoryId=cat6630620&categoryName=Fitness&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 300),
-("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=CATG33556&categoryName=Ejercicio-y-Fitness&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 5000),
+#tiempo 130
+list19 =[
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14540/Iluminacion-Interior?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat40477/Alfombras?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14537/Decoracion-de-exterior?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14536/Iluminacion-Exterior?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat13080486/Cortinas-y-rollers?page="),
 ]
 
 
-list400 =[
-    
-   ( "https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=CATG12023&categoryName=Mujer&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000",5000)
-]
+#tiempo 374
+list20 =[
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG12020/Perros?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG12019/Gatos?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG12021/Tortugas--peces-y-reptiles?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG12018/Conejos-y-hamster?page="),
 
-list500 = [
-    ("https://www.falabella.com.pe/s/browse/v1/listing/pe?page=","&categoryId=cat11510475&categoryName=Moda-Infantil&pgid=2&pid=16501f55-5411-4554-8ccc-79e9c14d600f&zones=IBIS_46%2CIMP_2%2COLVAA_81%2C150122%2CURBANO_83%2CIBIS_3PL_83%2CIMP_1%2CIBIS_19%2C912_MIRAFLORES_3%2C912_MIRAFLORES_4%2C912_MIRAFLORES_1%2C912_MIRAFLORES_2%2CPERF_TEST%2C150000", 5000)
-]
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG11966/Audio-y-video-para-autos?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG11968/Limpieza-para-Autos?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14261/Accesorios-de-exterior-para-autos?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG11973/Seguridad-para-autos?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG11971/Neumaticos-y-Llantas?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14299/Baterias-para-Auto?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG14262/Accesorios-de-interior-para-autos?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG11969/Liquidos-y-lubricantes?page="),
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG11972/Repuestos-y-autopartes?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG11970/Accesorios-para-Motos?page="),
+      ("https://www.falabella.com.pe/falabella-pe/category/CATG11967/Herramientas-y-Equipos-Mecanicos?page="),
+     ]
 
 
-list600=["https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion?page="]
+
+# contruccion feerteria tiempo  321 segundos
+list21 =[
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG11997/Materiales-de-Construccion?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG11996/Maquinarias-y-Herramientas-Constructor?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG12004/Techos-y-Aislantes?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG11995/Maderas-y-tableros?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG11999/Pisos-y-revestimientos?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG11998/Pinturas?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG12006/Ventanas"),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG12001/Puertas?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG11990/Adhesivos--siliconas-y-selladores?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG14415/Chapas-para-puerta-y-Cerraduras?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG12005/Tornillos--clavos-y-fijaciones?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG11994/Gasfiteria?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG11992/Electricidad?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG12003/Seguridad?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG14513/Equipo-de-proteccion-personal?page="),
+     ("https://www.falabella.com.pe/falabella-pe/category/CATG11991/Cerraduras-y-quincalleria?page="),
+     ]
+
