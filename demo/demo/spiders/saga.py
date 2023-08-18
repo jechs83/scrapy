@@ -219,11 +219,7 @@ class SagaSpider(scrapy.Spider):
 
                 element = item["brand"]
                 if item["web_dsct"]>= 70 and   any(item.lower() == element.lower() for item in brand()):
-                  
-
-
-                    
-
+                
                     if  item["card_price"] == 0:
                          card_price = ""
                     else:
