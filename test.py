@@ -1,36 +1,34 @@
-import requests
-import json
-from bs4 import BeautifulSoup
 
-web = "https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion?page=1"
-
-def get_json(web):
-    url = web
-
-    try:
-        # Step 1: Fetch the HTML content of the webpage
-        response = requests.get(url)
-        response.raise_for_status()
-
-        # Step 2: Parse the HTML content and extract JSON data
-        soup = BeautifulSoup(response.text, "html.parser")
-        script_tag = soup.find("script", id="__NEXT_DATA__")
-
-        if script_tag:
-            # Extract JSON data from the script tag's content
-            json_data = json.loads(script_tag.contents[0])
-
-            # You can now access the JSON data like a dictionary
-            print(json_data)
-
-    except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
-    except json.JSONDecodeError as e:
-        print(f"Error decoding JSON: {e}")
-    except AttributeError:
-        print("Script tag with id '__NEXT_DATA__' not found in the HTML.")
+from pymongo import MongoClient
+from decouple import config
+client = MongoClient(config("MONGO_DB"))
+bot_token = '6594474232:AAF39jlHxRJepEaOYcxo9NZhe-pQgzl43lo'
+chat_id = "-960438482"
 
 
+def brand ():
+
+    db = client["brands"]
+    collection= db["tecno"]
+
+    t9 = collection.find({})
+
+    array_brand= []
+
+    for i in t9:
+        array_brand.append(i["brand"])
+    print(array_brand)
+    
+    return array_brand
 
 
-get_json(web)
+u=50
+
+g = "Sny"
+
+
+array = ['lenovo', 'Lg', 'Asus', 'Xiaomi', 'acer', 'huawei', 'TP LINK', 'razer', 'kingston', 'tp-link', 'ibm', 'intel', 'nintendo', 'dell', 'hp', 'advance', 'gigabyte', 'msi', 'xpg', 'alienware', 'SENNHEISER', 'HIKVISION', 'logitech', 'EZVIZ', 'BEHRINGER', 'dji', 'sonos', 'baseus', 'fujifilm', 'aiwa', 'microsoft', 'canon', 'Bose', 'sole', 'Ninebot', 'skullcandy', 'jbl', 'TOSHIBA', 'primus', 'beats', 'sony', 'panasonic', 'motorola', 'tcl', 'hisense', 'apple', 'casio', 'oppo', 'vivo', 'epson', 'xgimi', 'corsair', 'DREIZT', 'blaupunkt', 'samsung', 'amazfit', 'wahl', 'carinositos', 'SCOSCHE', 'sandisk', 'samsung', 'samsung', 'go pro', 'gopro', 'oster', 'jvc', 'hp', 'epson', 'indurama', 'imaco', 'bosch', 'playstation']
+
+if u >=50 and any(item.lower() == g.lower() for item in array):
+
+    print("pasa")

@@ -8,6 +8,51 @@ from tailoy.settings import ROTATING_PROXY_LIST
 from tailoy.spiders import url_list
 import time
 
+from telegram import Bot
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+import requests
+from pymongo import MongoClient
+from decouple import config
+client = MongoClient(config("MONGO_DB"))
+bot_token = '6594474232:AAF39jlHxRJepEaOYcxo9NZhe-pQgzl43lo'
+chat_id = "-960438482"
+
+
+def brand ():
+
+    db = client["brands"]
+    collection= db["tecno"]
+
+    t9 = collection.find({})
+
+    array_brand= []
+
+    for i in t9:
+        array_brand.append(i["brand"])
+    print(array_brand)
+    
+    return array_brand
+  
+
+    
+
+
+def send_telegram(message,foto, bot_token, chat_id):
+
+    if not foto:
+        foto="https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg"
+    
+    if len(foto)<=4:
+            foto="https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg"
+
+    response = requests.post(
+        
+        f'https://api.telegram.org/bot{bot_token}/sendPhoto',
+        data={'chat_id': chat_id, 'caption': str(message), "parse_mode": "HTML"},
+        files={'photo': requests.get(foto).content},
+    
+        )
 
 def load_datetime():
     
@@ -21,7 +66,7 @@ class TaiSpider(scrapy.Spider):
     name = "tai"
     allowed_domains = ["tailoy.com.pe"]
    
-        
+    
     def start_requests(self):
         for url in self.start_urls:
             return scrapy.Request(url=url, callback=self.parse,
@@ -38,13 +83,66 @@ class TaiSpider(scrapy.Spider):
         else:
             urls = []
 
-        for i, v in enumerate(urls):
-            for e in range(v[1]):
-                url = v[0]+str(e+1)
-                yield scrapy.Request(url, self.parse)
+        # for i, v in enumerate(urls):
+        #     for e in range (300):
+        #         url = v[0]+ str(e+1) 
+        #         yield scrapy.Request(url, self.parse)
+                
+        arrays_of_urls = []  
+        for i in urls:
+            temp_array = []  # Create a temporary array for each iteration
+            for e in range(300):
+                temp_array.append(i + str(e + 1))
+            arrays_of_urls.append(temp_array)  # Append the temporary array to the main list
+            
+
+        
+        for url_array in arrays_of_urls:
+            for url in url_array:
+                yield scrapy.Request(url, callback=self.parse, meta={'url_array': url_array})
+
+        # for i in url:
+        #     for e in i:
+                
+        #         yield scrapy.Request(e, self.parse)
+
+        # for i, v in enumerate(urls):
+        #     for e in range(200):
+        #         url = v+str(e+1)
+        #         yield scrapy.Request(url, self.parse)
 
 
     def parse(self, response):
+
+        if response.status != None :# 200 and response.xpath('//desired_data'):
+            # Process the response here
+            pass
+        else:
+            self.log(f"Invalid response for URL: {response.url}")
+            url_array = response.meta.get('url_array')
+            
+            # Move to the next array
+            next_array_index = url_array.index(response.url) + 1
+            if next_array_index < len(arrays_of_urls):
+                next_url_array = arrays_of_urls[next_array_index]
+                yield scrapy.Request(next_url_array[0], callback=self.parse, meta={'url_array': next_url_array})
+            else:
+                self.log("No more arrays of URLs.")
+
+        web_true = response.css("li.item.product.product-item").css("div.price-box.price-final_price::attr(data-product-id)").get()
+        print(web_true)
+
+        # if web_true == None:
+        # # If the response status is not 200, skip processing this link and move to the next one
+        #         self.logger.warning(f"Skipping URL {response.url} due to non-200 status code: {response.status}")
+        #         return
+        
+        if web_true == None:
+                # Move to the next URL in the array (since it is a "noResult" page)
+                self.logger.info("Skipping this URL and moving to the next one.")
+                return False
+        
+
         item = TailoyItem()
 
         productos = response.css("li.item.product.product-item")
@@ -100,6 +198,33 @@ class TaiSpider(scrapy.Spider):
             item["home_list"] = "https://www.tailoy.com.pe/"
             item["card_price"] = 0
             item["card_dsct"] = 0
+
+
+            element = item["brand"]
+            if item["web_dsct"]>= 70 and   any(item.lower() == element.lower() for item in brand()):
+                
+                    if  item["card_price"] == 0:
+                         card_price = ""
+                    else:
+                        card_price = '\n👉Precio Tarjeta :'+str(item["card_price"])
+
+                    if item["list_price"] == 0:
+                            list_price = ""
+                    else:
+                        list_price = '\n\n➡️Precio Lista :'+str(item["list_price"])
+
+                    if item["web_dsct"] <= 50:
+                        dsct = "🟡"
+                    if item["web_dsct"] > 50 and item["web_dsct"]  <=69:
+                        dsct = "🟢"
+                    if item["web_dsct"] >=70:
+                        dsct = "🔥🔥🔥🔥🔥"
+
+                    message =  "✅Marca: "+str(item["brand"])+"\n✅"+str(item["product"])+list_price+"\n👉Precio web :"+str(item["best_price"])+card_price+"\n"+dsct+"Descuento: "+"% "+str(item["web_dsct"])+"\n"+"\n\n⌛"+item["date"]+" "+ item["time"]+"\n🔗Link :"+str(item["link"])+"\n🏠home web:"+item["home_list"]+"\n\n◀️◀️◀️◀️◀️◀️◀️▶️▶️▶️▶️▶️▶️"
+                    foto = item["image"]
+
+                    send_telegram(message,foto, bot_token, chat_id)
+
 
 
 
