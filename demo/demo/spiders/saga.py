@@ -8,6 +8,53 @@ from  demo.spiders import json_extractor
 import sys
 import time
 
+from telegram import Bot
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+import requests
+from pymongo import MongoClient
+from decouple import config
+client = MongoClient(config("MONGO_DB"))
+bot_token = '6594474232:AAF39jlHxRJepEaOYcxo9NZhe-pQgzl43lo'
+chat_id = "-960438482"
+
+
+def brand ():
+
+    db = client["brands"]
+    collection= db["tecno"]
+
+    t9 = collection.find({})
+
+    array_brand= []
+
+    for i in t9:
+        array_brand.append(i["brand"])
+    print(array_brand)
+    
+    return array_brand
+  
+
+    
+
+
+def send_telegram(message,foto, bot_token, chat_id):
+
+    if not foto:
+        foto="https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg"
+    
+    if len(foto)<=4:
+            foto="https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg"
+
+    response = requests.post(
+        
+        f'https://api.telegram.org/bot{bot_token}/sendPhoto',
+        data={'chat_id': chat_id, 'caption': str(message), "parse_mode": "HTML"},
+        files={'photo': requests.get(foto).content},
+    
+        )
+
+
 
 def load_datetime():
     
@@ -74,7 +121,7 @@ class SagaSpider(scrapy.Spider):
             1: url_list.list1, 2: url_list.list1, 3: url_list.list3, 4: url_list.list4, 5: url_list.list5, 6: url_list.list6,
             7: url_list.list7, 8: url_list.list8, 9: url_list.list9, 10: url_list.list10, 11: url_list.list11, 12: url_list.list12, 13: url_list.list13,
             14: url_list.list14, 15: url_list.list15, 16: url_list.list16,  17: url_list.list17, 18: url_list.list18, 19: url_list.list19, 20: url_list.list20,
-            21: url_list.list21,
+            21: url_list.list21, 22: url_list.list22,
         }
 
         # Retrieve the appropriate list based on the value of 'u'
@@ -86,6 +133,7 @@ class SagaSpider(scrapy.Spider):
             for e in range (200):
                 url = v+ str(e+1) 
                 yield scrapy.Request(url, self.parse)
+                
 
         # Now you can use the 'urls
 
@@ -169,6 +217,34 @@ class SagaSpider(scrapy.Spider):
                 item["home_list"] = "https://www.falabella.com.pe/"
                 item["card_dsct"] = 0
 
+                element = item["brand"]
+                if item["web_dsct"]>= 70 and   any(item.lower() == element.lower() for item in brand()):
+                  
+
+
+                    
+
+                    if  item["card_price"] == 0:
+                         card_price = ""
+                    else:
+                        card_price = '\n👉Precio Tarjeta :'+str(item["card_price"])
+
+                    if item["list_price"] == 0:
+                            list_price = ""
+                    else:
+                        list_price = '\n\n➡️Precio Lista :'+str(item["list_price"])
+
+                    if item["web_dsct"] <= 50:
+                        dsct = "🟡"
+                    if item["web_dsct"] > 50 and item["web_dsct"]  <=69:
+                        dsct = "🟢"
+                    if item["web_dsct"] >=70:
+                        dsct = "🔥🔥🔥🔥🔥"
+
+                    message =  "✅Marca: "+str(item["brand"])+"\n✅"+str(item["product"])+list_price+"\n👉Precio web :"+str(item["best_price"])+card_price+"\n"+dsct+"Descuento: "+"% "+str(item["web_dsct"])+"\n"+"\n\n⌛"+item["date"]+" "+ item["time"]+"\n🔗Link :"+str(item["link"])+"\n🏠home web:"+item["home_list"]+"\n\n◀️◀️◀️◀️◀️◀️◀️▶️▶️▶️▶️▶️▶️"
+                    foto = item["image"]
+
+                    send_telegram(message,foto, bot_token, chat_id)
 
 
                 

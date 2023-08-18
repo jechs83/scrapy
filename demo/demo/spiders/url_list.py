@@ -266,3 +266,6 @@ list21 =[
      ("https://www.falabella.com.pe/falabella-pe/category/CATG11991/Cerraduras-y-quincalleria?page="),
      ]
 
+list22 = [
+    ("https://www.falabella.com.pe/falabella-pe/category/cat7230497/Accesorios?page=")
+]
