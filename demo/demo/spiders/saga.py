@@ -71,8 +71,6 @@ class SagaSpider(scrapy.Spider):
     allowed_domains = ["falabella.com.pe"]
 
 
-  
-
     # def start_requests(self):
     #     u = int(getattr(self, 'u', '0'))
     
@@ -126,12 +124,12 @@ class SagaSpider(scrapy.Spider):
 
         # Retrieve the appropriate list based on the value of 'u'
         urls = url_mapping.get(u, [])
-        print(urls)
-        print("33333333")
+    
 
         for i, v in enumerate(urls):
             for e in range (200):
                 url = v+ str(e+1) 
+
                 yield scrapy.Request(url, self.parse)
                 
 
@@ -184,7 +182,7 @@ class SagaSpider(scrapy.Spider):
                 except:
                  item["best_price"] = 0
                 print("#######")
-                print(item["best_price"])
+                # print(item["best_price"])
         
                 try:
                  item["list_price"] = float(i["prices"][2]["price"][0].replace(",",""))
@@ -217,30 +215,30 @@ class SagaSpider(scrapy.Spider):
                 item["home_list"] = "https://www.falabella.com.pe/"
                 item["card_dsct"] = 0
 
-                element = item["brand"]
-                if item["web_dsct"]>= 70 and   any(item.lower() == element.lower() for item in brand()):
+                # element = item["brand"]
+                # if item["web_dsct"]>= 70 and   any(item.lower() == element.lower() for item in brand()):
                 
-                    if  item["card_price"] == 0:
-                         card_price = ""
-                    else:
-                        card_price = '\n👉Precio Tarjeta :'+str(item["card_price"])
+                #     if  item["card_price"] == 0:
+                #          card_price = ""
+                #     else:
+                #         card_price = '\n👉Precio Tarjeta :'+str(item["card_price"])
 
-                    if item["list_price"] == 0:
-                            list_price = ""
-                    else:
-                        list_price = '\n\n➡️Precio Lista :'+str(item["list_price"])
+                #     if item["list_price"] == 0:
+                #             list_price = ""
+                #     else:
+                #         list_price = '\n\n➡️Precio Lista :'+str(item["list_price"])
 
-                    if item["web_dsct"] <= 50:
-                        dsct = "🟡"
-                    if item["web_dsct"] > 50 and item["web_dsct"]  <=69:
-                        dsct = "🟢"
-                    if item["web_dsct"] >=70:
-                        dsct = "🔥🔥🔥🔥🔥"
+                #     if item["web_dsct"] <= 50:
+                #         dsct = "🟡"
+                #     if item["web_dsct"] > 50 and item["web_dsct"]  <=69:
+                #         dsct = "🟢"
+                #     if item["web_dsct"] >=70:
+                #         dsct = "🔥🔥🔥🔥🔥"
 
-                    message =  "✅Marca: "+str(item["brand"])+"\n✅"+str(item["product"])+list_price+"\n👉Precio web :"+str(item["best_price"])+card_price+"\n"+dsct+"Descuento: "+"% "+str(item["web_dsct"])+"\n"+"\n\n⌛"+item["date"]+" "+ item["time"]+"\n🔗Link :"+str(item["link"])+"\n🏠home web:"+item["home_list"]+"\n\n◀️◀️◀️◀️◀️◀️◀️▶️▶️▶️▶️▶️▶️"
-                    foto = item["image"]
+                #     message =  "✅Marca: "+str(item["brand"])+"\n✅"+str(item["product"])+list_price+"\n👉Precio web :"+str(item["best_price"])+card_price+"\n"+dsct+"Descuento: "+"% "+str(item["web_dsct"])+"\n"+"\n\n⌛"+item["date"]+" "+ item["time"]+"\n🔗Link :"+str(item["link"])+"\n🏠home web:"+item["home_list"]+"\n\n◀️◀️◀️◀️◀️◀️◀️▶️▶️▶️▶️▶️▶️"
+                #     foto = item["image"]
 
-                    send_telegram(message,foto, bot_token, chat_id)
+                #     send_telegram(message,foto, bot_token, chat_id)
 
 
                 
