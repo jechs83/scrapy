@@ -1,5 +1,4 @@
 import scrapy
-
 import time
 from ripley.spiders import url_list 
 import scrapy
@@ -8,7 +7,7 @@ from ripley.items import RipleyItem
 from datetime import datetime
 from datetime import date
 import requests
-
+import random
 from telegram import Bot
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
@@ -36,24 +35,22 @@ def brand ():
     return array_brand
   
 
-    
+def random_proxy():
+         
+         list =["190.116.56.34:999","190.116.56.34" 
+                "8.243.97.110:999"		,	"8.243.97.110" ,
+                "179.43.94.238:999"	,	
+                "38.7.101.162:999",		
+                "179.43.96.178:8080"	,
+                "179.43.96.178:80",
+                "45.169.92.148:999"	,	
+                "190.12.95.170:47029",
+                "45.169.92.149:999",
+                "179.60.204.156:80"]
+         proxy =   random.choice(list)
+         return proxy
 
 
-def send_telegram(message,foto, bot_token, chat_id):
-
-    if not foto:
-        foto="https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg"
-    
-    if len(foto)<=4:
-            foto="https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg"
-
-    response = requests.post(
-        
-        f'https://api.telegram.org/bot{bot_token}/sendPhoto',
-        data={'chat_id': chat_id, 'caption': str(message), "parse_mode": "HTML"},
-        files={'photo': requests.get(foto).content},
-    
-        )
 
 def load_datetime():
     
@@ -66,6 +63,8 @@ def load_datetime():
 class RippleScrapSpider(scrapy.Spider):
     name = "ripley_scrap"
     allowed_domains = ["ripley.com.pe"]
+
+    PROXY_API_KEY = 'f7aed039e7ad4e900914c5fbdb37b97c'
 
     links =[]
     def start_requests(self):
@@ -89,17 +88,34 @@ class RippleScrapSpider(scrapy.Spider):
                 urls = url_list.list300
         elif u == 400:
                 urls = url_list.list400
+        elif u == 500:
+                urls = url_list.list500
 
 
         else:
             urls = []
 
+
+
         for i, v in enumerate(urls):
             for e in range((round(v[1]/48)+1)):
                 url = v[0] + str(e + 1)           
-                #yield scrapy.Request(url, self.parse, errback=self.error_handler)
                 yield scrapy.Request(url, self.parse)
-               
+
+                # proxy = random_proxy()
+            
+              
+
+                # # Use the obtained proxy in the request
+                # yield scrapy.Request(url, self.parse, meta={'proxy': proxy})
+
+                
+
+  
+        
+         
+
+        #
 
 
     def parse(self, response):
@@ -193,4 +209,4 @@ class RippleScrapSpider(scrapy.Spider):
                 yield item
 
 
-            time.sleep(0.6)
+            time.sleep(0.8)

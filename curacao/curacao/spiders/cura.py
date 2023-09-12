@@ -82,19 +82,26 @@ class CuraSpider(scrapy.Spider):
                 urls = url_list.list3
         elif u == 4:
                 urls = url_list.list4
+
+        elif u == 5:
+                urls = url_list.list5
         elif u == 10:
                 urls = url_list.list10
         else:
             urls = []
         
         count = 12
+        # for i, v in enumerate(urls):
+        #     count = 12
+        #     for e in range(200):
+        #         if e == 0:
+        #              url = v[0]+str(0)+v[1]
+        #         else:   
+        #             url = v[0]+str(count*e)+v[1]
         for i, v in enumerate(urls):
-            count = 12
-            for e in range(200):
-                if e == 0:
-                     url = v[0]+str(0)+v[1]
-                else:   
-                    url = v[0]+str(count*e)+v[1]
+                for i in range (200):
+                     url = v+str(i+1)
+             
     
                 yield scrapy.Request(url, self.parse)
 
@@ -103,7 +110,7 @@ class CuraSpider(scrapy.Spider):
         count = 0
         item = CuracaoItem()
       
-        products = response.css('li')
+        products = response.css('li.item.product')
         for product in products:
             count = count +1
            
@@ -114,25 +121,29 @@ class CuraSpider(scrapy.Spider):
             item["_id"] = item["sku"]
             # item['_id'] = ObjectId()
      
-            item["brand"] = product.css('div.Manufacturer::text').get()
+            item["brand"] = product.css('span.brand-name::text').get()
             
-            item["product"] = product.css('a::attr(title)').get()
+            item["product"] =  product.css('a.product-item-link::text').get()
+            item["product"]  = item["product"].strip() if item["product"]  else None
+            
            
             item["link"] = product.css('a::attr(href)').get()
 
             try:
-                item["image"] = product.css('img::attr(data-src)').get()
+                item["image"] = product.css('div.product-image-container img.product-image-photo::attr(src)').get(),
                 item["image"] = 'https://www.lacuracao.pe'+item["image"]
             except:  item["image"] = None 
 
             try:
-                item["list_price"] = product.css('.old_price::text').get()
-                item["list_price"] =item["list_price"].strip().replace(",", "").replace("S/", "")
+                item["list_price"] = product.css('span.old-price span.price-container span.price-wrapper span.price::text').get(),
+                #item["list_price"] = product.css('.old_price::text').get()
+                item["list_price"] =item["list_price"].strip().replace(",", "").replace("S/", "").replace('\xa0', '').strip()
             except :item["list_price"]  = 0
 
             try:
-                item["best_price"] = product.css('#offerPriceValue::text').get()
-                item["best_price"] = item["best_price"].strip().replace(",", "").replace("S/", "")
+                item["best_price"] = product.css('span.special-price span.price-container span.price-wrapper span.price::text').get()
+                #item["best_price"] = product.css('#offerPriceValue::text').get()
+                item["best_price"] = item["best_price"].strip().replace(",", "").replace("S/", "").replace('\xa0', '').strip()
      
             except:
                 try:
@@ -145,11 +156,14 @@ class CuraSpider(scrapy.Spider):
       
          
             try:
-                if float(item["best_price"]) > 0:
-                            web_dsct = (float(item["best_price"]) * 100) / float(item["list_price"])
-                            # web_dsct = 100 - web_dsct
-                            web_dsct = str(round(web_dsct)).replace("-","")
-                item["web_dsct"]= 100- float(web_dsct)
+                item["web_dsct"] =  product.css('span.badge-label.show-pecentage.special-price-discount-label::text').get()
+
+                item["web_dsct"] =  item["web_dsct"].replace("%","").replace("-","")
+                # if float(item["best_price"]) > 0:
+                #             web_dsct = (float(item["best_price"]) * 100) / float(item["list_price"])
+                #             # web_dsct = 100 - web_dsct
+                #             web_dsct = str(round(web_dsct)).replace("-","")
+                # item["web_dsct"]= 100- float(web_dsct)
             except: item["web_dsct"]= 0
             
 

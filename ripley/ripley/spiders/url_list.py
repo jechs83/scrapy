@@ -79,9 +79,6 @@ list1 = [
     ("https://simple.ripley.com.pe/mejoramiento-del-hogar/pinturas-y-acabados/ver-todo-pintura-y-acabados?source=menu&page=",1146 ), #pintura
     ("https://simple.ripley.com.pe/mejoramiento-del-hogar/herramientas-manuales/ver-todo-herramientas-manuales?page=", 4642), #hermanie manuales
     ("https://simple.ripley.com.pe/mejoramiento-del-hogar/herramientas-electricas/ver-todo-herramientas-electricas?page=",2009 ), #herramientas electri
-    ("https://simple.ripley.com.pe/calzado/marcas-zapatillas/ver-todo?page=",6791), #todo zapatillas
-    ("https://simple.ripley.com.pe/calzado/zapatos-mujer/ver-todo?page=",5917), #zapatos mujer
-    ("https://simple.ripley.com.pe/calzado/zapatos-hombre/ver-todo?page=",3024,), #zapatos hombres
     ("https://simple.ripley.com.pe/calzado/zapatos-ninos-y-ninas/ver-todo?page=",2969), #ninios
     ("https://simple.ripley.com.pe/calzado/especiales/ver-todo-calzado?page=",1000), #todo calzado
     ("https://simple.ripley.com.pe/deporte/ropa-deportiva-mujer/ver-todo?page=",2181),# deporte mujer
@@ -615,4 +612,11 @@ list300 = [
     
 ]
 
-list400=[("https://simple.ripley.com.pe/calzado/especiales/ver-todo-calzado?page=", 16000)]
+list400=[  ("https://simple.ripley.com.pe/calzado/marcas-zapatillas/ver-todo?page=",6791), #todo zapatillas
+    ("https://simple.ripley.com.pe/calzado/zapatos-mujer/ver-todo?page=",5917), #zapatos mujer
+    ("https://simple.ripley.com.pe/calzado/zapatos-hombre/ver-todo?page=",3024,), #zapatos hombres
+]
+
+
+list500=[("https://simple.ripley.com.pe/hombre/marcas-casuales?source=menu&page=", 16000)]
+
