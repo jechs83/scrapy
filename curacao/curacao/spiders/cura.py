@@ -18,42 +18,6 @@ bot_token = '6594474232:AAF39jlHxRJepEaOYcxo9NZhe-pQgzl43lo'
 chat_id = "-960438482"
 
 
-def brand ():
-
-    db = client["brands"]
-    collection= db["tecno"]
-
-    t9 = collection.find({})
-
-    array_brand= []
-
-    for i in t9:
-        array_brand.append(i["brand"])
-    print(array_brand)
-    
-    return array_brand
-  
-
-    
-
-
-def send_telegram(message,foto, bot_token, chat_id):
-
-    if not foto:
-        foto="https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg"
-    
-    if len(foto)<=4:
-            foto="https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg"
-
-    response = requests.post(
-        
-        f'https://api.telegram.org/bot{bot_token}/sendPhoto',
-        data={'chat_id': chat_id, 'caption': str(message), "parse_mode": "HTML"},
-        files={'photo': requests.get(foto).content},
-    
-        )
-
-
 
 def load_datetime():
     
@@ -85,6 +49,17 @@ class CuraSpider(scrapy.Spider):
 
         elif u == 5:
                 urls = url_list.list5
+
+        elif u == 6:
+                
+                urls = url_list.list6
+        elif u == 7:
+                urls = url_list.list7
+        elif u == 8:
+                urls = url_list.list8
+
+        elif u ==9:
+                urls = url_list.list9
         elif u == 10:
                 urls = url_list.list10
         else:
@@ -99,11 +74,11 @@ class CuraSpider(scrapy.Spider):
         #         else:   
         #             url = v[0]+str(count*e)+v[1]
         for i, v in enumerate(urls):
-                for i in range (200):
-                     url = v+str(i+1)
-             
-    
-                yield scrapy.Request(url, self.parse)
+                for i in range (v[1]):
+                    url = v[0]+str(i+1)
+                    print(url)
+                
+                    yield scrapy.Request(url, self.parse)
 
 
     def parse(self, response):
@@ -114,7 +89,8 @@ class CuraSpider(scrapy.Spider):
         for product in products:
             count = count +1
            
-            item["sku"] = product.css("div.PartNumber::text").get()
+            item["sku"] = product.css('form.tocart-form::attr(data-product-sku)').extract_first()
+
            
           
             #item["_id"] = item["sku"]+str(load_datetime()[0])
@@ -130,18 +106,17 @@ class CuraSpider(scrapy.Spider):
             item["link"] = product.css('a::attr(href)').get()
 
             try:
-                item["image"] = product.css('div.product-image-container img.product-image-photo::attr(src)').get(),
-                item["image"] = 'https://www.lacuracao.pe'+item["image"]
+                item["image"] = product.css('span.product-image-wrapper img.product-image-photo::attr(src)').get()
             except:  item["image"] = None 
 
             try:
-                item["list_price"] = product.css('span.old-price span.price-container span.price-wrapper span.price::text').get(),
+                item["list_price"] = product.css('span.old-price span.price-wrapper span.price::text').get()
                 #item["list_price"] = product.css('.old_price::text').get()
                 item["list_price"] =item["list_price"].strip().replace(",", "").replace("S/", "").replace('\xa0', '').strip()
             except :item["list_price"]  = 0
 
             try:
-                item["best_price"] = product.css('span.special-price span.price-container span.price-wrapper span.price::text').get()
+                item["best_price"] = product.css('span.special-price span.price-wrapper span.price::text').get()
                 #item["best_price"] = product.css('#offerPriceValue::text').get()
                 item["best_price"] = item["best_price"].strip().replace(",", "").replace("S/", "").replace('\xa0', '').strip()
      
@@ -159,6 +134,7 @@ class CuraSpider(scrapy.Spider):
                 item["web_dsct"] =  product.css('span.badge-label.show-pecentage.special-price-discount-label::text').get()
 
                 item["web_dsct"] =  item["web_dsct"].replace("%","").replace("-","")
+                item["web_dsct"] = int(item["web_dsct"])
                 # if float(item["best_price"]) > 0:
                 #             web_dsct = (float(item["best_price"]) * 100) / float(item["list_price"])
                 #             # web_dsct = 100 - web_dsct
