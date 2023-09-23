@@ -1,12 +1,13 @@
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 13 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 14 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 15 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 16 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 17 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 18 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 19 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 20 demo
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 21 demo
+
+
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 100 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 200 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 300 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 400 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 1 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 2 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 3 ripley
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 4 ripley
 
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 1 curacao
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 2 curacao
