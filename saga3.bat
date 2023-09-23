@@ -11,3 +11,12 @@ start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 3 ripley
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 4 ripley
 
 
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 1 curacao
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 2 curacao
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 3 curacao
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 4 curacao
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 5 curacao
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 6 curacao
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 7 curacao
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 8 curacao
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 9 curacao
