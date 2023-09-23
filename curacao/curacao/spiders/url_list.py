@@ -96,3 +96,7 @@ list9=[
 ("https://www.lacuracao.pe/remate-final/remate-electrohogar-efe.html?p=",100),
 ("https://www.lacuracao.pe/remate-final/remate-tvyaudio-efe.html?p=",100),
 ]
+
+list10=[
+    
+]
