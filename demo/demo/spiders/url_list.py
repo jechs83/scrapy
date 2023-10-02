@@ -1,126 +1,78 @@
 # ELECTROHOGAR SAGA
-list1 = [("https://tienda.falabella.com.pe/falabella-pe/category/cat40662/Lavado?subdomain=tienda&page=",10),
-           ("https://tienda.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion?subdomain=tienda&page=",10),
-           ("https://tienda.falabella.com.pe/falabella-pe/category/cat40538/Cocina?subdomain=tienda&page=",10,),
-          ( "https://tienda.falabella.com.pe/falabella-pe/category/cat6370558/Electrodomesticos-de-Cocina?subdomain=tienda&page=",20),
-           ("https://tienda.falabella.com.pe/falabella-pe/category/cat40567/Tecnologia-para-la-Belleza?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",10),
-           ("https://tienda.falabella.com.pe/falabella-pe/category/cat40487/Aspirado-y-Limpieza?subdomain=tienda&page=",10),
-           ("https://tienda.falabella.com.pe/falabella-pe/category/cat11170486/Climatizacion?subdomain=tienda&page=",10),
-           ("https://tienda.falabella.com.pe/falabella-pe/category/cat3960464/Maquinas-de-Coser?subdomain=tienda&page=",10),
-           ]
+list1 = [
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40662/Lavado?subdomain=tienda&page=",10),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion?subdomain=tienda&page=",10),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40538/Cocina?subdomain=tienda&page=",10,),
+            ( "https://tienda.falabella.com.pe/falabella-pe/category/cat6370558/Electrodomesticos-de-Cocina?subdomain=tienda&page=",20),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40567/Tecnologia-para-la-Belleza?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",10),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40487/Aspirado-y-Limpieza?subdomain=tienda&page=",10),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat11170486/Climatizacion?subdomain=tienda&page=",10),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat3960464/Maquinas-de-Coser?subdomain=tienda&page=",10),
+        ]
 
 #    SAGA TECNOLOGIA
 list2=[
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat210477/TV-Televisores?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",10),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat760702/Telefonia?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",20),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat40812/Camaras-y-accesorios-de-fotografia?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",5),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat50678/Computadoras?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",25),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat40556/Videojuegos?facetSelected=true&f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",3),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat11190471/Domotica-y-Smart-Home?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",10),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat40488/Audio?f.derived.variant.sellerId=FALABELLA&isLanding=false%3FfacetSelected%3Dtrue&subdomain=tienda&page=",10),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat6370521/Linea-blanca?subdomain=tienda&page=",20),
-]
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat210477/TV-Televisores?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",10),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat760702/Telefonia?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",20),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40812/Camaras-y-accesorios-de-fotografia?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",5),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat50678/Computadoras?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",25),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40556/Videojuegos?facetSelected=true&f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",3),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat11190471/Domotica-y-Smart-Home?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",10),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40488/Audio?f.derived.variant.sellerId=FALABELLA&isLanding=false%3FfacetSelected%3Dtrue&subdomain=tienda&page=",10),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat6370521/Linea-blanca?subdomain=tienda&page=",20),
+        ]
 
-#    SAGA 
+#    SAGA  REVISAR ######
 list3 = [
-    
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat4100481/Moda-Hombre?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",50),
-    ("https://tienda.falabella.com.pe/falabella-pe/collection/ropa-interior-hombres?subdomain=tienda&page=",15),
-    ("https://tienda.falabella.com.pe/falabella-pe/collection/marcas-exclusivas-hombres-v2?subdomain=tienda&page=",15),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat7230497/Accesorios?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",55),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat7230497/Accesorios?subdomain=tienda&page=",55),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat7720465/Jeans-Hombre?subdomain=tienda&page=",10),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat4100482/Polos?subdomain=tienda&page=",18),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat13910467/Pantalones-y-Joggers?subdomain=tienda&page=",5),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat4100483/Camisas?subdomain=tienda&page=",10),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat4100486/Shorts-y-Bermudas?subdomain=tienda&page=",5),
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat4100481/Moda-Hombre?f.product.attribute.Tipo=Casacas%3A%3ACasacas+Jeans%3A%3ACasacas+jeans%3A%3AChompas%3A%3APolar%3A%3APoleras&facetSelected=true&subdomain=tienda&page=",10),
-   ("https://tienda.falabella.com.pe/falabella-pe/category/cat13870468/Sacos-y-Blazer?facetSelected=true&f.derived.variant.sellerId=FALABELLA&store=tienda&subdomain=tienda&page=",3)
-]
+
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat1470538/Zapatos?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",55),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat1470526/Zapatos-mujeres?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",110),
+            ("https://tienda.falabella.com.pe/falabella-pe/collection/zapatillas-deportivas?subdomain=tienda&page=",40),
+            ("https://tienda.falabella.com.pe/falabella-pe/collection/zapatos-ninos-retail?subdomain=tienda&page=",35),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat1470548/Zapatillas?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",110),
+        ]
+
+
 #    SAGA 
 list4 =[
 
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat1470538/Zapatos?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",55),
-     ("https://tienda.falabella.com.pe/falabella-pe/category/cat1470526/Zapatos-mujeres?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",110),
-      ("https://tienda.falabella.com.pe/falabella-pe/collection/zapatillas-deportivas?subdomain=tienda&page=",40),
-       ("https://tienda.falabella.com.pe/falabella-pe/collection/zapatos-ninos-retail?subdomain=tienda&page=",35),
-        ("https://tienda.falabella.com.pe/falabella-pe/category/cat1470548/Zapatillas?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",110),
-         
-]
+            ("https://tienda.falabella.com.pe/falabella-pe/category/CATG34943/Jugueteria?subdomain=tienda&page=",85 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat11850461/Juegos-de-exterior?subdomain=tienda&page=",18 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40497/Mundo-Bebe?subdomain=tienda&page=",70 ),
+        ]
+
+
 #    SAGA 
-list5=[
-("https://tienda.falabella.com.pe/falabella-pe/category/cat4100462/Moda-Mujer?f.derived.variant.sellerId=FALABELLA&isPLP=1%3FfacetSelected%3Dtrue&subdomain=tienda&page=",120),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat7720500/Ropa-interior-y-pijamas?subdomain=tienda&page=",45),
-("https://tienda.falabella.com.pe/falabella-pe/collection/j07todof?page=",170),
-("https://www.falabella.com.pe/falabella-pe/collection/j0411rdb22?isPLP=1?facetSelected=true&f.derived.variant.sellerId=FALABELLA&facetSelected=true&page=",3),
-("https://tienda.falabella.com.pe/falabella-pe/collection/denim-mujer?subdomain=tienda&page=",15),
-("https://www.falabella.com.pe/falabella-pe/collection/mundo-marcas-destacadas?f.derived.variant.sellerId=FALABELLA&facetSelected=true&page=",70),
-    
-]
-#    SAGA 
-list6 =[
-("https://tienda.falabella.com.pe/falabella-pe/category/cat7350564/Ropa-de-ninas?f.derived.variant.sellerId=FALABELLA&isPLP=1%3FfacetSelected%3Dtrue&subdomain=tienda&page=",45 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat7350562/Ropa-de-ninos?f.derived.variant.sellerId=FALABELLA&isPLP=1%3FfacetSelected%3Dtrue&subdomain=tienda&page=",40 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/CATG34943/Jugueteria?subdomain=tienda&page=",85 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat11850461/Juegos-de-exterior?subdomain=tienda&page=",18 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat40497/Mundo-Bebe?subdomain=tienda&page=",70 ),
-]
-#    SAGA 
-list7 =[
-("https://tienda.falabella.com.pe/falabella-pe/category/cat40727/Perfumes?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 35 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/CATG11985/Cuidado-de-la-piel?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 50 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat5130510/Cuidado-capilar?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 18 ),
-("https://tienda.falabella.com.pe/falabella-pe/collection/depilacion?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",3),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat11140487/Dermocosmetica?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 25 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat560663/Maquillaje?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 58 ),
-]
-#    SAGA 
-list8 = [
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat40700/Muebles?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 70 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat40474/Decoracion-e-iluminacion?subdomain=tienda&page=", 175 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat50684/Dormitorio?f.derived.variant.sellerId=FALABELLA&isPLP=1%3FfacetSelected%3Dtrue&subdomain=tienda&page=", 95 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat50588/Ropa-de-Cama?sid=FA_HO_MM_PD_DEC_5689&subdomain=tienda&page=", 18 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat40685/Menaje-Cocina?f.derived.variant.sellerId=FALABELLA&isPLP=1%3FfacetSelected%3Dtrue&subdomain=tienda&page=",60  ),
-]
-#    SAGA 
-list9 = [
-    ("https://tienda.falabella.com.pe/falabella-pe/category/cat6630630/Ropa-deportiva-mujer?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",18 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat6630655/Ropa-deportiva-hombre?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",25 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/cat40500/Bicicletas?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 8 ),
-("https://www.falabella.com.pe/falabella-pe/category/cat6630620/Fitness?f.derived.variant.sellerId=FALABELLA&facetSelected=true&page=", 10),
-("https://tienda.falabella.com.pe/falabella-pe/collection/outdoor?subdomain=tienda&page=", 15 ),
-("https://tienda.falabella.com.pe/falabella-pe/category/CATG33554/Deportes-Colectivos?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 8 ),
-]
+list5 = [
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40700/Muebles?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 70 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat50684/Dormitorio?f.derived.variant.sellerId=FALABELLA&isPLP=1%3FfacetSelected%3Dtrue&subdomain=tienda&page=", 95 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40500/Bicicletas?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 8 ),
+        ]
+
+
 # SODIMAC
-list10 =[
-    ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat7040499/Sala?subdomain=sodimac&page=",25 ),
+list6=[
+("https://sodimac.falabella.com.pe/sodimac-pe/category/cat7040499/Sala?subdomain=sodimac&page=",25 ),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40549/Muebles-de-comedor?subdomain=sodimac&page=",10 ),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat250473/Colchones?sid=SO_HO_BCA_76141?subdomain=sodimac&page=",5 ),
-("https://sodimac.falabella.com.pe/sodimac-pe/category/cat250473/Colchones?sid=SO_HO_BCA_76141&subdomain=sodimac&page=2", ),
+("https://sodimac.falabella.com.pe/sodimac-pe/category/cat250473/Colchones?sid=SO_HO_BCA_76141&subdomain=sodimac&page=2", 10),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG33777/Juego-de-dormitorio?sid=SO_HO_BCA_76141?subdomain=sodimac&page=",5 ),
-("https://sodimac.falabella.com.pe/sodimac-pe/collection/estilo-clasico?sid=SO_HO_BCA_76141&subdomain=sodimac&page=", 5),
-("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG15595/Camaras-de-Seguridad-Interiores?sid=SO_HO_BCA_75398&subdomain=sodimac&page=", 28 ),
-("https://sodimac.falabella.com.pe/sodimac-pe/collection/estilo-ejecutivo?sid=SO_HO_BCA_76141&subdomain=sodimac&page=",10 ),
-("https://sodimac.falabella.com.pe/sodimac-pe/collection/estilo-nordico?sid=SO_HO_BCA_76141&subdomain=sodimac&page=",5 ),
-("https://sodimac.falabella.com.pe/sodimac-pe/collection/estilo-boho?sid=SO_HO_BCA_76141?subdomain=sodimac&page=",3 ),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat250477/Camas?sid=SO_HO_BCA_76141&subdomain=sodimac&page=",4 ),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG33777/Juego-de-dormitorio?subdomain=sodimac&page=",3),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat250473/Colchones?subdomain=sodimac&page=", 4),
 ]
 # SODIMAC
-list11 =[
+list7 =[
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG11988/Bano?subdomain=sodimac&page=",18 ),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG11989/Cocina?subdomain=sodimac&page=",9 ),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat6370521/Linea-blanca?subdomain=sodimac&page=", 18),
-("https://sodimac.falabella.com.pe/sodimac-pe/category/cat1450466/Menaje-Comedor?subdomain=sodimac&page=",15 ),
-("https://sodimac.falabella.com.pe/sodimac-pe/category/cat13920465/Utiles-de-aseo-y-limpieza?subdomain=sodimac&page=",23 ),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40793/Tecnologia?subdomain=sodimac&page=",39 ),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat6370558/Electrodomesticos-de-Cocina?subdomain=sodimac&page=",10),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat11170486/Climatizacion?subdomain=sodimac&page=",8 ),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat11190471/Domotica-y-Smart-Home?subdomain=sodimac&page=", 30 )
 ]
 # SODIMAC
-list12=[
+list8=[
     ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG14444/Herramientas-electricas-e-inalambricas?subdomain=sodimac&page=", 40),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG15004/Accesorios-de-Herramientas-electricas?subdomain=sodimac&page=",30 ),
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG14441/Maquinarias-y-complementos?subdomain=sodimac&page=",10 ),
@@ -130,7 +82,7 @@ list12=[
 ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG14440/Cajas-de-herramientas-y-organizadores?subdomain=sodimac&page=",10 ),
 ]
 # TOTTUS
-list13 = [
+list9 = [
     ("https://tottus.falabella.com.pe/tottus-pe/category/cat210477/TV-Televisores?subdomain=tottus&page=", 10 ),
      ("https://tottus.falabella.com.pe/tottus-pe/category/cat50678/Computadoras?subdomain=tottus&page=",10 ),
      ("https://tottus.falabella.com.pe/tottus-pe/category/cat760702/Telefonia?subdomain=tottus&page=",10 ),
@@ -146,7 +98,7 @@ list13 = [
      ("https://tottus.falabella.com.pe/tottus-pe/category/cat40488/Audio?subdomain=tottus&page=",10 ),
 ]
 # TOTTUS
-list14 =[
+list10 =[
     
     ("https://tottus.falabella.com.pe/tottus-pe/category/cat40700/Muebles?subdomain=tottus&page=", 15),
 ("https://tottus.falabella.com.pe/tottus-pe/collection/full-casa-tottus-set-2023?subdomain=tottus&page=",10 ),
@@ -157,7 +109,7 @@ list14 =[
 ("https://tottus.falabella.com.pe/tottus-pe/category/CATG11949/Libros--papeleria-y-celebraciones?subdomain=tottus&page=",30 ),
 ]
 # TOTTUS
-list15 =[
+list11=[
      ("https://www.falabella.com.pe/falabella-pe/category/cat40584/Electrohogar?page=",200),
     ("https://tottus.falabella.com.pe/tottus-pe/category/cat6630576/Camping?subdomain=tottus&page=", 10),
 ("https://tottus.falabella.com.pe/tottus-pe/category/cat40500/Bicicletas?subdomain=tottus&page=", 10),
@@ -168,15 +120,14 @@ list15 =[
 
 
 #saga cfompelto
-list16 =[
-    ("https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion?page=",35),
+list12 =[
+("https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion?page=",35),
 ("https://www.falabella.com.pe/falabella-pe/category/cat40538/Cocina?page=",50),
 ("https://www.falabella.com.pe/falabella-pe/category/cat11170486/Climatizacion?page=",35),
 ("https://www.falabella.com.pe/falabella-pe/category/cat40662/Lavado?page=",40),
 ("https://www.falabella.com.pe/falabella-pe/category/cat3960464/Maquinas-de-Coser?page=",20),
 ("https://www.falabella.com.pe/falabella-pe/category/cat40487/Aspirado-y-Limpieza?page=",40),
 ("https://www.falabella.com.pe/falabella-pe/category/cat40567/Tecnologia-para-la-Belleza?page=",130),
-
 ("https://www.falabella.com.pe/falabella-pe/category/cat7480478/Batidoras?page=",40),
 ("https://www.falabella.com.pe/falabella-pe/category/cat40508/Cafeteras?page=",25),
 ("https://www.falabella.com.pe/falabella-pe/category/cat6370566/Cocina-Entretenida?page=",35),
@@ -194,8 +145,8 @@ list16 =[
 ("https://www.falabella.com.pe/falabella-pe/category/cat40807/Tostadores-Electricos?page=",10),
 ]
 
-list17 = [
-    ("https://www.falabella.com.pe/falabella-pe/category/cat210477/TV-Televisores?page=",140),
+list13= [
+("https://www.falabella.com.pe/falabella-pe/category/cat210477/TV-Televisores?page=",140),
 ("https://www.falabella.com.pe/falabella-pe/category/cat40556/Videojuegos?page=",92),
 ("https://www.falabella.com.pe/falabella-pe/category/cat11190471/Domotica-y-Smart-Home?page=",170),
 ("https://www.falabella.com.pe/falabella-pe/category/cat40812/Fotografia?page=",81),
@@ -230,7 +181,7 @@ list17 = [
 
 ]
 
-list18 =[
+list14 =[
 ("https://www.falabella.com.pe/falabella-pe/category/cat4100470/Vestidos-y-enterizos?page=",65),
 ("https://www.falabella.com.pe/falabella-pe/collection/jeans-vestuario-mujer?page=",15),
 ("https://www.falabella.com.pe/falabella-pe/category/cat4100473/Pantalones-y-Joggers?page=",70),
@@ -250,7 +201,7 @@ list18 =[
 ("https://www.falabella.com.pe/falabella-pe/category/cat7720500/Ropa-interior-y-pijamas?page=",120),
 ]
 
-list19 =[("https://www.falabella.com.pe/falabella-pe/category/cat4100482/Polos?page=",200),
+list15 =[("https://www.falabella.com.pe/falabella-pe/category/cat4100482/Polos?page=",200),
 ("https://www.falabella.com.pe/falabella-pe/category/cat4100483/Camisas?page=",17),
 ("https://www.falabella.com.pe/falabella-pe/category/cat7720465/Jeans-Hombre?page=",10),
 ("https://www.falabella.com.pe/falabella-pe/category/cat13910467/Pantalones-y-Joggers?page=",13),
@@ -273,7 +224,7 @@ list19 =[("https://www.falabella.com.pe/falabella-pe/category/cat4100482/Polos?p
 
 ]
 
-list20=[
+list16=[
 
 ("https://www.falabella.com.pe/falabella-pe/category/cat50590/Juegos-de-Comedor?page=",20),
 ("https://www.falabella.com.pe/falabella-pe/category/cat40798/Muebles-de-terraza?page=",13),
@@ -294,7 +245,7 @@ list20=[
 ("https://www.falabella.com.pe/falabella-pe/category/cat50579/Juegos-de-Sala?page=",25),
 ]
 
-list21 =[
+list17 =[
 ("https://www.falabella.com.pe/falabella-pe/category/cat250473/Colchones?page=",25),
 ("https://www.falabella.com.pe/falabella-pe/category/CATG33777/Juego-de-dormitorio?page=",35),
 ("https://www.falabella.com.pe/falabella-pe/category/cat50588/Ropa-de-Cama?page=",110),
@@ -309,7 +260,7 @@ list21 =[
 ("https://www.falabella.com.pe/falabella-pe/category/cat50684/Dormitorio?f.product.attribute.Tamaño_de_la_cama=Queen&facetSelected=true&sid=LP_MC_CQU_1297&page=",35),
 ("https://www.falabella.com.pe/falabella-pe/category/cat50684/Dormitorio?f.product.attribute.Tamaño_de_la_cama=King&facetSelected=true&sid=LP_MC_CKI_1298&page=",35),
 ]
-list22 =[
+list18 =[
 ("https://www.falabella.com.pe/falabella-pe/category/cat7350564/Ropa-de-ninas?page=",90),
 ("https://www.falabella.com.pe/falabella-pe/category/cat6630545/Zapatos-Nina?page=",40),
 ("https://www.falabella.com.pe/falabella-pe/category/cat6630546/Zapatos-Nino?page=",35),
@@ -339,7 +290,7 @@ list22 =[
 ("https://www.falabella.com.pe/falabella-pe/category/cat11810553/Triciclos--patines--scooters-y-montables?pag=",10),
 ("https://www.falabella.com.pe/falabella-pe/category/cat7350546/Triciclos-y-correpasillos?page=",30),
 ]
-list23 =[
+list19 =[
 ("https://www.falabella.com.pe/falabella-pe/category/cat40500/Bicicletas?page=",30),
 ("https://www.falabella.com.pe/falabella-pe/category/cat6630620/Fitness?page=",90),
 ("https://www.falabella.com.pe/falabella-pe/category/CATG33554/Deportes-Colectivos?page=",45),
@@ -357,6 +308,58 @@ list1000=[
 ("https://www.falabella.com.pe/falabella-pe/category/cat1470530/Sandalias-mujeres?page=",75),
 ("https://www.falabella.com.pe/falabella-pe/category/cat4220604/Carteras?page=",55),
 
+
+
+]
+
+
+#    SAGA   GENERAL
+list4 =[
+
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat4100481/Moda-Hombre?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",50),
+            ("https://tienda.falabella.com.pe/falabella-pe/collection/ropa-interior-hombres?subdomain=tienda&page=",15),
+            ("https://tienda.falabella.com.pe/falabella-pe/collection/marcas-exclusivas-hombres-v2?subdomain=tienda&page=",15),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat7230497/Accesorios?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",55),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat7230497/Accesorios?subdomain=tienda&page=",55),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat7720465/Jeans-Hombre?subdomain=tienda&page=",10),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat4100482/Polos?subdomain=tienda&page=",18),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat13910467/Pantalones-y-Joggers?subdomain=tienda&page=",5),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat4100483/Camisas?subdomain=tienda&page=",10),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat4100486/Shorts-y-Bermudas?subdomain=tienda&page=",5),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat4100481/Moda-Hombre?f.product.attribute.Tipo=Casacas%3A%3ACasacas+Jeans%3A%3ACasacas+jeans%3A%3AChompas%3A%3APolar%3A%3APoleras&facetSelected=true&subdomain=tienda&page=",10),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat13870468/Sacos-y-Blazer?facetSelected=true&f.derived.variant.sellerId=FALABELLA&store=tienda&subdomain=tienda&page=",3),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat4100462/Moda-Mujer?f.derived.variant.sellerId=FALABELLA&isPLP=1%3FfacetSelected%3Dtrue&subdomain=tienda&page=",120),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat7720500/Ropa-interior-y-pijamas?subdomain=tienda&page=",45),
+            ("https://tienda.falabella.com.pe/falabella-pe/collection/j07todof?page=",170),
+            ("https://www.falabella.com.pe/falabella-pe/collection/j0411rdb22?isPLP=1?facetSelected=true&f.derived.variant.sellerId=FALABELLA&facetSelected=true&page=",3),
+            ("https://tienda.falabella.com.pe/falabella-pe/collection/denim-mujer?subdomain=tienda&page=",15),
+            ("https://www.falabella.com.pe/falabella-pe/collection/mundo-marcas-destacadas?f.derived.variant.sellerId=FALABELLA&facetSelected=true&page=",70),
+
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat7350564/Ropa-de-ninas?f.derived.variant.sellerId=FALABELLA&isPLP=1%3FfacetSelected%3Dtrue&subdomain=tienda&page=",45 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat7350562/Ropa-de-ninos?f.derived.variant.sellerId=FALABELLA&isPLP=1%3FfacetSelected%3Dtrue&subdomain=tienda&page=",40 ),
+
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40727/Perfumes?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 35 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/CATG11985/Cuidado-de-la-piel?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 50 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat5130510/Cuidado-capilar?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 18 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/collection/depilacion?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",3),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat11140487/Dermocosmetica?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 25 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat560663/Maquillaje?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 58 ),
+
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40685/Menaje-Cocina?f.derived.variant.sellerId=FALABELLA&isPLP=1%3FfacetSelected%3Dtrue&subdomain=tienda&page=",60  ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40474/Decoracion-e-iluminacion?subdomain=tienda&page=", 175 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat50588/Ropa-de-Cama?sid=FA_HO_MM_PD_DEC_5689&subdomain=tienda&page=", 18 ),
+                        ("https://tienda.falabella.com.pe/falabella-pe/category/cat6630630/Ropa-deportiva-mujer?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",18 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/cat6630655/Ropa-deportiva-hombre?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",25 ),
+            ("https://www.falabella.com.pe/falabella-pe/category/cat6630620/Fitness?f.derived.variant.sellerId=FALABELLA&facetSelected=true&page=", 10),
+            ("https://tienda.falabella.com.pe/falabella-pe/collection/outdoor?subdomain=tienda&page=", 15 ),
+            ("https://tienda.falabella.com.pe/falabella-pe/category/CATG33554/Deportes-Colectivos?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=", 8 ),
+            ("https://sodimac.falabella.com.pe/sodimac-pe/collection/estilo-clasico?sid=SO_HO_BCA_76141&subdomain=sodimac&page=", 5),
+            ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG15595/Camaras-de-Seguridad-Interiores?sid=SO_HO_BCA_75398&subdomain=sodimac&page=", 28 ),
+            ("https://sodimac.falabella.com.pe/sodimac-pe/collection/estilo-ejecutivo?sid=SO_HO_BCA_76141&subdomain=sodimac&page=",10 ),
+            ("https://sodimac.falabella.com.pe/sodimac-pe/collection/estilo-nordico?sid=SO_HO_BCA_76141&subdomain=sodimac&page=",5 ),
+            ("https://sodimac.falabella.com.pe/sodimac-pe/collection/estilo-boho?sid=SO_HO_BCA_76141?subdomain=sodimac&page=",3 ),
+            ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat1450466/Menaje-Comedor?subdomain=sodimac&page=",15 ),
+("https://sodimac.falabella.com.pe/sodimac-pe/category/cat13920465/Utiles-de-aseo-y-limpieza?subdomain=sodimac&page=",23 ),
 
 
 ]
