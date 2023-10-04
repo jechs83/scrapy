@@ -6,7 +6,7 @@ from ripley.items import RipleyItem
 from datetime import datetime
 from datetime import date
 import random
-
+import uuid
 
 def load_datetime():
     
@@ -110,6 +110,8 @@ class RippleScrapSpider(scrapy.Spider):
                 item["sku"] = item["sku"][:-1]
 
                 item["_id"] =  item["sku"]+str(load_datetime()[0])
+                item["_id"] :str(uuid.uuid4())
+
                 
                 try:
                     item["web_dsct"] = round(float(i.css(".catalog-product-details__discount-tag::text").get().replace("-", "").replace("%", "")))

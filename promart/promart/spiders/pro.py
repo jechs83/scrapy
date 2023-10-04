@@ -4,7 +4,7 @@ from promart.items import PromartItem
 from datetime import datetime
 from datetime import date
 from promart.spiders import url_list 
-
+import uuid
 from telegram import Bot
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
@@ -110,7 +110,9 @@ class ProSpider(scrapy.Spider):
             item["sku"] = i.css("div::attr(data-id)").get()
             if  item["sku"] == None:
                  continue
-            item["_id"] =  item["sku"]+str(load_datetime()[0])
+            #item["_id"] =  item["sku"]+str(load_datetime()[0])
+            item["_id"] :str(uuid.uuid4())
+
             item["brand"]= i.css("div.brand.js-brand p::text").get()
             item["product"] =i.css("input.insert-sku-quantity::attr(title)").get()
             item["link"] =i.css("a.prod-det-enlace::attr(href)").get()

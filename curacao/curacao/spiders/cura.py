@@ -13,6 +13,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 import requests
 from pymongo import MongoClient
 from decouple import config
+import uuid
 client = MongoClient(config("MONGO_DB"))
 bot_token = '6594474232:AAF39jlHxRJepEaOYcxo9NZhe-pQgzl43lo'
 chat_id = "-960438482"
@@ -94,8 +95,8 @@ class CuraSpider(scrapy.Spider):
            
           
             #item["_id"] = item["sku"]+str(load_datetime()[0])
-            item["_id"] = item["sku"]
-            # item['_id'] = ObjectId()
+            #item["_id"] = item["sku"]
+            item["_id"] :str(uuid.uuid4())
      
             item["brand"] = product.css('span.brand-name::text').get()
             

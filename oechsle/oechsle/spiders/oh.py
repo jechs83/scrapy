@@ -4,7 +4,7 @@ from oechsle.items import OechsleItem
 from datetime import datetime
 from datetime import date
 from oechsle.spiders import url_list 
-
+import uuid
 from telegram import Bot
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
@@ -104,7 +104,9 @@ class OhSpider(scrapy.Spider):
             item["sku"] = i.css("div.product.instock::attr(data-id)").get()
             if  item["sku"] == None:
                  continue
-            item["_id"] =  item["sku"]+str(load_datetime()[0])
+            #item["_id"] =  item["sku"]+str(load_datetime()[0])
+            item["_id"] :str(uuid.uuid4())
+
             item["brand"]= i.css("div.product.instock::attr(data-brand)").get()
             item["product"] =i.css("div.product.instock::attr(data-name)").get()
             item["link"] =i.css("div.product.instock::attr(data-link)").get()

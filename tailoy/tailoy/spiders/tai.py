@@ -7,7 +7,7 @@ from datetime import date
 from tailoy.settings import ROTATING_PROXY_LIST
 from tailoy.spiders import url_list
 import time
-
+import uuid
 from telegram import Bot
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
@@ -154,7 +154,11 @@ class TaiSpider(scrapy.Spider):
 
             item["sku"]= i.css("div.price-box.price-final_price::attr(data-product-id)").get()
             item["_id"] =i.css("div.price-box.price-final_price::attr(data-product-id)").get()
-            item["_id"] =  item["sku"]+str(load_datetime()[0])
+            #item["_id"] =  item["sku"]+str(load_datetime()[0])
+            item["_id"] :str(uuid.uuid4())
+          
+
+
             
             item["link"] = i.css("a::attr(href)").get()
             item["brand"] = i.css("div.brand-label  span::text").get()

@@ -132,6 +132,11 @@ class SagaSpider(scrapy.Spider):
                 item["home_list"] = response.url
                 item["card_dsct"] = 0
 
+                # item["date"]= "06/10/2023"
+                # item["card_price"] = 90
+                # item["list_price"] = 120
+                # item["best_price"] = 100
+
 
                 yield item
 
