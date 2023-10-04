@@ -195,7 +195,7 @@ class TaiSpider(scrapy.Spider):
             item["market"]= "tailoy"
             item["date"] =load_datetime()[0]
             item["time"] = load_datetime()[1]
-            item["home_list"] = "https://www.tailoy.com.pe/"
+            item["home_list"] = response.url
             item["card_price"] = 0
             item["card_dsct"] = 0
 

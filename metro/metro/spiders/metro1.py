@@ -126,7 +126,7 @@ class Metro1Spider(scrapy.Spider):
             item["market"] = str("metro") # COLECCION
             item["date"] = load_datetime()[0]
             item["time"]= load_datetime()[1]
-            item["home_list"] = "http://metro.pe/"
+            item["home_list"] = response.url
             item["card_price"] =0
             item["card_dsct"] = 0
 

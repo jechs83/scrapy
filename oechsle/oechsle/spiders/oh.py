@@ -136,7 +136,7 @@ class OhSpider(scrapy.Spider):
             else: item["web_dsct"]  = 0
 
            
-            item["home_list"]="https://wwww.oechsle.com.pe"
+            item["home_list"]=response.url
             item["card_dsct"] = 0
             item["card_price"] = 0 
             item["market"]= "oechsle"  # COLECCION

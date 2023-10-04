@@ -129,7 +129,7 @@ class VeaSpider(scrapy.Spider):
                 item["web_dsct"] =round((item["web_dsct"]))
             if  item["web_dsct"] == 100:
                  item["web_dsct"] = 0
-            item["home_list"]="https://wwww.plazavea.com.pe"
+            item["home_list"]=response.url
             item["card_dsct"] = 0
             item["card_price"] = 0 
             item["market"]= "plazavea"  # COLECCION

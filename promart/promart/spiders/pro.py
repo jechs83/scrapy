@@ -173,7 +173,7 @@ class ProSpider(scrapy.Spider):
             
 
            
-            item["home_list"]="https://wwww.promart.pe"
+            item["home_list"]=response.url
             item["card_dsct"] = 0
             item["card_price"] = 0 
             item["market"]= "promart"  # COLECCION
