@@ -88,7 +88,7 @@ class SagaSpider(scrapy.Spider):
                 item["product"]=  i["displayName"]
 
                 item["sku"] = i["skuId"]
-                item["_id"] = i["skuId"]+str(load_datetime()[0])
+                item["_id"] = i["skuId"]#+str(load_datetime()[0])
 
                 try:
                  item["best_price"] = float(i["prices"][1]["price"][0].replace(",",""))
@@ -127,7 +127,15 @@ class SagaSpider(scrapy.Spider):
                 item["date"]= load_datetime()[0]
                 item["time"]= load_datetime()[1]
                 item["home_list"] = "https://www.falabella.com.pe/"
-                item["card_dsct"] = 0        
+                item["card_dsct"] = 0
+
+                item["list_price"]     = 113
+                item["best_price"]  = 93
+                item["card_price"] = 83
+                # item["date"] = "03/10/2023"
+
+
+
                 yield item
 
             

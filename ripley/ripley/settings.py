@@ -104,19 +104,3 @@ CONCURRENT_REQUESTS = 32
 
 # settings.py
 
-
-DOWNLOADER_MIDDLEWARES = {
-    # ...
-    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
-    'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
-    # ...
-}
-
-# Optionally, set a delay for rotating the proxies (in seconds)
-ROTATING_PROXY_PAGE_RETRY_TIMES = 5
-
-# Configure the list of proxies
-## settings.py
-
-
-PROXY_API_KEY = "f7aed039e7ad4e900914c5fbdb37b97c"

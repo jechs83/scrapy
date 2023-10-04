@@ -1,7 +1,34 @@
 ripley_tec = "https://simple.ripley.com.pe/"
 ripley2="?source=menu&page="
 
-list1 = [
+list1 =[
+    ("https://simple.ripley.com.pe/tecnologia/videojuegos/ver-todo?source=menu&page=",3200 ),
+    ("https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/ver-todo?page=", 1000),
+    ("https://simple.ripley.com.pe/tecnologia/celulares/celulares-y-smartphones?s=mdco&page=", 1900),
+    ("https://simple.ripley.com.pe/tecnologia/computacion/ver-todo-laptops?page=",800),
+    ("https://simple.ripley.com.pe/tecnologia/computacion-gamer/ver-todo?page=",400 ),
+    ("https://simple.ripley.com.pe/tecnologia/audio/ver-todo?page=",1400 ),
+    ("https://simple.ripley.com.pe/tecnologia/smart-home/ver-todo?source=menu&page=",200 ),
+    ("https://simple.ripley.com.pe/tecnologia/camara-de-fotos/ver-todo?source=menu&page=",1200 ),
+
+]
+
+list2 =[
+ ("https://simple.ripley.com.pe/electrohogar/refrigeracion/refrigeradoras?source=menu&page=",520 ),
+    ("https://simple.ripley.com.pe/electrohogar/lavado/lavadoras?source=menu&page=",240 ),
+    ("https://simple.ripley.com.pe/electrohogar/electrodomesticos/ver-todo?page=",1000 ), 
+    ("https://simple.ripley.com.pe/electrohogar/cocina/cocinas-de-pie?source=menu&page=",600 ),
+    ("https://simple.ripley.com.pe/electrohogar/cuidado-personal/ver-todo?page=",450 ),
+    ("https://simple.ripley.com.pe/electrohogar/aspiradoras/ver-todo?page=",450 ), 
+    ("https://simple.ripley.com.pe/electrohogar/climatizacion/ver-todo?page=",650 ),
+ 
+]
+
+list3 = [
+    ("https://simple.ripley.com.pe/calzado/especiales/ver-todo-calzado?page=",10000)
+    ]
+
+list00 = [
                  ("https://simple.ripley.com.pe/tecnologia/celulares/celulares-y-smartphones?source=menu&page=",1700),
                   ("https://simple.ripley.com.pe/tecnologia/celulares/smartwatch-y-wearables?source=menu&page=",2050),
                    ("https://simple.ripley.com.pe/tecnologia/celulares/cases-y-protectores?source=menu&page=",10300),
@@ -91,7 +118,7 @@ list1 = [
     ("https://simple.ripley.com.pe/deporte/accesorios-y-ropa-deportiva/ver-todo?s=mdco&page=",1000),#aceoriso deprote ropa
     ]
 
-list2 =[
+list000 =[
     ("https://simple.ripley.com.pe/mujer/ropa-mujer/ver-todo?page=",9189), # todo mujer
     ("https://simple.ripley.com.pe/mujer/lenceria-y-ropa-interior/ver-todo?page=",2232), #lenceria
     ("https://simple.ripley.com.pe/mujer/ropa-de-bano/ver-todo?page=",1661), # ropa banio
@@ -143,7 +170,7 @@ list2 =[
 ]
 
 
-list3 = [
+list300 = [
 
 ("https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/televisores?source=menu&page=",800),
  ("https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/soundbar-y-home-theater?s=mdco&orderBy=sequence&page=",40 ),

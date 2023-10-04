@@ -2,54 +2,10 @@ import scrapy
 import time
 from ripley.spiders import url_list 
 import scrapy
-import json
 from ripley.items import RipleyItem
 from datetime import datetime
 from datetime import date
-import requests
 import random
-from telegram import Bot
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
-import requests
-from pymongo import MongoClient
-from decouple import config
-client = MongoClient(config("MONGO_DB"))
-bot_token = '6594474232:AAF39jlHxRJepEaOYcxo9NZhe-pQgzl43lo'
-chat_id = "-960438482"
-
-
-def brand ():
-
-    db = client["brands"]
-    collection= db["tecno"]
-
-    t9 = collection.find({})
-
-    array_brand= []
-
-    for i in t9:
-        array_brand.append(i["brand"])
-    print(array_brand)
-    
-    return array_brand
-  
-
-def random_proxy():
-         
-         list =["190.116.56.34:999","190.116.56.34" 
-                "8.243.97.110:999"		,	"8.243.97.110" ,
-                "179.43.94.238:999"	,	
-                "38.7.101.162:999",		
-                "179.43.96.178:8080"	,
-                "179.43.96.178:80",
-                "45.169.92.148:999"	,	
-                "190.12.95.170:47029",
-                "45.169.92.149:999",
-                "179.60.204.156:80"]
-         proxy =   random.choice(list)
-         return proxy
-
 
 
 def load_datetime():
@@ -62,10 +18,21 @@ def load_datetime():
 
 class RippleScrapSpider(scrapy.Spider):
     name = "ripley_scrap"
-    allowed_domains = ["ripley.com.pe"]
 
-    PROXY_API_KEY = 'f7aed039e7ad4e900914c5fbdb37b97c'
+    user_agents = [
 
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
+        "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/80.0.361.62",
+        "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71",
+        "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121",
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140",
+        # Add more user-agent strings here
+    ]
+    
     links =[]
     def start_requests(self):
         u = int(getattr(self, 'u', '0'))
@@ -99,8 +66,14 @@ class RippleScrapSpider(scrapy.Spider):
 
         for i, v in enumerate(urls):
             for e in range((round(v[1]/48)+1)):
-                url = v[0] + str(e + 1)           
-                yield scrapy.Request(url, self.parse)
+                url = v[0] + str(e + 1)      
+                # Select a random user-agent
+                user_agent = random.choice(self.user_agents)
+
+                headers = {'User-Agent': user_agent}
+
+                yield scrapy.Request(url, self.parse, headers=headers   )
+                #yield scrapy.Request(url, self.parse)
 
                 # proxy = random_proxy()
             
@@ -109,15 +82,7 @@ class RippleScrapSpider(scrapy.Spider):
                 # # Use the obtained proxy in the request
                 # yield scrapy.Request(url, self.parse, meta={'proxy': proxy})
 
-                
-
-  
-        
-         
-
-        #
-
-
+            
     def parse(self, response):
             item = RipleyItem()
             productos = response.css("div.catalog-product-item.catalog-product-item__container.col-xs-6.col-sm-6.col-md-4.col-lg-4")
@@ -176,35 +141,7 @@ class RippleScrapSpider(scrapy.Spider):
                 item["market"]= "ripley"
                 item["date"]= load_datetime()[0]
                 item["time"]= load_datetime()[1]
-                item["home_list"] = "https://www.ripley.com.pe/"
-
-
-                # element = item["brand"]
-                # if item["web_dsct"]>= 70 and   any(item.lower() == element.lower() for item in brand()):
-                
-                #     if  item["card_price"] == 0:
-                #          card_price = ""
-                #     else:
-                #         card_price = '\n👉Precio Tarjeta :'+str(item["card_price"])
-
-                #     if item["list_price"] == 0:
-                #             list_price = ""
-                #     else:
-                #         list_price = '\n\n➡️Precio Lista :'+str(item["list_price"])
-
-                #     if item["web_dsct"] <= 50:
-                #         dsct = "🟡"
-                #     if item["web_dsct"] > 50 and item["web_dsct"]  <=69:
-                #         dsct = "🟢"
-                #     if item["web_dsct"] >=70:
-                #         dsct = "🔥🔥🔥🔥🔥"
-
-                #     message =  "✅Marca: "+str(item["brand"])+"\n✅"+str(item["product"])+list_price+"\n👉Precio web :"+str(item["best_price"])+card_price+"\n"+dsct+"Descuento: "+"% "+str(item["web_dsct"])+"\n"+"\n\n⌛"+item["date"]+" "+ item["time"]+"\n🔗Link :"+str(item["link"])+"\n🏠home web:"+item["home_list"]+"\n\n◀️◀️◀️◀️◀️◀️◀️▶️▶️▶️▶️▶️▶️"
-                #     foto = item["image"]
-
-                #     send_telegram(message,foto, bot_token, chat_id)
-
-            
+                item["home_list"] = "https://www.ripley.com.pe/"        
             
                 yield item
 

@@ -1,13 +1,13 @@
 # ELECTROHOGAR SAGA
 list1 = [
             ("https://tienda.falabella.com.pe/falabella-pe/category/cat40662/Lavado?subdomain=tienda&page=",10),
-            ("https://tienda.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion?subdomain=tienda&page=",10),
-            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40538/Cocina?subdomain=tienda&page=",10,),
-            ( "https://tienda.falabella.com.pe/falabella-pe/category/cat6370558/Electrodomesticos-de-Cocina?subdomain=tienda&page=",20),
-            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40567/Tecnologia-para-la-Belleza?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",10),
-            ("https://tienda.falabella.com.pe/falabella-pe/category/cat40487/Aspirado-y-Limpieza?subdomain=tienda&page=",10),
-            ("https://tienda.falabella.com.pe/falabella-pe/category/cat11170486/Climatizacion?subdomain=tienda&page=",10),
-            ("https://tienda.falabella.com.pe/falabella-pe/category/cat3960464/Maquinas-de-Coser?subdomain=tienda&page=",10),
+            # ("https://tienda.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion?subdomain=tienda&page=",10),
+            # ("https://tienda.falabella.com.pe/falabella-pe/category/cat40538/Cocina?subdomain=tienda&page=",10,),
+            # ( "https://tienda.falabella.com.pe/falabella-pe/category/cat6370558/Electrodomesticos-de-Cocina?subdomain=tienda&page=",20),
+            # ("https://tienda.falabella.com.pe/falabella-pe/category/cat40567/Tecnologia-para-la-Belleza?f.derived.variant.sellerId=FALABELLA&facetSelected=true&subdomain=tienda&page=",10),
+            # ("https://tienda.falabella.com.pe/falabella-pe/category/cat40487/Aspirado-y-Limpieza?subdomain=tienda&page=",10),
+            # ("https://tienda.falabella.com.pe/falabella-pe/category/cat11170486/Climatizacion?subdomain=tienda&page=",10),
+            # ("https://tienda.falabella.com.pe/falabella-pe/category/cat3960464/Maquinas-de-Coser?subdomain=tienda&page=",10),
         ]
 
 #    SAGA TECNOLOGIA
