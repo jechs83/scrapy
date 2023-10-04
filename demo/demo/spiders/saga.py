@@ -4,6 +4,8 @@ from demo.items import DemoItem
 from datetime import datetime
 from datetime import date
 from  demo.spiders import url_list 
+import uuid
+
 
 
 def load_datetime():
@@ -88,7 +90,8 @@ class SagaSpider(scrapy.Spider):
                 item["product"]=  i["displayName"]
 
                 item["sku"] = i["skuId"]
-                item["_id"] = i["skuId"]#+str(load_datetime()[0])
+                #item["_id"] = i["skuId"]#+str(load_datetime()[0])
+                item["_id"] :str(uuid.uuid4())
 
                 try:
                  item["best_price"] = float(i["prices"][1]["price"][0].replace(",",""))
@@ -126,40 +129,12 @@ class SagaSpider(scrapy.Spider):
 
                 item["date"]= load_datetime()[0]
                 item["time"]= load_datetime()[1]
-                item["home_list"] = "https://www.falabella.com.pe/"
+                item["home_list"] = response.url
                 item["card_dsct"] = 0
-
-                item["list_price"]     = 113
-                item["best_price"]  = 93
-                item["card_price"] = 83
-                # item["date"] = "03/10/2023"
-
 
 
                 yield item
 
             
-            
-            # Process the JSON data as needed
-            # For example, you can extract product information, prices, etc.
-            # ...
 
-        # Find the next page URL and continue scraping the next page
-#                 next_page_url = self.get_next_page_url(response)
-#                 if next_page_url:
-#                  yield scrapy.Request(next_page_url, callback=self.parse)
-
-#     def get_next_page_url(self, response):
-#         # Find the link to the next page using CSS selector
-#         next_page_link = response.css('i.jsx-1794558402.jsx-1490357007.csicon-arrow_right.arrow_right-mkp::attr(data-page-number)').get()
-
-#         if next_page_link:
-#             # Get the absolute URL of the next page
-#             next_page_url = response.urljoin(next_page_link)
-#             return next_page_url
-
-#         return None
-
-
-  
                 

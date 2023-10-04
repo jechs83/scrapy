@@ -20,14 +20,16 @@ from demo.settings import COLLECTION_NAME
 
 def load_datetime():
     
- today = date.today()
- now = datetime.now()
- date_now = today.strftime("%d/%m/%Y")  
- time_now = now.strftime("%H:%M:%S")
-    
- return date_now, time_now, today
+    today = date.today()
+    now = datetime.now()
+    date_now = today.strftime("%d/%m/%Y")  
+    time_now = now.strftime("%H:%M:%S")
+        
+    return date_now, time_now, today
+current_date = load_datetime()[0]
 
-date_local = load_datetime()[0]
+
+
 
 class MongoPipeline(object):
 
@@ -77,74 +79,16 @@ class MongoPipeline(object):
   '''
     
     
-    # def process_item(self, item, spider):
-    #     collection = self.db[self.collection_name]
-    #     filter = {'_id': item['_id'], "sku": item["sku"]}
-    #     update = {'$set': dict(item)}
-    #     result = collection.update_one(filter, update, upsert=True)
-    #     spider.logger.debug('Item updated in MongoDB: %s', result)
-    #     return item
-  
-   
- 
-
-        
     def process_item(self, item, spider):
         collection = self.db[self.collection_name]
-        filter = {'_id': item['_id'], "sku": item["sku"]}
-        print( item["date"])
-        
-        # Check if the document already exists
-        existing_item = collection.find_one(filter)
-        print("######FFFFF##")
-        print(existing_item)
-        print("existe productos deberia agregar precios")
-        print( item.get('best_price'))
-        print(item.get('list_price'))
-        print( item.get('card_price'))
-
+        filter = { "sku": item["sku"],"list_price":item["list_price"], "best_price": item["best_price"],"card_price": item["card_price"], }
 
         
-        if existing_item :
-            # Document exists; update price histories and other fields
-            best_price_history = existing_item.get('best_price_history', [])
-            list_price_history = existing_item.get('list_price_history', [])
-            card_price_history = existing_item.get('card_price_history', [])
-            print(best_price_history)
-            print(list_price_history)
-            print(card_price_history)
-  
-            
-            
-            best_price_history.append(item.get('best_price'))
-            list_price_history.append(item.get('list_price'))
-            card_price_history.append(item.get('card_price'))
- 
-            update = {
-                '$set': {
-                   
-                    'best_price_history': best_price_history,
-                    'list_price_history': list_price_history,
-                    'card_price_history': card_price_history,
-                    "date": item.get("date"),
-                    #**item  # Include other fields from the item
-                }
-            }
-        else:
-            # Document does not exist; create a new one with price histories and other fields
-            update = {
-                '$set': {
-                    'best_price': item.get('best_price'),
-                    'list_price': item.get('list_price'),
-                    'card_price': item.get('card_price'),
-                    'best_price_history': [{"price": item.get('best_price'), "date": date_local}],
-                    'list_price_history': [{"price": item.get('list_price'), "date": date_local}],
-                    'card_price_history': [{"price": item.get('card_price'), "date": date_local}],
-                    "date": item.get("date"),
-                    #**item  # Include other fields from the item
-                }
-            }
 
+
+
+        update = {'$set': dict(item)}
         result = collection.update_one(filter, update, upsert=True)
         spider.logger.debug('Item updated in MongoDB: %s', result)
         return item
+  
