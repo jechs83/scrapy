@@ -17,10 +17,9 @@ ITEM_PIPELINES = {
     'curacao.pipelines.MongoPipeline': 300,
 }
 
-MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
-#MONGO_URI = config("MONGO_DB")
-MONGO_DATABASE = config("database")
-COLLECTION_NAME = config("collection")
+MONGO_URI = config("MONGODB")
+MONGO_DATABASE = config("DATABASE")
+COLLECTION_NAME = config("COLLECTION")
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

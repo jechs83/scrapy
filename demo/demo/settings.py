@@ -12,9 +12,9 @@ ITEM_PIPELINES = {
 # MONGO_DATABASE = config("database")
 # COLLECTION_NAME = config("collection")
 
-MONGO_URI = config("MONGO_DB")
-MONGO_DATABASE = config("database")
-COLLECTION_NAME =config("collection")
+MONGO_URI = config("MONGODB")
+MONGO_DATABASE = config("DATABASE")
+COLLECTION_NAME = config("COLLECTION")
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

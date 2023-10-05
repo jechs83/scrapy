@@ -15,10 +15,11 @@ NEWSPIDER_MODULE = "metro.spiders"
 ITEM_PIPELINES = {
     'metro.pipelines.MongoPipeline': 300,
 }
-MONGO_URI = config("MONGO_DB")
+MONGO_URI = config("MONGODB")
+MONGO_DATABASE = config("DATABASE")
+COLLECTION_NAME = config("COLLECTION")
 
-MONGO_DATABASE = config("database")
-COLLECTION_NAME = config("collection")
+
 
 
 

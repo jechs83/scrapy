@@ -1,11 +1,4 @@
-# Scrapy settings for demo project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     https://docs.scrapy.org/en/latest/topics/settings.html
-#     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+
 from decouple import config
 BOT_NAME = "ripley"
 
@@ -15,10 +8,12 @@ NEWSPIDER_MODULE = "ripley.spiders"
 ITEM_PIPELINES = {
     'ripley.pipelines.MongoPipeline': 300,
 }
-MONGO_URI = config("MONGO_DB")
 
-MONGO_DATABASE = config("database")
-COLLECTION_NAME = config("collection")
+MONGO_URI = config("MONGODB")
+MONGO_DATABASE = config("DATABASE")
+COLLECTION_NAME = config("COLLECTION")
+
+
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
