@@ -7,7 +7,6 @@ from  demo.spiders import url_list
 import uuid
 
 
-
 def load_datetime():
     
  today = date.today()
