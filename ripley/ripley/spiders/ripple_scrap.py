@@ -44,20 +44,28 @@ class RippleScrapSpider(scrapy.Spider):
                 urls = url_list.list3
         elif u == 4:
                 urls = url_list.list4
-        elif u == 0:
-                urls = url_list.list0
+        elif u == 5:
+                urls = url_list.list5
 
-        elif u == 100:
-                urls = url_list.list100
-        elif u == 200:
-                urls = url_list.list200
-        elif u == 300:
-                urls = url_list.list300
-        elif u == 400:
-                urls = url_list.list400
-        elif u == 500:
-                urls = url_list.list500
+        elif u == 6:
+                urls = url_list.list6
 
+        elif u == 7:
+                urls = url_list.list7
+
+        elif u == 8:
+                urls = url_list.list8
+        elif u == 9:
+                urls = url_list.list9
+        elif u == 10:
+                urls = url_list.list10
+        elif u == 11:
+                urls = url_list.list11
+        elif u == 12:
+                urls = url_list.list12
+        elif u == 13:
+                urls = url_list.list13
+     
 
         else:
             urls = []
@@ -65,22 +73,30 @@ class RippleScrapSpider(scrapy.Spider):
 
 
         for i, v in enumerate(urls):
-            for e in range((round(v[1]/48)+1)):
-                url = v[0] + str(e + 1)      
+            for e in range((round(v[1]+240/48)+1)):
+                if "&page=" in v[0]:
+                     web = v[0]
+                   
+                     url = web + str(e + 1) +"&s=mdco"
+                     print(url)
+                    
+                     
+                else:
+                    web = v[0].replace("s=mdco","page=")
+                
+                    url = web + str(e + 1)  
+                      
+                
                 # Select a random user-agent
                 user_agent = random.choice(self.user_agents)
 
                 headers = {'User-Agent': user_agent}
 
                 yield scrapy.Request(url, self.parse, headers=headers   )
-                #yield scrapy.Request(url, self.parse)
 
-                # proxy = random_proxy()
-            
-              
-
-                # # Use the obtained proxy in the request
-                # yield scrapy.Request(url, self.parse, meta={'proxy': proxy})
+      
+         
+        
 
             
     def parse(self, response):
@@ -92,6 +108,9 @@ class RippleScrapSpider(scrapy.Spider):
                 item["brand"] = i.css('div.brand-logo span::text').get()
                 if item["brand"] == None:
                     item["brand"] = "Revisar codigo"
+                if item["brand"].lower() in ["generico", "generica", "genérico", "genérica"]:
+                     continue
+
                 
                 try:
                     item["product"] = i.css(".catalog-product-details__name::text").get()
@@ -145,7 +164,10 @@ class RippleScrapSpider(scrapy.Spider):
                 item["time"]= load_datetime()[1]
                 item["home_list"] = response.url       
             
+
+               
+                
                 yield item
 
 
-            time.sleep(0.8)
+       
