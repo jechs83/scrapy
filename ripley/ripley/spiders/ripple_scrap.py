@@ -73,7 +73,7 @@ class RippleScrapSpider(scrapy.Spider):
 
 
         for i, v in enumerate(urls):
-            for e in range((round(v[1]+240/48)+1)):
+            for e in range((round(v[1]/48)+1)):
                 if "&page=" in v[0]:
                      web = v[0]
                    
@@ -168,6 +168,7 @@ class RippleScrapSpider(scrapy.Spider):
                
                 
                 yield item
+           
 
 
        
