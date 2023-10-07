@@ -3,20 +3,13 @@ from curacao.items import CuracaoItem
 from datetime import datetime
 from datetime import date
 from curacao.spiders import url_list 
-import time
-import logging
-from bson.objectid import ObjectId
 
-from telegram import Bot
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
-import requests
-from pymongo import MongoClient
-from decouple import config
+import logging
+
+
+
 import uuid
-client = MongoClient(config("MONGO_DB"))
-bot_token = '6594474232:AAF39jlHxRJepEaOYcxo9NZhe-pQgzl43lo'
-chat_id = "-960438482"
+
 
 
 
