@@ -108,6 +108,9 @@ class OhSpider(scrapy.Spider):
             item["_id"] :str(uuid.uuid4())
 
             item["brand"]= i.css("div.product.instock::attr(data-brand)").get()
+            product = item["brand"]
+            if product.lower() in ["GENERICO", "generico", "GENERICA", "generica","GENÉRICO","GENÉRICA", "GENERIC" , "genérico","genérica"]:
+                        continue
             item["product"] =i.css("div.product.instock::attr(data-name)").get()
             item["link"] =i.css("div.product.instock::attr(data-link)").get()
             item["image"]= i.css("div.productImage.prod-img.img_one img::attr(src)").get()

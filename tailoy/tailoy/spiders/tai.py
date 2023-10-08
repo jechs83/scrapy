@@ -162,6 +162,9 @@ class TaiSpider(scrapy.Spider):
             
             item["link"] = i.css("a::attr(href)").get()
             item["brand"] = i.css("div.brand-label  span::text").get()
+            product = item["brand"]
+            if product.lower() in ["GENERICO", "generico", "GENERICA", "generica","GENÉRICO","GENÉRICA", "GENERIC" , "genérico","genérica"]:
+                            continue
             item["product"] = i.css("strong.product.name.product-item-name a.product-item-link::text").get()
             item["product"] = item["product"].strip()
 

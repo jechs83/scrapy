@@ -110,6 +110,9 @@ class VeaSpider(scrapy.Spider):
                 continue 
             item["_id"] =  item["sku"]+str(load_datetime()[0])
             item["brand"]= i["brand"]
+            product = item["brand"]
+            if product.lower() in ["GENERICO", "generico", "GENERICA", "generica","GENÉRICO","GENÉRICA", "GENERIC" , "genérico","genérica"]:
+                        continue
             item["product"] =i["productName"]
             item["link"] =i["link"]
             item["image"]= i["items"][0]["images"][0]["imageUrl"]

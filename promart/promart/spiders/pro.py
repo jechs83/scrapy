@@ -114,6 +114,9 @@ class ProSpider(scrapy.Spider):
             item["_id"] :str(uuid.uuid4())
 
             item["brand"]= i.css("div.brand.js-brand p::text").get()
+            product = item["brand"]
+            if product.lower() in ["GENERICO", "generico", "GENERICA", "generica","GENÉRICO","GENÉRICA", "GENERIC" , "genérico","genérica"]:
+                        continue
             item["product"] =i.css("input.insert-sku-quantity::attr(title)").get()
             item["link"] =i.css("a.prod-det-enlace::attr(href)").get()
             item["image"]= i.css("img::attr(src)").get()

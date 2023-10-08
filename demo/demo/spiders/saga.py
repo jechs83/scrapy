@@ -31,7 +31,7 @@ class SagaSpider(scrapy.Spider):
             1: url_list.list1, 2: url_list.list1, 3: url_list.list3, 4: url_list.list4, 5: url_list.list5, 6: url_list.list6,
             7: url_list.list7, 8: url_list.list8, 9: url_list.list9, 10: url_list.list10, 11: url_list.list11, 12: url_list.list12, 13: url_list.list13,
             14: url_list.list14, 15: url_list.list15, 16: url_list.list16,  17: url_list.list17,  18: url_list.list18,  
-            19: url_list.list19, 20: url_list.list20,21: url_list.list21
+            19: url_list.list19, 20: url_list.list20,21: url_list.list21, 22: url_list.list22,23: url_list.list23
       
             }
         
@@ -87,11 +87,15 @@ class SagaSpider(scrapy.Spider):
 
         productos = page_props
         for i in productos:
+                
+                
 
-
-         
+               
                 try:
                     item["brand"]= i["brand"]
+                    product = item["brand"]
+                    if product.lower() in ["GENERICO", "generico", "GENERICA", "generica","GENÉRICO","GENÉRICA", "GENERIC" , "genérico","genérica"]:
+                        continue
                     
                 except: item["brand"]= None
 

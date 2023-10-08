@@ -101,8 +101,9 @@ class RippleScrapSpider(scrapy.Spider):
                 item["brand"] = i.css('div.brand-logo span::text').get()
                 if item["brand"] == None:
                     item["brand"] = "Revisar codigo"
-                if item["brand"].lower() in ["generico", "generica", "genérico", "genérica"]:
-                     continue
+                product = item["brand"]
+                if product.lower() in ["GENERICO", "generico", "GENERICA", "generica","GENÉRICO","GENÉRICA", "GENERIC" , "genérico","genérica"]:
+                            continue
 
                 
                 try:

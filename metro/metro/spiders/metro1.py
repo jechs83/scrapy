@@ -102,6 +102,9 @@ class Metro1Spider(scrapy.Spider):
             item["image"] = i.css('a.product-item__image-link div.js--lazyload img::attr(src)').get()
             item["product"] = i.css('div.product-item__info a::text').get()
             item["brand"] = i.css('div.product-item__brand p::text').get()
+            product = item["brand"]
+            if product.lower() in ["GENERICO", "generico", "GENERICA", "generica","GENÉRICO","GENÉRICA", "GENERIC" , "genérico","genérica"]:
+                        continue
 
             try:
                 item["best_price"] = i.css('span.product-prices__value.product-prices__value--best-price::text').get()
