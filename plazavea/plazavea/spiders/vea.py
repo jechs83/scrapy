@@ -7,51 +7,8 @@ from plazavea.spiders import url_list
 import time
 import json
 
-from telegram import Bot
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
-import requests
-from pymongo import MongoClient
-from decouple import config
-client = MongoClient(config("MONGO_DB"))
-bot_token = '6594474232:AAF39jlHxRJepEaOYcxo9NZhe-pQgzl43lo'
-chat_id = "-960438482"
 
 
-def brand ():
-
-    db = client["brands"]
-    collection= db["tecno"]
-
-    t9 = collection.find({})
-
-    array_brand= []
-
-    for i in t9:
-        array_brand.append(i["brand"])
-    print(array_brand)
-    
-    return array_brand
-  
-
-    
-
-
-def send_telegram(message,foto, bot_token, chat_id):
-
-    if not foto:
-        foto="https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg"
-    
-    if len(foto)<=4:
-            foto="https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373243873.jpg"
-
-    response = requests.post(
-        
-        f'https://api.telegram.org/bot{bot_token}/sendPhoto',
-        data={'chat_id': chat_id, 'caption': str(message), "parse_mode": "HTML"},
-        files={'photo': requests.get(foto).content},
-    
-        )
 
 
 def load_datetime():
