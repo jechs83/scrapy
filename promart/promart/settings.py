@@ -19,8 +19,8 @@ ITEM_PIPELINES = {
 }
 
 MONGO_URI = config("MONGODB")
-MONGO_DATABASE = config("DATABASE")
-COLLECTION_NAME = config("COLLECTION")
+MONGO_DATABASE = config("data_base")
+COLLECTION_NAME = config("collection")
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "promart (+http://www.yourdomain.com)"

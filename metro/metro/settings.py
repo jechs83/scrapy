@@ -16,9 +16,8 @@ ITEM_PIPELINES = {
     'metro.pipelines.MongoPipeline': 300,
 }
 MONGO_URI = config("MONGODB")
-MONGO_DATABASE = config("DATABASE")
-COLLECTION_NAME = config("COLLECTION")
-
+MONGO_DATABASE = config("data_base")
+COLLECTION_NAME = config("collection")
 
 
 

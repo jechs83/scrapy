@@ -17,8 +17,8 @@ ITEM_PIPELINES = {
 }
 #MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
 MONGO_URI = config("MONGODB")
-MONGO_DATABASE = config("DATABASE")
-COLLECTION_NAME = config("COLLECTION")
+MONGO_DATABASE = config("data_base")
+COLLECTION_NAME = config("collection")
 
 
 #DOWNLOAD_DELAY = 1 # 2 seconds of delay
