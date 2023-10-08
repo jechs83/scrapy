@@ -27,6 +27,13 @@ USER_AGENT='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 32
 
+# DOWNLOADER_MIDDLEWARES = {
+#     'rotating_proxies.middlewares.RotatingProxyMiddleware':300,
+#     'rotating_proxies.middlewares.BanDetectionMiddleware':300,
+
+# }
+# ROTATING_PROXY_LIST_PATH="/Users/javier/GIT/scrapy_saga/ripley/proxies.txt"
+
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs

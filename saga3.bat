@@ -11,9 +11,7 @@ start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 6 ripley
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 7 ripley
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 8 ripley
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 9 ripley
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 10 ripley
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 11 ripley
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py ripley_scrap 12 ripley
+
 
 
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 1 curacao
