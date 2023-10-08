@@ -5,7 +5,7 @@ from datetime import datetime
 from datetime import date
 from  demo.spiders import url_list 
 import uuid
-import time
+
 
 
 def load_datetime():
@@ -72,9 +72,7 @@ class SagaSpider(scrapy.Spider):
         # Find the script tag with the JSON data
         script_tag = response.xpath('//script[@id="__NEXT_DATA__"]/text()').get()
 
-        with open ("json.txt", "+w") as g:
-            g.write(script_tag)
-
+    
 
         if script_tag:
             json_content = json.loads(script_tag)
