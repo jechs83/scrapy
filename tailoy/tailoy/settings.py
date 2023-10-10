@@ -17,7 +17,7 @@ ITEM_PIPELINES = {
 }
 #MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
 MONGO_URI = config("MONGODB")
-MONGO_DATABASE = config("data_base")
+MONGO_DATABASE = config("db_tailoy")
 COLLECTION_NAME = config("collection")
 
 

@@ -34,19 +34,41 @@ class OhSpider(scrapy.Spider):
                 urls = url_list.list3
         elif u == 4:
                 urls = url_list.list4
+        elif u == 5:
+                urls = url_list.list5
+        elif u == 6:
+                urls = url_list.list6
+        elif u == 7:
+                urls = url_list.list7
+        elif u == 8:
+                urls = url_list.list8
+        elif u == 9:
+                urls = url_list.list9
         elif u == 10:
                 urls = url_list.list10
+        elif u == 11:
+                urls = url_list.list11
+        elif u == 12:
+                urls = url_list.list12
+        elif u == 13:
+                urls = url_list.list13
+        elif u == 14:
+                urls = url_list.list14
         else:
             urls = []
 
         for i, v in enumerate(urls):
-     
-            for e in range(50):
-        
-                url = v+str(e)
-                print(url)
-    
+
+            for e in range (v[1]+10):
+                url = v[0]+"?&optionOrderBy=OrderByScoreDESC&O=OrderByScoreDESC&page="+str(e+1)
                 yield scrapy.Request(url, self.parse)
+     
+            # for e in range(50):
+        
+            #     url = v+str(e)
+            #     print(url)
+    
+            #     yield scrapy.Request(url, self.parse)
 
 
 
@@ -102,32 +124,6 @@ class OhSpider(scrapy.Spider):
             item["market"]= "oechsle"  # COLECCION
             item["date"] = load_datetime()[0]
             item["time"]= load_datetime()[1]
-
-
-            # element = item["brand"]
-            # if item["web_dsct"]>= 70 and   any(item.lower() == element.lower() for item in brand()):
-                
-            #         if  item["card_price"] == 0:
-            #              card_price = ""
-            #         else:
-            #             card_price = '\n👉Precio Tarjeta :'+str(item["card_price"])
-
-            #         if item["list_price"] == 0:
-            #                 list_price = ""
-            #         else:
-            #             list_price = '\n\n➡️Precio Lista :'+str(item["list_price"])
-
-            #         if item["web_dsct"] <= 50:
-            #             dsct = "🟡"
-            #         if item["web_dsct"] > 50 and item["web_dsct"]  <=69:
-            #             dsct = "🟢"
-            #         if item["web_dsct"] >=70:
-            #             dsct = "🔥🔥🔥🔥🔥"
-
-            #         message =  "✅Marca: "+str(item["brand"])+"\n✅"+str(item["product"])+list_price+"\n👉Precio web :"+str(item["best_price"])+card_price+"\n"+dsct+"Descuento: "+"% "+str(item["web_dsct"])+"\n"+"\n\n⌛"+item["date"]+" "+ item["time"]+"\n🔗Link :"+str(item["link"])+"\n🏠home web:"+item["home_list"]+"\n\n◀️◀️◀️◀️◀️◀️◀️▶️▶️▶️▶️▶️▶️"
-            #         foto = item["image"]
-
-            #         send_telegram(message,foto, bot_token, chat_id)
 
 
             yield item

@@ -36,10 +36,20 @@ class VeaSpider(scrapy.Spider):
                 urls = url_list.list2
         elif u == 3:
                 urls = url_list.list3
+        elif u == 4:
+                urls = url_list.list4
         else:
             urls = []
         count= 20
         for i, v in enumerate(urls):
+            print(v[0])
+
+            # for e in range(120):
+            #       if e ==0:
+            #         url = v[0]+str(e+1)
+            #         yield scrapy.Request(url, self.parse)
+
+
             for e in range(120):
                 if e ==0:
                      url = v[0]+str(0)+v[1]+str(count)+v[2]
