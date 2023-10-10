@@ -74,19 +74,27 @@ class SagaSpider(scrapy.Spider):
         collection3 = self.db["tv"]
         collection4 = self.db["cellphone"]
         collection5 = self.db["laptop"]
+        collection6 = self.db["consola"]
+        collection7 = self.db["audio"]
         
         shoes = collection1.find({})
         electro = collection2.find({})
         tv = collection3.find({})
         cellphone = collection4.find({})
         laptop = collection5.find({})
+        consola = collection6.find({})
+        audio = collection7.find({})
+
+
 
         shoes_list = [doc["brand"] for doc in shoes]
         electro_list = [doc["brand"] for doc in electro]
         tv_list = [doc["brand"] for doc in tv]
         cellphone_list = [doc["brand"] for doc in cellphone]
         laptop_list = [doc["brand"] for doc in laptop]
-        return shoes_list ,electro_list,tv_list,cellphone_list,laptop_list
+        consola_list = [doc["brand"] for doc in consola]
+        audio_list = [doc["brand"] for doc in audio]
+        return shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, audio_list
     
 
 

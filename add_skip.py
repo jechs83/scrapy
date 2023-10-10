@@ -4,7 +4,7 @@ from decouple import config
 # Conéctate a la base de datos MongoDB
 client = pymongo.MongoClient(config("MONGODB"))
 db = client["brand_allowed"]
-skip_collection = db["electro"]
+skip_collection = db["audio"]
 
 # Lee el archivo de texto y agrega los elementos a la base de datos
 archivo_texto = "/Users/javier/GIT/scrapy_saga/skip.txt"
