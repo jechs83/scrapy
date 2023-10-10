@@ -1,16 +1,16 @@
 # COCINA TOTTUS SAGA SODIMAC
 list1 = [
-        ("https://www.falabella.com.pe/falabella-pe/category/cat40538/Cocina",46,1),
-        ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40538/Cocina?sid=SO_HO_BPL_65980",9,1),
-        ("https://tottus.falabella.com.pe/tottus-pe/category/cat40538/Cocina",3,1)
+        ("https://www.falabella.com.pe/falabella-pe/category/cat40538/Cocina",46),
+        ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40538/Cocina?sid=SO_HO_BPL_65980",9),
+        ("https://tottus.falabella.com.pe/tottus-pe/category/cat40538/Cocina",3)
         ]
 
 
 #   REFRIGEDORAS SAGA TOTTUS SODIMAC
 list2=[
-        ("https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion",27,1),
-        ("https://tottus.falabella.com.pe/tottus-pe/category/cat780530/Refrigerador",1,1),
-        ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG19032/Refrigeracion?sid=SO_HO_BPL_65977",2 ,1)
+        ("https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion",27),
+        ("https://tottus.falabella.com.pe/tottus-pe/category/cat780530/Refrigerador",1),
+        ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG19032/Refrigeracion?sid=SO_HO_BPL_65977",2)
 
         ]
 
