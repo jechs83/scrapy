@@ -106,7 +106,7 @@ list10 =[
 
 # TOTTUS
 list11=[ 
-    ("https://www.falabella.com.pe/falabella-pe/category/cat800582/Audifonos", 149),
+("https://www.falabella.com.pe/falabella-pe/category/cat800582/Audifonos", 149),
 ("https://www.falabella.com.pe/falabella-pe/category/cat40590/Equipos-de-sonido", 25),
 ("https://www.falabella.com.pe/falabella-pe/category/cat800584/Parlantes-Bluetooth",142 ),
 ("https://www.falabella.com.pe/falabella-pe/category/cat40622/Soundbar-y-Home-Theater", 5),
@@ -127,8 +127,14 @@ list12 =[
 ]
 
 list13= [
-    ("https://www.falabella.com.pe/falabella-pe/category/cat1470538/Zapatos",153,1),
- ("https://www.falabella.com.pe/falabella-pe/category/CATG12022/Hombre",200,1),
+("http://www.falabella.com.pe/falabella-pe/category/CATG14326/Accesorios",200),
+("http://www.falabella.com.pe/falabella-pe/category/cat1470526/Zapatos-mujeres",200),
+("http://www.falabella.com.pe/falabella-pe/category/cat1470538/Zapatos",152),
+("http://www.falabella.com.pe/falabella-pe/category/cat7230497/Accesorios",200),
+
+
+#     ("https://www.falabella.com.pe/falabella-pe/category/cat1470538/Zapatos",153,1),
+#  ("https://www.falabella.com.pe/falabella-pe/category/CATG12022/Hombre",200,1),
 
 
 
@@ -137,6 +143,15 @@ list13= [
 ]
 
 list14 =[
+    ("http://www.falabella.com.pe/falabella-pe/category/cat250477/Camas?isLanding=false",40),
+("http://www.falabella.com.pe/falabella-pe/category/cat250473/Colchones",17),
+("http://www.falabella.com.pe/falabella-pe/category/CATG33777/Juego-de-dormitorio",26),
+("https://sodimac.falabella.com.pe/sodimac-pe/category/cat250473/Colchones",2),
+("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG33777/Juego-de-dormitorio",1),
+("https://tottus.falabella.com.pe/tottus-pe/category/cat250473/Colchones",4),
+("https://tottus.falabella.com.pe/tottus-pe/category/CATG33777/Juego-de-dormitorio",5),
+
+
  
 
 
@@ -144,53 +159,53 @@ list14 =[
 
 list15 =[
 
+    ("https://www.falabella.com.pe/falabella-pe/category/CATG34943/Jugueteria?isLanding=false",200),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat11850461/Juegos-de-exterior",200),
+
 
 
 ]
 
 list16=[
+    ("https://www.falabella.com.pe/falabella-pe/category/cat1470538/Zapatos",200),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat1470526/Zapatos-mujeres",200),
 
 
 ]
 
 list17 =[
+("https://www.falabella.com.pe/falabella-pe/category/cat6630620/Fitness",76),
+("https://www.falabella.com.pe/falabella-pe/category/cat40500/Bicicletas",25),
+("https://www.falabella.com.pe/falabella-pe/category/cat3930550/Electromovilidad",3),
+("https://www.falabella.com.pe/falabella-pe/category/cat1470548/Zapatillas",200)]
 
-]
+
+
 list18 =[
-    ("https://tottus.falabella.com.pe/tottus-pe/category/CATG14590/Piscinas-Inflables",1),
-("https://tottus.falabella.com.pe/tottus-pe/category/cat6630576/Camping",1),
-("https://tottus.falabella.com.pe/tottus-pe/category/cat40500/Bicicletas",1),
-("https://tottus.falabella.com.pe/tottus-pe/category/cat6630620/Fitness",6),
+
 
 
 ]
 
 list19=[
 
-    ("https://linio.falabella.com.pe/linio-pe/category/cat760706/Celulares-y-Telefonos", 123)
 ]
 
 list20 =[
-    ("https://linio.falabella.com.pe/linio-pe/category/cat270476/Tablets", 70),
-("https://linio.falabella.com.pe/linio-pe/category/cat3180533/Impresoras", 19),
-("https://linio.falabella.com.pe/linio-pe/category/CATG15569/Tarjetas-de-Video",8 ),
-("https://linio.falabella.com.pe/linio-pe/category/cat1590484/All-in-one", 6),
+
 ]
 
 list21 = [
-    ("https://linio.falabella.com.pe/linio-pe/category/cat3180533/Impresoras",200)
+   
 ]
 
 list22 = [
-    ("https://linio.falabella.com.pe/linio-pe/category/cat40488/Audio",200)
+   
 
 ]
 list23=[
-("https://linio.falabella.com.pe/linio-pe/category/cat210477/TV-Televisores",144)
 ]
 
 list24=[
-    # ("https://www.falabella.com.pe/falabella-pe/brand/ELECTROLUX", 25)
-   # ("https://www.falabella.com.pe/falabella-pe/brand/SAMSUNG",110)
-    ("https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion", 27)
+    
 ]

@@ -11,9 +11,13 @@ start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 10 demo 5
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 11 demo 6
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 12 demo 0
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 13 demo 0
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 14 demo 7
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 15 demo 8
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 16 demo 0
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 17 demo 9
 
 
-REM shoes_list 0 ,electro_list 1 ,tv_list 2 ,cellphone_list 3, laptop_list 4, consola-list 5, audio_list 6
+REM shoes_list 0 ,electro_list 1 ,tv_list 2 ,cellphone_list 3, laptop_list 4, consola-list 5, audio_list 6, colchon_list 7
 
 
 
