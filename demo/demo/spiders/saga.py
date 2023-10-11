@@ -22,24 +22,6 @@ def load_datetime():
  return date_now, time_now, today
 
 
-
-
-# def skip_brand():
-#     client = pymongo.MongoClient(config("MONGODB"))
-#     db = client[config("db_saga")] 
-#     collection = db["skip"] 
-
-#     skip_list = []
-#     skip = collection.find({})
-
-#     for doc in skip:
-        
-#         skip_list.append(doc["brand"])
-#     skip_list = list(skip_list)
-
-#     return skip_list
-
-
 class SagaSpider(scrapy.Spider):
     #list_to_skip = skip_brand()
     name = "saga"
@@ -207,7 +189,7 @@ class SagaSpider(scrapy.Spider):
             
                     #if product.lower() not in lista:
                     #if product.lower() not in self.brand_allowed()[int(self.b)]:
-                    if self.b == 8:
+                    if self.b != 8:
                         if product.lower() not in self.lista:
                             continue
                     pass

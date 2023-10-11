@@ -1,14 +1,15 @@
 list1 = [
-    ("https://www.lacuracao.pe/tecnologia/televisores.html?p=", 100),
-    ("https://www.lacuracao.pe/tecnologia/computacion.html?p=", 100),
-    ("https://www.lacuracao.pe/tecnologia/gaming.html?p=", 100),
-     ("https://www.lacuracao.pe/tecnologia/celulares.html?p=", 100),
-      ("https://www.lacuracao.pe/tecnologia/audifonos.html?p=", 100),
-       ("https://www.lacuracao.pe/tecnologia/audio.html?p=", 100),
-        ("https://www.lacuracao.pe/tecnologia/videojuegos.html?p=", 100),
-         ("https://www.lacuracao.pe/tecnologia/smart-home-y-domotica.html?p=", 100),
-          ("https://www.lacuracao.pe/tecnologia/fotografia-y-video.html?p=", 100),
-           ("https://www.lacuracao.pe/tecnologia/marcas.html?p=", 100),
+    ("https://www.lacuracao.pe/tecnologia/televisores.html?p=", 23),
+
+#     ("https://www.lacuracao.pe/tecnologia/computacion.html?p=", 100),
+#     ("https://www.lacuracao.pe/tecnologia/gaming.html?p=", 100),
+#      ("https://www.lacuracao.pe/tecnologia/celulares.html?p=", 100),
+#       ("https://www.lacuracao.pe/tecnologia/audifonos.html?p=", 100),
+#        ("https://www.lacuracao.pe/tecnologia/audio.html?p=", 100),
+#         ("https://www.lacuracao.pe/tecnologia/videojuegos.html?p=", 100),
+#          ("https://www.lacuracao.pe/tecnologia/smart-home-y-domotica.html?p=", 100),
+#           ("https://www.lacuracao.pe/tecnologia/fotografia-y-video.html?p=", 100),
+#            ("https://www.lacuracao.pe/tecnologia/marcas.html?p=", 100),
 ]
 
 list2= [
