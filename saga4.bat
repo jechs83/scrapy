@@ -16,8 +16,17 @@ start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 15 demo 8
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 16 demo 0
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 17 demo 9
 
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 1 curacao 10 
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 2 curacao 10
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 3 curacao 8
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 4 curacao 10
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 5 curacao 10
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 6 curacao 8
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 7 curacao 8
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py cura 8 curacao 10
 
-REM shoes_list 0 ,electro_list 1 ,tv_list 2 ,cellphone_list 3, laptop_list 4, consola-list 5, audio_list 6, colchon_list 7, 
+
+REM shoes_list 0 ,electro_list 1 ,tv_list 2 ,cellphone_list 3, laptop_list 4, consola-list 5, audio_list 6, colchon_list 7,  
 REM nada_list 8,  
 
 

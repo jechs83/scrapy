@@ -1,110 +1,147 @@
+Samsung
+LG
+Sony
+Panasonic
+TCL
+Philips
+Hisense
+jvc
+aiwa
+jbl
 
-BEST
+Electrolux
+Indurama
+LG
+Mabe
+Samsung
 
-BESTWAY
+Bosch
+Mabe
+Electrolux
+Indurama
+Braseco
+Frigidaire
+General Electric
 
-BODYTONE
+LG
+Samsung
+Electrolux
+Bosch
+Mabe
+Whirlpool
+General Electric (GE)
+Panasonic
+Frigidaire
+Indurama
+Hamilton Beach
+Cuisinart
+KitchenAid
+Ninja
+Black & Decker
+Braun
+oster
+imaco
+record
+Nespresso
+Philips
+De'Longhi
+Oster
+Krups
+Breville
+Hamilton Beach
+Saeco
+Electrolux
+Cuisinart
+Oster
+Black & Decker
+Hamilton Beach
+Krups
+Cuisinart
+Taurus
+Philips
+Arno
+Imaco
+Tristar
+Oster
+Electrolux
+Imaco
+Hamilton Beach
+KitchenAid
+Philips
+Black & Decker
+Moulinex
+Breville
+Tristar
 
-BODYTONE BLACK
+Rosen
+Paraiso
+el Cisne 
+Cisne
+comfort
+forli
+drimmer
+drimer 
 
-BOX BIKE
+Sony PlayStation 
+Microsoft
+Nintendo 
 
-BRANSON
+Sony
+Bose
+JBL
+LG
+Samsung
+Panasonic
+Yamaha
+Pioneer
+Philips
+Harman Kardon
 
+Samsung
+Apple 
+Huawei
+Xiaomi
+Oppo
+Vivo
+OnePlus
+Google 
+Sony
+LG
 
-EVERLAST
+HP 
+Dell
+Lenovo
+Apple 
+ASUS
+Acer
+Microsoft
+MSI
+LG
+Huawei
+honor
+xiaomi
 
-EVEZO
+Giant
+Trek
+Specialized
+Merida
+Scott
+Cannondale
+Bianchi
+Orbea
+Raleigh
+Fuji
 
-FERRARI
-
-
-
-GFORCE
-
-GIRO
-
-GOLDS GYM
-
-GYMPRO
-
-
-
-
+NordicTrack
+ProForm
+Life Fitness
+Precor
+BH Fitness
+Sole Fitness
+Matrix Fitness
+Body-Solid
+Bowflex
+Rogue Fitness
+best
 MONARK
-
-
-
-MUVO
-
-MUVO BY OXFORD
-
-MUVO GOLDEN
-
-MYGYM HOME EQUIPMENT
-
-NATIONAL GEOGRAPHIC
-
-
-
-OXFORD
-
-PEAK
-
-
-
-PRESTIGE BY MONARK
-
-PROFORM
-
-
-
-
-REEBOK
-
-
-
-ROCKBROS
-
-
-
-
-SOLE
-
-SOPORTEX
-
-SPIRIT
-
-SPORT FITNESS
-
-
-
-SPORTFITNESS
-
-SPORTMIX
-
-SUNNY
-
-SUNNY HEALTH & FITNESS
-
-
-
-
-
-UMBRO
-
-UNDER ARMOUR
-
-
-
-
-
-
-XPLOSIVE FITNESS
-
-XTREME SPORT
-
-YORK
-
-YORK FITNESS
-
+huffy
