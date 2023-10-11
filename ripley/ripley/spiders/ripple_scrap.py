@@ -148,9 +148,11 @@ class RippleScrapSpider(scrapy.Spider):
                 if item["brand"] == None:
                     item["brand"] = "Revisar codigo"
                 product = item["brand"]
-                if self.b != 8:
-                        if product.lower() not in self.lista:
-                            continue
+                if self.lista == []:
+                    pass
+                else:
+                    if product.lower() not in self.lista:
+                        continue
 
                 
                 try:

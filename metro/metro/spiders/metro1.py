@@ -43,6 +43,7 @@ class Metro1Spider(scrapy.Spider):
         collection8 = self.db["colchon"]
         collection9 = self.db["nada"]
         collection10 = self.db["sport"]
+        collection11 = self.db["curacao"]
         
         shoes = collection1.find({})
         electro = collection2.find({})
@@ -54,6 +55,7 @@ class Metro1Spider(scrapy.Spider):
         colchon = collection8.find({})
         nada = collection9.find({})
         sport = collection10.find({})
+        curacao = collection11.find({})
 
 
         shoes_list = [doc["brand"] for doc in shoes]
@@ -66,9 +68,9 @@ class Metro1Spider(scrapy.Spider):
         colchon_list = [doc["brand"] for doc in colchon]
         nada_list = [doc["brand"] for doc in nada]
         sport_list = [doc["brand"] for doc in sport]
-        return shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, audio_list, colchon_list,nada_list,sport_list
-    
-
+        curacao_list = [doc["brand"] for doc in curacao]
+        return (shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, 
+                audio_list, colchon_list,nada_list,sport_list,curacao_list )
 
     def start_requests(self):
         # for url in self.start_urls:
@@ -109,9 +111,11 @@ class Metro1Spider(scrapy.Spider):
             item["product"] = i.css('div.product-item__info a::text').get()
             item["brand"] = i.css('div.product-item__brand p::text').get()
             product = item["brand"]
-            if self.b != 8:
-                        if product.lower() not in self.lista:
-                            continue
+            if self.lista == []:
+                pass
+            else:
+                if product.lower() not in self.lista:
+                    continue
 
             try:
                 item["best_price"] = i.css('span.product-prices__value.product-prices__value--best-price::text').get()

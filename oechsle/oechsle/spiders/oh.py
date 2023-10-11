@@ -133,9 +133,11 @@ class OhSpider(scrapy.Spider):
 
             item["brand"]= i.css("div.product.instock::attr(data-brand)").get()
             product = item["brand"]
-            if self.b != 8:
-                        if product.lower() not in self.lista:
-                            continue
+            if self.lista == []:
+                pass
+            else:
+                if product.lower() not in self.lista:
+                    continue
                         
             item["product"] =i.css("div.product.instock::attr(data-name)").get()
             item["link"] =i.css("div.product.instock::attr(data-link)").get()

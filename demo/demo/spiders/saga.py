@@ -189,10 +189,12 @@ class SagaSpider(scrapy.Spider):
             
                     #if product.lower() not in lista:
                     #if product.lower() not in self.brand_allowed()[int(self.b)]:
-                    if self.b != 8:
+                    if self.lista == []:
+                        pass
+                    else:
                         if product.lower() not in self.lista:
                             continue
-                    pass
+            
                     
                 except: item["brand"]= None
                

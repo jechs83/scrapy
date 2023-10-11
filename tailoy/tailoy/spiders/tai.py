@@ -166,9 +166,11 @@ class TaiSpider(scrapy.Spider):
             item["link"] = i.css("a::attr(href)").get()
             item["brand"] = i.css("div.brand-label  span::text").get()
             product = item["brand"]
-            if self.b != 8:
-                        if product.lower() not in self.lista:
-                            continue
+            if self.lista == []:
+                pass
+            else:
+                if product.lower() not in self.lista:
+                    continue
             item["product"] = i.css("strong.product.name.product-item-name a.product-item-link::text").get()
             item["product"] = item["product"].strip()
 

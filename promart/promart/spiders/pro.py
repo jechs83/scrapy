@@ -115,9 +115,11 @@ class ProSpider(scrapy.Spider):
 
             item["brand"]= i.css("div.brand.js-brand p::text").get()
             product = item["brand"]
-            if self.b !=8:
-                        if product.lower() not in self.lista:
-                            continue
+            if self.lista == []:
+                pass
+            else:
+                if product.lower() not in self.lista:
+                    continue
             item["product"] =i.css("input.insert-sku-quantity::attr(title)").get()
             item["link"] =i.css("a.prod-det-enlace::attr(href)").get()
             item["image"]= i.css("img::attr(src)").get()

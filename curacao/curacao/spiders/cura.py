@@ -142,13 +142,16 @@ class CuraSpider(scrapy.Spider):
      
             item["brand"] = product.css('span.brand-name::text').get()
             producto = item["brand"]
+        
 
-
-            if self.b != 8:
+            if self.lista == []:
+                pass
+            else:
                 if producto.lower() not in self.lista:
                     continue
             
-
+            
+                
             
             item["product"] =  product.css('a.product-item-link::text').get()
             item["product"]  = item["product"].strip() if item["product"]  else None

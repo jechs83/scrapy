@@ -125,9 +125,11 @@ class VeaSpider(scrapy.Spider):
             item["_id"] =  item["sku"]+str(load_datetime()[0])
             item["brand"]= i["brand"]
             product = item["brand"]
-            if self.b != 8:
-                        if product.lower() not in self.lista:
-                            continue
+            if self.lista == []:
+                pass
+            else:
+                if product.lower() not in self.lista:
+                    continue
             item["product"] =i["productName"]
             item["link"] =i["link"]
             item["image"]= i["items"][0]["images"][0]["imageUrl"]
