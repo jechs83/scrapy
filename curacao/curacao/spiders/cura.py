@@ -45,6 +45,7 @@ class CuraSpider(scrapy.Spider):
         collection9 = self.db["nada"]
         collection10 = self.db["sport"]
         collection11 = self.db["curacao"]
+        collection12 = self.db["todo"]
         
         shoes = collection1.find({})
         electro = collection2.find({})
@@ -57,6 +58,7 @@ class CuraSpider(scrapy.Spider):
         nada = collection9.find({})
         sport = collection10.find({})
         curacao = collection11.find({})
+        todo = collection12.find({})
 
 
         shoes_list = [doc["brand"] for doc in shoes]
@@ -70,8 +72,9 @@ class CuraSpider(scrapy.Spider):
         nada_list = [doc["brand"] for doc in nada]
         sport_list = [doc["brand"] for doc in sport]
         curacao_list = [doc["brand"] for doc in curacao]
+        todo_list = [doc["brand"] for doc in todo]
         return (shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, 
-                audio_list, colchon_list,nada_list,sport_list,curacao_list )
+                audio_list, colchon_list,nada_list,sport_list,curacao_list, todo_list)
     
 
     def start_requests(self):
