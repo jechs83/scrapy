@@ -7,6 +7,7 @@ from  demo.spiders import url_list
 import uuid
 from decouple import config
 import pymongo
+import gc
 
 
 
@@ -207,6 +208,8 @@ class SagaSpider(scrapy.Spider):
                 item["card_dsct"] = 0
 
                 yield item
+
+        gc.collect()
 
             
 
