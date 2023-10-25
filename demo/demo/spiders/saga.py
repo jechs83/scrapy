@@ -10,8 +10,6 @@ import time
 
 from decouple import config
 
-
-
 def load_datetime():
     
  today = date.today()
@@ -51,6 +49,7 @@ class SagaSpider(scrapy.Spider):
     #     return skip_list
     
     def brand_allowed(self):
+     
         collection1 = self.db["shoes"]
         collection2 = self.db["electro"]
         collection3 = self.db["tv"]
@@ -113,6 +112,7 @@ class SagaSpider(scrapy.Spider):
        
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
+       
 
        
         # Define a dictionary to map 'u' values to the corresponding url_list
@@ -148,7 +148,7 @@ class SagaSpider(scrapy.Spider):
     def parse(self, response):
       
         
-       
+        
         if response.status != 200:
         # If the response status is not 200, skip processing this link and move to the next one
                 self.logger.warning(f"Skipping URL {response.url} due to non-200 status code: {response.status}")
