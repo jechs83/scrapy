@@ -50,7 +50,7 @@ class SagaSpider(scrapy.Spider):
     
     def brand_allowed(self):
      
-        collection1 = self.db["shoes"]
+        collection1 = self.db["todo"]
         collection2 = self.db["electro"]
         collection3 = self.db["tv"]
         collection4 = self.db["cellphone"]

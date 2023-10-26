@@ -32,7 +32,7 @@ class VeaSpider(scrapy.Spider):
         self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
 
     def brand_allowed(self):
-        collection1 = self.db["shoes"]
+        collection1 = self.db["todo"]
         collection2 = self.db["electro"]
         collection3 = self.db["tv"]
         collection4 = self.db["cellphone"]
