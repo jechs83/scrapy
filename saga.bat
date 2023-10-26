@@ -30,7 +30,6 @@ start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py pro 1 promart
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py tai 1 tailoy
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py pro 1 promart
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py vea 1 plazavea
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py metro1 1 metro
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py oh 1 oechsle
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py oh 2 oechsle
 
