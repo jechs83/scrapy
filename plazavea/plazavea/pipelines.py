@@ -31,20 +31,20 @@ class MongoPipeline(object):
 
 
 
-    # def process_item(self, item, spider):
-    #     collection = self.db[self.collection_name]
-    #     filter = {"_id": item['_id'], "sku":item["sku"]}
-    #     update = {'$set': dict(item)}
-    #     result = collection.update_one(filter, update, upsert=True)
-    #     spider.logger.debug('Item updated in MongoDB: %s', result)
-    #     return item
-
     def process_item(self, item, spider):
         collection = self.db[self.collection_name]
-        filter = { "sku": item["sku"],"list_price":item["list_price"], "best_price": item["best_price"],"card_price": item["card_price"], }
+        filter = {"_id": item['_id'], "sku":item["sku"]}
         update = {'$set': dict(item)}
         result = collection.update_one(filter, update, upsert=True)
         spider.logger.debug('Item updated in MongoDB: %s', result)
         return item
+
+    # def process_item(self, item, spider):
+    #     collection = self.db[self.collection_name]
+    #     filter = { "sku": item["sku"],"list_price":item["list_price"], "best_price": item["best_price"],"card_price": item["card_price"], }
+    #     update = {'$set': dict(item)}
+    #     result = collection.update_one(filter, update, upsert=True)
+    #     spider.logger.debug('Item updated in MongoDB: %s', result)
+    #     return item
   
 

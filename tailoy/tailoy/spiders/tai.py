@@ -153,7 +153,6 @@ class TaiSpider(scrapy.Spider):
       
 
         for i in productos:
-            print("######")
 
             item["sku"]= i.css("div.price-box.price-final_price::attr(data-product-id)").get()
             item["_id"] =i.css("div.price-box.price-final_price::attr(data-product-id)").get()
@@ -165,12 +164,23 @@ class TaiSpider(scrapy.Spider):
             
             item["link"] = i.css("a::attr(href)").get()
             item["brand"] = i.css("div.brand-label  span::text").get()
+            
             product = item["brand"]
-            if self.lista == []:
-                pass
-            else:
-                if product.lower() not in self.lista:
-                    continue
+            if product == None:
+                return False
+        
+            
+
+          
+            # if self.lista == []:
+            #     pass
+            # else:
+            #     if product == None:
+            #         product = "sin marca"
+            #     else:
+            #         if product.lower() not in self.lista:
+            #                 continue
+                
             item["product"] = i.css("strong.product.name.product-item-name a.product-item-link::text").get()
             item["product"] = item["product"].strip()
 
@@ -212,31 +222,6 @@ class TaiSpider(scrapy.Spider):
             item["card_price"] = 0
             item["card_dsct"] = 0
 
-
-            # element = item["brand"]
-            # if item["web_dsct"]>= 70 and   any(item.lower() == element.lower() for item in brand()):
-                
-            #         if  item["card_price"] == 0:
-            #              card_price = ""
-            #         else:
-            #             card_price = '\n👉Precio Tarjeta :'+str(item["card_price"])
-
-            #         if item["list_price"] == 0:
-            #                 list_price = ""
-            #         else:
-            #             list_price = '\n\n➡️Precio Lista :'+str(item["list_price"])
-
-            #         if item["web_dsct"] <= 50:
-            #             dsct = "🟡"
-            #         if item["web_dsct"] > 50 and item["web_dsct"]  <=69:
-            #             dsct = "🟢"
-            #         if item["web_dsct"] >=70:
-            #             dsct = "🔥🔥🔥🔥🔥"
-
-            #         message =  "✅Marca: "+str(item["brand"])+"\n✅"+str(item["product"])+list_price+"\n👉Precio web :"+str(item["best_price"])+card_price+"\n"+dsct+"Descuento: "+"% "+str(item["web_dsct"])+"\n"+"\n\n⌛"+item["date"]+" "+ item["time"]+"\n🔗Link :"+str(item["link"])+"\n🏠home web:"+item["home_list"]+"\n\n◀️◀️◀️◀️◀️◀️◀️▶️▶️▶️▶️▶️▶️"
-            #         foto = item["image"]
-
-            #         send_telegram(message,foto, bot_token, chat_id)
 
 
 
