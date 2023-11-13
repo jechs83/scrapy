@@ -11,7 +11,7 @@ list1 = [
 list2=[
         ("https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion",27),
         ("https://tottus.falabella.com.pe/tottus-pe/category/cat780530/Refrigerador",1),
-        ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG19032/Refrigeracion?sid=SO_HO_BPL_65977",2)
+        ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG19032/Refrigeracion?sid=SO_HO_BPL_65977",2),
 
         ]
 
@@ -20,7 +20,7 @@ list2=[
 list3 = [
         ("https://www.falabella.com.pe/falabella-pe/category/cat40662/Lavado",19),
         ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40662/Lavado?sid=SO_HO_BPL_65978",2),
-        ("https://tottus.falabella.com.pe/tottus-pe/category/cat40662/Lavado",2)
+        ("https://tottus.falabella.com.pe/tottus-pe/category/cat40662/Lavado",2),
         ("https://www.falabella.com.pe/falabella-pe/category/cat760706/Celulares-y-Telefonos",115),
         ]
 
