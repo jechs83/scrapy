@@ -113,7 +113,10 @@ class SagaSpider(scrapy.Spider):
         # Retrieve the appropriate list based on the value of 'u'
         #urls = url_mapping.get(u, [])
 
-        urls = links()[u-1]
+        urls = links()[int(u-1)]
+        print(u-1)
+        print(urls)
+        time.sleep(10)
 
   
         for i, v in enumerate(urls):
