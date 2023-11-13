@@ -1,6 +1,14 @@
 
 
-
+1,https://simple.ripley.com.pe/tecnologia/tv-y-cine-en-casa/ver-todo?s=mdco,900
+1,https://simple.ripley.com.pe/tecnologia/celulares/smartwatch-y-wearables?facet%5B0%5D=Marca%3AAMAZFIT&facet%5B1%5D=Marca%3AAPPLE&facet%5B2%5D=Marca%3ACITIZEN&facet%5B3%5D=Marca%3ADC%20COMICS&facet%5B4%5D=Marca%3AFOSSIL&facet%5B5%5D=Marca%3AGARMIN&facet%5B6%5D=Marca%3AHONOR&facet%5B7%5D=Marca%3AHUAWEI&facet%5B8%5D=Marca%3ALOGITECH%20G&facet%5B9%5D=Marca%3AMICHAEL%20KORS&facet%5B10%5D=Marca%3AMOTOROLA&facet%5B11%5D=Marca%3APOLAR&facet%5B12%5D=Marca%3AREDMI&facet%5B13%5D=Marca%3ASAMSUNG&facet%5B14%5D=Marca%3AXIAOMI&page=,329
+1,https://simple.ripley.com.pe/tecnologia/celulares/reacondicionados?source=menu&s=mdco,88
+1,https://simple.ripley.com.pe/tecnologia/computacion/ver-todo-laptops?s=mdco,800
+1,https://simple.ripley.com.pe/tecnologia/videojuegos/consolas?source=menu&s=mdco,414
+1,https://simple.ripley.com.pe/tecnologia/videojuegos/mandos?source=menu&s=mdco,1187
+1,https://simple.ripley.com.pe/tecnologia/videojuegos/playstation-5?source=menu&s=mdco,86
+1,https://simple.ripley.com.pe/tecnologia/videojuegos/playstation-consolas?s=mdco,32
+1,https://simple.ripley.com.pe/tecnologia/audio/audifonos?source=menu&s=mdco,2147
 2,https://simple.ripley.com.pe/tecnologia/celulares/celulares-y-smartphones?source=menu&s=mdco,1925
 2,https://simple.ripley.com.pe/tecnologia/celulares/powerbanks-y-baterias-portatiles?s=mdco,1489
 2,https://simple.ripley.com.pe/tecnologia/videojuegos/nintendo-consolas?s=mdco,197

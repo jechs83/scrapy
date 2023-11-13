@@ -114,11 +114,7 @@ class SagaSpider(scrapy.Spider):
         #urls = url_mapping.get(u, [])
 
         urls = links()[int(u-1)]
-        print(u-1)
-        print(urls)
-        time.sleep(10)
-
-  
+     
         for i, v in enumerate(urls):
             if "tottus" in v[0]:
                 for e in range (v[1]+10):

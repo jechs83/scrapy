@@ -16,7 +16,7 @@ start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 15 demo 0
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 16 demo 0
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 17 demo 0
 start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 18 demo 0
-start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 19 demo 0
+start "" /D "C:\GIT\scrapy" cmd /k python test_auto.py saga 1 demo 0
 
 
 
