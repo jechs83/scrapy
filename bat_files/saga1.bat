@@ -1,14 +1,14 @@
-
-
 @echo off
 
-rem Loop to run the spider indefinitely
-:loop
+rem Set the number of times to run the spider
+set num_runs=100000000000000000000000000
+
+rem Loop to run the spider multiple times
+
+
+
 cd C:\Git\scrapy\demo\demo\spiders\
-scrapy crawl saga -a u=3 -a b=0
 
-rem Pause for a few seconds (adjust the time as needed)
-timeout /t 5 /nobreak
-
-rem Jump back to the beginning of the loop
-goto :loop
+for /l %%i in (1,1,%num_runs%) do (
+    scrapy crawl saga -a u=1 -a b=0
+)
