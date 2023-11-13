@@ -18,9 +18,9 @@ list2=[
 
 #   LAVADORAS SAGA TOTTUS SODIMAC
 list3 = [
-        ("https://www.falabella.com.pe/falabella-pe/category/cat40662/Lavado",19),
-        ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40662/Lavado?sid=SO_HO_BPL_65978",2),
-        ("https://tottus.falabella.com.pe/tottus-pe/category/cat40662/Lavado",2),
+        # ("https://www.falabella.com.pe/falabella-pe/category/cat40662/Lavado",19),
+        # ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40662/Lavado?sid=SO_HO_BPL_65978",2),
+        # ("https://tottus.falabella.com.pe/tottus-pe/category/cat40662/Lavado",2),
         ("https://www.falabella.com.pe/falabella-pe/category/cat760706/Celulares-y-Telefonos",115),
         ]
 

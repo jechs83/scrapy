@@ -98,19 +98,23 @@ class SagaSpider(scrapy.Spider):
         script_tag = response.xpath('//script[@id="__NEXT_DATA__"]/text()').get()
 
 
+
         if script_tag:
             json_content = json.loads(script_tag)
 
             # Assuming the relevant JSON data is under "props" -> "pageProps" in the JSON response
             productos = json_content.get('props', {}).get('pageProps', {}).get("results",{})
-        #     with open ("source", "w+") as f:
-        #         f.write(str(page_props))
+            with open ("source.txt", "w+") as f:
+                f.write(str(productos))
         
         for i in productos:
                 
                 try:
                     item["brand"]= i["brand"]
-                    product = item["brand"]
+                    product = item["displayName"]
+                    print(product)
+                    print(item["brand"])
+                    time.sleep(100)
             
                     if self.lista == []:
                         pass
@@ -118,13 +122,13 @@ class SagaSpider(scrapy.Spider):
                         if product.lower() not in self.lista:
                             continue
                 except: item["brand"]= None
-               
+                
 
                 item["product"]=  i["displayName"]
                 item["sku"] = i["skuId"]
                 #item["_id"] = i["skuId"]#+str(load_datetime()[0])
                 item["_id"] :str(uuid.uuid4())
-
+                
                 try:
                  item["best_price"] = float(i["prices"][1]["price"][0].replace(",",""))
         
