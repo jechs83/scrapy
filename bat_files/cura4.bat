@@ -8,5 +8,5 @@ rem Loop to run the spider multiple times
 cd C:\Git\scrapy\curacao\curacao\spiders\
 
 for /l %%i in (1,1,%num_runs%) do (
-    scrapy crawl cura -a u=2 -a b=0
+    scrapy crawl cura -a u=4 -a b=0
 )
