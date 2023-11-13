@@ -7,6 +7,7 @@ from datetime import datetime
 from datetime import date
 import random
 import uuid
+from ripley.spiders.urls_db import *
 import pymongo
 from decouple import config
 
@@ -82,33 +83,7 @@ class RippleScrapSpider(scrapy.Spider):
     def start_requests(self):
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
-        if u == 1:
-            urls = url_list.list1
-        elif u == 2:
-                urls = url_list.list2
-        elif u == 3:
-                urls = url_list.list3
-        elif u == 4:
-                urls = url_list.list4
-        elif u == 5:
-                urls = url_list.list5
-
-        elif u == 6:
-                urls = url_list.list6
-
-        elif u == 7:
-                urls = url_list.list7
-
-        elif u == 8:
-                urls = url_list.list8
-        elif u == 9:
-                urls = url_list.list9
-       
-     
-
-        else:
-            urls = []
-
+        urls = links()[int(u-1)]
 
 
         for i, v in enumerate(urls):

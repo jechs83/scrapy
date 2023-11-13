@@ -101,18 +101,6 @@ class SagaSpider(scrapy.Spider):
        
 
        
-        # Define a dictionary to map 'u' values to the corresponding url_list
-        # url_mapping = {
-        #     1: links()[0], 2: links()[1], 3: links()[2], 4: links()[3], 5: links()[4], 6: links()[6],
-        #     7: links()[6], 8: links()[7], 9: links()[8], 10: links()[9], 11: links()[10], 12: links()[11], 13: links()[12],
-        #     14: links()[13], 15: links()[14], 16: links()[15],  17: links()[16],  18: links()[17],  
-        #     19: links()[18], 20: links()[19]
-        #     }
-        
-
-        # Retrieve the appropriate list based on the value of 'u'
-        #urls = url_mapping.get(u, [])
-
         urls = links()[int(u-1)]
      
         for i, v in enumerate(urls):

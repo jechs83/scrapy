@@ -7,10 +7,9 @@ import pymongo
 from decouple import config
 import logging
 import time
-
-
-
 import uuid
+from curacao.spiders.urls_db import *
+
 
 
 
@@ -81,37 +80,9 @@ class CuraSpider(scrapy.Spider):
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
 
-        if u == 0:
-            urls = url_list.list0
-      
-        elif u == 1:
-                urls = url_list.list1
-        elif u == 2:
-                urls = url_list.list2
-        elif u == 3:
-                urls = url_list.list3
-        elif u == 4:
-                urls = url_list.list4
-
-        elif u == 5:
-                urls = url_list.list5
-
-        elif u == 6:
-                
-                urls = url_list.list6
-        elif u == 7:
-                urls = url_list.list7
-        elif u == 8:
-                urls = url_list.list8
-
-        elif u ==9:
-                urls = url_list.list9
-        elif u == 10:
-                urls = url_list.list10
-        else:
-            urls = []
-        
-        count = 12
+        urls = links()[int(u-1)]
+       
+     
         # for i, v in enumerate(urls):
         #     count = 12
         #     for e in range(200):
