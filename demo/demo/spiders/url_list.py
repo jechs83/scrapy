@@ -1,7 +1,7 @@
 # COCINA TOTTUS SAGA SODIMAC
 list1 = [
-        ("https://www.falabella.com.pe/falabella-pe/category/cat40538/Cocina",46),
-        ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40538/Cocina?sid=SO_HO_BPL_65980",9),
+        ("https://www.falabella.com.pe/falabella-pe/category/cat40538/Cocina",47),
+        ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40538/Cocina?sid=SO_HO_BPL_65980",8),
         ("https://tottus.falabella.com.pe/tottus-pe/category/cat40538/Cocina",3)
       
         ]
@@ -9,7 +9,7 @@ list1 = [
 
 #   REFRIGEDORAS SAGA TOTTUS SODIMAC
 list2=[
-        ("https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion",27),
+        ("https://www.falabella.com.pe/falabella-pe/category/CATG19032/Refrigeracion",30),
         ("https://tottus.falabella.com.pe/tottus-pe/category/cat780530/Refrigerador",1),
         ("https://sodimac.falabella.com.pe/sodimac-pe/category/CATG19032/Refrigeracion?sid=SO_HO_BPL_65977",2),
 
@@ -18,17 +18,17 @@ list2=[
 
 #   LAVADORAS SAGA TOTTUS SODIMAC
 list3 = [
-        # ("https://www.falabella.com.pe/falabella-pe/category/cat40662/Lavado",19),
-        # ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40662/Lavado?sid=SO_HO_BPL_65978",2),
-        # ("https://tottus.falabella.com.pe/tottus-pe/category/cat40662/Lavado",2),
+        ("https://www.falabella.com.pe/falabella-pe/category/cat40662/Lavado",19),
+        ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat40662/Lavado?sid=SO_HO_BPL_65978",2),
+        ("https://tottus.falabella.com.pe/tottus-pe/category/cat40662/Lavado",2),
         ("https://www.falabella.com.pe/falabella-pe/category/cat760706/Celulares-y-Telefonos",115),
         ]
 
 
 #   ASPIRADORA SAGA TOTTUS SODIMAC
 list4=[
-    ("https://www.falabella.com.pe/falabella-pe/category/cat40487/Aspirado-y-Limpieza",22,1),
-    ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat6370574/Aspiradoras",2,1),
+    ("https://www.falabella.com.pe/falabella-pe/category/cat40487/Aspirado-y-Limpieza",22),
+    ("https://sodimac.falabella.com.pe/sodimac-pe/category/cat6370574/Aspiradoras",2),
     ("https://tottus.falabella.com.pe/tottus-pe/category/cat40487/Aspirado-y-Limpieza", 1)
     ]
 

@@ -3,10 +3,11 @@ import json
 from demo.items import DemoItem
 from datetime import datetime
 from datetime import date
-from  demo.spiders import url_list 
+#from  demo.spiders import url_list 
 import uuid
 import pymongo
 import time
+from demo.spiders.urls_db import *
 
 from decouple import config
 
@@ -20,6 +21,7 @@ def load_datetime():
  return date_now, time_now, today
 
 
+
 class SagaSpider(scrapy.Spider):
     #list_to_skip = skip_brand()
     name = "saga"
@@ -31,22 +33,6 @@ class SagaSpider(scrapy.Spider):
         self.client = pymongo.MongoClient(config("MONGODB"))
         self.db = self.client["brand_allowed"]
         self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
-
-        # if self.b == 0:
-        #     self.lista =  self.brand_allowed()[0]
-        # if self.b == 1:
-        #     self.lista =  self.brand_allowed()[1]
-        # if self.b == 2:
-        #     self.lista =  self.brand_allowed()[2]
-        # if self.b == 3:
-        #     self.lista =  self.brand_allowed()[3]
-        
-    
-    # def skip_brand(self):
-    #     collection = self.db["add"]
-    #     skip = collection.find({})
-    #     skip_list = [doc["skip"] for doc in skip]
-    #     return skip_list
     
     def brand_allowed(self):
      
@@ -116,17 +102,20 @@ class SagaSpider(scrapy.Spider):
 
        
         # Define a dictionary to map 'u' values to the corresponding url_list
-        url_mapping = {
-            1: url_list.list1, 2: url_list.list2, 3: url_list.list3, 4: url_list.list4, 5: url_list.list5, 6: url_list.list6,
-            7: url_list.list7, 8: url_list.list8, 9: url_list.list9, 10: url_list.list10, 11: url_list.list11, 12: url_list.list12, 13: url_list.list13,
-            14: url_list.list14, 15: url_list.list15, 16: url_list.list16,  17: url_list.list17,  18: url_list.list18,  
-            19: url_list.list19, 20: url_list.list20,21: url_list.list21, 22: url_list.list22,23: url_list.list23, 24: url_list.list24
-            }
+        # url_mapping = {
+        #     1: links()[0], 2: links()[1], 3: links()[2], 4: links()[3], 5: links()[4], 6: links()[6],
+        #     7: links()[6], 8: links()[7], 9: links()[8], 10: links()[9], 11: links()[10], 12: links()[11], 13: links()[12],
+        #     14: links()[13], 15: links()[14], 16: links()[15],  17: links()[16],  18: links()[17],  
+        #     19: links()[18], 20: links()[19]
+        #     }
         
 
         # Retrieve the appropriate list based on the value of 'u'
-        urls = url_mapping.get(u, [])
-        
+        #urls = url_mapping.get(u, [])
+
+        urls = links()[u-1]
+
+  
         for i, v in enumerate(urls):
             if "tottus" in v[0]:
                 for e in range (v[1]+10):
