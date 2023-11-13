@@ -7,7 +7,7 @@ base_de_datos = cliente["saga"]
 coleccion = base_de_datos["links"]
 
 # Ruta al archivo de texto
-archivo_texto = "/Users/javier/GIT/scrapy_saga/demo/demo/spiders/urls.txt"
+archivo_texto = "urls.txt"
 
 # Abrir el archivo y leer línea por línea
 with open(archivo_texto, 'r') as file:
