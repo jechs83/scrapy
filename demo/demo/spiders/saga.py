@@ -21,7 +21,6 @@ def load_datetime():
 
 
 class SagaSpider(scrapy.Spider):
-    #list_to_skip = skip_brand()
     name = "saga"
     allowed_domains = ["falabella.com.pe"]
 
@@ -32,80 +31,14 @@ class SagaSpider(scrapy.Spider):
         self.db = self.client["brand_allowed"]
         self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
 
-        # if self.b == 0:
-        #     self.lista =  self.brand_allowed()[0]
-        # if self.b == 1:
-        #     self.lista =  self.brand_allowed()[1]
-        # if self.b == 2:
-        #     self.lista =  self.brand_allowed()[2]
-        # if self.b == 3:
-        #     self.lista =  self.brand_allowed()[3]
-        
-    
-    # def skip_brand(self):
-    #     collection = self.db["add"]
-    #     skip = collection.find({})
-    #     skip_list = [doc["skip"] for doc in skip]
-    #     return skip_list
+       
     
     def brand_allowed(self):
      
         collection1 = self.db["todo"]
-        collection2 = self.db["electro"]
-        collection3 = self.db["tv"]
-        collection4 = self.db["cellphone"]
-        collection5 = self.db["laptop"]
-        collection6 = self.db["consola"]
-        collection7 = self.db["audio"]
-        collection8 = self.db["colchon"]
-        collection9 = self.db["nada"]
-        collection10 = self.db["sport"]
-        
-        shoes = collection1.find({})
-        electro = collection2.find({})
-        tv = collection3.find({})
-        cellphone = collection4.find({})
-        laptop = collection5.find({})
-        consola = collection6.find({})
-        audio = collection7.find({})
-        colchon = collection8.find({})
-        nada = collection9.find({})
-        sport = collection10.find({})
+        todo = collection1.find({})
+        return todo    
 
-
-        shoes_list = [doc["brand"] for doc in shoes]
-        electro_list = [doc["brand"] for doc in electro]
-        tv_list = [doc["brand"] for doc in tv]
-        cellphone_list = [doc["brand"] for doc in cellphone]
-        laptop_list = [doc["brand"] for doc in laptop]
-        consola_list = [doc["brand"] for doc in consola]
-        audio_list = [doc["brand"] for doc in audio]
-        colchon_list = [doc["brand"] for doc in colchon]
-        nada_list = [doc["brand"] for doc in nada]
-        sport_list = [doc["brand"] for doc in sport]
-        return shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, audio_list, colchon_list,nada_list,sport_list
-    
-
-
-    
-    
-
-
-
-    # def skip_brand(self):
-    #     client = pymongo.MongoClient(config("MONGODB"))
-    #     db = client[config("db_saga")] 
-    #     collection = db["skip"] 
-
-    #     skip_list = []
-    #     skip = collection.find({})
-
-    #     for doc in skip:
-            
-    #         skip_list.append(doc["brand"])
-    #     skip_list = list(skip_list)
-
-    #     return skip_list
 
 
     def start_requests(self):
@@ -168,45 +101,26 @@ class SagaSpider(scrapy.Spider):
         if script_tag:
             json_content = json.loads(script_tag)
 
-            
-
             # Assuming the relevant JSON data is under "props" -> "pageProps" in the JSON response
-            page_props = json_content.get('props', {}).get('pageProps', {}).get("results",{})
+            productos = json_content.get('props', {}).get('pageProps', {}).get("results",{})
         #     with open ("source", "w+") as f:
         #         f.write(str(page_props))
-
-
-        productos = page_props
         
         for i in productos:
                 
                 try:
                     item["brand"]= i["brand"]
                     product = item["brand"]
-                    # if product.lower() in ["generico", "generica", "genérico","genérica","cc group","importado"]:
-                    # # if product.lower() in list_to_skip:
-                    #     continue
             
-                    #if product.lower() not in lista:
-                    #if product.lower() not in self.brand_allowed()[int(self.b)]:
                     if self.lista == []:
                         pass
                     else:
                         if product.lower() not in self.lista:
                             continue
-            
-                    
                 except: item["brand"]= None
                
 
-
-          
-
-               
-                
-
                 item["product"]=  i["displayName"]
-
                 item["sku"] = i["skuId"]
                 #item["_id"] = i["skuId"]#+str(load_datetime()[0])
                 item["_id"] :str(uuid.uuid4())
