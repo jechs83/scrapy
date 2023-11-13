@@ -19,3 +19,9 @@ start cmd /k call C:\Git\scrapy\bat_files\saga16.bat
 start cmd /k call C:\Git\scrapy\bat_files\saga17.bat
 start cmd /k call C:\Git\scrapy\bat_files\saga18.bat
 start cmd /k call C:\Git\scrapy\bat_files\saga19.bat
+
+start cmd /k call C:\Git\scrapy\bat_files\promart1.bat
+start cmd /k call C:\Git\scrapy\bat_files\tailoy1.bat
+start cmd /k call C:\Git\scrapy\bat_files\plazavea1.bat
+
+
