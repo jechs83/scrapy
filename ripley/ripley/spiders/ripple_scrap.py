@@ -7,6 +7,9 @@ from datetime import datetime
 from datetime import date
 import random
 import uuid
+from ripley.spiders.urls_db import *
+import pymongo
+from decouple import config
 
 def load_datetime():
     
@@ -32,37 +35,55 @@ class RippleScrapSpider(scrapy.Spider):
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140",
         # Add more user-agent strings here
     ]
+
+    def __init__(self, *args, **kwargs):
+        super(RippleScrapSpider, self).__init__(*args, **kwargs)
+        self.client = pymongo.MongoClient(config("MONGODB"))
+        self.db = self.client["brand_allowed"]
+        self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
+
+    def brand_allowed(self):
+        collection1 = self.db["todo"]
+        collection2 = self.db["electro"]
+        collection3 = self.db["tv"]
+        collection4 = self.db["cellphone"]
+        collection5 = self.db["laptop"]
+        collection6 = self.db["consola"]
+        collection7 = self.db["audio"]
+        collection8 = self.db["colchon"]
+        collection9 = self.db["nada"]
+        collection10 = self.db["sport"]
+        
+        shoes = collection1.find({})
+        electro = collection2.find({})
+        tv = collection3.find({})
+        cellphone = collection4.find({})
+        laptop = collection5.find({})
+        consola = collection6.find({})
+        audio = collection7.find({})
+        colchon = collection8.find({})
+        nada = collection9.find({})
+        sport = collection10.find({})
+
+
+        shoes_list = [doc["brand"] for doc in shoes]
+        electro_list = [doc["brand"] for doc in electro]
+        tv_list = [doc["brand"] for doc in tv]
+        cellphone_list = [doc["brand"] for doc in cellphone]
+        laptop_list = [doc["brand"] for doc in laptop]
+        consola_list = [doc["brand"] for doc in consola]
+        audio_list = [doc["brand"] for doc in audio]
+        colchon_list = [doc["brand"] for doc in colchon]
+        nada_list = [doc["brand"] for doc in nada]
+        sport_list = [doc["brand"] for doc in sport]
+        return shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, audio_list, colchon_list,nada_list,sport_list
+    
     
     links =[]
     def start_requests(self):
         u = int(getattr(self, 'u', '0'))
-        if u == 1:
-            urls = url_list.list1
-        elif u == 2:
-                urls = url_list.list2
-        elif u == 3:
-                urls = url_list.list3
-        elif u == 4:
-                urls = url_list.list4
-        elif u == 5:
-                urls = url_list.list5
-
-        elif u == 6:
-                urls = url_list.list6
-
-        elif u == 7:
-                urls = url_list.list7
-
-        elif u == 8:
-                urls = url_list.list8
-        elif u == 9:
-                urls = url_list.list9
-       
-     
-
-        else:
-            urls = []
-
+        b = int(getattr(self, 'b', '0'))
+        urls = links()[int(u-1)]
 
 
         for i, v in enumerate(urls):
@@ -102,8 +123,11 @@ class RippleScrapSpider(scrapy.Spider):
                 if item["brand"] == None:
                     item["brand"] = "Revisar codigo"
                 product = item["brand"]
-                if product.lower() in ["GENERICO", "generico", "GENERICA", "generica","GENÉRICO","GENÉRICA", "GENERIC" , "genérico","genérica"]:
-                            continue
+                if self.lista == []:
+                    pass
+                else:
+                    if product.lower() not in self.lista:
+                        continue
 
                 
                 try:

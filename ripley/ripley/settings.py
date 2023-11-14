@@ -10,7 +10,7 @@ ITEM_PIPELINES = {
 }
 
 MONGO_URI = config("MONGODB")
-MONGO_DATABASE = config("data_base")
+MONGO_DATABASE = config("db_ripley")
 COLLECTION_NAME = config("collection")
 
 

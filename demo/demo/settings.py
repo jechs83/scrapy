@@ -8,9 +8,9 @@ NEWSPIDER_MODULE = "demo.spiders"
 ITEM_PIPELINES = {
     'demo.pipelines.MongoPipeline': 300,
 }
-# MONGO_URI = config("MONGO_DB")
-# MONGO_DATABASE = config("database")
-# COLLECTION_NAME = config("collection")
+# MONGO_URI = config("MONGODB")
+# MONGO_DATABASE = "saga1"
+# COLLECTION_NAME = "scrap"
 
 MONGO_URI = config("MONGODB")
 MONGO_DATABASE = config("db_saga")

@@ -6,6 +6,8 @@ from tailoy.settings import ROTATING_PROXY_LIST
 from tailoy.spiders import url_list
 import time
 import uuid
+import pymongo
+from decouple import config
 
 
 
@@ -22,6 +24,49 @@ def load_datetime():
 class TaiSpider(scrapy.Spider):
     name = "tai"
     allowed_domains = ["tailoy.com.pe"]
+
+    def __init__(self, *args, **kwargs):
+        super(TaiSpider, self).__init__(*args, **kwargs)
+        self.client = pymongo.MongoClient(config("MONGODB"))
+        self.db = self.client["brand_allowed"]
+        self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
+
+    def brand_allowed(self):
+        collection1 = self.db["todo"]
+        collection2 = self.db["electro"]
+        collection3 = self.db["tv"]
+        collection4 = self.db["cellphone"]
+        collection5 = self.db["laptop"]
+        collection6 = self.db["consola"]
+        collection7 = self.db["audio"]
+        collection8 = self.db["colchon"]
+        collection9 = self.db["nada"]
+        collection10 = self.db["sport"]
+        
+        shoes = collection1.find({})
+        electro = collection2.find({})
+        tv = collection3.find({})
+        cellphone = collection4.find({})
+        laptop = collection5.find({})
+        consola = collection6.find({})
+        audio = collection7.find({})
+        colchon = collection8.find({})
+        nada = collection9.find({})
+        sport = collection10.find({})
+
+
+        shoes_list = [doc["brand"] for doc in shoes]
+        electro_list = [doc["brand"] for doc in electro]
+        tv_list = [doc["brand"] for doc in tv]
+        cellphone_list = [doc["brand"] for doc in cellphone]
+        laptop_list = [doc["brand"] for doc in laptop]
+        consola_list = [doc["brand"] for doc in consola]
+        audio_list = [doc["brand"] for doc in audio]
+        colchon_list = [doc["brand"] for doc in colchon]
+        nada_list = [doc["brand"] for doc in nada]
+        sport_list = [doc["brand"] for doc in sport]
+        return shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, audio_list, colchon_list,nada_list,sport_list
+    
    
     
     def start_requests(self):
@@ -31,6 +76,7 @@ class TaiSpider(scrapy.Spider):
             
 
         u = int(getattr(self, 'u', '0'))
+        b = int(getattr(self, 'b', '0'))
 
         if u == 1:
             urls = url_list.list1
@@ -107,7 +153,6 @@ class TaiSpider(scrapy.Spider):
       
 
         for i in productos:
-            print("######")
 
             item["sku"]= i.css("div.price-box.price-final_price::attr(data-product-id)").get()
             item["_id"] =i.css("div.price-box.price-final_price::attr(data-product-id)").get()
@@ -119,9 +164,23 @@ class TaiSpider(scrapy.Spider):
             
             item["link"] = i.css("a::attr(href)").get()
             item["brand"] = i.css("div.brand-label  span::text").get()
+            
             product = item["brand"]
-            if product.lower() in ["GENERICO", "generico", "GENERICA", "generica","GENÉRICO","GENÉRICA", "GENERIC" , "genérico","genérica"]:
-                            continue
+            if product == None:
+                return False
+        
+            
+
+          
+            # if self.lista == []:
+            #     pass
+            # else:
+            #     if product == None:
+            #         product = "sin marca"
+            #     else:
+            #         if product.lower() not in self.lista:
+            #                 continue
+                
             item["product"] = i.css("strong.product.name.product-item-name a.product-item-link::text").get()
             item["product"] = item["product"].strip()
 
@@ -163,31 +222,6 @@ class TaiSpider(scrapy.Spider):
             item["card_price"] = 0
             item["card_dsct"] = 0
 
-
-            # element = item["brand"]
-            # if item["web_dsct"]>= 70 and   any(item.lower() == element.lower() for item in brand()):
-                
-            #         if  item["card_price"] == 0:
-            #              card_price = ""
-            #         else:
-            #             card_price = '\n👉Precio Tarjeta :'+str(item["card_price"])
-
-            #         if item["list_price"] == 0:
-            #                 list_price = ""
-            #         else:
-            #             list_price = '\n\n➡️Precio Lista :'+str(item["list_price"])
-
-            #         if item["web_dsct"] <= 50:
-            #             dsct = "🟡"
-            #         if item["web_dsct"] > 50 and item["web_dsct"]  <=69:
-            #             dsct = "🟢"
-            #         if item["web_dsct"] >=70:
-            #             dsct = "🔥🔥🔥🔥🔥"
-
-            #         message =  "✅Marca: "+str(item["brand"])+"\n✅"+str(item["product"])+list_price+"\n👉Precio web :"+str(item["best_price"])+card_price+"\n"+dsct+"Descuento: "+"% "+str(item["web_dsct"])+"\n"+"\n\n⌛"+item["date"]+" "+ item["time"]+"\n🔗Link :"+str(item["link"])+"\n🏠home web:"+item["home_list"]+"\n\n◀️◀️◀️◀️◀️◀️◀️▶️▶️▶️▶️▶️▶️"
-            #         foto = item["image"]
-
-            #         send_telegram(message,foto, bot_token, chat_id)
 
 
 

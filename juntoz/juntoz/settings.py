@@ -17,9 +17,9 @@ NEWSPIDER_MODULE = "juntoz.spiders"
 ITEM_PIPELINES = {
     'juntoz.pipelines.MongoPipeline': 300,
 }
-MONGO_URI = config("MONGO_DB")
+MONGO_URI = config("MONGODB")
 
-MONGO_DATABASE = config("database")
+MONGO_DATABASE = config("juntoz")
 COLLECTION_NAME = config("collection")
 
 

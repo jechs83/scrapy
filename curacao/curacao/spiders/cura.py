@@ -3,12 +3,13 @@ from curacao.items import CuracaoItem
 from datetime import datetime
 from datetime import date
 from curacao.spiders import url_list 
-
+import pymongo
+from decouple import config
 import logging
-
-
-
+import time
 import uuid
+from curacao.spiders.urls_db import *
+
 
 
 
@@ -25,41 +26,63 @@ def load_datetime():
 class CuraSpider(scrapy.Spider):
     name = "cura"
     allowed_domains = ["lacuracao.pe"]
+    def __init__(self, *args, **kwargs):
+        super(CuraSpider, self).__init__(*args, **kwargs)
+        self.client = pymongo.MongoClient(config("MONGODB"))
+        self.db = self.client["brand_allowed"]
+        self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
+
+    def brand_allowed(self):
+        collection1 = self.db["todo"]
+        collection2 = self.db["electro"]
+        collection3 = self.db["tv"]
+        collection4 = self.db["cellphone"]
+        collection5 = self.db["laptop"]
+        collection6 = self.db["consola"]
+        collection7 = self.db["audio"]
+        collection8 = self.db["colchon"]
+        collection9 = self.db["nada"]
+        collection10 = self.db["sport"]
+        collection11 = self.db["curacao"]
+        collection12 = self.db["todo"]
+        
+        shoes = collection1.find({})
+        electro = collection2.find({})
+        tv = collection3.find({})
+        cellphone = collection4.find({})
+        laptop = collection5.find({})
+        consola = collection6.find({})
+        audio = collection7.find({})
+        colchon = collection8.find({})
+        nada = collection9.find({})
+        sport = collection10.find({})
+        curacao = collection11.find({})
+        todo = collection12.find({})
+
+
+        shoes_list = [doc["brand"] for doc in shoes]
+        electro_list = [doc["brand"] for doc in electro]
+        tv_list = [doc["brand"] for doc in tv]
+        cellphone_list = [doc["brand"] for doc in cellphone]
+        laptop_list = [doc["brand"] for doc in laptop]
+        consola_list = [doc["brand"] for doc in consola]
+        audio_list = [doc["brand"] for doc in audio]
+        colchon_list = [doc["brand"] for doc in colchon]
+        nada_list = [doc["brand"] for doc in nada]
+        sport_list = [doc["brand"] for doc in sport]
+        curacao_list = [doc["brand"] for doc in curacao]
+        todo_list = [doc["brand"] for doc in todo]
+        return (shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, 
+                audio_list, colchon_list,nada_list,sport_list,curacao_list, todo_list)
+    
 
     def start_requests(self):
         u = int(getattr(self, 'u', '0'))
+        b = int(getattr(self, 'b', '0'))
 
-        if u == 0:
-            urls = url_list.list0
-      
-        elif u == 1:
-                urls = url_list.list1
-        elif u == 2:
-                urls = url_list.list2
-        elif u == 3:
-                urls = url_list.list3
-        elif u == 4:
-                urls = url_list.list4
-
-        elif u == 5:
-                urls = url_list.list5
-
-        elif u == 6:
-                
-                urls = url_list.list6
-        elif u == 7:
-                urls = url_list.list7
-        elif u == 8:
-                urls = url_list.list8
-
-        elif u ==9:
-                urls = url_list.list9
-        elif u == 10:
-                urls = url_list.list10
-        else:
-            urls = []
-        
-        count = 12
+        urls = links()[int(u-1)]
+       
+     
         # for i, v in enumerate(urls):
         #     count = 12
         #     for e in range(200):
@@ -92,6 +115,17 @@ class CuraSpider(scrapy.Spider):
             item["_id"] :str(uuid.uuid4())
      
             item["brand"] = product.css('span.brand-name::text').get()
+            producto = item["brand"]
+        
+
+            if self.lista == []:
+                pass
+            else:
+                if producto.lower() not in self.lista:
+                    continue
+            
+            
+                
             
             item["product"] =  product.css('a.product-item-link::text').get()
             item["product"]  = item["product"].strip() if item["product"]  else None
@@ -122,6 +156,11 @@ class CuraSpider(scrapy.Spider):
                 except:
                     item["best_price"] = 0
 
+            #try:
+            if item["best_price"] == 0:
+                item["best_price"] = product.css('div.price-box.price-final_price span.price-container.price-final_price.tax.weee span.price-wrapper > span.price::text').get()#.replace('S/', '').strip()
+                item["best_price"] = item["best_price"].strip().replace(",", "").replace("S/", "").replace('\xa0', '').strip()
+
       
          
             try:
@@ -146,37 +185,6 @@ class CuraSpider(scrapy.Spider):
             item["date"] = load_datetime()[0]
             item["time"]= load_datetime()[1]
             item["home_list"]=response.url
-
-
-            # element = item["brand"]
-            # if item["web_dsct"]>= 70 and   any(item.lower() == element.lower() for item in brand()):
-                
-            #         if  item["card_price"] == 0:
-            #              card_price = ""
-            #         else:
-            #             card_price = '\n👉Precio Tarjeta :'+str(item["card_price"])
-
-            #         if item["list_price"] == 0:
-            #                 list_price = ""
-            #         else:
-            #             list_price = '\n\n➡️Precio Lista :'+str(item["list_price"])
-
-            #         if item["web_dsct"] <= 50:
-            #             dsct = "🟡"
-            #         if item["web_dsct"] > 50 and item["web_dsct"]  <=69:
-            #             dsct = "🟢"
-            #         if item["web_dsct"] >=70:
-            #             dsct = "🔥🔥🔥🔥🔥"
-
-            #         message =  "✅Marca: "+str(item["brand"])+"\n✅"+str(item["product"])+list_price+"\n👉Precio web :"+str(item["best_price"])+card_price+"\n"+dsct+"Descuento: "+"% "+str(item["web_dsct"])+"\n"+"\n\n⌛"+item["date"]+" "+ item["time"]+"\n🔗Link :"+str(item["link"])+"\n🏠home web:"+item["home_list"]+"\n\n◀️◀️◀️◀️◀️◀️◀️▶️▶️▶️▶️▶️▶️"
-            #         foto = item["image"]
-
-            #         send_telegram(message,foto, bot_token, chat_id)
-
-
-           
-    
-
            
         
             yield item        

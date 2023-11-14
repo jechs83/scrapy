@@ -1,17 +1,4 @@
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 
-
-# useful for handling different item types with a single interface
-
-# from itemadapter import ItemAdapter
-
-
-# class DemoPipeline:
-#     def process_item(self, item, spider):
-#         return item
 from datetime import date, datetime, timedelta
 import time
 import logging
@@ -66,7 +53,7 @@ class MongoPipeline(object):
     #     spider.logger.debug('Item updated in MongoDB: %s', result)
     #     return item
        
-    '''
+   
 
     # def process_item(self, item, spider):
     #     collection = self.db[self.collection_name]
@@ -76,7 +63,7 @@ class MongoPipeline(object):
     #     spider.logger.debug('Item updated in MongoDB: %s', result)
     #     return item
 
-  '''
+  
     
     
     # def process_item(self, item, spider):
@@ -87,12 +74,34 @@ class MongoPipeline(object):
     #     spider.logger.debug('Item updated in MongoDB: %s', result)
     #     return item
 
+    # def process_item(self, item, spider):
+    #     collection = self.db[self.collection_name]
+    #     filter = { "sku": item["sku"],"list_price":item["list_price"], "best_price": item["best_price"],"card_price": item["card_price"], }
+    #     update = {'$set': dict(item)}
+    #     result = collection.update_one(filter, update, upsert=True)
+    #     spider.logger.debug('Item updated in MongoDB: %s', result)
+    #     return item
+    
+
+
     def process_item(self, item, spider):
         collection = self.db[self.collection_name]
-        filter = { "sku": item["sku"],"list_price":item["list_price"], "best_price": item["best_price"],"card_price": item["card_price"], }
-        update = {'$set': dict(item)}
-        result = collection.update_one(filter, update, upsert=True)
-        spider.logger.debug('Item updated in MongoDB: %s', result)
+        filter = {"sku": item["sku"]}
+        existing_record = collection.find_one(filter)
+        
+        if existing_record:
+            # Compare prices before updating
+            if (existing_record["list_price"] != item["list_price"] or
+                existing_record["best_price"] != item["best_price"] or
+                existing_record["card_price"] != item["card_price"]):
+                # Prices are different, update the record
+                update = {'$set': dict(item)}
+                result = collection.update_one(filter, update)
+                spider.logger.debug('Item updated in MongoDB: %s', result)
+        else:
+            # If the SKU is not found, insert a new record
+            collection.insert_one(dict(item))
+            spider.logger.debug('New item inserted into MongoDB')
+        
         return item
-  
-  
+    

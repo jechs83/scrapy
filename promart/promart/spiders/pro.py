@@ -4,7 +4,8 @@ from datetime import datetime
 from datetime import date
 from promart.spiders import url_list 
 import uuid
-
+import pymongo
+from decouple import config
 
 
 
@@ -21,11 +22,53 @@ def load_datetime():
 class ProSpider(scrapy.Spider):
     name = "pro"
     allowed_domains = ["promart.pe"]
-    #start_urls = ["http://promart.pe/"]
+    def __init__(self, *args, **kwargs):
+        super(ProSpider, self).__init__(*args, **kwargs)
+        self.client = pymongo.MongoClient(config("MONGODB"))
+        self.db = self.client["brand_allowed"]
+        self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
+
+    def brand_allowed(self):
+        collection1 = self.db["todo"]
+        collection2 = self.db["electro"]
+        collection3 = self.db["tv"]
+        collection4 = self.db["cellphone"]
+        collection5 = self.db["laptop"]
+        collection6 = self.db["consola"]
+        collection7 = self.db["audio"]
+        collection8 = self.db["colchon"]
+        collection9 = self.db["nada"]
+        collection10 = self.db["sport"]
+        
+        shoes = collection1.find({})
+        electro = collection2.find({})
+        tv = collection3.find({})
+        cellphone = collection4.find({})
+        laptop = collection5.find({})
+        consola = collection6.find({})
+        audio = collection7.find({})
+        colchon = collection8.find({})
+        nada = collection9.find({})
+        sport = collection10.find({})
+
+
+        shoes_list = [doc["brand"] for doc in shoes]
+        electro_list = [doc["brand"] for doc in electro]
+        tv_list = [doc["brand"] for doc in tv]
+        cellphone_list = [doc["brand"] for doc in cellphone]
+        laptop_list = [doc["brand"] for doc in laptop]
+        consola_list = [doc["brand"] for doc in consola]
+        audio_list = [doc["brand"] for doc in audio]
+        colchon_list = [doc["brand"] for doc in colchon]
+        nada_list = [doc["brand"] for doc in nada]
+        sport_list = [doc["brand"] for doc in sport]
+        return shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, audio_list, colchon_list,nada_list,sport_list
+    
 
 
     def start_requests(self):
         u = int(getattr(self, 'u', '0'))
+        b = int(getattr(self, 'b', '0'))
 
         if u == 0:
             urls = url_list.list0
@@ -72,8 +115,11 @@ class ProSpider(scrapy.Spider):
 
             item["brand"]= i.css("div.brand.js-brand p::text").get()
             product = item["brand"]
-            if product.lower() in ["GENERICO", "generico", "GENERICA", "generica","GENÉRICO","GENÉRICA", "GENERIC" , "genérico","genérica"]:
-                        continue
+            if self.lista == []:
+                pass
+            else:
+                if product.lower() not in self.lista:
+                    continue
             item["product"] =i.css("input.insert-sku-quantity::attr(title)").get()
             item["link"] =i.css("a.prod-det-enlace::attr(href)").get()
             item["image"]= i.css("img::attr(src)").get()

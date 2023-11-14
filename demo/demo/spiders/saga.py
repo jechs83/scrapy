@@ -3,13 +3,19 @@ import json
 from demo.items import DemoItem
 from datetime import datetime
 from datetime import date
-from  demo.spiders import url_list 
+#from  demo.spiders import url_list 
 import uuid
+<<<<<<< HEAD
 from decouple import config
 import pymongo
 import gc
+=======
+import pymongo
+import time
+from demo.spiders.urls_db import *
+>>>>>>> 3c86c334d2f86d5165ffd510e7031b7154430cb8
 
-
+from decouple import config
 
 def load_datetime():
     
@@ -21,7 +27,9 @@ def load_datetime():
  return date_now, time_now, today
 
 
+
 class SagaSpider(scrapy.Spider):
+    #list_to_skip = skip_brand()
     name = "saga"
     allowed_domains = ["falabella.com.pe"]
 
@@ -31,9 +39,16 @@ class SagaSpider(scrapy.Spider):
         self.client = pymongo.MongoClient(config("MONGODB"))
         self.db = self.client["brand_allowed"]
         self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
+<<<<<<< HEAD
 
     def brand_allowed(self):
         collection1 = self.db["shoes"]
+=======
+    
+    def brand_allowed(self):
+     
+        collection1 = self.db["todo"]
+>>>>>>> 3c86c334d2f86d5165ffd510e7031b7154430cb8
         collection2 = self.db["electro"]
         collection3 = self.db["tv"]
         collection4 = self.db["cellphone"]
@@ -43,6 +58,7 @@ class SagaSpider(scrapy.Spider):
         collection8 = self.db["colchon"]
         collection9 = self.db["nada"]
         collection10 = self.db["sport"]
+<<<<<<< HEAD
         collection11 = self.db["curacao"]
         collection12 = self.db["todo"]
         
@@ -88,16 +104,73 @@ class SagaSpider(scrapy.Spider):
             19: url_list.list19, 20: url_list.list20,21: url_list.list21, 22: url_list.list22,23: url_list.list23
       
             }
+=======
+>>>>>>> 3c86c334d2f86d5165ffd510e7031b7154430cb8
         
+        shoes = collection1.find({})
+        electro = collection2.find({})
+        tv = collection3.find({})
+        cellphone = collection4.find({})
+        laptop = collection5.find({})
+        consola = collection6.find({})
+        audio = collection7.find({})
+        colchon = collection8.find({})
+        nada = collection9.find({})
+        sport = collection10.find({})
 
-        # Retrieve the appropriate list based on the value of 'u'
-        urls = url_mapping.get(u, [])
+
+        shoes_list = [doc["brand"] for doc in shoes]
+        electro_list = [doc["brand"] for doc in electro]
+        tv_list = [doc["brand"] for doc in tv]
+        cellphone_list = [doc["brand"] for doc in cellphone]
+        laptop_list = [doc["brand"] for doc in laptop]
+        consola_list = [doc["brand"] for doc in consola]
+        audio_list = [doc["brand"] for doc in audio]
+        colchon_list = [doc["brand"] for doc in colchon]
+        nada_list = [doc["brand"] for doc in nada]
+        sport_list = [doc["brand"] for doc in sport]
+        return shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, audio_list, colchon_list,nada_list,sport_list
     
 
+
+    
+    
+
+
+
+    # def skip_brand(self):
+    #     client = pymongo.MongoClient(config("MONGODB"))
+    #     db = client[config("db_saga")] 
+    #     collection = db["skip"] 
+
+    #     skip_list = []
+    #     skip = collection.find({})
+
+    #     for doc in skip:
+            
+    #         skip_list.append(doc["brand"])
+    #     skip_list = list(skip_list)
+
+    #     return skip_list
+
+
+    def start_requests(self):
+       
+        u = int(getattr(self, 'u', '0'))
+        b = int(getattr(self, 'b', '0'))
+       
+
+       
+        urls = links()[int(u-1)]
+     
         for i, v in enumerate(urls):
-            if "linio" in v[0]:
+            if "tottus" in v[0]:
                 for e in range (v[1]+10):
-                    url = v[0]+ "?subdomain=linio&page="+str(e+1) 
+                    url = v[0]+ "?subdomain=tottus&page="+str(e+1) +"&store=tottus"
+                    yield scrapy.Request(url, self.parse)
+            if "sodimac" in v[0]:
+                for e in range (v[1]+10):
+                    url = v[0]+ "?subdomain=sodimac&page="+str(e+1)+"&store=sodimac"
                     yield scrapy.Request(url, self.parse)
             else:
     
@@ -109,8 +182,9 @@ class SagaSpider(scrapy.Spider):
         # Now you can use the 'urls
 
     def parse(self, response):
+      
         
-            
+        
         if response.status != 200:
         # If the response status is not 200, skip processing this link and move to the next one
                 self.logger.warning(f"Skipping URL {response.url} due to non-200 status code: {response.status}")
@@ -126,7 +200,6 @@ class SagaSpider(scrapy.Spider):
         # Find the script tag with the JSON data
         script_tag = response.xpath('//script[@id="__NEXT_DATA__"]/text()').get()
 
-    
 
         if script_tag:
             json_content = json.loads(script_tag)
@@ -140,8 +213,10 @@ class SagaSpider(scrapy.Spider):
 
 
         productos = page_props
+        
         for i in productos:
                 
+<<<<<<< HEAD
                 
 
                
@@ -158,6 +233,29 @@ class SagaSpider(scrapy.Spider):
             
                     
                 # except: item["brand"]= None
+=======
+                try:
+                    item["brand"]= i["brand"]
+                    product = item["brand"]
+                    # if product.lower() in ["generico", "generica", "genérico","genérica","cc group","importado"]:
+                    # # if product.lower() in list_to_skip:
+                    #     continue
+            
+                    #if product.lower() not in lista:
+                    #if product.lower() not in self.brand_allowed()[int(self.b)]:
+                    if self.lista == []:
+                        pass
+                    else:
+                        if product.lower() not in self.lista:
+                            continue
+            
+                    
+                except: item["brand"]= None
+               
+
+
+          
+>>>>>>> 3c86c334d2f86d5165ffd510e7031b7154430cb8
 
                
                 
