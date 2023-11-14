@@ -31,6 +31,8 @@ start cmd /k call C:\Git\scrapy\bat_files\cura5.bat
 start cmd /k call C:\Git\scrapy\bat_files\cura6.bat
 start cmd /k call C:\Git\scrapy\bat_files\cura7.bat
 start cmd /k call C:\Git\scrapy\bat_files\cura8.bat
+start cmd /k call C:\Git\scrapy\bat_files\cura9.bat
+start cmd /k call C:\Git\scrapy\bat_files\cura10.bat
 
 
 

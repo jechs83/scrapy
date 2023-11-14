@@ -76,3 +76,6 @@ list8=[
 ("https://www.lacuracao.pe/remate-final/remate-tvyaudio-efe.html?p=",100),
 ]
 
+list9 =[
+    ("https://www.lacuracao.pe/tecnologia.html?p=", 330)
+]

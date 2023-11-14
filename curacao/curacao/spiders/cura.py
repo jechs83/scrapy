@@ -124,13 +124,8 @@ class CuraSpider(scrapy.Spider):
                 if producto.lower() not in self.lista:
                     continue
             
-            
-                
-            
             item["product"] =  product.css('a.product-item-link::text').get()
             item["product"]  = item["product"].strip() if item["product"]  else None
-            
-           
             item["link"] = product.css('a::attr(href)').get()
 
             try:
@@ -186,7 +181,7 @@ class CuraSpider(scrapy.Spider):
             item["time"]= load_datetime()[1]
             item["home_list"]=response.url
            
-        
+            print()
             yield item        
         if count < 12:
             logging.info("ESTA PAGINA SOLO TIENE MENOS ELEMENTOS\n"+str(response ))

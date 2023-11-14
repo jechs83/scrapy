@@ -7,8 +7,9 @@ from scrapy import signals
 
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
-
-
+import random
+from scrapy import signals
+from scrapy.downloadermiddlewares.httpproxy import HttpProxyMiddleware
 class JuntozSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
@@ -101,3 +102,48 @@ class JuntozDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
+
+
+class RotatingProxyMiddleware(HttpProxyMiddleware):
+    def __init__(self, proxies):
+        self.proxies = proxies
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        # Lee la lista de proxies desde una fuente externa, como un archivo o base de datos.
+        proxies = [
+   
+            "190.12.95.170:37209",
+"190.239.221.165:999",
+"190.119.85.60:33333",
+"200.48.160.100:5678",
+"190.239.24.75:5678",
+"200.37.140.37:10101",
+"190.43.92.1:999",
+"181.65.169.37:999",
+"181.65.139.232:999",
+"177.91.255.35:5678",
+"190.119.235.210:4153",
+"181.176.19.82:999",
+"190.238.231.44:1994",
+"181.65.139.238:999",
+"170.81.240.233:999",
+"161.132.125.244:8080",
+"190.43.92.109:999",
+"190.43.92.159:999",
+"170.81.241.204:999",
+"181.65.200.53:80",
+"170.0.233.16:999",
+"181.176.21.93:999",
+"179.43.96.178:8080",
+"181.65.242.86:10101",
+"200.48.3.228:10101",
+"190.239.220.160:999",
+"200.37.140.35:10101",
+            # Agrega aquí todos los proxies que tengas en tu lista
+        ]
+        return cls(proxies)
+
+    def process_request(self, request, spider):
+        # Escoge un proxy al azar para usar en la solicitud
+        request.meta['proxy'] = random.choice(self.proxies)

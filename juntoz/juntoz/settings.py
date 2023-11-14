@@ -108,3 +108,12 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+
+
+
+# DOWNLOADER_MIDDLEWARES = {
+#     'juntoz.middlewares.RotatingProxyMiddleware': 350,
+#     # Deshabilita el middleware de proxy predeterminado de Scrapy
+#     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': None,
+# }

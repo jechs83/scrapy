@@ -179,4 +179,8 @@ class JunSpider(scrapy.Spider):
    
 
             yield item
+<<<<<<< HEAD
         time.sleep(0.5)
+=======
+        time.sleep(1)
+>>>>>>> 1447681 (upde)
