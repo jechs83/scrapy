@@ -110,17 +110,15 @@ class JunSpider(scrapy.Spider):
         item = JuntozItem()
         print(response)
         productos = response.css("div#product-preview-card")
-        # print(productos)
-        # time.sleep(5)
- 
+     
 
         if not productos:
             return
 
         for product in productos:
-            print()
+            # print()
             item["brand"] = product.css("a::attr(title)").get()
-            print(item["brand"] )
+            # print(item["brand"] )
 
             marca_producto = item["brand"]
             if self.lista == []:
@@ -134,28 +132,28 @@ class JunSpider(scrapy.Spider):
 
 
             item["product"] = product.css("img::attr(alt)").get()
-            print(item["product"] )
+            # print(item["product"] )
             item["image"] = product.css("img::attr(src)").get()
-            print(item["image"] )
+            # print(item["image"] )
             item["link"] = product.css("div[jztm-prop='productSeoUrl']::attr(jztm-content)").get()
             item["link"] = "https://juntoz.com/p/"+item["link"]
-            print(item["link"] )
+            # print(item["link"] )
             try:
                 item["list_price"] = product.css("span.product-preview-card__wrapper__footer__product-price__current-price::attr(jztm-content)").get()
                 item["list_price"]     = float(item["list_price"] )
                 
-                print(item["list_price"] )
+                # print(item["list_price"] )
 
             except: 
                  item["list_price"]=0
-                 print(item["list_price"] )
+                #  print(item["list_price"] )
             try:
                 item["best_price"] = product.css("span.product-preview-card__wrapper__footer__product-price__old-price::attr(jztm-content)").get()
                 item["best_price"]     = float(item["best_price"] )
-                print(item["best_price"] )
+                # print(item["best_price"] )
             except:
                 item["best_price"]=0
-                print(item["best_price"] )
+                # print(item["best_price"] )
             try:
                 item["web_dsct"] = product.css("div.product-preview-card__wrapper__heading__product-discount::text").get()
                 item["web_dsct"] =  item["web_dsct"].strip()
@@ -163,7 +161,7 @@ class JunSpider(scrapy.Spider):
                
             except:
                   item["web_dsct"] = 0
-            print( item["web_dsct"] )
+            # print( item["web_dsct"] )
 
             item["sku"] = product.css("input.skuProductCatalog::attr(value)").get()
             item["_id"] =  item["sku"]+str(load_datetime()[0])
@@ -178,7 +176,7 @@ class JunSpider(scrapy.Spider):
             item["home_list"] = "https://www.juntoz.com.pe/"
 
 
-            time.sleep(0.5)
+   
 
             yield item
-        time.sleep(0.8)
+        #time.sleep(0.)

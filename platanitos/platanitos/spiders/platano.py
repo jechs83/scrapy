@@ -1,15 +1,12 @@
 import scrapy
 from platanitos.items import PlatanitosItem
-from scrapy import Selector
-from pymongo import MongoClient
-
 from datetime import datetime
 from datetime import date
 from platanitos.spiders import url_list 
 import time
 import pymongo
 from decouple import config
-import json
+
 
 def load_datetime():
     
@@ -22,7 +19,6 @@ def load_datetime():
 class PlatanoSpider(scrapy.Spider):
     name = "platano"
     allowed_domains = ["platanitos.com"]
-    start_urls = ["http://platanitos.com/"]
 
     def __init__(self, *args, **kwargs):
         super(PlatanoSpider, self).__init__(*args, **kwargs)
@@ -65,15 +61,13 @@ class PlatanoSpider(scrapy.Spider):
         nada_list = [doc["brand"] for doc in nada]
         sport_list = [doc["brand"] for doc in sport]
         return shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, audio_list, colchon_list,nada_list,sport_list
-    
+     
 
-    #start_urls=[ "https://www.plazavea.com.pe/api/catalog_system/pub/products/search?fq=C:/679/&_from=2041&_to=2061&O=OrderByScoreDESC&"]
- 
-    
-    
     def start_requests(self):
+
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
+
 
         if u == 1:
             urls = url_list.list1
@@ -86,35 +80,25 @@ class PlatanoSpider(scrapy.Spider):
                 urls = url_list.list4
         else:
             urls = []
-        count= 20
 
         for i, v in enumerate(urls):
-            print("########")
-            print(v)
-        
 
             for e in range(120):
                 url = v+(str(e+100))
-                print(url)
-
+             
                 yield scrapy.Request(url, self.parse)
 
 
     def parse(self, response):
-        for product in response.css("div.col-flt.col-3"):
-            item = PlatanitosItem()
+        item = PlatanitosItem()
+        productos = response.css("div.col-flt.col-3")
 
-            #item['brand'] = product.css("p.nd-ct__item-title.line-clamp-2::text").get()
+        for product in productos:
+      
             item['brand'] = product.xpath('//div[@class="col-12"]/p/label/text()').get()
 
-         
             item['product'] =product.xpath('//div[@class="col-12"]/p/text()').get()
 
-
-
-            
-            # item['list_price'] = product.css("p.nd-ct__item-prices::text").re_first(r'\d+\.\d+')
-            # item['best_price'] = product.css("p.nd-ct__item-prices::text").re_first(r'\d+\.\d+')
             try:
                 item['best_price']= product.xpath('//div[contains(@class, "col-12")]/p[contains(@class, "nd-ct__item-prices")]/label/text()').get()
                 item['best_price'] = float(item['best_price'].replace("S/","").replace(",",""))
@@ -127,23 +111,27 @@ class PlatanoSpider(scrapy.Spider):
             except:
                  item['list_price'] = 0
 
-           
-        
             item['image'] = product.css("img::attr(src)").get()
             item['link'] = response.urljoin(product.css("a::attr(href)").get())
             item['sku'] = item['product'].replace(" ", "")
-            item['web_dsct'] = round(self.calculate_discount(item['best_price'], item['list_price']))
+            item["_id"] =  item["sku"]+str(load_datetime()[0])
+
+            try:
+                item['web_dsct'] = product.xpath('//div[contains(@class, "col-12")]/div[contains(@class, "nd-ct__label-porc")]/text()').get()
+                item['web_dsct'] = int(item['web_dsct'].replace("-","").replace("%",""))
+            except:
+                 item['web_dsct'] =0
+
+            #item['web_dsct'] = round(self.calculate_discount(item['best_price'], item['list_price']))
+           
 
             yield item
 
-        # Handle pagination if necessary
-        next_page = response.css("your-pagination-selector::attr(href)").get()
-        if next_page is not None:
-            yield response.follow(next_page, self.parse)
 
-    def calculate_discount(self, best_price, list_price):
-        if best_price and list_price:
-            best_price = float(best_price)
-            list_price = float(list_price)
-            return 100 - (best_price * 100 / list_price)
-        return 0
+
+    # def calculate_discount(self, best_price, list_price):
+    #     if best_price and list_price:
+    #         best_price = float(best_price)
+    #         list_price = float(list_price)
+    #         return 100 - (best_price * 100 / list_price)
+    #     return 0

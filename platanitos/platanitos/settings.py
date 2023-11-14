@@ -1,19 +1,19 @@
-# Scrapy settings for platanitos project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     https://docs.scrapy.org/en/latest/topics/settings.html
-#     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+
 from decouple import config 
 BOT_NAME = "platanitos"
 
 SPIDER_MODULES = ["platanitos.spiders"]
 NEWSPIDER_MODULE = "platanitos.spiders"
 
-MONGO_URI = "mongodb://192.168.9.66:27017"
+# MONGO_URI = config("MONGODB")
+# MONGO_DATABASE = config("db_platanitos")
+# COLLECTION_NAME = config("collection")
+ITEM_PIPELINES = {
+    'platanitos.pipelines.MongoPipeline': 300,
+}
 
+
+MONGO_URI = config("MONGODB")
 MONGO_DATABASE = "platanitos"
 COLLECTION_NAME = "scrap"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

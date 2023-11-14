@@ -17,7 +17,6 @@ class PlatanitosItem(scrapy.Item):
     best_price = scrapy.Field()
     list_price = scrapy.Field()
     web_dsct = scrapy.Field()
-    link = scrapy.Field()
     image = scrapy.Field()
     market= scrapy.Field()
     date =scrapy.Field()
