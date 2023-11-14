@@ -26,7 +26,7 @@ class PlatanoSpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super(PlatanoSpider, self).__init__(*args, **kwargs)
-        self.client = pymongo.MongoClient("mongodb://192.168.9.66:27017")
+        self.client = pymongo.MongoClient(config("MONGODB"))
         self.db = self.client["brand_allowed"]
         self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
 
@@ -87,17 +87,14 @@ class PlatanoSpider(scrapy.Spider):
         else:
             urls = []
         count= 20
+
         for i, v in enumerate(urls):
-            print(v[0])
-
-            # for e in range(120):
-            #       if e ==0:
-            #         url = v[0]+str(e+1)
-            #         yield scrapy.Request(url, self.parse)
-
+            print("########")
+            print(v)
+        
 
             for e in range(120):
-                url = v[0]+(str(e+100))
+                url = v+(str(e+100))
                 print(url)
 
                 yield scrapy.Request(url, self.parse)
@@ -107,14 +104,35 @@ class PlatanoSpider(scrapy.Spider):
         for product in response.css("div.col-flt.col-3"):
             item = PlatanitosItem()
 
-            item['brand'] = product.css("p.nd-ct__item-title.line-clamp-2::text").get()
-            item['product'] = product.css("p.nd-ct__item-title.line-clamp-2::text").get()
-            item['list_price'] = product.css("p.nd-ct__item-prices::text").re_first(r'\d+\.\d+')
-            item['best_price'] = product.css("p.nd-ct__item-prices::text").re_first(r'\d+\.\d+')
+            #item['brand'] = product.css("p.nd-ct__item-title.line-clamp-2::text").get()
+            item['brand'] = product.xpath('//div[@class="col-12"]/p/label/text()').get()
+
+         
+            item['product'] =product.xpath('//div[@class="col-12"]/p/text()').get()
+
+
+
+            
+            # item['list_price'] = product.css("p.nd-ct__item-prices::text").re_first(r'\d+\.\d+')
+            # item['best_price'] = product.css("p.nd-ct__item-prices::text").re_first(r'\d+\.\d+')
+            try:
+                item['best_price']= product.xpath('//div[contains(@class, "col-12")]/p[contains(@class, "nd-ct__item-prices")]/label/text()').get()
+                item['best_price'] = float(item['best_price'].replace("S/","").replace(",",""))
+
+            except:
+                 item['best_price'] = 0
+            try:
+                item['list_price'] = product.xpath('//div[contains(@class, "col-12")]/p[contains(@class, "nd-ct__item-prices")]/text()').get()
+                item['list_price'] = float(item['list_price'].replace("S/","").replace(",",""))
+            except:
+                 item['list_price'] = 0
+
+           
+        
             item['image'] = product.css("img::attr(src)").get()
             item['link'] = response.urljoin(product.css("a::attr(href)").get())
             item['sku'] = item['product'].replace(" ", "")
-            item['dsct'] = self.calculate_discount(item['best_price'], item['list_price'])
+            item['web_dsct'] = round(self.calculate_discount(item['best_price'], item['list_price']))
 
             yield item
 

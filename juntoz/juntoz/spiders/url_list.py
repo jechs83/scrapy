@@ -16,3 +16,16 @@ list1 =[
 
 ]
 
+list2 =[
+    ("https://juntoz.com/catalogo?categoryId=995783&top=28&skip=","&orderBy=rating-desc", 26536)
+]
+
+list3 =[
+    (
+        "https://juntoz.com/catalogo?categoryId=995470&top=28&skip=", "&orderBy=rating-desc",4996
+    )
+]
+
+list4 = [
+    ("https://juntoz.com/catalogo?categoryId=995601&top=28&skip=","&orderBy=rating-desc",8129)
+]
