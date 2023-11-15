@@ -134,20 +134,20 @@ class TaiSpider(scrapy.Spider):
 
     def parse(self, response):
 
-        if response.status != None :# 200 and response.xpath('//desired_data'):
-            # Process the response here
-            pass
-        else:
-            self.log(f"Invalid response for URL: {response.url}")
-            url_array = response.meta.get('url_array')
+        # if response.status != None :# 200 and response.xpath('//desired_data'):
+        #     # Process the response here
+        #     pass
+        # else:
+        #     self.log(f"Invalid response for URL: {response.url}")
+        #     url_array = response.meta.get('url_array')
             
-            # Move to the next array
-            next_array_index = url_array.index(response.url) + 1
-            if next_array_index < len(arrays_of_urls):
-                next_url_array = arrays_of_urls[next_array_index]
-                yield scrapy.Request(next_url_array[0], callback=self.parse, meta={'url_array': next_url_array})
-            else:
-                self.log("No more arrays of URLs.")
+        #     # Move to the next array
+        #     next_array_index = url_array.index(response.url) + 1
+        #     if next_array_index < len(arrays_of_urls):
+        #         next_url_array = arrays_of_urls[next_array_index]
+        #         yield scrapy.Request(next_url_array[0], callback=self.parse, meta={'url_array': next_url_array})
+        #     else:
+        #         self.log("No more arrays of URLs.")
 
         web_true = response.css("li.item.product.product-item").css("div.price-box.price-final_price::attr(data-product-id)").get()
         print(web_true)
@@ -157,10 +157,10 @@ class TaiSpider(scrapy.Spider):
         #         self.logger.warning(f"Skipping URL {response.url} due to non-200 status code: {response.status}")
         #         return
         
-        if web_true == None:
-                # Move to the next URL in the array (since it is a "noResult" page)
-                self.logger.info("Skipping this URL and moving to the next one.")
-                return False
+        # if web_true == None:
+        #         # Move to the next URL in the array (since it is a "noResult" page)
+        #         self.logger.info("Skipping this URL and moving to the next one.")
+        #         return False
         
 
         item = TailoyItem()
@@ -182,13 +182,10 @@ class TaiSpider(scrapy.Spider):
             item["link"] = i.css("a::attr(href)").get()
             item["brand"] = i.css("div.brand-label  span::text").get()
             
-            product = item["brand"]
-            if product == None:
-                return False
+            # product = item["brand"]
+            # if product == None:
+            #     return "None"
         
-            
-
-          
             # if self.lista == []:
             #     pass
             # else:
