@@ -12,6 +12,7 @@ def load_datetime():
         
     return date_now, time_now, today
 current_date = load_datetime()[0]
+
 class MongoPipeline(object):
 
     collection_name = COLLECTION_NAME

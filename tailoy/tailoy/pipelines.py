@@ -1,9 +1,17 @@
 import logging
 import pymongo
 from tailoy.settings import COLLECTION_NAME
-
 from itemadapter import ItemAdapter
+from datetime import date, datetime, timedelta
 
+def load_datetime():
+    
+    today = date.today()
+    now = datetime.now()
+    date_now = today.strftime("%d/%m/%Y")  
+    time_now = now.strftime("%H:%M:%S")
+        
+    return date_now, time_now, today
 
 class MongoPipeline(object):
     

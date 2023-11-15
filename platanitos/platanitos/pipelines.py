@@ -6,9 +6,6 @@ from platanitos.settings import COLLECTION_NAME
 from decouple import config 
 from datetime import date, datetime, timedelta
 
-# class PlatanitosPipeline:
-#     def process_item(self, item, spider):
-#         return item
 def load_datetime():
     
     today = date.today()
@@ -18,6 +15,7 @@ def load_datetime():
         
     return date_now, time_now, today
 current_date = load_datetime()[0]
+
 class MongoPipeline(object):
 
     collection_name = COLLECTION_NAME

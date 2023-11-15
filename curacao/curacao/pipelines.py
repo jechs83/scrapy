@@ -7,12 +7,13 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 import logging
-from datetime import date, datetime, timedelta
-
 import pymongo
 import time
 from curacao.settings import COLLECTION_NAME
 from decouple import config
+
+from datetime import date, datetime, timedelta
+
 def load_datetime():
     
     today = date.today()
@@ -21,6 +22,7 @@ def load_datetime():
     time_now = now.strftime("%H:%M:%S")
         
     return date_now, time_now, today
+
 class MongoPipeline(object):
     collection_name = COLLECTION_NAME
 
