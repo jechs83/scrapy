@@ -80,9 +80,26 @@ class TaiSpider(scrapy.Spider):
 
         if u == 1:
             urls = url_list.list1
-
+        elif u == 2:
+            urls = url_list.list2
         elif u == 3:
-                urls = url_list.list3
+            urls = url_list.list3
+        elif u == 4:
+                urls = url_list.list4
+        elif u == 5:
+            urls = url_list.list5
+        elif u == 6:
+            urls = url_list.list6
+        elif u == 7:
+                urls = url_list.list7
+        elif u == 8:
+                urls = url_list.list
+        elif u == 9:
+            urls = url_list.list9
+        elif u == 10:
+            urls = url_list.list10
+        elif u == 1:
+                urls = url_list.list11
         else:
             urls = []
 
