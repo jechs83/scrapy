@@ -1,4 +1,5 @@
 list1=[
+    
 #-TECNOLOGIA
 #TV Y VIDEO
 ("https://www.promart.pe/buscapagina?sl=3dfc2a1e-3b52-4d11-9dbd-48bf2b008386&PS=28&cc=28&sm=0&PageNumber=", "&fq=C:/804/806/&O=OrderByScoreDESC&sc=28"),
