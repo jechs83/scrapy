@@ -4,6 +4,8 @@ from datetime import datetime
 from datetime import date
 from tailoy.settings import ROTATING_PROXY_LIST
 from tailoy.spiders import url_list
+from tailoy.spiders.urls_db import *
+
 import time
 import uuid
 import pymongo
@@ -77,31 +79,32 @@ class TaiSpider(scrapy.Spider):
 
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
+        urls = links()[int(u-1)]
 
-        if u == 1:
-            urls = url_list.list1
-        elif u == 2:
-            urls = url_list.list2
-        elif u == 3:
-            urls = url_list.list3
-        elif u == 4:
-                urls = url_list.list4
-        elif u == 5:
-            urls = url_list.list5
-        elif u == 6:
-            urls = url_list.list6
-        elif u == 7:
-                urls = url_list.list7
-        elif u == 8:
-                urls = url_list.list
-        elif u == 9:
-            urls = url_list.list9
-        elif u == 10:
-            urls = url_list.list10
-        elif u == 1:
-                urls = url_list.list11
-        else:
-            urls = []
+        # if u == 1:
+        #     urls = url_list.list1
+        # elif u == 2:
+        #     urls = url_list.list2
+        # elif u == 3:
+        #     urls = url_list.list3
+        # elif u == 4:
+        #         urls = url_list.list4
+        # elif u == 5:
+        #     urls = url_list.list5
+        # elif u == 6:
+        #     urls = url_list.list6
+        # elif u == 7:
+        #         urls = url_list.list7
+        # elif u == 8:
+        #         urls = url_list.list
+        # elif u == 9:
+        #     urls = url_list.list9
+        # elif u == 10:
+        #     urls = url_list.list10
+        # elif u == 1:
+        #         urls = url_list.list11
+        # else:
+        #     urls = []
 
         # for i, v in enumerate(urls):
         #     for e in range (300):
