@@ -5,6 +5,8 @@ from datetime import date
 from platanitos.spiders import url_list 
 import time
 import pymongo
+import uuid
+
 from decouple import config
 
 
@@ -114,7 +116,8 @@ class PlatanoSpider(scrapy.Spider):
             item['image'] = product.css("img::attr(src)").get()
             item['link'] = response.urljoin(product.css("a::attr(href)").get())
             item['sku'] = item['product'].replace(" ", "")
-            item["_id"] =  item["sku"]+str(load_datetime()[0])
+            item["sku"] =  item["sku"]+str(load_datetime()[0])
+            item["_id"] :str(uuid.uuid4())
 
             try:
                 item['web_dsct'] = product.xpath('//div[contains(@class, "col-12")]/div[contains(@class, "nd-ct__label-porc")]/text()').get()
