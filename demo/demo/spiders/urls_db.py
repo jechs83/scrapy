@@ -37,7 +37,6 @@ def links():
                     lista4.append((url, page))
                 elif i == 5:
                     lista5.append((url, page))
-                        
                 elif i == 6:
                     lista6.append((url, page))
                 elif i == 7:
