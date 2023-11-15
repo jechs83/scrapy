@@ -82,11 +82,18 @@ class MongoPipeline(object):
     #     spider.logger.debug('Item updated in MongoDB: %s', result)
     #     return item
     
-
+    def load_datetime():
+        
+        today = date.today()
+        now = datetime.now()
+        date_now = today.strftime("%d/%m/%Y")  
+        time_now = now.strftime("%H:%M:%S")
+            
+        return date_now, time_now, today
 
     def process_item(self, item, spider):
         collection = self.db[self.collection_name]
-        filter = {"sku": item["sku"]}
+        filter = {"sku": item["sku"], "date":load_datetime()[0] }
         existing_record = collection.find_one(filter)
         
         if existing_record:
