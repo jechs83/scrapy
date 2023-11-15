@@ -109,10 +109,10 @@ class TaiSpider(scrapy.Spider):
         #         yield scrapy.Request(url, self.parse)
                 
         arrays_of_urls = []  
-        for i in urls:
+        for id,i  in enumerate (urls):
             temp_array = []  # Create a temporary array for each iteration
-            for e in range(300):
-                temp_array.append(i + str(e + 1))
+            for e in range(int(i[1]/50)):
+                temp_array.append(i[0] + str(e + 1))
             arrays_of_urls.append(temp_array)  # Append the temporary array to the main list
             
 
