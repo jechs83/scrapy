@@ -4,11 +4,20 @@ import pymongo
 from platanitos.settings import COLLECTION_NAME
 
 from decouple import config 
+from datetime import date, datetime, timedelta
 
 # class PlatanitosPipeline:
 #     def process_item(self, item, spider):
 #         return item
-
+def load_datetime():
+    
+    today = date.today()
+    now = datetime.now()
+    date_now = today.strftime("%d/%m/%Y")  
+    time_now = now.strftime("%H:%M:%S")
+        
+    return date_now, time_now, today
+current_date = load_datetime()[0]
 class MongoPipeline(object):
 
     collection_name = COLLECTION_NAME
@@ -38,12 +47,26 @@ class MongoPipeline(object):
 
 
 
+    
     def process_item(self, item, spider):
         collection = self.db[self.collection_name]
-        filter = {'_id': item['_id'], "sku": item["sku"]}
-        update = {'$set': dict(item)}
-        result = collection.update_one(filter, update, upsert=True)
-        spider.logger.debug('Item updated in MongoDB: %s', result)
+        filter = {"sku": item["sku"], "date":load_datetime()[0] }
+        existing_record = collection.find_one(filter)
+        
+        if existing_record:
+            # Compare prices before updating
+            if (existing_record["list_price"] != item["list_price"] or
+                existing_record["best_price"] != item["best_price"] or
+                existing_record["card_price"] != item["card_price"]):
+                # Prices are different, update the record
+                update = {'$set': dict(item)}
+                result = collection.update_one(filter, update)
+                spider.logger.debug('Item updated in MongoDB: %s', result)
+        else:
+            # If the SKU is not found, insert a new record
+            collection.insert_one(dict(item))
+            spider.logger.debug('New item inserted into MongoDB')
+        
         return item
-
+    
   

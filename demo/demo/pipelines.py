@@ -1,9 +1,9 @@
 
-from datetime import date, datetime, timedelta
 import time
 import logging
 import pymongo
 from demo.settings import COLLECTION_NAME
+from datetime import date, datetime, timedelta
 
 def load_datetime():
     
