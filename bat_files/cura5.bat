@@ -10,3 +10,5 @@ cd C:\Git\scrapy\curacao\curacao\spiders\
 for /l %%i in (1,1,%num_runs%) do (
     scrapy crawl cura -a u=5 -a b=0
 )
+
+
