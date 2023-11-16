@@ -30,10 +30,13 @@ class SagaSpider(scrapy.Spider):
 
 
     def __init__(self, *args, **kwargs):
+        u = int(getattr(self, 'u', '0'))
+        b = int(getattr(self, 'b', '0'))
         super(SagaSpider, self).__init__(*args, **kwargs)
         self.client = pymongo.MongoClient(config("MONGODB"))
         self.db = self.client["brand_allowed"]
         self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
+        self.urls = links()[int(int(self.u)-1)]
     
     def brand_allowed(self):
      
@@ -97,14 +100,14 @@ class SagaSpider(scrapy.Spider):
 
     def start_requests(self):
        
-        u = int(getattr(self, 'u', '0'))
-        b = int(getattr(self, 'b', '0'))
+        # u = int(getattr(self, 'u', '0'))
+        # b = int(getattr(self, 'b', '0'))
        
-
+        #self.urls
        
-        urls = links()[int(u-1)]
+        #urls = links()[int(u-1)]
      
-        for i, v in enumerate(urls):
+        for i, v in enumerate(self.urls):
             if "tottus" in v[0]:
                 for e in range (v[1]+10):
                     url = v[0]+ "?subdomain=tottus&page="+str(e+1) +"&store=tottus"
@@ -232,10 +235,7 @@ class SagaSpider(scrapy.Spider):
                 item["card_dsct"] = 0
 
                 yield item
-                gc.collect()
-
-
-        gc.collect()
+         
 
             
 
