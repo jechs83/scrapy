@@ -232,6 +232,8 @@ class SagaSpider(scrapy.Spider):
                 item["card_dsct"] = 0
 
                 yield item
+                gc.collect()
+
 
         gc.collect()
 
