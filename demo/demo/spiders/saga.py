@@ -142,6 +142,10 @@ class SagaSpider(scrapy.Spider):
         script_tag = response.xpath('//script[@id="__NEXT_DATA__"]/text()').get()
 
 
+        with open ("hshshs.txt", "+w") as l:
+            l.write(script_tag)
+
+
         if script_tag:
             json_content = json.loads(script_tag)
 

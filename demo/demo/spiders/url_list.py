@@ -185,6 +185,8 @@ list17 =[
 
 list18 =[
 
+    ("https://www.falabella.com.pe/falabella-pe/category/cat1470538/Zapatos", 19)
+
 
 
 ]
