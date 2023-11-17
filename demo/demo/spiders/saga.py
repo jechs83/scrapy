@@ -11,12 +11,14 @@ from decouple import config
 
 def load_datetime():
     
- today = date.today()
- now = datetime.now()
- date_now = today.strftime("%d/%m/%Y")  
- time_now = now.strftime("%H:%M:%S")
-    
- return date_now, time_now, today
+    today = date.today()
+    now = datetime.now()
+    date_now = today.strftime("%d/%m/%Y")  
+    time_now = now.strftime("%H:%M:%S")
+        
+    return date_now, time_now, today
+
+current_day = load_datetime()[0]
 
 class SagaSpider(scrapy.Spider):
     #list_to_skip = skip_brand()
@@ -99,7 +101,7 @@ class SagaSpider(scrapy.Spider):
                 item["product"]=  i["displayName"]
 
                 item["sku"] = i["skuId"]
-                item["_id"] :str(uuid.uuid4())
+                item["_id"] =i["skuId"]
 
                 try:
                  item["best_price"] = float(i["prices"][1]["price"][0].replace(",",""))
