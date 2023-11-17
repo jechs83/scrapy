@@ -122,7 +122,7 @@ class VeaSpider(scrapy.Spider):
             item["sku"] = i["items"][0]["referenceId"][0]["Value"]
             if not  item["sku"] :
                 continue 
-            item["_id"] =  item["sku"]+str(load_datetime()[0])
+            #item["_id"] =  item["sku"]+str(load_datetime()[0])
             item["brand"]= i["brand"]
             product = item["brand"]
             if self.lista == []:
