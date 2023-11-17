@@ -107,7 +107,8 @@ class CuraSpider(scrapy.Spider):
             count = count +1
            
             item["sku"] = product.css('form.tocart-form::attr(data-product-sku)').extract_first()
-
+            if item["sku"] == None:
+                continue
            
           
             item["_id"] = item["sku"]+str(load_datetime()[0])
