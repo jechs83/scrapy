@@ -61,7 +61,7 @@ class MongoPipeline(object):
         # Check if the document exists and compare fields
         if existing_document:
             update_fields = {
-                        'best_price': 1689.0,
+                        'best_price': item["best_price"],
                         'brand': item["brand"],
                         'card_dsct': item["card_dsct"],
                         'card_price': item["card_price"],
