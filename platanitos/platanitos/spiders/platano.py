@@ -122,7 +122,8 @@ class PlatanoSpider(scrapy.Spider):
             item["card_dsct"] =0
             item["date"] =load_datetime()[0]
             item["time"] =load_datetime()[1]
-            
+            item["home_list"] =response.url       
+            item["market"] ="platanitos"
 
             try:
                 item['web_dsct'] = product.xpath('//div[contains(@class, "col-12")]/div[contains(@class, "nd-ct__label-porc")]/text()').get()
