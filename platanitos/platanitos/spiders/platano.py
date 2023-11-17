@@ -119,6 +119,7 @@ class PlatanoSpider(scrapy.Spider):
             item["sku"] =  item["sku"]+str(load_datetime()[0])
             item["_id"] =item["sku"] 
             item["card_price"] =0
+            item["card_dsct"] =0
 
 
             try:
