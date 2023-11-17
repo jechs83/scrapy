@@ -74,32 +74,15 @@ class MongoPipeline(object):
     #     spider.logger.debug('Item updated in MongoDB: %s', result)
     #     return item
 
-    # def process_item(self, item, spider):
-    #     collection = self.db[self.collection_name]
-    #     filter = { "sku": item["sku"],"list_price":item["list_price"], "best_price": item["best_price"],"card_price": item["card_price"], }
-    #     update = {'$set': dict(item)}
-    #     result = collection.update_one(filter, update, upsert=True)
-    #     spider.logger.debug('Item updated in MongoDB: %s', result)
-    #     return item
-    
-
-
     def process_item(self, item, spider):
         collection = self.db[self.collection_name]
-        filter = {"sku": item["sku"]}
-        
-        # Create an update query that sets specific fields only if they're different
-        update = {
-            '$setOnInsert': dict(item),  # Set all fields if the document doesn't exist
-            '$set': {
-                key: value for key, value in dict(item).items()
-                if key in ["list_price", "best_price", "card_price"]  # Specify fields to check
-            }
-        }
-        
+
+        filter = { "sku": item["sku"],"list_price":item["list_price"], "best_price": item["best_price"],"card_price": item["card_price"], }
+        update = {'$set': dict(item)}
         result = collection.update_one(filter, update, upsert=True)
         spider.logger.debug('Item updated in MongoDB: %s', result)
         return item
+    
    
 
     # def process_item(self, item, spider):
