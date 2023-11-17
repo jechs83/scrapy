@@ -100,7 +100,9 @@ class OhSpider(scrapy.Spider):
             if  item["sku"] == None:
                  continue
             #item["_id"] =  item["sku"]+str(load_datetime()[0])
-            item["_id"] :item["sku"] +str(current_date)
+
+
+            item["_id"] :str(item["sku"])+str(current_date)
 
             item["brand"]= i.css("div.product.instock::attr(data-brand)").get()
             product = item["brand"]
