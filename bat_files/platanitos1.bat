@@ -1,4 +1,5 @@
 rem Loop to run the spider indefinitely
+Title Platanitos 1 Console
 
 cd C:\Git\scrapy\platanitos\platanitos\spiders\
 :loop

@@ -1,6 +1,7 @@
 
 
 rem Loop to run the spider indefinitely
+Title Juntoz 1 Console
 
 cd C:\Git\scrapy\juntoz\juntoz\spiders\
 

@@ -5,6 +5,7 @@ set num_runs=100000000000000000000000000
 
 rem Loop to run the spider multiple times
 
+Title Plazavea 1 Console
 
 
 cd C:\Git\scrapy\plazavea\plazavea\spiders\

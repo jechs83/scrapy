@@ -1,6 +1,7 @@
 
 
 rem Loop to run the spider indefinitely
+Title Tailoy 1 Console
 
 cd C:\Git\scrapy\tailoy\tailoy\spiders\
 

@@ -6,6 +6,7 @@ set num_runs=100000000000000000000000000
 rem Loop to run the spider multiple times
 
 cd C:\Git\scrapy\curacao\curacao\spiders\
+Title Cura 6 Console
 
 for /l %%i in (1,1,%num_runs%) do (
     scrapy crawl cura -a u=6 -a b=0

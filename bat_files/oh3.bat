@@ -4,6 +4,10 @@ rem Set the number of times to run the spider
 set num_runs=100000000000000000000000000
 
 rem Loop to run the spider multiple times
+Title Oh 3
+
+
+ Console
 
 cd C:\Git\scrapy\oechsle\oechsle\spiders\
 

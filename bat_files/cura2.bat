@@ -2,6 +2,7 @@
 
 rem Set the number of times to run the spider
 set num_runs=100000000000000000000000000
+Title Cura 2 Console
 
 rem Loop to run the spider multiple times
 

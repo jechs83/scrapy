@@ -1,4 +1,5 @@
 rem Loop to run the spider indefinitely
+Title Saga 7 Console
 
 cd C:\Git\scrapy\demo\demo\spiders\
 
