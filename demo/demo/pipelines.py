@@ -74,22 +74,33 @@ class MongoPipeline(object):
     #     spider.logger.debug('Item updated in MongoDB: %s', result)
     #     return item
 
+    # def process_item(self, item, spider):
+    #     collection = self.db[self.collection_name]
+    #     filter = { "sku": item["sku"],"list_price":item["list_price"], "best_price": item["best_price"],"card_price": item["card_price"], }
+    #     update = {'$set': dict(item)}
+    #     result = collection.update_one(filter, update, upsert=True)
+    #     spider.logger.debug('Item updated in MongoDB: %s', result)
+    #     return item
+    
+
+
     def process_item(self, item, spider):
         collection = self.db[self.collection_name]
-        filter = { "sku": item["sku"],"list_price":item["list_price"], "best_price": item["best_price"],"card_price": item["card_price"], }
-        update = {'$set': dict(item)}
+        filter = {"sku": item["sku"]}
+        
+        # Create an update query that sets specific fields only if they're different
+        update = {
+            '$setOnInsert': dict(item),  # Set all fields if the document doesn't exist
+            '$set': {
+                key: value for key, value in dict(item).items()
+                if key in ["list_price", "best_price", "card_price"]  # Specify fields to check
+            }
+        }
+        
         result = collection.update_one(filter, update, upsert=True)
         spider.logger.debug('Item updated in MongoDB: %s', result)
         return item
-    
-    def load_datetime():
-        
-        today = date.today()
-        now = datetime.now()
-        date_now = today.strftime("%d/%m/%Y")  
-        time_now = now.strftime("%H:%M:%S")
-            
-        return date_now, time_now, today
+   
 
     # def process_item(self, item, spider):
     #     collection = self.db[self.collection_name]
