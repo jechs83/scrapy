@@ -35,3 +35,4 @@ nuevo_web_dsct = 0.1  # Reemplaza con el nuevo valor para web_dsct
 # Llamada a la función de actualización
 cantidad_modificados = actualizar_producto(db, "nombre_de_tu_coleccion", sku_a_actualizar, nuevo_best_price, nuevo_web_dsct)
 print(f"Se han actualizado {cantidad_modificados} documentos.")
+

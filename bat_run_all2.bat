@@ -9,18 +9,17 @@ start cmd /k call C:\Git\scrapy\bat_files\ripley6.bat
 start cmd /k call C:\Git\scrapy\bat_files\ripley7.bat
 start cmd /k call C:\Git\scrapy\bat_files\ripley8.bat
 
-rem start cmd /k call C:\Git\scrapy\bat_files\oh1.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\oh2.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\oh3.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\oh4.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\oh5.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\oh6.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\oh7.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\oh8.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\oh9.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\oh10.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\oh11.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\oh12.bat
+start cmd /k call C:\Git\scrapy\bat_files\plazavea1.bat
+start cmd /k call C:\Git\scrapy\bat_files\plazavea2.bat
+start cmd /k call C:\Git\scrapy\bat_files\plazavea3.bat
+start cmd /k call C:\Git\scrapy\bat_files\plazavea4.bat
+start cmd /k call C:\Git\scrapy\bat_files\plazavea5.bat
+start cmd /k call C:\Git\scrapy\bat_files\plazavea6.bat
+start cmd /k call C:\Git\scrapy\bat_files\plazavea7.bat
+start cmd /k call C:\Git\scrapy\bat_files\plazavea8.bat
+start cmd /k call C:\Git\scrapy\bat_files\plazavea9.bat
+start cmd /k call C:\Git\scrapy\bat_files\plazavea10.bat
+
 
 
 start cmd /k call C:\Git\scrapy\bat_files\cura1.bat

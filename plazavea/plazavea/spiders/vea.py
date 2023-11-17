@@ -21,6 +21,9 @@ def load_datetime():
  time_now = now.strftime("%H:%M:%S")
  return date_now, time_now
 
+current_day = load_datetime()[0]
+current_time = load_datetime()[1]
+
 class VeaSpider(scrapy.Spider):
     name = "vea"
     allowed_domains = ["plazavea.com.pe"]
@@ -85,107 +88,74 @@ class VeaSpider(scrapy.Spider):
                 urls = url_list.list3
         elif u == 4:
                 urls = url_list.list4
+        elif u == 5:
+                urls = url_list.list5
+        elif u == 6:
+                urls = url_list.list6
+        elif u == 7:
+                urls = url_list.list7
+
+        elif u == 8:
+                urls = url_list.list8
+        elif u == 9:
+                urls = url_list.list9
+        elif u == 10:
+                urls = url_list.list10
+        
         else:
             urls = []
-        count= 20
+   
         for i, v in enumerate(urls):
-            print(v[0])
-
-            # for e in range(120):
-            #       if e ==0:
-            #         url = v[0]+str(e+1)
-            #         yield scrapy.Request(url, self.parse)
-
-
-            for e in range(120):
-                if e ==0:
-                     url = v[0]+str(0)+v[1]+str(count)+v[2]
-                else:
-                    url = v[0]+str(count*e+1)+v[1]+str((count*e+1)+20)+v[2]
-
-                    print(url)
-
-                    yield scrapy.Request(url, self.parse)
-           
-
-      
+            for e in range(v[1]):
+                url = v[0]+"?page="+str(e+1)
+                yield scrapy.Request(url, self.parse)
 
     def parse(self, response):
     
         item = PlazaveaItem()
-        data = json.loads(response.body)
-        
-        productos = data#["data"]["results"]
+        #data = json.loads(response.body)
+
+        #data = response.css('div.Showcase__content')
+        productos = response.css("div.Showcase")
+
         for i in productos:
+            item["product"]=  i.css('div.Showcase__content::attr(title)').get()
+            item["image"]=  i.css( 'img::attr(src)').get()
+            item["brand"]=  i.css('div.Showcase__brand a::text').get()
+            item["link"]=  i.css('a.Showcase__name::attr(href)').get()
+            prices =    i.css( "div.Showcase__priceBox__row")
+            try:
+                price1 = prices.css("div.Showcase__oldPrice::text").get()
+                item["list_price"] = float(price1.replace("S/","").replace(",",""))
+            except:
+                 item["list_price"] = 0
 
-            print()
-            item["sku"] = i["items"][0]["referenceId"][0]["Value"]
-            if not  item["sku"] :
-                continue 
-            item["_id"] =  item["sku"]+str(load_datetime()[0])
-            item["brand"]= i["brand"]
-            product = item["brand"]
-            if self.lista == []:
-                pass
-            else:
-                if product.lower() not in self.lista:
-                    continue
-            item["product"] =i["productName"]
-            item["link"] =i["link"]
-            item["image"]= i["items"][0]["images"][0]["imageUrl"]
-            
-            item["best_price"] = i["items"][0]["sellers"][0]["commertialOffer"]["Price"]
+            try:
+                price2 = prices.css("div.Showcase__salePrice::text").get()
+                item["best_price"] = float(price2.replace("S/","").replace(",",""))
+            except:
+                  item["best_price"] = 0
 
-            item["list_price"]  =i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"]
-            if item["list_price"] == 0 :
-                item["web_dsct"] =0
-            else:
-                item["web_dsct"] = round((item["best_price"]*100 /item["list_price"]))
-           
+            item["card_price"] = 0
 
-            item["web_dsct"] = round((item["web_dsct"]))
-            if item["web_dsct"] > 0:
-                item["web_dsct"] = 100-item["web_dsct"]
-                item["web_dsct"] =round((item["web_dsct"]))
-            if  item["web_dsct"] == 100:
-                 item["web_dsct"] = 0
-            item["home_list"]=response.url
+            try:
+             item["web_dsct"] =  round(100-(item["best_price"]*100/ item["list_price"]) )
+            except:
+                item["web_dsct"] = 0
+
+
+            item["home_list"] = response.url
+
+            item["sku"] = i.css("[data-sku]::attr(data-sku)").get()
+            item["_id"]=   item["sku"]
+
             item["card_dsct"] = 0
-            item["card_price"] = 0 
-            item["market"]= "plazavea"  # COLECCION
-            item["date"] = load_datetime()[0]
-            item["time"]= load_datetime()[1]
-            if item["list_price"]  and item["best_price"] == 0.0:
-                continue
 
-
-            # element = item["brand"]
-            # if item["web_dsct"]>= 70 and   any(item.lower() == element.lower() for item in brand()):
-                
-            #         if  item["card_price"] == 0:
-            #              card_price = ""
-            #         else:
-            #             card_price = '\n👉Precio Tarjeta :'+str(item["card_price"])
-
-            #         if item["list_price"] == 0:
-            #                 list_price = ""
-            #         else:
-            #             list_price = '\n\n➡️Precio Lista :'+str(item["list_price"])
-
-            #         if item["web_dsct"] <= 50:
-            #             dsct = "🟡"
-            #         if item["web_dsct"] > 50 and item["web_dsct"]  <=69:
-            #             dsct = "🟢"
-            #         if item["web_dsct"] >=70:
-            #             dsct = "🔥🔥🔥🔥🔥"
-
-            #         message =  "✅Marca: "+str(item["brand"])+"\n✅"+str(item["product"])+list_price+"\n👉Precio web :"+str(item["best_price"])+card_price+"\n"+dsct+"Descuento: "+"% "+str(item["web_dsct"])+"\n"+"\n\n⌛"+item["date"]+" "+ item["time"]+"\n🔗Link :"+str(item["link"])+"\n🏠home web:"+item["home_list"]+"\n\n◀️◀️◀️◀️◀️◀️◀️▶️▶️▶️▶️▶️▶️"
-            #         foto = item["image"]
-
-            #         send_telegram(message,foto, bot_token, chat_id)
-
-
+            item["date"] = current_day
+            item["time"] = current_time
+            item["market"] = "pla"
+            
             yield item
-             
+
 
         pass
