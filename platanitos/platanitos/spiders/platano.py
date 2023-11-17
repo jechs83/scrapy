@@ -118,6 +118,8 @@ class PlatanoSpider(scrapy.Spider):
             item['sku'] = item['product'].replace(" ", "")
             item["sku"] =  item["sku"]+str(load_datetime()[0])
             item["_id"] :str(uuid.uuid4())
+            item["card_price"] =0
+
 
             try:
                 item['web_dsct'] = product.xpath('//div[contains(@class, "col-12")]/div[contains(@class, "nd-ct__label-porc")]/text()').get()
