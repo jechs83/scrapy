@@ -53,10 +53,53 @@ class MongoPipeline(object):
     #     return item
 
  
+    # def process_item(self, item, spider):
+    #     collection = self.db[self.collection_name]
+    #     filter = { "sku": item["sku"],"list_price":item["list_price"], "best_price": item["best_price"],"card_price": item["card_price"], }
+    #     update = {'$set': dict(item)}
+    #     result = collection.update_one(filter, update, upsert=True)
+    #     spider.logger.debug('Item updated in MongoDB: %s', result)
+    #     return item
+    
     def process_item(self, item, spider):
         collection = self.db[self.collection_name]
-        filter = { "sku": item["sku"],"list_price":item["list_price"], "best_price": item["best_price"],"card_price": item["card_price"], }
-        update = {'$set': dict(item)}
-        result = collection.update_one(filter, update, upsert=True)
-        spider.logger.debug('Item updated in MongoDB: %s', result)
+
+        # Find the existing document by ID
+        filter = { "_id": item["_id"] }
+        existing_document = collection.find_one(filter)
+
+        # Check if the document exists and compare fields
+        if existing_document:
+            update_fields = {
+                        'best_price': 1689.0,
+                        'brand': item["brand"],
+                        'card_dsct': item["card_dsct"],
+                        'card_price': item["card_price"],
+                        'date': item["date"],
+                        'home_list': item["home_list"],
+                        'image': item["image"],
+                        'link': item["link"],
+                        'list_price': item["list_price"],
+                        'market': item["market"],
+                        'product': item["product"],
+                        'sku': item["sku"],
+                        'time':item["time"],
+                        'web_dsct': item["web_dsct"],
+                        }
+            for key, value in item.items():
+                # Check if the field exists and if it's different from the existing document
+                if key != "_id" and key in existing_document and existing_document[key] != value:
+                    update_fields[key] = value
+                
+
+            # If there are fields to update, perform the update
+            if update_fields:
+                update = {'$set': update_fields}
+                result = collection.update_one(filter, update)
+                spider.logger.debug('Item updated in MongoDB: %s', result)
+        else:
+            # If the document doesn't exist, insert the new item
+            result = collection.insert_one(dict(item))
+            spider.logger.debug('New item inserted in MongoDB: %s', result.inserted_id)
+
         return item

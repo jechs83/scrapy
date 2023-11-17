@@ -146,8 +146,7 @@ class RippleScrapSpider(scrapy.Spider):
                 item["sku"] = str( item["sku"])
                 item["sku"] = item["sku"][:-1]
 
-                #item["_id"] =  item["sku"]+str(load_datetime()[0])
-                item["_id"] :str(uuid.uuid4())
+                item["_id"] =  item["sku"]+str(load_datetime()[0])
 
                 
                 try:

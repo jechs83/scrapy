@@ -117,7 +117,7 @@ class PlatanoSpider(scrapy.Spider):
             item['link'] = response.urljoin(product.css("a::attr(href)").get())
             item['sku'] = item['product'].replace(" ", "")
             item["sku"] =  item["sku"]+str(load_datetime()[0])
-            item["_id"] :str(uuid.uuid4())
+            item["_id"] :item["sku"] 
             item["card_price"] =0
 
 

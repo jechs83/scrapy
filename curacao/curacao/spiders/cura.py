@@ -110,9 +110,9 @@ class CuraSpider(scrapy.Spider):
 
            
           
-            #item["_id"] = item["sku"]+str(load_datetime()[0])
-            #item["_id"] = item["sku"]
-            item["_id"] :str(uuid.uuid4())
+            item["_id"] = item["sku"]+str(load_datetime()[0])
+       
+        
             try:
                 item["brand"] = product.css('span.brand-name::text').get()
             except: 

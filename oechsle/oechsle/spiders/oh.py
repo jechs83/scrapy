@@ -17,6 +17,8 @@ def load_datetime():
  time_now = now.strftime("%H:%M:%S")
  return date_now, time_now
 
+current_date =  load_datetime()[0]
+
 
 class OhSpider(scrapy.Spider):
     name = "oh"
@@ -98,7 +100,7 @@ class OhSpider(scrapy.Spider):
             if  item["sku"] == None:
                  continue
             #item["_id"] =  item["sku"]+str(load_datetime()[0])
-            item["_id"] :str(uuid.uuid4())
+            item["_id"] :item["sku"] +str(current_date)
 
             item["brand"]= i.css("div.product.instock::attr(data-brand)").get()
             product = item["brand"]
