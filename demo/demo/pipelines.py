@@ -131,6 +131,7 @@ class MongoPipeline(object):
                 # Check if the field exists and if it's different from the existing document
                 if key != "_id" and key in existing_document and existing_document[key] != value:
                     update_fields[key] = value
+                
 
             # If there are fields to update, perform the update
             if update_fields:
