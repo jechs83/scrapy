@@ -1,7 +1,7 @@
 @echo off
 
 start cmd /k call C:\Git\scrapy\bat_files\saga1.bat
-rem start cmd /k call C:\Git\scrapy\bat_files\saga2.bat
+start cmd /k call C:\Git\scrapy\bat_files\saga2.bat
 rem start cmd /k call C:\Git\scrapy\bat_files\saga3.bat
 rem start cmd /k call C:\Git\scrapy\bat_files\saga4.bat
 rem start cmd /k call C:\Git\scrapy\bat_files\saga5.bat
