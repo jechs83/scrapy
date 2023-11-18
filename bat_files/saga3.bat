@@ -4,5 +4,5 @@ Title Saga 3 Console
 cd C:\Git\scrapy\demo\demo\spiders\
 
 :loop
-scrapy crawl saga -a u=3 -a b=0
+scrapy crawl saga -a u=2 -a b=0
 goto loop
