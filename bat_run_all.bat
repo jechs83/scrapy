@@ -1,5 +1,4 @@
 @echo off
-
 start cmd /k call C:\Git\scrapy\bat_files\saga1.bat
 start cmd /k call C:\Git\scrapy\bat_files\saga2.bat
 start cmd /k call C:\Git\scrapy\bat_files\saga3.bat
@@ -19,13 +18,6 @@ start cmd /k call C:\Git\scrapy\bat_files\saga16.bat
 start cmd /k call C:\Git\scrapy\bat_files\saga17.bat
 start cmd /k call C:\Git\scrapy\bat_files\saga18.bat
 start cmd /k call C:\Git\scrapy\bat_files\saga19.bat
-start cmd /k call C:\Git\scrapy\bat_files\promart1.bat
-start cmd /k call C:\Git\scrapy\bat_files\tailoy1.bat
-start cmd /k call C:\Git\scrapy\bat_files\tailoy2.bat
-start cmd /k call C:\Git\scrapy\bat_files\tailoy3.bat
-start cmd /k call C:\Git\scrapy\bat_files\plazavea1.bat
-start cmd /k call C:\Git\scrapy\bat_files\juntoz1.bat
-start cmd /k call C:\Git\scrapy\bat_files\platanitos1.bat
 start cmd /k call C:\Git\scrapy\bat_files\oh1.bat
 start cmd /k call C:\Git\scrapy\bat_files\oh2.bat
 start cmd /k call C:\Git\scrapy\bat_files\oh3.bat
