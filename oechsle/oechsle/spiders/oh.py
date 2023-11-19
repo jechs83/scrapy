@@ -102,7 +102,7 @@ class OhSpider(scrapy.Spider):
             #item["_id"] =  item["sku"]+str(load_datetime()[0])
 
 
-            item["_id"] =str(item["sku"])+str(current_date)
+            item["_id"] =str(item["sku"])
 
             item["brand"]= i.css("div.product.instock::attr(data-brand)").get()
             product = item["brand"]

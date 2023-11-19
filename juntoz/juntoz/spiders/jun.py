@@ -98,7 +98,6 @@ class JunSpider(scrapy.Spider):
                     x += 28
 
                 url = v[0] + str(x)     
-                print(url)     
                 #yield scrapy.Request(url, self.parse, errback=self.error_handler)
                 yield scrapy.Request(url, self.parse)
                
@@ -108,7 +107,6 @@ class JunSpider(scrapy.Spider):
 
     def parse(self, response):
         item = JuntozItem()
-        print(response)
         productos = response.css("div#product-preview-card")
      
 
@@ -164,7 +162,7 @@ class JunSpider(scrapy.Spider):
             # print( item["web_dsct"] )
 
             item["sku"] = product.css("input.skuProductCatalog::attr(value)").get()
-            item["_id"] =  item["sku"]+str(load_datetime()[0])
+            item["_id"] =  item["sku"]
 
       
 
@@ -174,9 +172,11 @@ class JunSpider(scrapy.Spider):
             item["date"]= load_datetime()[0]
             item["time"]= load_datetime()[1]
             item["home_list"] = "https://www.juntoz.com.pe/"
+            time.sleep(0.1)
+
 
 
    
 
             yield item
-        time.sleep(1)
+        
