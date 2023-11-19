@@ -94,7 +94,6 @@ class VeaSpider(scrapy.Spider):
                 urls = url_list.list6
         elif u == 7:
                 urls = url_list.list7
-
         elif u == 8:
                 urls = url_list.list8
         elif u == 9:

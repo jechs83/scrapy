@@ -103,9 +103,10 @@ class ProSpider(scrapy.Spider):
         for i in productos:
 
             item["sku"] = i.css("div::attr(data-id)").get()
+            item["sku"] = item["sku"]+str(load_datetime()[0])
             if  item["sku"] == None:
                  continue
-            item["_id"] =  item["sku"]+str(load_datetime()[0])
+            item["_id"] =  item["sku"]
 
             item["brand"]= i.css("div.brand.js-brand p::text").get()
             product = item["brand"]
