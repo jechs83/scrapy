@@ -15,8 +15,6 @@ start cmd /k call C:\Git\scrapy\bat_files\plazavea5.bat
 start cmd /k call C:\Git\scrapy\bat_files\plazavea6.bat
 start cmd /k call C:\Git\scrapy\bat_files\plazavea7.bat
 start cmd /k call C:\Git\scrapy\bat_files\plazavea8.bat
-start cmd /k call C:\Git\scrapy\bat_files\plazavea9.bat
-start cmd /k call C:\Git\scrapy\bat_files\plazavea10.bat
 start cmd /k call C:\Git\scrapy\bat_files\cura1.bat
 start cmd /k call C:\Git\scrapy\bat_files\cura2.bat
 start cmd /k call C:\Git\scrapy\bat_files\cura3.bat
