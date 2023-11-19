@@ -7,7 +7,7 @@ base_de_datos = cliente["saga"]
 coleccion = base_de_datos["links"]
 
 # Ruta al archivo de texto
-archivo_texto = "urls.txt"
+archivo_texto = config("urls_saga")
 
 # Abrir el archivo y leer línea por línea
 with open(archivo_texto, 'r') as file:

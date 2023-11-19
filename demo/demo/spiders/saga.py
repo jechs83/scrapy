@@ -6,7 +6,7 @@ from datetime import date
 import uuid
 import pymongo
 from demo.spiders.urls_db import *
-from  demo.spiders import url_list 
+#from  demo.spiders import url_list 
 from decouple import config
 
 def load_datetime():
