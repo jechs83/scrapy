@@ -28,11 +28,13 @@ def run_spider_with_parameters( b_value):
     process.crawl(SagaSpider, u=18, b=b_value)
     process.crawl(SagaSpider, u=19, b=b_value)
     process.crawl(SagaSpider, u=20, b=b_value)
-    
+
     process.start()
 
 if __name__ == "__main__":
     
     b_value = 0
-    run_spider_with_parameters( b_value)
+    while True:
+        run_spider_with_parameters( b_value)
+    
     
