@@ -36,6 +36,6 @@ if __name__ == "__main__":
     b_value = 0
 
     run_spider_with_parameters(b_value)
-    subprocess.run("pkill -f 'python saga_s.py'")
+   # subprocess.run("pkill -f 'python script_name.py'")
 
 
