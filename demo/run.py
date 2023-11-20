@@ -3,7 +3,6 @@
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from demo.spiders.saga import SagaSpider
-from decouple import config
 
 def run_spider_with_parameters( b_value):
     process = CrawlerProcess(get_project_settings())
@@ -32,9 +31,10 @@ def run_spider_with_parameters( b_value):
     process.start()
 
 if __name__ == "__main__":
-    
     b_value = 0
-    while True:
-        run_spider_with_parameters( b_value)
-    
+    while True:  # Infinite loop
+        try:
+            run_spider_with_parameters(b_value)
+        except:
+            run_spider_with_parameters(b_value)
     
