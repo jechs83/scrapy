@@ -1,71 +1,38 @@
 
 
-# from scrapy.crawler import CrawlerProcess
-# from scrapy.utils.project import get_project_settings
-# from demo.spiders.saga import SagaSpider
-
-# def run_spider_with_parameters( b_value):
-#     process = CrawlerProcess(get_project_settings())
-
-#     process.crawl(SagaSpider, u=1, b=b_value)
-#     process.crawl(SagaSpider, u=2, b=b_value)
-#     # process.crawl(SagaSpider, u=3, b=b_value)
-#     # process.crawl(SagaSpider, u=4, b=b_value)
-#     # process.crawl(SagaSpider, u=5, b=b_value)
-#     # process.crawl(SagaSpider, u=6, b=b_value)
-#     # process.crawl(SagaSpider, u=7, b=b_value)
-#     # process.crawl(SagaSpider, u=8, b=b_value)
-#     # process.crawl(SagaSpider, u=9, b=b_value)
-#     # process.crawl(SagaSpider, u=10, b=b_value)
-#     # process.crawl(SagaSpider, u=11, b=b_value)
-#     # process.crawl(SagaSpider, u=12, b=b_value)
-#     # process.crawl(SagaSpider, u=13, b=b_value)
-#     # process.crawl(SagaSpider, u=14, b=b_value)
-#     # process.crawl(SagaSpider, u=15, b=b_value)
-#     # process.crawl(SagaSpider, u=16, b=b_value)
-#     # process.crawl(SagaSpider, u=17, b=b_value)
-#     # process.crawl(SagaSpider, u=18, b=b_value)
-#     # process.crawl(SagaSpider, u=19, b=b_value)
-#     # process.crawl(SagaSpider, u=20, b=b_value)
-
-#     process.start()
-
-# if __name__ == "__main__":
-#     b_value = 0
-#     while True:  # Infinite loop
-#         try:
-#             run_spider_with_parameters(b_value)
-#         except:
-#             run_spider_with_parameters(b_value)
-
-
-
-import time
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from demo.spiders.saga import SagaSpider
-from decouple import config
 
-def run_spider_with_parameters(b_value):
+def run_spider_with_parameters( b_value):
     process = CrawlerProcess(get_project_settings())
 
     process.crawl(SagaSpider, u=1, b=b_value)
     process.crawl(SagaSpider, u=2, b=b_value)
-    # Add more process.crawl() calls for other values of 'u' if needed
-    
+    process.crawl(SagaSpider, u=3, b=b_value)
+    process.crawl(SagaSpider, u=4, b=b_value)
+    process.crawl(SagaSpider, u=5, b=b_value)
+    process.crawl(SagaSpider, u=6, b=b_value)
+    process.crawl(SagaSpider, u=7, b=b_value)
+    process.crawl(SagaSpider, u=8, b=b_value)
+    process.crawl(SagaSpider, u=9, b=b_value)
+    process.crawl(SagaSpider, u=10, b=b_value)
+    process.crawl(SagaSpider, u=11, b=b_value)
+    process.crawl(SagaSpider, u=12, b=b_value)
+    process.crawl(SagaSpider, u=13, b=b_value)
+    process.crawl(SagaSpider, u=14, b=b_value)
+    process.crawl(SagaSpider, u=15, b=b_value)
+    process.crawl(SagaSpider, u=16, b=b_value)
+    process.crawl(SagaSpider, u=17, b=b_value)
+    process.crawl(SagaSpider, u=18, b=b_value)
+    process.crawl(SagaSpider, u=19, b=b_value)
+    process.crawl(SagaSpider, u=20, b=b_value)
+
     process.start()
 
 if __name__ == "__main__":
     b_value = 0
-    while True:
-        try:
-            run_spider_with_parameters(b_value)
-        except KeyboardInterrupt:  # Handle keyboard interrupt (Ctrl+C) to stop the infinite loop
-            break
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            # You might want to handle specific errors differently or log them for further investigation
-            pass
 
-        # Add a delay before restarting the process
-        time.sleep(60)  # Adjust the delay period as needed
+    run_spider_with_parameters(b_value)
+   
+
