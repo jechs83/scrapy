@@ -40,32 +40,24 @@
 
 
 
-import time
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from demo.spiders.saga import SagaSpider
-from decouple import config
+from curacao.spiders.cura import CuraSpider
 
 def run_spider_with_parameters(b_value):
     process = CrawlerProcess(get_project_settings())
 
-    process.crawl(SagaSpider, u=1, b=b_value)
-    process.crawl(SagaSpider, u=2, b=b_value)
+    process.crawl(CuraSpider, u=1, b=b_value)
+    process.crawl(CuraSpider, u=2, b=b_value)
+    process.crawl(CuraSpider, u=3, b=b_value)
+    process.crawl(CuraSpider, u=4, b=b_value)
+    process.crawl(CuraSpider, u=5, b=b_value)
+    process.crawl(CuraSpider, u=6, b=b_value)
+    process.crawl(CuraSpider, u=7, b=b_value)
+    process.crawl(CuraSpider, u=8, b=b_value)
+    process.crawl(CuraSpider, u=9, b=b_value)
+    process.crawl(CuraSpider, u=10, b=b_value)
     # Add more process.crawl() calls for other values of 'u' if needed
     
     process.start()
 
-if __name__ == "__main__":
-    b_value = 0
-    while True:
-        try:
-            run_spider_with_parameters(b_value)
-        except KeyboardInterrupt:  # Handle keyboard interrupt (Ctrl+C) to stop the infinite loop
-            break
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            # You might want to handle specific errors differently or log them for further investigation
-            pass
-
-        # Add a delay before restarting the process
-        time.sleep(60)  # Adjust the delay period as needed
