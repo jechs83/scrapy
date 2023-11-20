@@ -18,6 +18,7 @@ start cmd /k call C:\Git\scrapy\bat_files\saga16.bat
 start cmd /k call C:\Git\scrapy\bat_files\saga17.bat
 start cmd /k call C:\Git\scrapy\bat_files\saga18.bat
 start cmd /k call C:\Git\scrapy\bat_files\saga19.bat
+start cmd /k call C:\Git\scrapy\bat_files\saga20.bat
 start cmd /k call C:\Git\scrapy\bat_files\oh1.bat
 start cmd /k call C:\Git\scrapy\bat_files\oh2.bat
 start cmd /k call C:\Git\scrapy\bat_files\oh3.bat
