@@ -54,11 +54,10 @@ def run_spider_with_parameters(b_value):
 
 if __name__ == "__main__":
     b_value = 0
-    while True:  # Infinite loop
-        try:
-            run_spider_with_parameters(b_value)
-        except:
-            run_spider_with_parameters(b_value)
+    
+  
+    run_spider_with_parameters(b_value)
+       
 
 
 
