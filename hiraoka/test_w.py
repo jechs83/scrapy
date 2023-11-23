@@ -5,7 +5,7 @@ def run_saga_script():
     saga_script_path = "c:/git/scrapy/hiraoka/run.py"  # Absolute path to saga_s.py
 
     while True:
-        print("Starting hira.py...")
+        print("Starting hira.py....")
         process = subprocess.Popen(["python", saga_script_path])  # Start saga_s.py as a subprocess
 
         while True:
