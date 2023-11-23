@@ -38,11 +38,11 @@ class MongoPipeline(object):
         self.client.close()
     
 
-def process_item(self, item, spider):
-        collection = self.db[self.collection_name]
-        filter = { "_id":item["_id"], "sku": item["sku"]}
-        update = {'$set': dict(item)}
-        result = collection.update_one(filter, update, upsert=True)
-        spider.logger.debug('Item updated in MongoDB: %s', result)
-        return item
+    def process_item(self, item, spider):
+            collection = self.db[self.collection_name]
+            filter = { "_id":item["_id"], "sku": item["sku"]}
+            update = {'$set': dict(item)}
+            result = collection.update_one(filter, update, upsert=True)
+            spider.logger.debug('Item updated in MongoDB: %s', result)
+            return item
        

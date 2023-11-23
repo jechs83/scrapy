@@ -15,9 +15,7 @@ NEWSPIDER_MODULE = "hiraoka.spiders"
 ITEM_PIPELINES = {
     'hiraoka.pipelines.MongoPipeline': 300,
 }
-# MONGO_URI = config("MONGODB")
-# MONGO_DATABASE = "saga1"
-# COLLECTION_NAME = "scrap"
+
 
 MONGO_URI = config("MONGODB")
 MONGO_DATABASE = config("db_hiraoka")
