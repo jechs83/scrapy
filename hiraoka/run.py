@@ -10,8 +10,8 @@ def run_spider_with_parameters( b_value):
     process = CrawlerProcess(get_project_settings())
 
     process.crawl(HiraSpider, u=1, b=b_value)
-    # process.crawl(HiraokaItem, u=2, b=b_value)
-    # process.crawl(HiraokaItem, u=3, b=b_value)
+    process.crawl(HiraSpider, u=2, b=b_value)
+    process.crawl(HiraSpider, u=3, b=b_value)
     # process.crawl(HiraokaItem, u=4, b=b_value)
     # process.crawl(HiraokaItem, u=5, b=b_value)
     # process.crawl(HiraokaItem, u=6, b=b_value)
