@@ -43,6 +43,7 @@
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from curacao.spiders.cura import CuraSpider
+import subprocess
 
 def run_spider_with_parameters(b_value):
     process = CrawlerProcess(get_project_settings())
@@ -60,4 +61,9 @@ def run_spider_with_parameters(b_value):
     # Add more process.crawl() calls for other values of 'u' if needed
     
     process.start()
+
+if __name__ == "__main__":
+    b_value = 0
+
+    run_spider_with_parameters(b_value)
 
