@@ -5,9 +5,9 @@
 
 import scrapy
 
-class DemoItem(scrapy.Item):
+
+class HiraokaItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
     product = scrapy.Field()
     sku = scrapy.Field()
     _id = scrapy.Field()
@@ -24,5 +24,4 @@ class DemoItem(scrapy.Item):
     home_list = scrapy.Field()
     card_price = scrapy.Field()
     card_dsct = scrapy.Field()
-  
     pass

@@ -3,7 +3,7 @@ from decouple import config
 
 # Establecer la conexión a MongoDB
 cliente = pymongo.MongoClient(config("MONGODB"))
-base_de_datos = cliente["saga"]
+base_de_datos = cliente["hiraoka"]
 coleccion = base_de_datos["links"]
 
 # Ruta al archivo de texto
