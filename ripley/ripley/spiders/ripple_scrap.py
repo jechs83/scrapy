@@ -50,6 +50,7 @@ class RippleScrapSpider(scrapy.Spider):
     
     links =[]
     def start_requests(self):
+
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
         urls = links()[int(u-1)]
@@ -75,7 +76,7 @@ class RippleScrapSpider(scrapy.Spider):
 
                 headers = {'User-Agent': user_agent}
                 
-                yield scrapy.Request(url, self.parse, headers=headers   )
+                yield scrapy.Request(url, self.parse, headers=headers  )
         
             
     def parse(self, response):
