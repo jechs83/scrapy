@@ -1,5 +1,7 @@
 
 from decouple import config
+import requests
+
 BOT_NAME = "ripley"
 
 SPIDER_MODULES = ["ripley.spiders"]
@@ -15,6 +17,22 @@ COLLECTION_NAME = config("collection")
 
 
 
+
+# Replace 'your_proxy_list_url' with the actual URL of your proxy list file
+proxy_list_url = "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all"
+local_file_path = 'proxies.txt'
+
+# Download the proxy list file
+response = requests.get(proxy_list_url)
+with open(local_file_path, 'wb') as file:
+    file.write(response.content)
+
+
+# ROTATING_PROXY_LIST_PATH = local_file_path
+
+
+
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "demo (+http://www.yourdomain.com)"
 
@@ -24,14 +42,14 @@ USER_AGENT='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 200
 
 # DOWNLOADER_MIDDLEWARES = {
 #     'rotating_proxies.middlewares.RotatingProxyMiddleware':300,
 #     'rotating_proxies.middlewares.BanDetectionMiddleware':300,
 
 # }
-# ROTATING_PROXY_LIST_PATH="/Users/javier/GIT/scrapy_saga/ripley/proxies.txt"
+# ROTATING_PROXY_LIST_PATH=local_file_path
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
