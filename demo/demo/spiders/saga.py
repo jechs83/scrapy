@@ -8,7 +8,7 @@ import pymongo
 from demo.spiders.urls_db import *
 from  demo.spiders import url_list 
 from decouple import config
-
+import time
 
 
 
@@ -107,23 +107,43 @@ class SagaSpider(scrapy.Spider):
                 item["sku"] = i["skuId"]
                 item["_id"] =i["skuId"]
 
-                try:
-                 item["best_price"] = float(i["prices"][1]["price"][0].replace(",",""))
-        
-                except:
-                 item["best_price"] = 0
-                print("#######")
-                # print(item["best_price"])
-        
-                try:
-                 item["list_price"] = float(i["prices"][2]["price"][0].replace(",",""))
-                except: 
-                        item["list_price"] = 0
-        
-                try:
+                if len(i["prices"])== 1:
 
-                 item["card_price"] = float(i["prices"][0]["price"][0].replace(",",""))
-                except:item["card_price"] =0
+                    item["best_price"] = 0
+                    item["card_price"] = 0
+                    item["list_price"] = float(i["prices"][0]["price"][0].replace(",",""))
+
+                elif len(i["prices"])== 2:
+                    item["best_price"] = float(i["prices"][0]["price"][0].replace(",",""))
+                    item["card_price"] = 0
+                    item["list_price"] = float(i["prices"][1]["price"][0].replace(",",""))
+
+                elif len(i["prices"])== 3:
+                    item["best_price"] = float(i["prices"][1]["price"][0].replace(",",""))
+                    item["card_price"] = float(i["prices"][0]["price"][0].replace(",",""))
+                    item["list_price"] = float(i["prices"][2]["price"][0].replace(",",""))
+
+                    
+              
+
+
+                # try:
+                #  item["best_price"] = float(i["prices"][1]["price"][0].replace(",",""))
+        
+                # except:
+                #  item["best_price"] = 0
+                # print("#######")
+                # # print(item["best_price"])
+        
+                # try:
+                #  item["list_price"] = float(i["prices"][2]["price"][0].replace(",",""))
+                # except: 
+                #         item["list_price"] = 0
+        
+                # try:
+
+                #  item["card_price"] = float(i["prices"][0]["price"][0].replace(",",""))
+                # except:item["card_price"] =0
 
                 item["link"]=i["url"]
 
