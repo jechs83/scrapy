@@ -24,5 +24,6 @@ class DemoItem(scrapy.Item):
     home_list = scrapy.Field()
     card_price = scrapy.Field()
     card_dsct = scrapy.Field()
+    dsct_app = scrapy.Field()
   
     pass
