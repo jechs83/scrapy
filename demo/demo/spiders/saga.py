@@ -157,6 +157,21 @@ class SagaSpider(scrapy.Spider):
                 except:
                         item["web_dsct"]=0
 
+
+                try:
+                    item["dsct_app"] = i["multipurposeBadges"][0]["label"]
+                
+                    if item["dsct_app"]=="Dscto extra por app" :
+                        item["dsct_app"]  = 1
+                    else:
+                        item["dsct_app"] = 0
+                except: 
+                    item["dsct_app"] = 0
+
+    
+
+
+
                 item["market"]= "saga"
                 item["date"]= load_datetime()[0]
                 item["time"]= load_datetime()[1]
