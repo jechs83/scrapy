@@ -42,9 +42,14 @@ class SagaSpider(scrapy.Spider):
     def brand_allowed(self):
 
         collection1 = self.db["todo"]
+        collection2 = self.db["nada"]
         shoes = collection1.find({})
+        nada = collection2.find({})
+
         allowed_brands = [doc["brand"] for doc in shoes]
-        return allowed_brands
+        allowed_brands2 = [doc["brand"] for doc in nada]
+
+        return allowed_brands,allowed_brands2
 
 
     def start_requests(self):
@@ -91,8 +96,9 @@ class SagaSpider(scrapy.Spider):
         
         for i in productos:
                 
+                
+                item["brand"]= i["brand"]
                 try:
-                    item["brand"]= i["brand"]
                     product = item["brand"]
             
                     if self.lista == []:

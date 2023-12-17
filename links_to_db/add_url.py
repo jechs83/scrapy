@@ -3,7 +3,7 @@ from decouple import config
 
 # Establecer la conexión a MongoDB
 cliente = pymongo.MongoClient(config("MONGODB"))
-base_de_datos = cliente["curacao"]
+base_de_datos = cliente["shopstar"]
 coleccion = base_de_datos["links"]
 
 # Ruta al archivo de texto
@@ -20,8 +20,8 @@ with open(archivo_texto, 'r') as file:
         # Convertir la lista y la página a int
         # lista = int(lista)
         # page = int(page)
-        lista = 18
-        page = 100 
+        lista = 9
+        page = 50
 
         # Crear un documento para MongoDB
         documento = {
