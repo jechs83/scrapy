@@ -8,16 +8,16 @@
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 BOT_NAME = "shopstar"
-COLLECTION_NAME = "testeando"
+COLLECTION_NAME = "scrap"
 SPIDER_MODULES = ["shopstar.spiders"]
 NEWSPIDER_MODULE = "shopstar.spiders"
 
 ITEM_PIPELINES = {
     'shopstar.pipelines.MongoPipeline': 300,
 }
-MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
+MONGO_URI = "mongodb://192.168.9.66:27017"
 
-MONGO_DATABASE = 'scrap'
+MONGO_DATABASE = 'shopstar'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

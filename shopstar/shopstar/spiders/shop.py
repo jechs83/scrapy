@@ -3,10 +3,17 @@ from scrapy import Selector
 from shopstar.items import ShopstarItem
 from datetime import datetime
 from datetime import date
+from shopstar.spiders.urls_db import *
+
 from shopstar.spiders import url_list 
-import time
-import re
 import json
+import requests
+from bs4 import BeautifulSoup
+import pymongo
+from decouple import config
+import time
+
+
 
 
 def load_datetime():
@@ -17,158 +24,215 @@ def load_datetime():
  time_now = now.strftime("%H:%M:%S")
  return date_now, time_now
 
+def load_datetime():
+    
+    today = date.today()
+    now = datetime.now()
+    date_now = today.strftime("%d/%m/%Y")  
+    time_now = now.strftime("%H:%M:%S")
+        
+    return date_now, time_now, today
 
-
-
-
+current_day = load_datetime()[0]
 
 class ShopSpider(scrapy.Spider):
     name = "shop"
     allowed_domains = ["shopstar.pe"]
 
-    def start_requests(self):
+    def __init__(self, *args, **kwargs):
         u = int(getattr(self, 'u', '0'))
+        b = int(getattr(self, 'b', '0'))
+        super(ShopSpider, self).__init__(*args, **kwargs)
+        self.client = pymongo.MongoClient(config("MONGODB"))
+        self.db = self.client["brand_allowed"]
+        self.lista = self.brand_allowed() # Initialize self.lista based on self.b
+        self.urls = links()[int(int(self.u)-1)]
+    
+    def brand_allowed(self):
 
-        if u == 0:
-            urls = url_list.list0
+        collection1 = self.db["todo"]
+        collection2 = self.db["nada"]
+        shoes = collection1.find({})
+        nada = collection2.find({})
+
+        allowed_brands = [doc["brand"] for doc in shoes]
+        allowed_brands2 = [doc["brand"] for doc in nada]
+
+        return allowed_brands,allowed_brands2
+
+
+
+
+    def start_requests(self):
       
-        elif u == 1:
-                urls = url_list.list1
-        elif u == 2:
-                urls = url_list.list2
-        elif u == 3:
-                urls = url_list.list3
-        else:
-            urls = []
+        # web1 = "https://shopstar.pe/api/catalog_system/pub/products/search?"
 
-        for i, v in enumerate(urls):
-            for e in range(51):
-                url = v+str(e+1)
-                yield scrapy.Request(url, self.parse)
+        # # for i in range( 1000000):
+        # #         output_list = ["fq=productId:" + str(e) + "&" for e in range(50)]
+        # #         # Unir la lista en una cadena usando el método join
+        # #         output_string = ''.join(output_list)        
 
+        # #         yield scrapy.Request(web1+output_string, self.parse)
+        # for _ in range(1000):
+        #     for j in range(0, 40 * 1000000000, 40):
+        #         output_list = ["fq=productId:" + str(e) + "&" for e in range(j, j + 50)]
+        #         output_string = ''.join(output_list)
+        #         yield scrapy.Request(web1 + output_string, self.parse)
+
+        def productId_extract(web):
+
+            response = requests.get(web)
+            productId_web = []
+
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+
+                template_element = soup.find('template', {'data-type': 'json', 'data-varname': '__STATE__'})
+                script_element = template_element.find('script')
+
+                json_content = script_element.get_text(strip=True)
+            
+                json_data = json.loads(json_content)
+
+                for product_key, product_info in json_data.items():
+                    try:
+                        product_id = product_info['productId']
+                        #print(f"Product ID for {product_id}")
+                        productId_web.append("fq=productId:"+product_id+"&")
+                    except: 
+                        continue
+            productId_web = "".join(productId_web)
+            web = "https://shopstar.pe/api/catalog_system/pub/products/search?"+productId_web
+
+            return web
+
+        for i, v in enumerate(self.urls):
+            
+                for e in range (50):
+                    
+                    link = v[0]+"&page="+str(e+1)
+          
+                    url = productId_extract(link)
+      
+                    yield scrapy.Request(url, self.parse)
+
+        
 
     def parse(self, response):
         item = ShopstarItem()
-
-        #print(response.body)
-        html_content = str(response.body)
-        pattern = r"<script\b[^>]*>(.*?)</script>"
-        matches = re.findall(pattern, html_content, re.DOTALL)
-        i=0
-        ss=[]
-        if matches:
-            for match in matches:
-                i=i+1
-                if i ==12:         
-            
-                    extracted_text = match.strip()
-                    ss.append(extracted_text)
-        else:
-            print("No text content found between <script> tags.")
-
-
-        ss = str(ss)[72:-3]
-        with open ("g.txt", "w") as h:
-             h.write(ss)
-        json_data = json.loads(ss)
-        #print(json_data)
-
-       
-
+        print(response.status)
      
+        #print(response.body)
+        html_content = response.body
+        json_data = json.loads(html_content)
         #elements = response.xpath("//li[@id][@class='slider__slide']")
         elements = json_data
 
         count = 0
         for i in elements:
-
-            
-            item["product"] = i["item"]["name"]# proddutco
-            item["brand"]= i["item"]["brand"]["name"]#brand
-            item["image"]=i["item"]["image"]#image
-            item["sku"]=i["item"]["sku"]#sku
-            item["link"]=i["item"]["@id"]#link
-            #print(i["item"]["offers"]["offers"][0]["price"]
-            item["list_price"]=i["item"]["offers"]["highPrice"]
-            item["best_price"]=i["item"]["offers"]["lowPrice"]#best price
-            #item["seller"]=i["item"]["offers"]["offers"][0]["seller"]["name"]
-            item["card_dsct"] = 0
-            item["web_dsct"] = 0
-            item["web_dsct"] = 0
-            item["_id"] =  item["sku"]+str(load_datetime()[0])
-            
-   
+            count = count +1
            
+            item["product"] = i["productName"]
+            item["brand"]= i["brand"]
+
+
+
+            product = item["brand"]
     
-            # item["sku"] = i.css('div.buy-button-normal::attr(id)').get()
-            # item["_id"] =  item["sku"]+str(load_datetime()[0])
-          
-            # try:
-            #  item["brand"]  = i.css('h6.x-brand strong::text').get()
-            # except:item["brand"]   =  None
-           
-  
-            # try:
-            #  item["product"] = i.css('h6.x-name a::text').get()
-            # except:   item["product"] = None
+    
+            # if self.lista == []:
+            #     pass
+            # else:
+            # print((self.lista[0]))
+            # print(product.lower())
 
-            # try:
-            #     item["best_price"] = i.css('span.product__price strong::text').get()
-            #     item["best_price"] = float(item["best_price"].replace("S/. ", "").replace(",", ""))
-            # except:
-            #     item["best_price"] = 0
-
-            # try:
-            #     item["list_price"] = i.css('span.product__old-price::text').get()
-            #     item["list_price"] = float(item["list_price"].replace("S/. ", "").replace(",", ""))
-            # except:
-            #     item["list_price"] = 0
-
+            if product.lower() not in (self.lista[0]):
+                print("no hay producto ")
+                continue
             
-            # # if item["list_price"] or item["best_price"]  == 0:
-            # #     item["web_dsct"] = 0
-            # # else:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-            #     #item["web_dsct"] = i.xpath("/html[1]/body[1]/div[1]/ul[1]/li/div[1]/div[2]/span[1]/p/text()").get()
-            # try:
-            #     item["web_dsct"] = i.css("div.product__image span.product__discount p::text").get()
-            #     item["web_dsct"] = str(item["web_dsct"]).replace("-", "").replace(",", ".").replace(" %", "")
-            #     item["web_dsct"] = round(float(item["web_dsct"] ))
-            # except: item["web_dsct"]  = 0
-            # # if item["web_dsct"] == None :
-            # #         item["web_dsct"] = round((float(item["best_price"])*100/float(item["list_price"])))
+
+
+            item["image"]=i["items"][0]["images"][0]["imageUrl"]#image
+            item["sku"]=i["items"][0]["itemId"]
+            item["_id"] =  item["sku"]
+            item["link"]=i["link"]
+            try:
+                item["best_price"]= i["items"][0]["sellers"][0]["commertialOffer"]["Price"]
+            except:item["best_price"] = 0
+
+            try:
+                item["list_price"]= i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"]
+            except: item["list_price"] = 0
+            # available = i["items"][0]["sellers"][0]["commertialOffer"]["IsAvailable"]
+
+
+           
+            try:
+                ibk_dsct = float(i["items"][0]["sellers"][0]["commertialOffer"]["Teasers"][0]["<Effects>k__BackingField"]["<Parameters>k__BackingField"][0]["<Value>k__BackingField"]    )  
+            except:
+                ibk_dsct = 0  
                 
+            try:
+                plin_dsct = float(i["items"][0]["sellers"][0]["commertialOffer"]["PromotionTeasers"][0]["Effects"]["Parameters"][0]["Value"]  )  
+            except:
+                plin_dsct = 0
 
-         
-            # try:
-            #     ibk_dsct = i.xpath(".//div[@class='contentFlag']/text()")[0].get()
-            #     ibk_dsct = ibk_dsct.split()[1].replace("%", "")
-            #     item["card_dsct"] = float(item["web_dsct"]) + float(ibk_dsct)
-            #     item["card_dsct"] = round(item["card_dsct"])
-            #     item["card_price"] = (float(item["best_priece"]) * (100 - float(ibk_dsct)) / 100)
-            #     item["card_price"] = round(item["card_price"])
-            # except:
-            #     item["card_dsct"] = 0
+            if item["best_price"] and  item["list_price"] !=0:
+                item["web_dsct"] =    round(float(100-(item["best_price"]*100/item["list_price"])))
+            else:
+                item["web_dsct"] = 0
 
-            # if item["card_dsct"] == 0:
-            #     item["card_price"] = 0
-
-            # try:
+            if item["best_price"] and float(ibk_dsct)>0 :
+                 item["card_price"]= round( float(item["best_price"] -float(item["best_price"]*ibk_dsct/100)),2)
+                
+            else:
+                item["card_price"]= 0
 
 
-            #       item["image"] = i.css('div.product__image img::attr(src)').get()
+            if item["best_price"] and float(plin_dsct)>0 :
+                item["card_dsct"] = round(float(100-(item["card_price"]*100/item["list_price"])),1)
+                
+                #card_dsct = float(100-(item["best_price"]*ibk_dsct/100))
+            else:
+                 item["card_dsct"]= 0
 
-            # except:
-            #       item["image"] = "Null"
 
-            # try:
-            #  item["link"] = i.css('a::attr(href)').get()
-            # except: item["link"] =  None
+            if item["best_price"] and float(ibk_dsct)>0 :
+                 item["card_price"]= round( float(item["best_price"] -float(item["best_price"]*ibk_dsct/100)),2)
+                
+            else:
+                item["card_price"]= 0
 
+
+            print( item["product"] )
+            print( item["brand"] )
+            print( item["link"] )
+            print( item["image"] )
+            print( item["sku"] )
+            print("best price " + str(item["best_price"]))
+            print("list price "+ str(item["list_price"]))
+            print("card price "+str(item["card_price"]))
+            print("web dsct "+str(item["web_dsct"])+"%")
+            # print(ibk_dsct)
+            print("card dsct "+str(item["card_dsct"])+"%")
+            # print(card_dsct)
+            print()
 
             item["market"] = "shopstar"  # COLECCION
             item["date"] = load_datetime()[0]
             item["time"]= load_datetime()[1]
             item["home_list"]= "https://shopstar.pe"
+            # print(product)
+            # print(item["product"])
+            # print(item["image"])
+            # print(item["sku"])
+            # print(item["link"])
+            # print(item["best_price"])
+            # print(item["list_price"])
 
-            #Yield the scraped data
+
+            print("ese producto es el "+str(count))
+       
+
+          
             yield item
