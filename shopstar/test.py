@@ -1,11 +1,7 @@
-lista= ["samsung", "lg", "panasonoc"]
+import subprocess
 
-product = "SAMSUNG"
+# Replace 'other_script.py' with the name of your Python file
+file_to_execute = '/Users/javier/GIT/scrapy_saga/demo/saga_s.py'
 
-
-for i in range (5):
-    if product.lower() not in (lista):
-        
-        print("no hay producto ")
-        continue
-            
+# Run the Python file using subprocess
+subprocess.run(['python', file_to_execute])
