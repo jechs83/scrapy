@@ -65,19 +65,6 @@ class ShopSpider(scrapy.Spider):
 
     def start_requests(self):
       
-        # web1 = "https://shopstar.pe/api/catalog_system/pub/products/search?"
-
-        # # for i in range( 1000000):
-        # #         output_list = ["fq=productId:" + str(e) + "&" for e in range(50)]
-        # #         # Unir la lista en una cadena usando el método join
-        # #         output_string = ''.join(output_list)        
-
-        # #         yield scrapy.Request(web1+output_string, self.parse)
-        # for _ in range(1000):
-        #     for j in range(0, 40 * 1000000000, 40):
-        #         output_list = ["fq=productId:" + str(e) + "&" for e in range(j, j + 50)]
-        #         output_string = ''.join(output_list)
-        #         yield scrapy.Request(web1 + output_string, self.parse)
 
         def productId_extract(web):
 
@@ -90,9 +77,7 @@ class ShopSpider(scrapy.Spider):
             template_element = soup.find('template', {'data-type': 'json', 'data-varname': '__STATE__'})
             script_element = template_element.find('script')
 
-            # if not script_element:
-            #     return
-
+           
             json_content = script_element.get_text(strip=True)
         
             json_data = json.loads(json_content)
@@ -105,13 +90,13 @@ class ShopSpider(scrapy.Spider):
                 except: 
                     continue
             productId_web = "".join(productId_web)
-            web = "http://shopstar.pe/api/catalog_system/pub/products/search?"+productId_web
+            web = "https://www.wong.pe/api/catalog_system/pub/products/search?"+productId_web
 
             return web
 
         for i, v in enumerate(self.urls):
             
-                for e in range (50):
+                for e in range (10):
                     
                     link = v[0]+"&page="+str(e+1)
           
@@ -134,13 +119,16 @@ class ShopSpider(scrapy.Spider):
         count = 0
         for i in elements:
             count = count +1
+
            
             item["product"] = i["productName"]
+         
             item["brand"]= i["brand"]
+          
 
 
 
-            product = item["brand"]
+            #product = item["brand"]
     
     
             # if self.lista == []:
@@ -159,6 +147,7 @@ class ShopSpider(scrapy.Spider):
             item["sku"]=i["items"][0]["itemId"]
             item["_id"] =  item["sku"]
             item["link"]=i["link"]
+            '''
             try:
                 item["best_price"]= i["items"][0]["sellers"][0]["commertialOffer"]["Price"]
             except:item["best_price"] = 0
@@ -170,41 +159,41 @@ class ShopSpider(scrapy.Spider):
 
 
            
-            try:
-                ibk_dsct = float(i["items"][0]["sellers"][0]["commertialOffer"]["Teasers"][0]["<Effects>k__BackingField"]["<Parameters>k__BackingField"][0]["<Value>k__BackingField"]    )  
-            except:
-                ibk_dsct = 0  
+            # try:
+            #     ibk_dsct = float(i["items"][0]["sellers"][0]["commertialOffer"]["Teasers"][0]["<Effects>k__BackingField"]["<Parameters>k__BackingField"][0]["<Value>k__BackingField"]    )  
+            # except:
+            #     ibk_dsct = 0  
                 
-            try:
-                plin_dsct = float(i["items"][0]["sellers"][0]["commertialOffer"]["PromotionTeasers"][0]["Effects"]["Parameters"][0]["Value"]  )  
-            except:
-                plin_dsct = 0
+            # try:
+            #     plin_dsct = float(i["items"][0]["sellers"][0]["commertialOffer"]["PromotionTeasers"][0]["Effects"]["Parameters"][0]["Value"]  )  
+            # except:
+            #     plin_dsct = 0
 
             if item["best_price"] and  item["list_price"] !=0:
                 item["web_dsct"] =    round(float(100-(item["best_price"]*100/item["list_price"])))
             else:
                 item["web_dsct"] = 0
 
-            if item["best_price"] and float(ibk_dsct)>0 :
-                 item["card_price"]= round( float(item["best_price"] -float(item["best_price"]*ibk_dsct/100)),2)
+            # if item["best_price"] and float(ibk_dsct)>0 :
+            #      item["card_price"]= round( float(item["best_price"] -float(item["best_price"]*ibk_dsct/100)),2)
                 
-            else:
-                item["card_price"]= 0
+            # else:
+            item["card_price"]= 0
 
 
-            if item["best_price"] and float(plin_dsct)>0 :
-                item["card_dsct"] = round(float(100-(item["card_price"]*100/item["list_price"])),1)
+            # if item["best_price"] and float(plin_dsct)>0 :
+            #     item["card_dsct"] = round(float(100-(item["card_price"]*100/item["list_price"])),1)
                 
-                #card_dsct = float(100-(item["best_price"]*ibk_dsct/100))
-            else:
-                 item["card_dsct"]= 0
+            #     #card_dsct = float(100-(item["best_price"]*ibk_dsct/100))
+            # else:
+            #      item["card_dsct"]= 0
 
 
-            if item["best_price"] and float(ibk_dsct)>0 :
-                 item["card_price"]= round( float(item["best_price"] -float(item["best_price"]*ibk_dsct/100)),2)
+            # if item["best_price"] and float(ibk_dsct)>0 :
+            #      item["card_price"]= round( float(item["best_price"] -float(item["best_price"]*ibk_dsct/100)),2)
                 
-            else:
-                item["card_price"]= 0
+            # else:
+            #     item["card_price"]= 0
 
 
             print( item["product"] )
@@ -235,7 +224,7 @@ class ShopSpider(scrapy.Spider):
 
 
             print("ese producto es el "+str(count))
-       
+            '''
         
           
             yield item

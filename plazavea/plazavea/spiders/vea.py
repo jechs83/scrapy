@@ -1,19 +1,13 @@
 import scrapy
-from scrapy import Selector
 from plazavea.items import PlazaveaItem
 from datetime import datetime
 from datetime import date
-from plazavea.spiders import url_list 
 from plazavea.spiders.urls_db import *
-
-import time
+from link_json import get_json
 import pymongo
 from decouple import config
 import json
-
-
-
-
+import time
 
 def load_datetime():
     
@@ -31,8 +25,7 @@ class VeaSpider(scrapy.Spider):
     allowed_domains = ["plazavea.com.pe"]
 
     def __init__(self, *args, **kwargs):
-        # u = int(getattr(self, 'u', '0'))
-        # b = int(getattr(self, 'b', '0'))
+
         super(VeaSpider, self).__init__(*args, **kwargs)
         self.client = pymongo.MongoClient(config("MONGODB"))
         self.db = self.client["brand_allowed"]
@@ -42,88 +35,77 @@ class VeaSpider(scrapy.Spider):
     def brand_allowed(self):
         collection1 = self.db["todo"]
         shoes = collection1.find({})
-        allowed_brands = [doc["brand"] for doc in shoes]
-        return allowed_brands 
-    
+        shoes_list = [doc["brand"] for doc in shoes]
+        collection1 = self.db["nada"]
+        nada = collection1.find({})
+        return shoes_list ,nada
     
     def start_requests(self):
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
 
-        # if u == 1:
-        #     urls = url_list.list1
+        for i,v in enumerate(self.urls):
+            web = get_json(v[0])
+            home_web = v[0]+"?page="+str(i+1)
 
-        # elif u == 2:
-        #         urls = url_list.list2
-        # elif u == 3:
-        #         urls = url_list.list3
-        # elif u == 4:
-        #         urls = url_list.list4
-        # elif u == 5:
-        #         urls = url_list.list5
-        # elif u == 6:
-        #         urls = url_list.list6
-        # elif u == 7:
-        #         urls = url_list.list7
-        # elif u == 8:
-        #         urls = url_list.list8
-        # elif u == 9:
-        #         urls = url_list.list9
-        # elif u == 10:
-        #         urls = url_list.list10
-        
-        # else:
-        #     urls = []
-   
-        for i, v in enumerate(self.urls):
-            
-            for e in range(v[1]):
-                url = v[0]+"?page="+str(e+1)
-                print(url)
-                yield scrapy.Request(url, self.parse)
+            for i in range (100):
+                link = web+"/&_from="+ str(i*48)+"&_to="+ str(((i+1)*48)-1)+"&O=OrderByScoreDESC&"
+                yield scrapy.Request(link, self.parse, meta={'home_web':home_web})
 
     def parse(self, response):
-    
+        u = int(getattr(self, 'u', '0'))
+        b = int(getattr(self, 'b', '0'))
+        home = response.meta['home_web']
         item = PlazaveaItem()
+        json_data = json.loads(response.body)
 
-        productos = response.css('div.Showcase__content')
+        for i in json_data:
 
-        for i in productos:
-            item["product"]=  i.css('div.Showcase__content::attr(title)').get()
-            item["image"]=  i.css( 'img::attr(src)').get()
-            item["brand"]=  i.css('div.Showcase__brand a::text').get()
-            item["link"]=  i.css('a.Showcase__name::attr(href)').get()
-            prices =    i.css( "div.Showcase__priceBox__row")
+            item["product"]=  i["productName"]
+            item["image"]=  i["items"][0]["images"][0]["imageUrl"]
+            item["brand"]=  i["brand"]
+
+
+            product = item["brand"].lower()
+            marca_not_allowed = []
+            if self.lista == []:
+                pass
+            else:
+                if product not in self.lista:
+
+                    continue
+
+            item["link"]=  i["link"]
+            item["sku"] = i["productReference"]
+            item["list_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"])
+
             try:
-                price1 = prices.css("div.Showcase__oldPrice::text").get()
-                item["list_price"] = float(price1.replace("S/","").replace(",",""))
-            except:
-                 item["list_price"] = 0
-
-            try:
-                price2 = prices.css("div.Showcase__salePrice::text").get()
-                item["best_price"] = float(price2.replace("S/","").replace(",",""))
-            except:
-                  item["best_price"] = 0
-
-            item["card_price"] = 0
-
-            try:
-             item["web_dsct"] =  round(100-(item["best_price"]*100/ item["list_price"]) )
-            except:
+                item["best_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["Price"])
+            except:item["best_price"] = 0
+ 
+            if item["best_price"] == item["list_price"]:
                 item["web_dsct"] = 0
 
+            elif item["best_price"] != 0:
+                item["web_dsct"]  = round(100-(item["best_price"]*100/item["list_price"]))
+            else:
+                item["web_dsct"] = 0
 
-            item["home_list"] = response.url
+            try:
+                dcst_tarjeta =   float(i["items"][0]["sellers"][0]["commertialOffer"]["PromotionTeasers"][0]["Effects"]["Parameters"][1]["Value"])
+           
+            except: dcst_tarjeta = None
+            if dcst_tarjeta != None:
+                item["card_price"] =item["list_price"] - dcst_tarjeta
+                item["card_dsct"] = round(100-(item["card_price"] *100/item["list_price"]))
+            else:
+                item["card_price"]= 0
+                item["card_dsct"] =0 
 
-            item["sku"] = i.css("[data-sku]::attr(data-sku)").get()
+            item["home_list"] = home 
             item["_id"]=   item["sku"]
-
-            item["card_dsct"] = 0
-
             item["date"] = current_day
             item["time"] = current_time
-            item["market"] = "pla"
-            
+            item["market"] = "plazavea"
             yield item
-        
+   
