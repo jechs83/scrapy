@@ -6,20 +6,18 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-from  decouple import config
-BOT_NAME = "plazavea"
 
-SPIDER_MODULES = ["plazavea.spiders"]
-NEWSPIDER_MODULE = "plazavea.spiders"
+BOT_NAME = "shopstar"
+COLLECTION_NAME = "scrap"
+SPIDER_MODULES = ["shopstar.spiders"]
+NEWSPIDER_MODULE = "shopstar.spiders"
 
 ITEM_PIPELINES = {
-    'plazavea.pipelines.MongoPipeline': 300,
+    'shopstar.pipelines.MongoPipeline': 300,
 }
-MONGO_URI = config("MONGODB")
-MONGO_DATABASE = "plazavea3"
-#MONGO_DATABASE = config("db_plazavea")
+MONGO_URI = "mongodb://192.168.9.66:27017"
 
-COLLECTION_NAME = config("collection")
+MONGO_DATABASE = 'wong1'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -28,7 +26,7 @@ COLLECTION_NAME = config("collection")
 # Obey robots.txt rules
 #ROBOTSTXT_OBEY = True
 USER_AGENT='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
-TELNETCONSOLE_ENABLED=False
+
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 32
@@ -103,12 +101,6 @@ REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
-# DOWNLOADER_MIDDLEWARES = {
-#     # ...
-#     'rotating_proxies.middlewares.RotatingProxyMiddleware': 300,
-#     'rotating_proxies.middlewares.BanDetectionMiddleware': 300,
-#     # ...
-# }
 
 ROTATING_PROXY_LIST = [
 "5.61.26.154:3128",
