@@ -18,8 +18,10 @@ ITEM_PIPELINES = {
 }
 
 MONGO_URI = config("MONGODB")
+
 MONGO_DATABASE = config("db_oechsle")
 COLLECTION_NAME = config("collection")
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "demo (+http://www.yourdomain.com)"

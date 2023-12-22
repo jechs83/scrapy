@@ -16,8 +16,7 @@ ITEM_PIPELINES = {
     'plazavea.pipelines.MongoPipeline': 300,
 }
 MONGO_URI = config("MONGODB")
-MONGO_DATABASE = "plazavea3"
-#MONGO_DATABASE = config("db_plazavea")
+MONGO_DATABASE = config("db_plazavea")
 
 COLLECTION_NAME = config("collection")
 
