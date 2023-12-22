@@ -27,7 +27,7 @@ def load_datetime():
 current_day = load_datetime()[0]
 current_time = load_datetime()[1]
 
-class ShopSpider(scrapy.Spider):
+class WongSpider(scrapy.Spider):
     name = "wo"
     allowed_domains = ["wong.pe"]
 
