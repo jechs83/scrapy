@@ -12,13 +12,7 @@ def run_spider_with_parameters( b_value):
 
     process.crawl(WongSpider, u=1, b=b_value)
     process.crawl(WongSpider, u=2, b=b_value)
-    process.crawl(WongSpider, u=3, b=b_value)
-    process.crawl(WongSpider, u=4, b=b_value)
-    process.crawl(WongSpider, u=5, b=b_value)
-    process.crawl(WongSpider, u=6, b=b_value)
-    process.crawl(WongSpider, u=7, b=b_value)
-    process.crawl(WongSpider, u=8, b=b_value)
-    process.crawl(WongSpider, u=9, b=b_value)
+  
    
     process.start()
 
