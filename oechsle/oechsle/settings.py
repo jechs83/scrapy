@@ -18,8 +18,8 @@ ITEM_PIPELINES = {
 }
 
 MONGO_URI = config("MONGODB")
-MONGO_DATABASE = "oechsle3"
-#MONGO_DATABASE = config("db_oechsle")
+
+MONGO_DATABASE = config("db_oechsle")
 COLLECTION_NAME = config("collection")
 
 
