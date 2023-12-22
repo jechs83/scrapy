@@ -1,5 +1,4 @@
-https://shopstar.pe/infantil/juguetes?order=OrderByReleaseDateDESC
-https://shopstar.pe/infantil/mundo-bebe?order=OrderByReleaseDateDESC
-https://shopstar.pe/infantil/juegos-de-exterior?order=OrderByReleaseDateDESC
-https://shopstar.pe/infantil/juguetes-de-bebe?order=OrderByReleaseDateDESC
-https://shopstar.pe/infantil/escolar?order=OrderByReleaseDateDESC
+https://www.wong.pe/dormitorio
+https://www.wong.pe/la-jugueteria
+https://www.wong.pe/deportes-y-outdoors
+https://www.wong.pe/hogar-y-bazar/muebles

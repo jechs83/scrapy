@@ -2,7 +2,7 @@
 
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from shopstar.spiders.shop import ShopSpider
+from wong.wong.spiders.wong import ShopSpider
 import subprocess
 
 

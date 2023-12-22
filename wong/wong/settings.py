@@ -7,17 +7,17 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "shopstar"
+BOT_NAME = "wong"
 COLLECTION_NAME = "scrap"
-SPIDER_MODULES = ["shopstar.spiders"]
-NEWSPIDER_MODULE = "shopstar.spiders"
+SPIDER_MODULES = ["wong.spiders"]
+NEWSPIDER_MODULE = "wong.spiders"
 
 ITEM_PIPELINES = {
-    'shopstar.pipelines.MongoPipeline': 300,
+    'wong.pipelines.MongoPipeline': 300,
 }
 MONGO_URI = "mongodb://192.168.9.66:27017"
 
-MONGO_DATABASE = 'wong1'
+MONGO_DATABASE = "wong"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
