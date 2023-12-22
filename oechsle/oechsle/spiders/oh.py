@@ -60,6 +60,7 @@ class OhSpider(scrapy.Spider):
                 print(home_web)
                 web  =json_link(home_web)
                 
+                
             
                 yield scrapy.Request(web, self.parse) #, meta={'home_web':home_web})
 
