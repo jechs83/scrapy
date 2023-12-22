@@ -220,13 +220,7 @@ class ShopSpider(scrapy.Spider):
             item["date"] = load_datetime()[0]
             item["time"]= load_datetime()[1]
             item["home_list"]= "https://shopstar.pe"
-            # print(product)
-            # print(item["product"])
-            # print(item["image"])
-            # print(item["sku"])
-            # print(item["link"])
-            # print(item["best_price"])
-            # print(item["list_price"])
+           
 
 
             print("ese producto es el "+str(count))

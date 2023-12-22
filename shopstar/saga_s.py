@@ -20,7 +20,7 @@ def run_spider_with_parameters( b_value):
     process.start()
 
 if __name__ == "__main__":
-    b_value = 0
+    b_value = 6
 
     run_spider_with_parameters(b_value)
     subprocess.run("pkill -f 'python test_s.py'")
