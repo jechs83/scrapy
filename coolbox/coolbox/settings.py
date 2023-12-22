@@ -9,7 +9,7 @@
 from decouple import config
 
 BOT_NAME = "cool"
-COLLECTION_NAME = "scrap"
+
 SPIDER_MODULES = ["coolbox.spiders"]
 NEWSPIDER_MODULE = "coolbox.spiders"
 
@@ -17,10 +17,9 @@ ITEM_PIPELINES = {
     'coolbox.pipelines.MongoPipeline': 300,
 }
 
-MONGO_URI = 'mongodb://superuser:Viper.2013@192.168.9.66:27017/?authMechanism=DEFAULT&tls=false'
-#MONGO_URI = config("MONGO_DB")
-
-MONGO_DATABASE = 'scrap'
+MONGO_URI = config("MONGODB")
+MONGO_DATABASE = "coolbox"
+COLLECTION_NAME = config("collection")
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

@@ -17,13 +17,6 @@ from jsonTolink import productId_extract
 
 
 
-def load_datetime():
-    
- today = date.today()
- now = datetime.now()
- date_now = today.strftime("%d/%m/%Y")  
- time_now = now.strftime("%H:%M:%S")
- return date_now, time_now
 
 def load_datetime():
     
