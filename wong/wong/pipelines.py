@@ -1,6 +1,6 @@
 import logging
 import pymongo
-from shopstar.settings import COLLECTION_NAME
+from wong.settings import COLLECTION_NAME
 
 class MongoPipeline(object):
 
