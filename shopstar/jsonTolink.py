@@ -4,7 +4,7 @@ import json
 import time
 
 # Replace 'your_url' with the actual URL of the page containing the JSON data
-url = 'https://shopstar.pe/tecnologia/televisores?order=OrderByReleaseDateDESC&page=2'
+#url = 'https://shopstar.pe/tecnologia/televisores?order=OrderByReleaseDateDESC&page=2'
 
 
 
@@ -19,6 +19,8 @@ def productId_extract(url):
         script_element = template_element.find('script')
 
         json_content = script_element.get_text(strip=True)
+        with open("text.txt", "+w") as l:
+            l.write(json_content)
     
         json_data = json.loads(json_content)
 
@@ -38,5 +40,4 @@ def productId_extract(url):
         print(web)
         return web
         
-productId_extract(url)
 

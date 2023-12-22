@@ -12,6 +12,7 @@ from bs4 import BeautifulSoup
 import pymongo
 from decouple import config
 import time
+from jsonTolink import productId_extract
 
 
 
@@ -79,35 +80,35 @@ class ShopSpider(scrapy.Spider):
         #         output_string = ''.join(output_list)
         #         yield scrapy.Request(web1 + output_string, self.parse)
 
-        def productId_extract(web):
+        # def productId_extract(web):
 
-            response = requests.get(web)
-            productId_web = []
+        #     response = requests.get(web)
+        #     productId_web = []
 
-            # if response.status_code == 200:
-            soup = BeautifulSoup(response.text, 'html.parser')
+        #     # if response.status_code == 200:
+        #     soup = BeautifulSoup(response.text, 'html.parser')
 
-            template_element = soup.find('template', {'data-type': 'json', 'data-varname': '__STATE__'})
-            script_element = template_element.find('script')
+        #     template_element = soup.find('template', {'data-type': 'json', 'data-varname': '__STATE__'})
+        #     script_element = template_element.find('script')
 
-            # if not script_element:
-            #     return
+        #     # if not script_element:
+        #     #     return
 
-            json_content = script_element.get_text(strip=True)
+        #     json_content = script_element.get_text(strip=True)
         
-            json_data = json.loads(json_content)
+        #     json_data = json.loads(json_content)
 
-            for product_key, product_info in json_data.items():
-                try:
-                    product_id = product_info['productId']
-                    #print(f"Product ID for {product_id}")
-                    productId_web.append("fq=productId:"+product_id+"&")
-                except: 
-                    continue
-            productId_web = "".join(productId_web)
-            web = "http://shopstar.pe/api/catalog_system/pub/products/search?"+productId_web
+        #     for product_key, product_info in json_data.items():
+        #         try:
+        #             product_id = product_info['productId']
+        #             #print(f"Product ID for {product_id}")
+        #             productId_web.append("fq=productId:"+product_id+"&")
+        #         except: 
+        #             continue
+        #     productId_web = "".join(productId_web)
+        #     web = "http://shopstar.pe/api/catalog_system/pub/products/search?"+productId_web
 
-            return web
+        #     return web
 
         for i, v in enumerate(self.urls):
             
@@ -141,17 +142,11 @@ class ShopSpider(scrapy.Spider):
 
 
             product = item["brand"]
-    
-    
-            # if self.lista == []:
-            #     pass
-            # else:
-            # print((self.lista[0]))
-            # print(product.lower())
 
-            # if product.lower() not in (self.lista[0]):
-            #     print("no hay producto ")
-            #     continue
+
+            if product.lower() not in (self.lista[0]):
+                print("no hay producto ")
+                continue
             
 
 
