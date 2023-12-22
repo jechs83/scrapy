@@ -2,10 +2,10 @@ import subprocess
 import time
 
 def run_saga_script():
-    saga_script_path = "c:/git/scrapy/shopstar/shop_s.py"  # Absolute path to saga_s.py
+    saga_script_path = "c:/git/scrapy/wong/shop_s.py"  # Absolute path to saga_s.py
 
     while True:
-        print("Starting shop_s.py...")
+        print("Starting wong_s.py...")
         process = subprocess.Popen(["python", saga_script_path])  # Start saga_s.py as a subprocess
 
         while True:
