@@ -34,7 +34,7 @@ class WongSpider(scrapy.Spider):
     def __init__(self, *args, **kwargs):
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
-        super(ShopSpider, self).__init__(*args, **kwargs)
+        super(WongSpider, self).__init__(*args, **kwargs)
         self.client = pymongo.MongoClient(config("MONGODB"))
         self.db = self.client["brand_allowed"]
         self.lista = self.brand_allowed() # Initialize self.lista based on self.b
