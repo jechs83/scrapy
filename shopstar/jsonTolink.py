@@ -15,12 +15,24 @@ def productId_extract(url):
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
 
+        oops = soup.find_all("script")
+
+        for i in oops:
+            if "oops" in i.text:
+
+                return False
+        
+        
+
         template_element = soup.find('template', {'data-type': 'json', 'data-varname': '__STATE__'})
         script_element = template_element.find('script')
 
+
+  
+
         json_content = script_element.get_text(strip=True)
-        with open("text.txt", "+w") as l:
-            l.write(json_content)
+        # with open("text.txt", "+w") as l:
+        #     l.write(json_content)
     
         json_data = json.loads(json_content)
 
@@ -37,7 +49,7 @@ def productId_extract(url):
         productId_web = "".join(productId_web)
 
         web = "https://shopstar.pe/api/catalog_system/pub/products/search?"+productId_web
-        print(web)
+ 
         return web
         
 
