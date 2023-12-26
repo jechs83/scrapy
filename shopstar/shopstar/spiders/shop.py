@@ -6,7 +6,6 @@ from datetime import date
 #from shopstar.spiders.urls_db import *
 from shopstar.spiders.urls_db_json import *
 
-from shopstar.spiders import url_list 
 import json
 import requests
 from bs4 import BeautifulSoup
@@ -101,15 +100,12 @@ class ShopSpider(scrapy.Spider):
             item["brand"]= i["brand"]
 
 
-
+#######################################
             product = item["brand"]
-
-
             if product.lower() not in (self.lista[0]):
-                print("no hay producto ")
                 continue
             
-
+###############################
 
             item["image"]=i["items"][0]["images"][0]["imageUrl"]#image
             item["sku"]=i["items"][0]["itemId"]

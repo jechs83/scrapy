@@ -20,7 +20,7 @@ with open(archivo_texto, 'r') as file:
         # Convertir la lista y la página a int
         # lista = int(lista)
         # page = int(page)
-        lista = 2
+        lista = 7
         page = 50
         # Crear un documento para MongoDB
         documento = {

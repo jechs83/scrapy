@@ -8,6 +8,9 @@ import sys
 
 # Your existing code...
 
+arg_ = int(sys.argv[1])
+
+
 def process_url(url):
 
     cliente = pymongo.MongoClient(config("MONGODB"))
@@ -16,19 +19,19 @@ def process_url(url):
 
     for i in range(50):
         link1 = url + "&page="+str(i + 1)
-
-        print(link1)
   
         web = productId_extract(link1)
+        print(web)
 
+        if web == False:
+            continue
       
 
-        
-
         if web == "https://shopstar.pe/api/catalog_system/pub/products/search?":
-            continue
-
-        lista = 2
+            break
+      
+        lista = arg_
+        print(web)
         documento = {
             "_id": link1,
             "category": link1,
@@ -58,8 +61,7 @@ coleccion = base_de_datos["links"]
 
 if __name__ == '__main__':
 
-    arg_ = int(sys.argv[1])
-    print(arg_)
+
 
     webs = []
     documentos = coleccion.find()
