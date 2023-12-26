@@ -13,10 +13,6 @@ def run_spider_with_parameters( b_value):
    
     process.crawl(ShopSpider, u=1, b=b_value)
     process.crawl(ShopSpider, u=2, b=b_value)
-    process.crawl(ShopSpider, u=3, b=b_value)
-    process.crawl(ShopSpider, u=4, b=b_value)
-    process.crawl(ShopSpider, u=5, b=b_value)
-    process.crawl(ShopSpider, u=8, b=b_value)
  
 
    

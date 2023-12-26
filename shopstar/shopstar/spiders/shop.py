@@ -3,7 +3,8 @@ from scrapy import Selector
 from shopstar.items import ShopstarItem
 from datetime import datetime
 from datetime import date
-from shopstar.spiders.urls_db import *
+#from shopstar.spiders.urls_db import *
+from shopstar.spiders.urls_db_json import *
 
 from shopstar.spiders import url_list 
 import json
@@ -13,6 +14,7 @@ import pymongo
 from decouple import config
 import time
 from jsonTolink import productId_extract
+
 
 
 
@@ -41,6 +43,7 @@ class ShopSpider(scrapy.Spider):
         self.db = self.client["brand_allowed"]
         self.lista = self.brand_allowed() # Initialize self.lista based on self.b
         self.urls = links()[int(int(self.u)-1)]
+
     
     def brand_allowed(self):
 
@@ -58,60 +61,25 @@ class ShopSpider(scrapy.Spider):
 
 
     def start_requests(self):
-      
-        # web1 = "https://shopstar.pe/api/catalog_system/pub/products/search?"
 
-        # # for i in range( 1000000):
-        # #         output_list = ["fq=productId:" + str(e) + "&" for e in range(50)]
-        # #         # Unir la lista en una cadena usando el método join
-        # #         output_string = ''.join(output_list)        
+    
 
-        # #         yield scrapy.Request(web1+output_string, self.parse)
-        # for _ in range(1000):
-        #     for j in range(0, 40 * 1000000000, 40):
-        #         output_list = ["fq=productId:" + str(e) + "&" for e in range(j, j + 50)]
-        #         output_string = ''.join(output_list)
-        #         yield scrapy.Request(web1 + output_string, self.parse)
-
-        # def productId_extract(web):
-
-        #     response = requests.get(web)
-        #     productId_web = []
-
-        #     # if response.status_code == 200:
-        #     soup = BeautifulSoup(response.text, 'html.parser')
-
-        #     template_element = soup.find('template', {'data-type': 'json', 'data-varname': '__STATE__'})
-        #     script_element = template_element.find('script')
-
-        #     # if not script_element:
-        #     #     return
-
-        #     json_content = script_element.get_text(strip=True)
-        
-        #     json_data = json.loads(json_content)
-
-        #     for product_key, product_info in json_data.items():
-        #         try:
-        #             product_id = product_info['productId']
-        #             #print(f"Product ID for {product_id}")
-        #             productId_web.append("fq=productId:"+product_id+"&")
-        #         except: 
-        #             continue
-        #     productId_web = "".join(productId_web)
-        #     web = "http://shopstar.pe/api/catalog_system/pub/products/search?"+productId_web
-
-        #     return web
-
+        count = 0
         for i, v in enumerate(self.urls):
+            count = count+1
+
+
             
-                for e in range (50):
+                # for e in range (50):
                     
-                    link = v[0]+"&page="+str(e+1)
+                #     link = v[0]+"&page="+str(e+1)
           
-                    url = productId_extract(link)
+                #     url = productId_extract(link)
       
-                    yield scrapy.Request(url, self.parse)
+                #     yield scrapy.Request(url, self.parse)
+          
+            
+            yield scrapy.Request(v, self.parse)
 
         
 
