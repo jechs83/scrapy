@@ -15,12 +15,12 @@ def productId_extract(url):
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        oops = soup.find_all("script")
+        #oops = soup.find_all("script")
 
-        for i in oops:
-            if "oops" in i.text:
+        # for i in oops:
+        #     if "No se ha encontrado ningún producto" in i.text:
 
-                return False
+        #         return False
         
         
 
@@ -49,7 +49,10 @@ def productId_extract(url):
         productId_web = "".join(productId_web)
 
         web = "https://shopstar.pe/api/catalog_system/pub/products/search?"+productId_web
- 
         return web
         
 
+
+
+url = "https://shopstar.pe/calzado/zapatillas-hombre/zapatillas?order=OrderByReleaseDateDESC&page=1"
+productId_extract(url)
