@@ -40,16 +40,12 @@ class SagaSpider(scrapy.Spider):
         self.urls = links()[int(int(self.u)-1)]
     
     def brand_allowed(self):
-
         collection1 = self.db["todo"]
-        collection2 = self.db["nada"]
         shoes = collection1.find({})
-        nada = collection2.find({})
-
-        allowed_brands = [doc["brand"] for doc in shoes]
-        allowed_brands2 = [doc["brand"] for doc in nada]
-
-        return allowed_brands,allowed_brands2
+        shoes_list = [doc["brand"] for doc in shoes]
+        collection1 = self.db["nada"]
+        nada = collection1.find({})
+        return shoes_list ,nada
 
 
     def start_requests(self):
@@ -95,18 +91,21 @@ class SagaSpider(scrapy.Spider):
         productos = page_props
         
         for i in productos:
-                
-                
-                item["brand"]= i["brand"]
-                try:
-                    product = item["brand"]
             
-                    if self.lista == []:
-                        pass
-                    else:
-                        if product.lower() not in self.lista:
-                            continue
-                except: item["brand"]= None
+                
+    
+                item["brand"]= i["brand"]
+
+
+        
+                producto = item["brand"].lower()
+
+                if self.lista[0] == []:
+                    pass
+                else:
+                    if producto not in self.lista[0]:
+
+                        continue
 
                 item["product"]=  i["displayName"]
 
@@ -129,27 +128,7 @@ class SagaSpider(scrapy.Spider):
                     item["card_price"] = float(i["prices"][0]["price"][0].replace(",",""))
                     item["list_price"] = float(i["prices"][2]["price"][0].replace(",",""))
 
-                    
-              
-
-
-                # try:
-                #  item["best_price"] = float(i["prices"][1]["price"][0].replace(",",""))
-        
-                # except:
-                #  item["best_price"] = 0
-                # print("#######")
-                # # print(item["best_price"])
-        
-                # try:
-                #  item["list_price"] = float(i["prices"][2]["price"][0].replace(",",""))
-                # except: 
-                #         item["list_price"] = 0
-        
-                # try:
-
-                #  item["card_price"] = float(i["prices"][0]["price"][0].replace(",",""))
-                # except:item["card_price"] =0
+             
 
                 item["link"]=i["url"]
 
@@ -173,9 +152,6 @@ class SagaSpider(scrapy.Spider):
                         item["dsct_app"] = 0
                 except: 
                     item["dsct_app"] = 0
-
-    
-
 
 
                 item["market"]= "saga"
