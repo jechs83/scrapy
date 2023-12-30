@@ -142,8 +142,7 @@ class CuraSpider(scrapy.Spider):
                 item["list_price"] = product.css('span.old-price span.price-wrapper span.price::text').get()
                 #item["list_price"] = product.css('.old_price::text').get()
                 item["list_price"] =float(item["list_price"].strip().replace(",", "").replace("S/", "").replace('\xa0', '').strip())
-            except :item["list_price"]  = 0
-
+            except :item["list_price"]  = float(0)
             try:
                 item["best_price"] = product.css('span.special-price span.price-wrapper span.price::text').get()
                 #item["best_price"] = product.css('#offerPriceValue::text').get()
@@ -155,7 +154,7 @@ class CuraSpider(scrapy.Spider):
                     item["best_price"] = float(item["best_price"].strip().replace(",", "").replace("S/", ""))
                    
                 except:
-                    item["best_price"] = 0
+                    item["best_price"] = float(0)
 
             #try:
             if item["best_price"] == 0:
