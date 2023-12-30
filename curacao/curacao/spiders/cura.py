@@ -168,7 +168,7 @@ class CuraSpider(scrapy.Spider):
                 item["web_dsct"] =  product.css('span.badge-label.show-pecentage.special-price-discount-label::text').get()
 
                 item["web_dsct"] =  item["web_dsct"].replace("%","").replace("-","")
-                item["web_dsct"] = int(item["web_dsct"])
+                item["web_dsct"] = float(item["web_dsct"])
                 # if float(item["best_price"]) > 0:
                 #             web_dsct = (float(item["best_price"]) * 100) / float(item["list_price"])
                 #             # web_dsct = 100 - web_dsct
@@ -180,8 +180,8 @@ class CuraSpider(scrapy.Spider):
 
             #item["best_price"] =  "date": load_datetime()[0]date, "price": item"["best_price"], 
         
-            item["card_price"] = 0
-            item["card_dsct"] = 0
+            item["card_price"] = float(0)
+            item["card_dsct"] = float(0)
             item["market"] = "curacao"  # COLECCION
             item["date"] = load_datetime()[0]
             item["time"]= load_datetime()[1]
