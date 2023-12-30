@@ -178,7 +178,7 @@ class CuraSpider(scrapy.Spider):
 
 
             #item["best_price"] =  "date": load_datetime()[0]date, "price": item"["best_price"], 
-        
+            item["list_price"]  = float(item["best_price"] )
             item["card_price"] = float(0)
             item["card_dsct"] = float(0)
             item["market"] = "curacao"  # COLECCION
