@@ -1,14 +1,18 @@
 import scrapy
+from scrapy import Selector
 from metro.items import MetroItem
 from datetime import datetime
 from datetime import date
-#from metro.settings import ROTATING_PROXY_LIST
-from metro.spiders import url_list
-import time
-import uuid
+from metro.spiders.urls_db import *
+
+from metro.spiders import url_list 
+import json
+import requests
+from bs4 import BeautifulSoup
 import pymongo
 from decouple import config
-
+import time
+from product_toJson import productId_extract
 
 
 
@@ -22,133 +26,116 @@ def load_datetime():
  time_now = now.strftime("%H:%M:%S")
  return date_now, time_now
 
+current_day = load_datetime()[0]
+current_time = load_datetime()[1]
+
 class Metro1Spider(scrapy.Spider):
     name = "metro1"
     allowed_domains = ["metro.pe"]
 
     def __init__(self, *args, **kwargs):
+        u = int(getattr(self, 'u', '0'))
+        b = int(getattr(self, 'b', '0'))
         super(Metro1Spider, self).__init__(*args, **kwargs)
         self.client = pymongo.MongoClient(config("MONGODB"))
         self.db = self.client["brand_allowed"]
-        self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
-
+        self.lista = self.brand_allowed() # Initialize self.lista based on self.b
+        self.urls = links()[int(int(self.u)-1)]
+    
     def brand_allowed(self):
-        collection1 = self.db["shoes"]
-        collection2 = self.db["electro"]
-        collection3 = self.db["tv"]
-        collection4 = self.db["cellphone"]
-        collection5 = self.db["laptop"]
-        collection6 = self.db["consola"]
-        collection7 = self.db["audio"]
-        collection8 = self.db["colchon"]
-        collection9 = self.db["nada"]
-        collection10 = self.db["sport"]
-        collection11 = self.db["curacao"]
-        
+
+        collection1 = self.db["todo"]
+        collection2 = self.db["nada"]
         shoes = collection1.find({})
-        electro = collection2.find({})
-        tv = collection3.find({})
-        cellphone = collection4.find({})
-        laptop = collection5.find({})
-        consola = collection6.find({})
-        audio = collection7.find({})
-        colchon = collection8.find({})
-        nada = collection9.find({})
-        sport = collection10.find({})
-        curacao = collection11.find({})
+        nada = collection2.find({})
+
+        allowed_brands = [doc["brand"] for doc in shoes]
+        allowed_brands2 = [doc["brand"] for doc in nada]
+
+        return allowed_brands,allowed_brands2
 
 
-        shoes_list = [doc["brand"] for doc in shoes]
-        electro_list = [doc["brand"] for doc in electro]
-        tv_list = [doc["brand"] for doc in tv]
-        cellphone_list = [doc["brand"] for doc in cellphone]
-        laptop_list = [doc["brand"] for doc in laptop]
-        consola_list = [doc["brand"] for doc in consola]
-        audio_list = [doc["brand"] for doc in audio]
-        colchon_list = [doc["brand"] for doc in colchon]
-        nada_list = [doc["brand"] for doc in nada]
-        sport_list = [doc["brand"] for doc in sport]
-        curacao_list = [doc["brand"] for doc in curacao]
-        return (shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, 
-                audio_list, colchon_list,nada_list,sport_list,curacao_list )
+
 
     def start_requests(self):
-        # for url in self.start_urls:
-        #     return scrapy.Request(url=url, callback=self.parse,
-        #                meta={"proxy": "http://"+ROTATING_PROXY_LIST})
+    
+        for i, v in enumerate(self.urls):
             
+                for e in range (15):
+                    
+                    link = v[0]+"?page="+str(e+1)
+                    print("#######")
+              
+            
+          
+                    web = productId_extract(link)
+            
+                    print("")
+                    print("######")
+                    
+                    yield scrapy.Request(web, self.parse)
 
-        u = int(getattr(self, 'u', '0'))
-        b = int(getattr(self, 'b', '0'))
-
-
-        if u == 1:
-            urls = url_list.list1
-
-        elif u == 2:
-                urls = url_list.list2
-        else:
-            urls = []
-
-        for i, v in enumerate(urls):
-            for e in range(100):
-                url = v[0]+str(e+1)+v[1]
-                yield scrapy.Request(url, self.parse)
+        
 
     def parse(self, response):
         item = MetroItem()
 
-        productos = response.css("div.product-item.product-item")
-        for i in productos:
+        html_content = response.body
+        json_data = json.loads(html_content)
 
-            item["sku"] = i.css('button.product-item__add-to-cart::attr(data-productid)').get()
-			#<button class="product-item__add-to-cart product-add-to-cart btn red add-to-cart" data-productid="957181">
-            #item["_id"] =  item["sku"]+str(load_datetime()[0])
-            item["_id"] :str(uuid.uuid4())
+    
 
-            item["link"] = i.css("a.product-item__image-link::attr('href')").get()
-            item["image"] = i.css('a.product-item__image-link div.js--lazyload img::attr(src)').get()
-            item["product"] = i.css('div.product-item__info a::text').get()
-            item["brand"] = i.css('div.product-item__brand p::text').get()
-            product = item["brand"]
-            if self.lista == []:
-                pass
-            else:
-                if product.lower() not in self.lista:
+        count = 0
+        for i in json_data:
+            count = count +1
+            print(count)
+      
+            item["product"]=  i["productName"]
+
+    
+            item["image"]=  i["items"][0]["images"][0]["imageUrl"]
+            item["brand"]=  i["brand"]
+
+
+            product = item["brand"].lower()
+         
+            if product not in self.lista[0]:
+
                     continue
 
-            try:
-                item["best_price"] = i.css('span.product-prices__value.product-prices__value--best-price::text').get()
-                item["best_price"] = float(item["best_price"].replace(",","").replace("S/.",""))
-            except:  item["best_price"]  = None
-
-            if item["best_price"] == None:
-                item["best_price"] = 0
-                
+            item["link"]=  i["link"]
+            item["sku"] = i["productReference"]
+            item["list_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"])
 
             try:
-                item["list_price"] = i.css('div.product-prices__price.product-prices__price--former-price span.product-prices__value::text').get()
-                item["list_price"] = float(item["list_price"].replace(",","").replace("S/.",""))
-            except: item["list_price"]  = None
+                item["best_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["Price"])
+            except:item["best_price"] = 0
+ 
+            if item["best_price"] == item["list_price"]:
+                item["web_dsct"] = 0
 
-            if item["list_price"] == None:
-                item["list_price"] = 0
+            elif item["best_price"] != 0:
+                item["web_dsct"]  = round(100-(item["best_price"]*100/item["list_price"]))
+            else:
+                item["web_dsct"] = 0
 
-            
-            
-            item["web_dsct"] = i.css('div.flag.discount-percent::text').get()
-            item["web_dsct"] = str(item["web_dsct"]).replace(",",".").replace("%","")
-            item["web_dsct"] = round(float(item["web_dsct"]))
-            
-            item["market"] = str("metro") # COLECCION
-            item["date"] = load_datetime()[0]
-            item["time"]= load_datetime()[1]
-            item["home_list"] = response.url
-            item["card_price"] =0
-            item["card_dsct"] = 0
+            try:
+                dcst_tarjeta =   float(i["items"][0]["sellers"][0]["commertialOffer"]["PromotionTeasers"][0]["Effects"]["Parameters"][1]["Value"])
+           
+            except: dcst_tarjeta = None
+            if dcst_tarjeta != None:
+                item["card_price"] =item["list_price"] - dcst_tarjeta
+                item["card_dsct"] = round(100-(item["card_price"] *100/item["list_price"]))
+            else:
+                item["card_price"]= 0
+                item["card_dsct"] =0 
 
+            item["home_list"] = "metro.pe "
+            item["_id"]=   item["sku"]
+            item["date"] = current_day
+            item["time"] = current_time
+            item["market"] = "metro"
 
 
             yield item
- 
-        
+   
