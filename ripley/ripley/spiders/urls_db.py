@@ -26,7 +26,7 @@ def links():
         url = documento["url"]
         page = documento["page"]
     
-        for i in range(1, 10):  # Start the loop from 1 instead of 0
+        for i in range(1, 11):  # Start the loop from 1 instead of 0
             if lista == i:
                 # Agregar a la lista correspondiente en el formato requerido
                 if i == 1:
