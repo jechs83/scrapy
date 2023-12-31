@@ -81,15 +81,15 @@ class VeaSpider(scrapy.Spider):
 
             try:
                 item["best_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["Price"])
-            except:item["best_price"] = 0
+            except:item["best_price"] = float(0)
  
             if item["best_price"] == item["list_price"]:
-                item["web_dsct"] = 0
+                item["web_dsct"] = float(0)
 
             elif item["best_price"] != 0:
-                item["web_dsct"]  = round(100-(item["best_price"]*100/item["list_price"]))
+                item["web_dsct"]  = round(float(100-(item["best_price"]*100/item["list_price"])))
             else:
-                item["web_dsct"] = 0
+                item["web_dsct"] = float(0)
 
             try:
                 dcst_tarjeta =   float(i["items"][0]["sellers"][0]["commertialOffer"]["PromotionTeasers"][0]["Effects"]["Parameters"][1]["Value"])
@@ -97,10 +97,10 @@ class VeaSpider(scrapy.Spider):
             except: dcst_tarjeta = None
             if dcst_tarjeta != None:
                 item["card_price"] =item["list_price"] - dcst_tarjeta
-                item["card_dsct"] = round(100-(item["card_price"] *100/item["list_price"]))
+                item["card_dsct"] = round(float(100-(item["card_price"] *100/item["list_price"])))
             else:
-                item["card_price"]= 0
-                item["card_dsct"] =0 
+                item["card_price"]= float(0)
+                item["card_dsct"] =float(0) 
 
             item["home_list"] = home 
             item["_id"]=   item["sku"]
