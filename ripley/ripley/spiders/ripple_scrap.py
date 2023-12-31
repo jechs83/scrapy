@@ -117,14 +117,16 @@ class RippleScrapSpider(scrapy.Spider):
                 print(sku_id)
 
                 if len(part_number) > len(sku_id):
-                    item["sku"] = part_number
+                    item["sku"] = str(part_number)
+                
                 else:
-                    item["sku"] = sku_id
+                    item["sku"] = str(sku_id)
+
+
+                
 
 
       
-                item["sku"] = str( item["sku"])
-                item["sku"] = item["sku"][:-1]
 
                 item["_id"] =  item["sku"]
 
@@ -160,7 +162,9 @@ class RippleScrapSpider(scrapy.Spider):
                 item["date"]= load_datetime()[0]
                 item["time"]= load_datetime()[1]
                 item["home_list"] = response.url       
-        
+
+
+             
                 yield item
          
        
