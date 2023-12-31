@@ -135,6 +135,7 @@ class RippleScrapSpider(scrapy.Spider):
                 item["list_price"]     = float(item["list_price"] )
                 item["best_price"]     = float(item["best_price"] )
                 item["web_dsct"]     = float(item["web_dsct"] )
+                item["card_price"]     = float(item["card_price"] )
 
                 item["link"] = i.css(".catalog-product-item.catalog-product-item__container.undefined::attr(href)").get()
                 item["link"] = "https://simple.ripley.com.pe" + item["link"]
