@@ -1,0 +1,17 @@
+1,https://www.plazavea.com.pe/tecnologia/televisores,72
+1,https://www.plazavea.com.pe/tecnologia/audio,120
+2,https://www.plazavea.com.pe/tecnologia/computo,120
+2,https://www.plazavea.com.pe/tecnologia/telefonia,120
+3,https://www.plazavea.com.pe/tecnologia/videojuegos,120
+3,https://www.plazavea.com.pe/tecnologia/cine-en-casa,76
+3,https://www.plazavea.com.pe/tecnologia/fotografia,120
+4,https://www.plazavea.com.pe/electrohogar/lavado,31
+4,https://www.plazavea.com.pe/electrohogar/refrigeracion,51
+5,https://www.plazavea.com.pe/electrohogar/electrodomesticos-de-cocina,120
+4,https://www.plazavea.com.pe/electrohogar/cocinas,81
+6,https://www.plazavea.com.pe/electrohogar/electrodomesticos-del-hogar,78
+7,https://www.plazavea.com.pe/electrohogar/herramientas-electricas,120
+7,https://www.plazavea.com.pe/electrohogar/climatizacion,74
+8,https://www.plazavea.com.pe/juguetes-y-juegos/jugueteria,120
+8,https://www.plazavea.com.pe/deportes/juegos-recreativos,54
+8,https://www.plazavea.com.pe/juguetes-y-juegos/jugueteria/figuras-de-accion,92
