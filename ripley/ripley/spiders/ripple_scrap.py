@@ -106,7 +106,23 @@ class RippleScrapSpider(scrapy.Spider):
                 if image_start != "https:":
                     item["image"] = "https:" + item["image"]
 
-                item["sku"] = i.css(".catalog-product-item.catalog-product-item__container.undefined::attr(id)").get()
+                part_number = i.css("a::attr(id)")
+                sku_id = i.css("a::attr(data-partnumber)")
+                print(part_number)
+                print(sku_id)
+                part_number = i.css("a::attr(id)").get()
+                sku_id = i.css("a::attr(data-partnumber)").get()
+                print()
+                print(part_number)
+                print(sku_id)
+
+                if len(part_number) > len(sku_id):
+                    item["sku"] = part_number
+                else:
+                    item["sku"] = sku_id
+
+
+      
                 item["sku"] = str( item["sku"])
                 item["sku"] = item["sku"][:-1]
 
