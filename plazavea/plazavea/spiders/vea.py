@@ -7,6 +7,8 @@ from link_json import get_json
 import pymongo
 from decouple import config
 import json
+import uuid 
+
 import time
 
 def load_datetime():
@@ -77,6 +79,9 @@ class VeaSpider(scrapy.Spider):
 
             item["link"]=  i["link"]
             item["sku"] = i["productReference"]
+            if len(item["sku"] )<2:
+                item["sku"]  = str(uuid.uuid4())
+
             item["list_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"])
 
             try:
