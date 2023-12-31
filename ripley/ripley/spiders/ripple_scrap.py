@@ -139,7 +139,7 @@ class RippleScrapSpider(scrapy.Spider):
 
                 item["link"] = i.css(".catalog-product-item.catalog-product-item__container.undefined::attr(href)").get()
                 item["link"] = "https://simple.ripley.com.pe" + item["link"]
-                item["card_dsct"] = 0
+                item["card_dsct"] = float(0)
                 item["market"]= "ripley"
                 item["date"]= load_datetime()[0]
                 item["time"]= load_datetime()[1]
