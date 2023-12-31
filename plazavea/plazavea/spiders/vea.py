@@ -80,7 +80,7 @@ class VeaSpider(scrapy.Spider):
             item["link"]=  i["link"]
             item["sku"] = i["productReference"]
             if len(item["sku"] )<2:
-                item["sku"]  = str(uuid.uuid4())
+                continue
 
             item["list_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"])
 
