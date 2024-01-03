@@ -158,6 +158,11 @@ class ShopSpider(scrapy.Spider):
             else:
                 item["card_price"]= 0
 
+            item["list_price"] = float(item["list_price"])
+            item["best_price"] = float(item["best_price"])
+            item["card_price"] = float(item["card_price"])
+            item["web_dsct"] = float(item["web_dsct"])
+            item["card_dsct"] = float(item["card_dsct"])
 
             print( item["product"] )
             print( item["brand"] )
