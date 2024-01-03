@@ -144,7 +144,7 @@ class ShopSpider(scrapy.Spider):
                 item["card_price"]= 0
 
 
-            if item["best_price"] and float(plin_dsct)>0 :
+            if item["best_price"] and float(ibk_dsct)>0 :
                 item["card_dsct"] = round(float(100-(item["card_price"]*100/item["list_price"])),1)
                 
                 #card_dsct = float(100-(item["best_price"]*ibk_dsct/100))
@@ -152,11 +152,11 @@ class ShopSpider(scrapy.Spider):
                  item["card_dsct"]= 0
 
 
-            if item["best_price"] and float(ibk_dsct)>0 :
-                 item["card_price"]= round( float(item["best_price"] -float(item["best_price"]*ibk_dsct/100)),2)
+            # if item["best_price"] and float(ibk_dsct)>0 :
+            #      item["card_price"]= round( float(item["best_price"] -float(item["best_price"]*ibk_dsct/100)),2)
                 
-            else:
-                item["card_price"]= 0
+            # else:
+            #     item["card_price"]= 0
 
             item["list_price"] = float(item["list_price"])
             item["best_price"] = float(item["best_price"])
