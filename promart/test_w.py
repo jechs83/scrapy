@@ -2,7 +2,7 @@ import subprocess
 import time
 
 def run_saga_script():
-    saga_script_path = "c:/git/scrapy/plazavea/run.py"  # Absolute path to saga_s.py
+    saga_script_path = "c:/git/scrapy/promart/run.py"  # Absolute path to saga_s.py
 
     while True:
         print("Starting run.py...")
