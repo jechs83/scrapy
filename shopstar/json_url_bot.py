@@ -72,6 +72,7 @@ if __name__ == '__main__':
             url = documento["url"]
             webs.append(url)
 
-  
-    for web in webs:
-        web_to_jsonUrl_parallel(webs)
+    while True:
+        for web in webs:
+             web_to_jsonUrl_parallel(webs)
+             
