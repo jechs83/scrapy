@@ -153,6 +153,9 @@ class SagaSpider(scrapy.Spider):
                 except: 
                     item["dsct_app"] = 0
 
+                if item["list_price"] and item["card_price"] and item["best_price"] == 0:
+                 continue
+
 
                 item["market"]= "saga"
                 item["date"]= load_datetime()[0]

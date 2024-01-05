@@ -179,6 +179,8 @@ class ProSpider(scrapy.Spider):
             item["home_list"]=response.url
             item["card_dsct"] = 0
             item["card_price"] = 0 
+            if item["list_price"] and item["card_price"] and item["best_price"] == 0:
+                continue
             item["market"]= "promart"  # COLECCION
             item["date"] = load_datetime()[0]
             item["time"]= load_datetime()[1]

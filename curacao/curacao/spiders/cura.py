@@ -174,6 +174,8 @@ class CuraSpider(scrapy.Spider):
                 #             web_dsct = str(round(web_dsct)).replace("-","")
                 # item["web_dsct"]= 100- float(web_dsct)
             except: item["web_dsct"]= 0
+
+           
             
 
 
@@ -181,6 +183,9 @@ class CuraSpider(scrapy.Spider):
             item["list_price"]  = float(item["best_price"] )
             item["card_price"] = float(0)
             item["card_dsct"] = float(0)
+
+            if item["list_price"] and item["card_price"] and item["best_price"] == 0:
+                continue
             item["market"] = "curacao"  # COLECCION
             item["date"] = load_datetime()[0]
             item["time"]= load_datetime()[1]

@@ -183,6 +183,9 @@ class CoolboxSpider(scrapy.Spider):
             else:
                 item["card_price"]= 0
 
+            if item["list_price"] and item["card_price"] and item["best_price"] == 0:
+                continue
+
 
             print( item["product"] )
             print( item["brand"] )

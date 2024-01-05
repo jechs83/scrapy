@@ -238,6 +238,8 @@ class TaiSpider(scrapy.Spider):
             item["home_list"] = response.url
             item["card_price"] = 0
             item["card_dsct"] = 0
+            if item["list_price"] and item["card_price"] and item["best_price"] == 0:
+                continue
 
 
 

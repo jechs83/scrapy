@@ -130,6 +130,9 @@ class Metro1Spider(scrapy.Spider):
                 item["card_price"]= 0
                 item["card_dsct"] =0 
 
+            if item["list_price"] and item["card_price"] and item["best_price"] == 0:
+                continue
+
             item["home_list"] = "metro.pe "
             item["_id"]=   item["sku"]
             item["date"] = current_day

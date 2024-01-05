@@ -109,6 +109,9 @@ class VeaSpider(scrapy.Spider):
                 item["card_price"]= float(0)
                 item["card_dsct"] =float(0) 
 
+            if item["list_price"] and item["card_price"] and item["best_price"] == 0:
+                continue
+
             item["home_list"] = home 
             item["_id"]=   item["sku"]
             item["date"] = current_day
