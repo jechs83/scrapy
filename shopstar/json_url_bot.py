@@ -74,5 +74,4 @@ if __name__ == '__main__':
 
     while True:
         for web in webs:
-             web_to_jsonUrl_parallel(webs)
-             
+             web_to_jsonUrl_parallel(web)
