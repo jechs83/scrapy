@@ -155,6 +155,9 @@ class RippleScrapSpider(scrapy.Spider):
                 item["web_dsct"]     = float(item["web_dsct"] )
                 item["card_price"]     = float(item["card_price"] )
 
+                if item["list_price"] and item["card_price"] and item["best_price"] == 0:
+                 continue
+
                 item["link"] = i.css(".catalog-product-item.catalog-product-item__container.undefined::attr(href)").get()
                 item["link"] = "https://simple.ripley.com.pe" + item["link"]
                 item["card_dsct"] = float(0)

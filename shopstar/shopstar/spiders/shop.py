@@ -151,6 +151,9 @@ class ShopSpider(scrapy.Spider):
             else:
                  item["card_dsct"]= 0
 
+            if item["list_price"] and item["card_price"] and item["best_price"] == 0:
+                continue
+
 
             # if item["best_price"] and float(ibk_dsct)>0 :
             #      item["card_price"]= round( float(item["best_price"] -float(item["best_price"]*ibk_dsct/100)),2)
@@ -163,6 +166,8 @@ class ShopSpider(scrapy.Spider):
             item["card_price"] = float(item["card_price"])
             item["web_dsct"] = float(item["web_dsct"])
             item["card_dsct"] = float(item["card_dsct"])
+
+
 
             print( item["product"] )
             print( item["brand"] )
