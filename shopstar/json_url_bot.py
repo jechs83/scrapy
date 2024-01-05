@@ -11,14 +11,15 @@ import sys
 # arg_ = int(sys.argv[1])
 
 
-def process_url(url):
-
+def process_url(lkn):
+    print(lkn)
+  
     cliente = pymongo.MongoClient(config("MONGODB"))
     base_de_datos = cliente["shopstar"]
     coleccion = base_de_datos["json_link"]
 
     for i in range(50):
-        link1 = url + "&page="+str(i + 1)
+        link1 = lkn + "&page="+str(i + 1)
   
         web = productId_extract(link1)
         print(web)
@@ -73,5 +74,5 @@ if __name__ == '__main__':
             webs.append(url)
 
     while True:
-        for web in webs:
-             web_to_jsonUrl_parallel(web)
+       
+             web_to_jsonUrl_parallel(webs)
