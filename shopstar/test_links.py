@@ -45,11 +45,11 @@ def process_url(url):
             upsert=True
         )
 
-def web_to_jsonUrl_parallel(urls,lista):
+def web_to_jsonUrl_parallel(urls):
 
    
     with Pool(processes=10) as pool:  # Adjust the number of processes as needed
-        pool.map(process_url, urls, lista)
+        pool.map(process_url, urls)
 
 
 
@@ -72,4 +72,4 @@ if __name__ == '__main__':
             url = documento["url"]
             webs.append(url)
 
-    web_to_jsonUrl_parallel(webs, lista)
+    web_to_jsonUrl_parallel(webs)
