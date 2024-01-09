@@ -35,7 +35,6 @@ current_day = load_datetime()[0]
 class CoolboxSpider(scrapy.Spider):
     name = 'cool'
     allowed_domains = ['coolbox.pe']
-    start_urls = ['https://www.coolbox.pe/audio?page=27']
 
 
     def __init__(self, *args, **kwargs):

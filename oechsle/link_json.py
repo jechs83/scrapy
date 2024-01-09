@@ -67,42 +67,6 @@ def parse(web):
     data = json.loads(response.text)
   
 
- 
-
-
-        # for i, v in enumerate(script_tag):
-                
-        #         if "vtex.events.addData" in str(v):
-        #             data = v.text
-        #             j_data = data.replace("vtex.events.addData(","")[:-3]
-
-        #             json_data = json.loads(j_data)
-        
-        # product = json_data["shelfProductIds"]
-        # productId = []
-        # for i in product:
-        #     productId.append("productId:"+i)
-
-        # productId = ",".join(productId)
-
-        # web1 = "https://www.oechsle.pe/api/catalog_system/pub/products/search/?fq="
-
-        # url = web1+productId
-
-        # print(url)
-        # time.sleep(10)
-
-        # #return url
-
-
-
-        # response = requests.get(url2)
-        # soup = BeautifulSoup(response.text, 'html.parser').text
-
-        # json_data = json.loads(soup)
-
-
-
     count = 0
         
         # extracted_data = []

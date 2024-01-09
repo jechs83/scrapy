@@ -21,12 +21,8 @@ def productId_extract(url):
         for product_key, product_info in json_data.items():
             try:
                 product_id = product_info['productId']
-
-               
                 #print(f"Product ID for {product_id}")
                 productId_web.append("fq=productId:"+product_id+"&")
-                
-
             except: 
                 continue
         productId_web = "".join(productId_web)
