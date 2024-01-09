@@ -7,18 +7,14 @@ import scrapy
 
 
 class ShopstarItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-   
+    product = scrapy.Field()
     sku = scrapy.Field()
     _id = scrapy.Field()
-    product = scrapy.Field()
     brand = scrapy.Field()
     link = scrapy.Field()
     best_price = scrapy.Field()
     list_price = scrapy.Field()
     web_dsct = scrapy.Field()
-    link = scrapy.Field()
     image = scrapy.Field()
     product = scrapy.Field()
     market= scrapy.Field()
@@ -27,5 +23,4 @@ class ShopstarItem(scrapy.Item):
     home_list = scrapy.Field()
     card_price = scrapy.Field()
     card_dsct = scrapy.Field()
-  
     pass
