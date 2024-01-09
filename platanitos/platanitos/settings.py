@@ -12,6 +12,10 @@ ITEM_PIPELINES = {
     'platanitos.pipelines.MongoPipeline': 300,
 }
 
+RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 403, 404, 408, 429]
+
+# Set the maximum number of retries for each request
+RETRY_TIMES = 3  # Adjust this value as needed
 
 MONGO_URI = config("MONGODB")
 MONGO_DATABASE = "platanitos"
