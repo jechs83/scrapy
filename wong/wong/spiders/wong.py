@@ -80,17 +80,13 @@ class WongSpider(scrapy.Spider):
             print(count)
       
             item["product"]=  i["productName"]
-
-    
             item["image"]=  i["items"][0]["images"][0]["imageUrl"]
             item["brand"]=  i["brand"]
 
-
             product = item["brand"].lower()
-           
             if product not in self.lista[0]:
                 
-                    continue
+                continue
 
             item["link"]=  i["link"]
             item["sku"] = i["productReference"]
@@ -122,7 +118,6 @@ class WongSpider(scrapy.Spider):
 
 
             if item["list_price"] and item["card_price"] and item["best_price"] == 0:
-                input("asasas")
                 continue
           
             item["home_list"] = "wong.pe "
