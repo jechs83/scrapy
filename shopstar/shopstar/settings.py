@@ -20,7 +20,10 @@ MONGO_DATABASE = 'shopstar'
 BOT_NAME = "shopstar"
 COLLECTION_NAME = "scrap"
 
+RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 403, 404, 408, 429]
 
+# Set the maximum number of retries for each request
+RETRY_TIMES = 3  # Adjust this value as needed
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "demo (+http://www.yourdomain.com)"
 
