@@ -2,7 +2,6 @@ import scrapy
 from coolbox.items import CoolboxItem
 from datetime import datetime
 from datetime import date
-from coolbox.spiders import url_list 
 from coolbox.spiders.urls_db import *
 import time
 from bs4 import BeautifulSoup
