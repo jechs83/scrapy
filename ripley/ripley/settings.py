@@ -19,7 +19,7 @@ COLLECTION_NAME = config("collection")
 RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 403, 404, 408, 429]
 
 # Set the maximum number of retries for each request
-RETRY_TIMES = 3  # Adjust this value as needed
+RETRY_TIMES = 0  # Adjust this value as needed
 
 
 # Replace 'your_proxy_list_url' with the actual URL of your proxy list file
