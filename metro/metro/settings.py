@@ -20,10 +20,7 @@ MONGO_DATABASE = config("db_metro")
 COLLECTION_NAME = config("collection")
 
 
-RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 403, 404, 408, 429]
 
-# Set the maximum number of retries for each request
-RETRY_TIMES = 3  # Adjust this value as needed
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
