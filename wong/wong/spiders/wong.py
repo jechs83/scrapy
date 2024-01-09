@@ -62,14 +62,7 @@ class WongSpider(scrapy.Spider):
                 for e in range (15):
                     
                     link = v[0]+"?page="+str(e+1)
-                    print("#######")
-              
-            
-          
-                    web = productId_extract(link)
-                    print("")
-                    print("######")
-                    
+                    web = productId_extract(link)                    
                     yield scrapy.Request(web, self.parse)
 
         
@@ -79,6 +72,7 @@ class WongSpider(scrapy.Spider):
 
         html_content = response.body
         json_data = json.loads(html_content)
+  
 
         count = 0
         for i in json_data:
@@ -93,9 +87,9 @@ class WongSpider(scrapy.Spider):
 
 
             product = item["brand"].lower()
-         
+           
             if product not in self.lista[0]:
-
+                
                     continue
 
             item["link"]=  i["link"]

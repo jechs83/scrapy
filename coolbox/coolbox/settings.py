@@ -8,7 +8,7 @@
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 from decouple import config
 
-BOT_NAME = "cool"
+BOT_NAME = "coolbox"
 
 SPIDER_MODULES = ["coolbox.spiders"]
 NEWSPIDER_MODULE = "coolbox.spiders"
@@ -26,10 +26,7 @@ COLLECTION_NAME = config("collection")
 #USER_AGENT = "demo (+http://www.yourdomain.com)"
 
 
-RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 403, 404, 408, 429]
 
-# Set the maximum number of retries for each request
-RETRY_TIMES = 3  # Adjust this value as needed
 # Obey robots.txt rules
 #ROBOTSTXT_OBEY = True
 USER_AGENT='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
