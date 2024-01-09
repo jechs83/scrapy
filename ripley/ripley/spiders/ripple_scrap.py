@@ -75,6 +75,7 @@ class RippleScrapSpider(scrapy.Spider):
                 user_agent = random.choice(self.user_agents)
 
                 headers = {'User-Agent': user_agent}
+                time.slee(0.8)
                 
                 yield scrapy.Request(url, self.parse, headers=headers  )
         
@@ -167,7 +168,7 @@ class RippleScrapSpider(scrapy.Spider):
                 item["home_list"] = response.url       
 
 
-             
+                time.slee(0.8)
                 yield item
          
        
