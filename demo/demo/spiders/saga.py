@@ -28,6 +28,7 @@ class SagaSpider(scrapy.Spider):
     #list_to_skip = skip_brand()
     name = "saga"
     allowed_domains = ["falabella.com.pe"]
+    handle_httpstatus_list = [200, 206]
 
 
     def __init__(self, *args, **kwargs):

@@ -1,0 +1,8 @@
+1,https://shopstar.pe/calzado/calzado-hombre?order=OrderByReleaseDateDESC,50
+1,https://shopstar.pe/calzado/zapatillas-hombre?order=OrderByReleaseDateDESC,50
+1,https://shopstar.pe/calzado/zapatillas-mujer?order=OrderByReleaseDateDESC,50
+1,https://shopstar.pe/calzado/calzado-mujer?order=OrderByReleaseDateDESC,50
+1,https://shopstar.pe/construccion-y-herramientas/herramientas/herramientas-electricas-estacionarias?order=OrderByReleaseDateDESC,50
+1,https://shopstar.pe/construccion-y-herramientas/herramientas/herramientas-electricas-portatiles?order=OrderByReleaseDateDESC,50
+1,https://shopstar.pe/mundo-geek/figuras-de-accion-coleccionables?order=OrderByReleaseDateDESC,50
+1,https://shopstar.pe/mundo-geek/funkos?order=OrderByReleaseDateDESC,50
