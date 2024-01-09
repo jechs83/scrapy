@@ -5,7 +5,7 @@ from datetime import datetime
 from datetime import date
 from wong.spiders.urls_db import *
 
-from wong.spiders import url_list 
+#from wong.spiders import url_list 
 import json
 import requests
 from bs4 import BeautifulSoup
