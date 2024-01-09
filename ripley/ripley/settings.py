@@ -16,17 +16,20 @@ MONGO_DATABASE = config("db_ripley")
 COLLECTION_NAME = config("collection")
 
 
+RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 403, 404, 408, 429]
 
+# Set the maximum number of retries for each request
+RETRY_TIMES = 3  # Adjust this value as needed
 
 
 # Replace 'your_proxy_list_url' with the actual URL of your proxy list file
-proxy_list_url = "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all"
-local_file_path = 'proxies.txt'
+# proxy_list_url = "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all"
+# local_file_path = 'proxies.txt'
 
 # Download the proxy list file
-response = requests.get(proxy_list_url)
-with open(local_file_path, 'wb') as file:
-    file.write(response.content)
+# response = requests.get(proxy_list_url)
+# with open(local_file_path, 'wb') as file:
+#     file.write(response.content)
 
 
 # ROTATING_PROXY_LIST_PATH = local_file_path
