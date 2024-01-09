@@ -23,9 +23,6 @@ from jsonTolink import productId_extract
 
 
 
-
-
-
 def load_datetime():
     
     today = date.today()
