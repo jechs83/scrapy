@@ -17,13 +17,25 @@ def run_spider_with_parameters( b_value):
     process.crawl(SagaSpider, u=6, b=b_value)
     process.crawl(SagaSpider, u=7, b=b_value)
     process.crawl(SagaSpider, u=8, b=b_value)
-  
+    process.crawl(SagaSpider, u=9, b=b_value)
+    process.crawl(SagaSpider, u=10, b=b_value)
+    process.crawl(SagaSpider, u=11, b=b_value)
+    process.crawl(SagaSpider, u=12, b=b_value)
+    process.crawl(SagaSpider, u=13, b=b_value)
+    process.crawl(SagaSpider, u=14, b=b_value)
+    process.crawl(SagaSpider, u=15, b=b_value)
+    process.crawl(SagaSpider, u=16, b=b_value)
+    process.crawl(SagaSpider, u=17, b=b_value)
+    process.crawl(SagaSpider, u=18, b=b_value)
+    process.crawl(SagaSpider, u=19, b=b_value)
+    process.crawl(SagaSpider, u=20, b=b_value)
+
     process.start()
 
 if __name__ == "__main__":
     b_value = 0
 
     run_spider_with_parameters(b_value)
-    subprocess.run("pkill -f 'python main_bat_run.py'")
+    subprocess.run("pkill -f 'python saga_s.py'")
 
 

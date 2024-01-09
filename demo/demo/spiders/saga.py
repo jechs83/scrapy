@@ -6,7 +6,6 @@ from datetime import datetime
 from datetime import date
 import pymongo
 from demo.spiders.urls_db import *
-from  demo.spiders import url_list 
 from decouple import config
 import time
 

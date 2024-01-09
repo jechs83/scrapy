@@ -1,6 +1,5 @@
 import scrapy
 import time
-from ripley.spiders import url_list 
 import scrapy
 from ripley.items import RipleyItem
 from datetime import datetime
@@ -75,12 +74,13 @@ class RippleScrapSpider(scrapy.Spider):
                 user_agent = random.choice(self.user_agents)
 
                 headers = {'User-Agent': user_agent}
-                time.slee(0.8)
+
                 
                 yield scrapy.Request(url, self.parse, headers=headers  )
         
             
     def parse(self, response):
+           
             item = RipleyItem()
             productos = response.css("div.catalog-product-item.catalog-product-item__container.col-xs-6.col-sm-6.col-md-4.col-lg-4")
 
@@ -109,13 +109,10 @@ class RippleScrapSpider(scrapy.Spider):
 
                 part_number = i.css("a::attr(id)")
                 sku_id = i.css("a::attr(data-partnumber)")
-                print(part_number)
-                print(sku_id)
+            
                 part_number = i.css("a::attr(id)").get()
                 sku_id = i.css("a::attr(data-partnumber)").get()
-                print()
-                print(part_number)
-                print(sku_id)
+               
 
                 if len(part_number) > len(sku_id):
                     item["sku"] = str(part_number)
@@ -167,8 +164,8 @@ class RippleScrapSpider(scrapy.Spider):
                 item["time"]= load_datetime()[1]
                 item["home_list"] = response.url       
 
-
-                time.slee(0.8)
+                
+ 
                 yield item
          
        
