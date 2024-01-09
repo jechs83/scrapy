@@ -259,7 +259,7 @@ class ShopSpider(scrapy.Spider):
             print( item["link"] )
             print( item["image"] )
             print( item["sku"] )
-            print(self.urls)
+            #print(self.urls)
             print("best price " + str(item["best_price"]))
             print("list price "+ str(item["list_price"]))
             print("card price "+str(item["card_price"]))
