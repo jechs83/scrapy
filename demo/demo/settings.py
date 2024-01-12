@@ -12,9 +12,9 @@ ITEM_PIPELINES = {
 # MONGO_DATABASE = "saga1"
 # COLLECTION_NAME = "scrap"
 
-MONGO_URI = config("MONGODB")
-MONGO_DATABASE = config("db_saga")
-COLLECTION_NAME = config("collection")
+MONGO_URI = "mongodb://sr5pock.ddns.net:4321"
+MONGO_DATABASE = "saga"
+COLLECTION_NAME = "otros"
 #COLLECTION_NAME = "todo"
 
 
