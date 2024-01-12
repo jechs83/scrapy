@@ -7,7 +7,7 @@ from decouple import config
 
 
 # Establecer la conexión a MongoDB
-cliente = pymongo.MongoClient(config("MONGODB"))
+cliente = pymongo.MongoClient( "mongodb://sr5pock.ddns.net:4321")
 base_de_datos = cliente["saga"]
 coleccion = base_de_datos["links"]
 

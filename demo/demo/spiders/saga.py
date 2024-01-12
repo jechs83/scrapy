@@ -34,7 +34,7 @@ class SagaSpider(scrapy.Spider):
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
         super(SagaSpider, self).__init__(*args, **kwargs)
-        self.client = pymongo.MongoClient(config("MONGODB"))
+        self.client = pymongo.MongoClient("mongodb://sr5pock.ddns.net:4321")
         self.db = self.client["brand_allowed"]
         self.lista = self.brand_allowed() # Initialize self.lista based on self.b
         self.urls = links()[int(int(self.u)-1)]
