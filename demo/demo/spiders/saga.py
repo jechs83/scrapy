@@ -38,6 +38,8 @@ class SagaSpider(scrapy.Spider):
         self.db = self.client["brand_allowed"]
         self.lista = self.brand_allowed() # Initialize self.lista based on self.b
         self.urls = links()[int(int(self.u)-1)]
+   
+
     
     def brand_allowed(self):
         collection1 = self.db["todo"]

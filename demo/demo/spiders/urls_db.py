@@ -11,7 +11,7 @@ cliente = pymongo.MongoClient(config("MONGODB"))
 base_de_datos = cliente["saga"]
 coleccion = base_de_datos["links"]
 
-lista1=[];lista2=[];lista3=[];lista4=[];lista5=[];lista6=[];lista7=[];lista8=[];lista9=[];lista10=[];lista11=[];lista12=[];lista13=[];lista14=[];lista15=[];lista16=[];lista17=[];lista18=[];lista19=[]; lista20 =[]
+lista1=[];lista2=[];lista3=[];lista4=[];lista5=[];lista6=[];lista7=[];lista8=[];lista9=[];lista10=[];lista11=[];lista12=[];lista13=[];lista14=[];lista15=[];lista16=[];lista17=[];lista29=[]=[];lista18=[];lista19=[]; lista20 =[];lista21=[];lista22=[];lista23=[];lista24=[];lista25=[];lista26=[];lista27=[];lista28=[];lista29=[];lista30=[]
 
 
 # Obtener los documentos de la colección
@@ -24,7 +24,7 @@ def links():
         url = documento["url"]
         page = documento["page"]
     
-        for i in range(1, 21):  # Start the loop from 1 instead of 0
+        for i in range(1, 30):  # Start the loop from 1 instead of 0
             if lista == i:
                 # Agregar a la lista correspondiente en el formato requerido
                 if i == 1:
@@ -67,11 +67,37 @@ def links():
                     lista19.append((url, page))
                 elif i == 20:
                     lista20.append((url, page))
+                elif i == 21:
+                    lista21.append((url, page))
+                elif i == 22:
+                    lista22.append((url, page))
+                elif i == 22:
+                    lista22.append((url, page))
+                elif i == 24:
+                    lista24.append((url, page))
+                elif i == 25:
+                    lista25.append((url, page))
+                elif i == 26:
+                    lista26.append((url, page))
+                elif i == 27:
+                    lista27.append((url, page))
+                elif i == 27:
+                    lista27.append((url, page))
+                elif i == 28:
+                    lista28.append((url, page))
+                elif i == 29:
+                    lista29.append((url, page))
+                elif i == 30:
+                    lista30.append((url, page))
+                 
+                 
+                 
                  
            
 
     return (lista1,lista2,lista3,lista4,lista5,lista6,lista7,lista8,lista9,
             lista10,lista11,lista12,lista13,lista14,lista15,lista16,lista17,
-            lista18,lista19, lista20 )
+            lista18,lista19, lista20, lista21,lista22,lista23,lista24,lista25,lista26,lista27,
+            lista28,lista29, lista30 )
 
 
