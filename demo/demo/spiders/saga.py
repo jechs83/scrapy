@@ -34,7 +34,7 @@ class SagaSpider(scrapy.Spider):
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
         super(SagaSpider, self).__init__(*args, **kwargs)
-        self.client = pymongo.MongoClient("mongodb://sr5pock.ddns.net:4321")
+        self.client = pymongo.MongoClient(config("MONGODB"))
         self.db = self.client["brand_allowed"]
         self.lista = self.brand_allowed() # Initialize self.lista based on self.b
         self.urls = links()[int(int(self.u)-1)]
@@ -51,6 +51,7 @@ class SagaSpider(scrapy.Spider):
     def start_requests(self):
        
         for i, v in enumerate(self.urls):
+            print(v)
             if "tottus" in v[0]:
                 for e in range (v[1]+10):
                     url = v[0]+ "?subdomain=tottus&page="+str(e+1) +"&store=tottus"
@@ -62,10 +63,13 @@ class SagaSpider(scrapy.Spider):
             else:
                 for e in range (v[1]+10):
                     url = v[0]+ "?page="+str(e+1) 
+                    print(url)
                     yield scrapy.Request(url, self.parse)
                 
 
     def parse(self, response):
+
+
       
         if response.status != 200:
         # If the response status is not 200, skip processing this link and move to the next one

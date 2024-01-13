@@ -8,13 +8,12 @@ NEWSPIDER_MODULE = "demo.spiders"
 ITEM_PIPELINES = {
     'demo.pipelines.MongoPipeline': 300,
 }
-# MONGO_URI = config("MONGODB")
+MONGO_URI = config("MONGODB")
 # MONGO_DATABASE = "saga1"
 # COLLECTION_NAME = "scrap"
 
-MONGO_URI = "mongodb://sr5pock.ddns.net:4321"
 MONGO_DATABASE = "saga"
-COLLECTION_NAME = "otros"
+COLLECTION_NAME = config("db_otros")
 #COLLECTION_NAME = "todo"
 
 
