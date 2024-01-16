@@ -25,7 +25,7 @@ MONGO_URI = config("MONGODB")
 # MONGO_DATABASE = config("db_curacao")
 # COLLECTION_NAME = config("collection")
 MONGO_DATABASE = "curacao"
-COLLECTION_NAME = "scrap"
+COLLECTION_NAME =  config("db_otros")
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "demo (+http://www.yourdomain.com)"

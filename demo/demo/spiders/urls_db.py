@@ -7,11 +7,11 @@ from decouple import config
 
 
 # Establecer la conexión a MongoDB
-cliente = pymongo.MongoClient(config("MONGODB"))
+cliente = pymongo.MongoClient( config("MONGODB"))
 base_de_datos = cliente["saga"]
 coleccion = base_de_datos["links"]
 
-lista1=[];lista2=[];lista3=[];lista4=[];lista5=[];lista6=[];lista7=[];lista8=[];lista9=[];lista10=[];lista11=[];lista12=[];lista13=[];lista14=[];lista15=[];lista16=[];lista17=[];lista18=[];lista19=[]; lista20 =[]
+lista1=[];lista2=[];lista3=[];lista4=[];lista5=[];lista6=[];lista7=[];lista8=[];lista9=[];lista10=[];lista11=[];lista12=[];lista13=[];lista14=[];lista15=[];lista16=[];lista17=[];lista18=[];lista19=[]; lista20 =[];lista30=[];lista31=[];lista32=[];lista33=[];lista34=[]; lista35 =[];lista36=[];lista37=[];lista38=[]; lista39 =[]
 
 
 # Obtener los documentos de la colección
@@ -24,7 +24,7 @@ def links():
         url = documento["url"]
         page = documento["page"]
     
-        for i in range(1, 21):  # Start the loop from 1 instead of 0
+        for i in range(1, 29):  # Start the loop from 1 instead of 0
             if lista == i:
                 # Agregar a la lista correspondiente en el formato requerido
                 if i == 1:
@@ -67,11 +67,32 @@ def links():
                     lista19.append((url, page))
                 elif i == 20:
                     lista20.append((url, page))
+                elif i == 30:
+                    lista30.append((url, page))
+                elif i == 31:
+                    lista31.append((url, page))
+                elif i == 32:
+                    lista32.append((url, page))
+                elif i == 33:
+                    lista33.append((url, page))
+                elif i == 34:
+                    lista34.append((url, page))
+                elif i == 35:
+                    lista35.append((url, page))
+                elif i == 36:
+                    lista36.append((url, page))
+                elif i == 37:
+                    lista37.append((url, page))
+                elif i == 38:
+                    lista38.append((url, page))
+                elif i == 39:
+                    lista39.append((url, page))
                  
            
 
     return (lista1,lista2,lista3,lista4,lista5,lista6,lista7,lista8,lista9,
             lista10,lista11,lista12,lista13,lista14,lista15,lista16,lista17,
-            lista18,lista19, lista20 )
+            lista18,lista19, lista20,lista30,lista31,lista32,lista33,lista34,lista35,lista36,lista37,
+            lista38,lista39, )
 
 
