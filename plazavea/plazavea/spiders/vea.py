@@ -84,10 +84,10 @@ class VeaSpider(scrapy.Spider):
                 continue
 
 
-            item["list_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"])
+            item["list_price"] =   round(float(i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"]))
 
             try:
-                item["best_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["Price"])
+                item["best_price"] =   round(float(i["items"][0]["sellers"][0]["commertialOffer"]["Price"]))
             except:item["best_price"] = float(0)
  
             if item["best_price"] == item["list_price"]:
@@ -99,7 +99,7 @@ class VeaSpider(scrapy.Spider):
                 item["web_dsct"] = float(0)
 
             try:
-                dcst_tarjeta =   float(i["items"][0]["sellers"][0]["commertialOffer"]["PromotionTeasers"][0]["Effects"]["Parameters"][1]["Value"])
+                dcst_tarjeta =   round(float(i["items"][0]["sellers"][0]["commertialOffer"]["PromotionTeasers"][0]["Effects"]["Parameters"][1]["Value"]))
            
             except: dcst_tarjeta = None
             if dcst_tarjeta != None:
