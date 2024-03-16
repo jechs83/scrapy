@@ -26,6 +26,12 @@ def load_datetime():
 class CuraSpider(scrapy.Spider):
     name = "cura"
     allowed_domains = ["lacuracao.pe"]
+  
+
+
+
+
+
     def __init__(self, *args, **kwargs):
         super(CuraSpider, self).__init__(*args, **kwargs)
         self.client = pymongo.MongoClient(config("MONGODB"))
@@ -94,7 +100,7 @@ class CuraSpider(scrapy.Spider):
                 for i in range (v[1]):
                     url = v[0]+str(i+1)
                     print(url)
-                
+                    
                     yield scrapy.Request(url, self.parse)
 
 
@@ -192,7 +198,10 @@ class CuraSpider(scrapy.Spider):
             item["home_list"]=response.url
            
             print()
-            yield item        
+            yield item    
+             
+        time.sleep(1)
+ 
         if count < 12:
             logging.info("ESTA PAGINA SOLO TIENE MENOS ELEMENTOS\n"+str(response ))
         if count == 12:
