@@ -120,13 +120,13 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
 
-# ROTATING_PROXY_LIST = [
+ROTATING_PROXY_LIST = [
 
-#     "190.102.139.148:999",
-#     "170.79.36.60:8081",
-#     "179.43.93.198:8080"
+    "190.102.139.148:999",
+    "170.79.36.60:8081",
+    "179.43.93.198:8080"
  
-# ]
+]
 
 
 
