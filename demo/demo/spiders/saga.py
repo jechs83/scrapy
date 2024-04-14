@@ -94,7 +94,7 @@ class SagaSpider(scrapy.Spider):
         
         for i in productos:
             
-                
+               
     
                 item["brand"]= i["brand"]
 
@@ -158,6 +158,8 @@ class SagaSpider(scrapy.Spider):
                 if item["list_price"] and item["card_price"] and item["best_price"] == 0:
                  continue
 
+                # if item["dsct_app"] and item["web_dsct"] >0 <=59:
+                #     continue
 
                 item["market"]= "saga"
                 item["date"]= load_datetime()[0]

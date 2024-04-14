@@ -16,10 +16,10 @@ MONGO_DATABASE = config("db_ripley")
 COLLECTION_NAME = config("collection")
 
 
-RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 403, 404, 408, 429]
+# RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 403, 404, 408, 429]
 
-# Set the maximum number of retries for each request
-RETRY_TIMES = 0  # Adjust this value as needed
+# # Set the maximum number of retries for each request
+# RETRY_TIMES = 0  # Adjust this value as needed
 
 
 # Replace 'your_proxy_list_url' with the actual URL of your proxy list file
@@ -46,7 +46,7 @@ USER_AGENT='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 200
+#CONCURRENT_REQUESTS = 200
 
 # DOWNLOADER_MIDDLEWARES = {
 #     'rotating_proxies.middlewares.RotatingProxyMiddleware':300,
@@ -127,3 +127,38 @@ CONCURRENT_REQUESTS = 200
 
 # settings.py
 
+
+# USER_AGENT = 'Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
+
+# DOWNLOADER_MIDDLEWARES = {
+#     # ...
+#     'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+#     'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
+#     # ...
+# }
+RETRY_TIMES = 5  # Cambiar a la cantidad deseada de reintentos
+DOWNLOAD_DELAY = 3  # Adjust the value as needed
+
+REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
+TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+FEED_EXPORT_ENCODING = "utf-8"
+
+
+# ROTATING_PROXY_LIST = [
+
+    
+# "200.37.108.186:3128",
+# "190.108.84.168:4145",
+# "190.43.92.29:999",
+# "170.81.240.236:999",
+# "204.199.174.88:999",
+# "190.232.89.125:5678",
+# "190.119.68.140:999",
+# "181.176.160.30:999",
+# "181.65.200.53:80",
+# "168.194.169.101:999",
+# "161.132.48.32:8080",
+# "38.252.209.112:999",
+# "190.12.95.170:37209",
+# "168.194.169.108:999"
+# ]

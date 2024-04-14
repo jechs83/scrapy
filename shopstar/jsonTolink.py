@@ -54,5 +54,5 @@ def productId_extract(url):
 
 
 
-url = "https://shopstar.pe/calzado/zapatillas-hombre/zapatillas?order=OrderByReleaseDateDESC&page=1"
-productId_extract(url)
+# url = "https://shopstar.pe/calzado/zapatillas-hombre/zapatillas?order=OrderByReleaseDateDESC&page=1"
+# productId_extract(url)
