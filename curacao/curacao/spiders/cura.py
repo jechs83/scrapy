@@ -101,7 +101,9 @@ class CuraSpider(scrapy.Spider):
                     url = v[0]+str(i+1)
                     print(url)
                     
-                    yield scrapy.Request(url, self.parse)
+                    #yield scrapy.Request(url, self.parse)
+                    yield scrapy.Request(url, callback=self.parse, meta={'proxy': 'http://192.168.1.221:3128'})
+
 
 
     def parse(self, response):
