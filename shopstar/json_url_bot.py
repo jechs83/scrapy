@@ -8,7 +8,7 @@ import sys
 
 # Your existing code...
 
-# arg_ = int(sys.argv[1])
+lista = (sys.argv[1])
 
 
 def process_url(lkn):
@@ -19,6 +19,7 @@ def process_url(lkn):
     coleccion = base_de_datos["json_link"]
 
     for i in range(50):
+        
         link1 = lkn + "&page="+str(i + 1)
   
         web = productId_extract(link1)
@@ -36,7 +37,7 @@ def process_url(lkn):
         documento = {
             "_id": link1,
             "category": link1,
-            "lista": lista,
+            "lista":int(lista),
             "url": web,
         }
 

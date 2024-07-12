@@ -15,7 +15,7 @@ NEWSPIDER_MODULE = "wong.spiders"
 ITEM_PIPELINES = {
     'wong.pipelines.MongoPipeline': 300,
 }
-MONGO_URI = "mongodb://192.168.9.66:27017"
+MONGO_URI = "mongodb://192.168.1.66:27017"
 
 MONGO_DATABASE = "wong"
 

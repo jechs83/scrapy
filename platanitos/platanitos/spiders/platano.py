@@ -93,7 +93,11 @@ class PlatanoSpider(scrapy.Spider):
 
     def parse(self, response):
         item = PlatanitosItem()
-        productos = response.css("div.col-flt.col-3")
+        #productos = response.css("div.col-flt.col-3")
+        productos = response.xpath('//*[@id="body-productos"]/div[3]/div[2]/div[2]/div')
+
+        print(productos)
+     
 
         for product in productos:
       

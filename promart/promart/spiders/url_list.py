@@ -24,7 +24,10 @@ list1=[
 ("https://www.promart.pe/buscapagina?sl=3dfc2a1e-3b52-4d11-9dbd-48bf2b008386&PS=28&cc=28&sm=0&PageNumber=","&fq=C:/804/1152/&O=OrderByScoreDESC&sc=28"),
 #MOVILIDAD ELECTRICA
 ("https://www.promart.pe/buscapagina?sl=3dfc2a1e-3b52-4d11-9dbd-48bf2b008386&PS=28&cc=28&sm=0&PageNumber=","&fq=C:/1101/1225/&O=OrderByScoreDESC&sc=28"),
-#
+
+]
+
+list2 = [
 #-ELECTROHOGAR
 #ELECTRO COCINA
 ("https://www.promart.pe/buscapagina?sl=3dfc2a1e-3b52-4d11-9dbd-48bf2b008386&PS=28&cc=28&sm=0&PageNumber=","&fq=C:/599/602/&O=OrderByScoreDESC&sc=28"),
@@ -71,6 +74,9 @@ list1=[
 #INFANTILES
 ("https://www.promart.pe/buscapagina?sl=3dfc2a1e-3b52-4d11-9dbd-48bf2b008386&PS=28&cc=28&sm=0&PageNumber=","&fq=C:/890/1334/&O=OrderByScoreDESC&sc=28"),
 #
+]
+
+list3 =[
 #-DORMITORIO
 #DORMITORIO
 ("https://www.promart.pe/buscapagina?sl=3dfc2a1e-3b52-4d11-9dbd-48bf2b008386&PS=28&cc=28&sm=0&PageNumber=","&fq=C:/890/387/&O=OrderByScoreDESC&sc=28"),
@@ -258,7 +264,9 @@ list1=[
 ("https://www.promart.pe/buscapagina?sl=3dfc2a1e-3b52-4d11-9dbd-48bf2b008386&PS=28&cc=28&sm=0&PageNumber=","&fq=C:/19/354/&O=OrderByScoreDESC&sc=28"),
 #ACABADO MADERA
 ("https://www.promart.pe/buscapagina?sl=3dfc2a1e-3b52-4d11-9dbd-48bf2b008386&PS=28&cc=28&sm=0&PageNumber=","&fq=C:/19/1293/&O=OrderByScoreDESC&sc=28"),
-#
+]
+
+list4=[
 #-HERRAMIENTAS
 #PORTATIL
 ("https://www.promart.pe/buscapagina?sl=3dfc2a1e-3b52-4d11-9dbd-48bf2b008386&PS=28&cc=28&sm=0&PageNumber=","&fq=C:/17/228/&O=OrderByScoreDESC&sc=28"),
