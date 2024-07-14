@@ -14,7 +14,7 @@ NEWSPIDER_MODULE = "shopstar.spiders"
 ITEM_PIPELINES = {
     'shopstar.pipelines.MongoPipeline': 300,
 }
-MONGO_URI = "mongodb://192.168.9.66:27017"
+MONGO_URI = "mongodb://192.168.8.66:27017"
 
 MONGO_DATABASE = 'shopstar'
 BOT_NAME = "shopstar"

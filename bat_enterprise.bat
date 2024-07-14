@@ -1,5 +1,5 @@
 @echo off
-start cmd /k call C:\Git\scrapy\bat_files\ripley1.bat
+@rem start cmd /k call C:\Git\scrapy\bat_files\ripley1.bat
 @rem start cmd /k call C:\Git\scrapy\bat_files\ripley2.bat
 @rem start cmd /k call C:\Git\scrapy\bat_files\ripley3.bat
 @rem start cmd /k call C:\Git\scrapy\bat_files\ripley4.bat
@@ -15,7 +15,7 @@ start cmd /k call C:\Git\scrapy\bat_files\plazavea5.bat
 start cmd /k call C:\Git\scrapy\bat_files\plazavea6.bat
 start cmd /k call C:\Git\scrapy\bat_files\plazavea7.bat
 start cmd /k call C:\Git\scrapy\bat_files\plazavea8.bat
- start cmd /k call C:\Git\scrapy\bat_files\cura1.bat
+@rem start cmd /k call C:\Git\scrapy\bat_files\cura1.bat
 
  @rem start cmd /k call C:\Git\scrapy\bat_files\cura2.bat
 

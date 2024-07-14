@@ -1,14 +1,13 @@
-@echo off
-
-rem Set the number of times to run the spider
-set num_runs=100000000000000000000000000
-
-rem Loop to run the spider multiple times
-
-
+rem Loop to run the spider tasks indefinitely with error handling and delay
+title Saga 1 Console
 
 cd C:\Git\scrapy\demo\demo\spiders\
 
-for /l %%i in (1,1,%num_runs%) do (
-    scrapy crawl saga -a u=1 -a b=0
-)
+:loop
+start cmd /k "scrapy crawl saga -a u=1 -a b=0"
+start cmd /k "scrapy crawl saga -a u=2 -a b=0"
+
+rem Wait for a while before restarting the tasks
+timeout /t 10
+
+goto loop
