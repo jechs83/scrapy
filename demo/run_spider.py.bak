@@ -1,0 +1,14 @@
+# run_spider.py
+
+from scrapy.crawler import CrawlerProcess
+from scrapy.utils.project import get_project_settings
+from demo.spiders.saga import SagaSpider
+import subprocess
+
+if __name__ == "__main__":
+    process = CrawlerProcess(get_project_settings())
+    process.crawl(SagaSpider, u=1, b=0)
+    process.start()
+
+
+

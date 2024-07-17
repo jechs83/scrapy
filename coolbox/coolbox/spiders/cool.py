@@ -14,7 +14,6 @@ from datetime import datetime
 from datetime import date
 import json
 import requests
-from bs4 import BeautifulSoup
 import pymongo
 from decouple import config
 import time

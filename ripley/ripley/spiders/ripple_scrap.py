@@ -22,19 +22,7 @@ def load_datetime():
 class RippleScrapSpider(scrapy.Spider):
     name = "ripley_scrap"
 
-    user_agents = [
-
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
-        "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/80.0.361.62",
-        "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71",
-        "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132",
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121",
-        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140",
-        # Add more user-agent strings here
-    ]
+   
 
     def __init__(self, *args, **kwargs):
         super(RippleScrapSpider, self).__init__(*args, **kwargs)
@@ -53,7 +41,10 @@ class RippleScrapSpider(scrapy.Spider):
 
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
-        urls = links()[int(u-1)]
+        urls = links()[u-1]
+
+    
+
 
 
         for i, v in enumerate(urls):
@@ -61,14 +52,10 @@ class RippleScrapSpider(scrapy.Spider):
                 # print(v[0])
                 # print("###################################")
                 if "?source=menu&s=mdco" in v[0]:
-                    web = v[0]
-                    
-
+                    web = v[0]            
                     url = web.replace("s=mdco","page=")+str(e+1)
                     print(url)
              
-                    
-           
                      
                     # else:
                     #     web = v[0].replace("s=mdco","page=")
@@ -76,15 +63,24 @@ class RippleScrapSpider(scrapy.Spider):
                     #     url = web + str(e + 1)  
                 
                     # Select a random user-agent
-                    user_agent = random.choice(self.user_agents)
+                    # headers = {
+                    #     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+                    #     'Accept-Language': 'en-US,en;q=0.9',
+                    #     'Referer': 'https://simple.ripley.com.pe/',
+                    # }
 
-                    headers = {'User-Agent': user_agent}
+                    # yield scrapy.Request(url, self.parse, headers=headers  )
 
-                    
-                yield scrapy.Request(url, self.parse, headers=headers  )
-                print("pasa por aqui")
-           
+                    headers = {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+                        'Accept-Language': 'en-US,en;q=0.9',
+                        'Referer': 'https://simple.ripley.com.pe/',
+                    }
 
+                    yield scrapy.Request(url, self.parse, headers=headers)
+
+      
+   
 
     # https://simple.ripley.com.pe/electrohogar/refrigeracion/refrigeradoras?source=menu&s=mdco
     # https://simple.ripley.com.pe/electrohogar/refrigeracion/refrigeradoras?source=menu&page=2&s=mdco
@@ -96,6 +92,11 @@ class RippleScrapSpider(scrapy.Spider):
             item = RipleyItem()
             #productos = response.css("div.catalog-product-item.catalog-product-item__container.col-xs-6.col-sm-6.col-md-4.col-lg-4")
             script_content = response.xpath('//script[@type="application/ld+json"]/text()').get()
+
+            print(script_content)
+            print("###############")
+
+        
         
             # if script_content:
             # # Parse the JSON data
@@ -103,8 +104,8 @@ class RippleScrapSpider(scrapy.Spider):
 
 
 
-            for i in json_data:
-                print(i.)
+            # for i in json_data:
+            #     print(i.)
 
         
                 # item["brand"] = i[0]

@@ -42,7 +42,6 @@ COLLECTION_NAME = config("collection")
 
 # Obey robots.txt rules
 #ROBOTSTXT_OBEY = True
-USER_AGENT='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36'
 
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
@@ -130,35 +129,21 @@ USER_AGENT='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 
 # USER_AGENT = 'Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
 
+
 # DOWNLOADER_MIDDLEWARES = {
-#     # ...
+#     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+#     'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
 #     'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
 #     'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
-#     # ...
 # }
-RETRY_TIMES = 5  # Cambiar a la cantidad deseada de reintentos
-DOWNLOAD_DELAY = 3  # Adjust the value as needed
-
-REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
-TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
-FEED_EXPORT_ENCODING = "utf-8"
-
 
 # ROTATING_PROXY_LIST = [
 
-    
-# "200.37.108.186:3128",
-# "190.108.84.168:4145",
-# "190.43.92.29:999",
-# "170.81.240.236:999",
-# "204.199.174.88:999",
+
+
+# "181.224.224.225,999",
+# "138.204.12.16:999",
+# "45.190.170.0:999",
 # "190.232.89.125:5678",
-# "190.119.68.140:999",
-# "181.176.160.30:999",
-# "181.65.200.53:80",
-# "168.194.169.101:999",
-# "161.132.48.32:8080",
-# "38.252.209.112:999",
-# "190.12.95.170:37209",
-# "168.194.169.108:999"
+# "190.119.167.154:5678"
 # ]

@@ -92,101 +92,101 @@ class VivaSpider(scrapy.Spider):
             print()
 
             print()
-            # try:
-            #     cache_id = v["cacheId"]+".priceRange.sellingPrice"
-            # except:
-            #     continue
+            try:
+                cache_id = v["cacheId"]+".priceRange.sellingPrice"
+            except:
+                continue
 
-            # print(cache_id)
-            # print(i)
-            # #print(v["highPrice"])
-            # print(v)
+            print(cache_id)
+            print(i)
+            #print(v["highPrice"])
+            print(v)
 
-            input("sasasA")
+
            
 
-            # try:
+            try:
            
-            #     print("##########################################")
-            #     print(v["brand"])
-            #     print(v["productName"])
-            #     print(v["link"])
-            #     print(v["linkText"])
+                print("##########################################")
+                print(v["brand"])
+                print(v["productName"])
+                print(v["link"])
+                print(v["linkText"])
               
-            #     try:
-            #          print(v["highPrice"])
-            #     except:
-            #         print(0)
-            #     try:
-            #       print(v["lowPrice"])
-            #     except: 
-            #         print(0)
-            #     print("##########################################")
+                try:
+                     print(v["highPrice"])
+                except:
+                    print(0)
+                try:
+                  print(v["lowPrice"])
+                except: 
+                    print(0)
+                print("##########################################")
                 
 
 
              
-            #     print()
-            #     time.sleep(2)
-            # except:
-            #     return True
-            # try:
-            #       print(v["highPrice"])
-            # except:
-            #       print("no hay")
+                print()
+                time.sleep(2)
+            except:
+                return True
+            try:
+                  print(v["highPrice"])
+            except:
+                  print("no hay")
 
            
 
 
-        # json_data = json.loads(response.body)
+        json_data = json.loads(response.body)
 
-        # for i in json_data:
+        for i in json_data:
 
-        #     item["product"]=  i["productName"]
-        #     item["image"]=  i["items"][0]["images"][0]["imageUrl"]
-        #     item["brand"]=  i["brand"]
+            item["product"]=  i["productName"]
+            item["image"]=  i["items"][0]["images"][0]["imageUrl"]
+            item["brand"]=  i["brand"]
 
 
-        #     product = item["brand"].lower()
-        #     marca_not_allowed = []
-        #     if self.lista == []:
-        #         pass
-        #     else:
-        #         if product not in self.lista:
+            product = item["brand"].lower()
+            marca_not_allowed = []
+            if self.lista == []:
+                pass
+            else:
+                if product not in self.lista:
 
-        #             continue
+                    continue
 
-        #     item["link"]=  i["link"]
-        #     item["sku"] = i["productReference"]
-        #     item["list_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"])
+            item["link"]=  i["link"]
+            item["sku"] = i["productReference"]
+            item["list_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["ListPrice"])
 
-        #     try:
-        #         item["best_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["Price"])
-        #     except:item["best_price"] = float(0)
+            try:
+                item["best_price"] =   float(i["items"][0]["sellers"][0]["commertialOffer"]["Price"])
+            except:item["best_price"] = float(0)
  
-        #     if item["best_price"] == item["list_price"]:
-        #         item["web_dsct"] = float(0)
+            if item["best_price"] == item["list_price"]:
+                item["web_dsct"] = float(0)
 
-        #     elif item["best_price"] != 0:
-        #         item["web_dsct"]  = round(float(100-(item["best_price"]*100/item["list_price"])))
-        #     else:
-        #         item["web_dsct"] = float(0)
+            elif item["best_price"] != 0:
+                item["web_dsct"]  = round(float(100-(item["best_price"]*100/item["list_price"])))
+            else:
+                item["web_dsct"] = float(0)
 
-        #     try:
-        #         dcst_tarjeta =   float(i["items"][0]["sellers"][0]["commertialOffer"]["PromotionTeasers"][0]["Effects"]["Parameters"][1]["Value"])
+            try:
+                dcst_tarjeta =   float(i["items"][0]["sellers"][0]["commertialOffer"]["PromotionTeasers"][0]["Effects"]["Parameters"][1]["Value"])
            
-        #     except: dcst_tarjeta = None
-        #     if dcst_tarjeta != None:
-        #         item["card_price"] =item["list_price"] - dcst_tarjeta
-        #         item["card_dsct"] = round(float(100-(item["card_price"] *100/item["list_price"])))
-        #     else:
-        #         item["card_price"]= float(0)
-        #         item["card_dsct"] =float(0) 
+            except: dcst_tarjeta = None
+            if dcst_tarjeta != None:
+                item["card_price"] =item["list_price"] - dcst_tarjeta
+                item["card_dsct"] = round(float(100-(item["card_price"] *100/item["list_price"])))
+            else:
+                item["card_price"]= float(0)
+                item["card_dsct"] =float(0) 
 
-        #     item["home_list"] = home 
-        #     item["_id"]=   item["sku"]
-        #     item["date"] = current_day
-        #     item["time"] = current_time
-        #     item["market"] = "plazavea"
-        #     yield item
+            item["home_list"] = home 
+            item["_id"]=   item["sku"]
+            item["date"] = current_day
+            item["time"] = current_time
+            item["market"] = "plazavea"
+            yield item
    

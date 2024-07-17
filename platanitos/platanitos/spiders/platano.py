@@ -120,8 +120,9 @@ class PlatanoSpider(scrapy.Spider):
             item['image'] = product.css("img::attr(src)").get()
             item['link'] = response.urljoin(product.css("a::attr(href)").get())
             item['sku'] = item['product'].replace(" ", "")
-            item["sku"] =  item["sku"]+str(load_datetime()[0])
+            item["sku"] =  product.xpath('.//a/@data-object-id').get()
             item["_id"] =item["sku"] 
+
             item["card_price"] =0
             item["card_dsct"] =0
             if item["list_price"] and item["card_price"] and item["best_price"] == 0:
