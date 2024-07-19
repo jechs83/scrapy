@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import pymongo
 from decouple import config
-from concurrent.futures import ProcessPoolExecutor
+import time
 MONGOdb = "mongodb+srv://spok:Vulcano.2013@cluster0.wkqej.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # MongoDB client initialization
@@ -116,10 +116,13 @@ urls = [
 ]
 
 
-# Using ProcessPoolExecutor to parallelize the save_links function
-def main():
-    with ProcessPoolExecutor(max_workers=2) as executor:
-        executor.map(save_link, urls)
+# Run tasks sequentially
+def run_tasks():
+    for url in urls:
+        save_link(url)
 
 if __name__ == "__main__":
-    main()
+    while True:
+        run_tasks()
+        print("Iteration complete, waiting before next run...")
+        time.sleep(30)  # Wait for 1 hour before the next iteration
