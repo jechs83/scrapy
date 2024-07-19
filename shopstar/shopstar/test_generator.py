@@ -37,6 +37,9 @@ def productId_extract(url):
 
 # Function to save links to MongoDB
 def save_link(url):
+    client = pymongo.MongoClient(MONGOdb)
+    db = client["shopstar"]
+    collection = db["links2"]
     fail_count = 0  # Initialize failure counter
     for i in range(50):
         page_url = url + str(i + 1)
