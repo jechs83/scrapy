@@ -4,10 +4,10 @@ import json
 import pymongo
 from decouple import config
 from concurrent.futures import ProcessPoolExecutor
-MONGO = "mongodb+srv://spok:zf5r1OGIJu2fbCSM@cluster0.wkqej.mongodb.net/?retryWrites=true&w=majority"
+MONGOdb = "mongodb+srv://spok:zf5r1OGIJu2fbCSM@cluster0.wkqej.mongodb.net/?retryWrites=true&w=majority"
 
 # MongoDB client initialization
-client = pymongo.MongoClient(MONGO)
+client = pymongo.MongoClient(MONGOdb)
 db = client["shopstar"]
 collection = db["links2"]
 
