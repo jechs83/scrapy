@@ -188,22 +188,30 @@ def save_link(url):
 
     for url in urls:
         for i in range(50):
+
             web = productId_extract(url + str(i + 1))
             print(web)
 
             if web == "https://shopstar.pe/api/catalog_system/pub/products/search?":
-              break
+                break
             if web:
                 documento = {
-                    "lista":2,
-                    "_id": web,
+                    "lista": 2,
+                    "_id": url + str(i + 1),
                     "url": web,
                 }
-                coleccion.update_one(
-                    {"_id": web},
-                    {"$set": documento},
-                    upsert=True
-                )
+                
+                # Comprobar si ya existe un documento con el mismo ID y URL
+                existing_doc = coleccion.find_one({"_id": url + str(i + 1)})
+                if existing_doc and existing_doc.get("url") == web:
+                    print(f"Documento con ID {url + str(i + 1)} y URL {web} ya existe. No se actualiza.")
+                else:
+                    coleccion.update_one(
+                        {"_id": url + str(i + 1)},
+                        {"$set": documento},
+                        upsert=True
+                    )
+                    print(f"Documento con ID {url + str(i + 1)} actualizado/insertado.")
             else:
                 print(f"Failed to extract product ID from {url}")
 

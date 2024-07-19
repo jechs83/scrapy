@@ -4,11 +4,18 @@ import json
 import pymongo
 from decouple import config
 from concurrent.futures import ProcessPoolExecutor
+MONGO = "mongodb+srv://spok:zf5r1OGIJu2fbCSM@cluster0.wkqej.mongodb.net/?retryWrites=true&w=majority"
+
+# MongoDB client initialization
+client = pymongo.MongoClient(MONGO)
+db = client["shopstar"]
+collection = db["links2"]
 
 # Function to extract product IDs and construct the search URL
 def productId_extract(url):
-    response = requests.get(url)
-    if response.status_code == 200:
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Check if the request was successful
         soup = BeautifulSoup(response.text, 'html.parser')
         template_element = soup.find('template', {'data-type': 'json', 'data-varname': '__STATE__'})
         if template_element:
@@ -17,19 +24,44 @@ def productId_extract(url):
                 json_content = script_element.get_text(strip=True)
                 try:
                     json_data = json.loads(json_content)
-                    productId_web = []
-                    for product_key, product_info in json_data.items():
-                        if 'productId' in product_info:
-                            product_id = product_info['productId']
-                            productId_web.append(f"fq=productId:{product_id}&")
-                    productId_web = "".join(productId_web)
-                    web = f"https://shopstar.pe/api/catalog_system/pub/products/search?{productId_web}"
-                    return web
+                    productId_web = [f"fq=productId:{product_info['productId']}&" for product_info in json_data.values() if 'productId' in product_info]
+                    if productId_web:
+                        productId_web = "".join(productId_web)
+                        web = f"https://shopstar.pe/api/catalog_system/pub/products/search?{productId_web}"
+                        return web
                 except json.JSONDecodeError as e:
                     print(f"Error decoding JSON: {e}")
+    except requests.RequestException as e:
+        print(f"Request failed: {e}")
     return None
 
-# List of URLs to process
+# Function to save links to MongoDB
+def save_link(url):
+    fail_count = 0  # Initialize failure counter
+    for i in range(50):
+        page_url = url + str(i + 1)
+        web = productId_extract(page_url)
+        if web:
+            document = {
+                "lista": 1,
+                "_id": page_url,
+                "url": web,
+            }
+            existing_doc = collection.find_one({"_id": page_url})
+            if existing_doc and existing_doc.get("url") == web:
+                print(f"Documento con ID {page_url} y URL {web} ya existe. No se actualiza.")
+            else:
+                collection.update_one({"_id": page_url}, {"$set": document}, upsert=True)
+                print(f"Documento con ID {page_url} actualizado/insertado.")
+            fail_count = 0  # Reset failure counter on success
+        else:
+            print(f"Failed to extract product ID from {page_url}")
+            fail_count += 1  # Increment failure counter
+            if fail_count > 3:
+                print(f"Failed to extract product ID from {page_url} more than 3 times. Skipping to next URL.")
+                break
+
+
 urls = [
     "https://www.shopstar.pe/tecnologia/televisores?order=OrderByReleaseDateDESC&page=",
     "https://www.shopstar.pe/tecnologia/televisores/4k-ultra-hd?order=OrderByReleaseDateDESC&page=",
@@ -81,43 +113,9 @@ urls = [
 ]
 
 
-# Function to save links to MongoDB
-def save_link(url):
-    # BASE DDE DATOS DONDE QUIRES QUE LO GUARDE
-    cliente = pymongo.MongoClient(config("MONGODB"))
-    base_de_datos = cliente["shopstar"]
-    coleccion = base_de_datos["links2"]
-    
-
-    for url in urls:
-        for i in range(50):
-            web = productId_extract(url + str(i + 1))
-            print(web)
-
-            if web:
-                documento = {
-                    "lista": 1,
-                    "_id": url + str(i + 1),
-                    "url": web,
-                }
-                
-                # Comprobar si ya existe un documento con el mismo ID y URL
-                existing_doc = coleccion.find_one({"_id": url + str(i + 1)})
-                if existing_doc and existing_doc.get("url") == web:
-                    print(f"Documento con ID {url + str(i + 1)} y URL {web} ya existe. No se actualiza.")
-                else:
-                    coleccion.update_one(
-                        {"_id": url + str(i + 1)},
-                        {"$set": documento},
-                        upsert=True
-                    )
-                    print(f"Documento con ID {url + str(i + 1)} actualizado/insertado.")
-            else:
-                print(f"Failed to extract product ID from {url}")
-
 # Using ProcessPoolExecutor to parallelize the save_links function
 def main():
-    with ProcessPoolExecutor(max_workers=8) as executor:
+    with ProcessPoolExecutor(max_workers=2) as executor:
         executor.map(save_link, urls)
 
 if __name__ == "__main__":
