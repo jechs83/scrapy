@@ -31,12 +31,12 @@ from decouple import config
 
 try:
     # Conéctate a la base de datos MongoDB
-    client = pymongo.MongoClient("mongodb://192.168.9.66:27017")
+    client = pymongo.MongoClient("mongodb://192.168.8.66:27017")
     db = client["brand_allowed"]
     skip_collection = db["todo"]
 
     # Lee el archivo de texto y agrega los elementos a la base de datos
-    archivo_texto = "/Users/javier/GIT/scrapy_saga/skip.txt"
+    archivo_texto = "/Users/javier/GIT/scrapy_saga/tools/skip.txt"
 
     with open(archivo_texto, "r") as file:
         for line in file:

@@ -22,6 +22,11 @@ MONGO_URI = config("MONGODB")
 MONGO_DATABASE = config("db_oechsle")
 COLLECTION_NAME = config("collection")
 
+##### PARA PRUEBAS LOCASL SIN AFECTAR LA BASE DE DATOS ORIGINAL
+
+# MONGO_DATABASE = config("db_oechsle")
+# COLLECTION_NAME = "scrap2"
+
 RETRY_HTTP_CODES = [500, 502, 503, 504, 400, 403, 404, 408, 429]
 
 # Set the maximum number of retries for each request

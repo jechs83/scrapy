@@ -1,26 +1,13 @@
 import scrapy
 from oechsle.items import OechsleItem
-from datetime import datetime
-from datetime import date
-#from oechsle.spiders import url_list 
-import uuid
+import datetime
 import json
 import pymongo
+import time
 from oechsle.spiders.urls_db import *
 from decouple import config
-import time 
-from link_json import json_link
+from oechsle.spiders.link_json import json_link
 
-def load_datetime():
-    
- today = date.today()
- now = datetime.now()
- date_now = today.strftime("%d/%m/%Y")  
- time_now = now.strftime("%H:%M:%S")
- return date_now, time_now
-
-current_day = load_datetime()[0]
-current_time = load_datetime()[1]
 
 
 class OhSpider(scrapy.Spider):
@@ -46,28 +33,24 @@ class OhSpider(scrapy.Spider):
         u = int(getattr(self, 'u', '0'))
         b = int(getattr(self, 'b', '0'))
        
-        # for i, v in enumerate(urls):
-        #     for e in range (v[1]+10):
-        #         url = v[0]+"?&optionOrderBy=OrderByScoreDESC&O=OrderByScoreDESC&page="+str(e+1)
-        #         yield scrapy.Request(url, self.parse)
-
-        for i,v in enumerate(self.urls):
-          
-
-            for i in range (50):
-               
+        for i,v in enumerate(self.urls):  
+         
+            pages = v[2]
+            if pages == 50:
+                pages = 45
+            for i in range (pages+5):
+                # aqui se jala la url de oechsle directa
                 home_web = v[1]+str(i+1)
-                print(home_web)
+                #print(home_web)
                 web  =json_link(home_web)
-                
-                
-            
                 yield scrapy.Request(web, self.parse) #, meta={'home_web':home_web})
 
+    count = 0
     def parse(self, response):
+    
 
         item = OechsleItem()
-        print(response.status)
+        #print(response.status)
      
     
         #home = response.meta['home_web']
@@ -83,19 +66,20 @@ class OhSpider(scrapy.Spider):
             
             item["image"]=  i["items"][0]["images"][0]["imageUrl"]
             item["brand"]=  i["brand"]
+
             try:
                 seller = i["Vendido por"]
                 item["market"] = str(seller[0]).lower()
-                
-
             except:
               
                 continue
-            print(seller)
+            #print(seller)
             vendedor = seller[0]
 
             if vendedor.lower() not in ["plazavea", "oechsle", "promart"]:
                 continue
+
+            # i["market"] = "oechsle"
             
 
 
@@ -103,12 +87,11 @@ class OhSpider(scrapy.Spider):
         
 
         
-            if pro.lower()  in self.lista[0]:
-                    print("ASLATA AL OTRO PRODUCTO ")
-                    pass
-            else:
-                    print("PASASASASASASASASASAS")
-                    continue
+            # if pro.lower()  in self.lista[0]:
+            #         # print("ASLATA AL OTRO PRODUCTO ")
+            #         pass
+            # else:
+            #         continue
            
 
             item["link"]=  i["link"]
@@ -145,15 +128,19 @@ class OhSpider(scrapy.Spider):
 
             item["home_list"] = "oechsle.com.pe" 
             item["_id"]=   item["sku"]
-            item["date"] = current_day
-            item["time"] = current_time
- 
+
+            current_datetime = datetime.datetime.now()
+            item["date"] = current_datetime.strftime("%d/%m/%Y")
+            item["time"] = current_datetime.strftime("%H:%M:%S")
+
 
             print(count)
             print("##############")
 
 
-           
+            
             
             yield item
+            print(count+1)
+ 
    
