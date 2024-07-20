@@ -83,6 +83,20 @@ class OhSpider(scrapy.Spider):
             
             item["image"]=  i["items"][0]["images"][0]["imageUrl"]
             item["brand"]=  i["brand"]
+            try:
+                seller = i["Vendido por"]
+                item["market"] = str(seller[0]).lower()
+                
+
+            except:
+              
+                continue
+            print(seller)
+            vendedor = seller[0]
+
+            if vendedor.lower() not in ["plazavea", "oechsle", "promart"]:
+                continue
+            
 
 
             pro = item["brand"].lower()
@@ -133,7 +147,7 @@ class OhSpider(scrapy.Spider):
             item["_id"]=   item["sku"]
             item["date"] = current_day
             item["time"] = current_time
-            item["market"] = "oechsle"
+ 
 
             print(count)
             print("##############")

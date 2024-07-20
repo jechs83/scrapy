@@ -6,18 +6,19 @@ from pymongo import MongoClient
 
 
 
-def base_link():
+def base_link(lista,page):
 
-    client = MongoClient('mongodb://192.168.9.66:27017')
+    client = MongoClient('mongodb://192.168.8.66:27017')
     db = client['oechsle']
-    collection = db['links']
+    collection = db['links2']
 
     data = collection.find({})
     list_url=[]
     for i in data:
         list_url.append(i["url"])
 
-    
+        print(list_url)
+
 
 
     for i,v in enumerate(list_url):
@@ -35,19 +36,18 @@ def base_link():
                     web = match.group()
                     base_url = "https://www.oechsle.pe" + web
 
-            print()
-            print(base_url)
-
+       
+      
             # Save base_url to MongoDB
-            save_to_mongodb(v, base_url)
+            save_to_mongodb(v, base_url,lista,page)
 
           
 
-def save_to_mongodb(base, base_url):
+def save_to_mongodb(base, base_url,lista,page):
     # Connect to MongoDB
-    client = MongoClient('mongodb://192.168.9.66:27017')
+    client = MongoClient('mongodb://192.168.8.66:27017')
     db = client['oechsle']
-    collection = db['links']
+    collection = db['links2']
 
     # Filter by "url": base
     filter_query = {"url": base}
@@ -57,7 +57,7 @@ def save_to_mongodb(base, base_url):
 
     if existing_document:
         # Update the existing document with the new base_url
-        collection.update_one(filter_query, {"$set": {"json_link": base_url}})
+        collection.update_one(filter_query, {"$set": {"json_link": base_url,"lista":lista,"page":page}})
         print(f"Updated document for {base}")
     else:
         # Insert a new document
@@ -72,6 +72,7 @@ def save_to_mongodb(base, base_url):
 #ase_url = base_link("https://example.com")
 
 
+lista =1
+page =24
 
-
-base_link()
+base_link(lista,page)
