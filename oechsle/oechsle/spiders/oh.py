@@ -87,11 +87,11 @@ class OhSpider(scrapy.Spider):
         
 
         
-            # if pro.lower()  in self.lista[0]:
-            #         # print("ASLATA AL OTRO PRODUCTO ")
-            #         pass
-            # else:
-            #         continue
+            if pro.lower()  in self.lista[0]:
+                    # print("ASLATA AL OTRO PRODUCTO ")
+                    pass
+            else:
+                    continue
            
 
             item["link"]=  i["link"]

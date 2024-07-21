@@ -7,7 +7,7 @@ from pymongo import MongoClient
 def base_link(lista):
     client = MongoClient('mongodb://192.168.8.66:27017')
     db = client['oechsle']
-    collection = db['links2']
+    collection = db['links']
 
     # Filtrar documentos con el valor del campo lista=2
     data = collection.find({"lista": lista})
@@ -40,6 +40,7 @@ def base_link(lista):
             if base_url:
                 # Guardar base_url en MongoDB
                 save_to_mongodb(base, base_url, lista)
+                print("se guardo")
 
 def save_to_mongodb(base, base_url, lista):
     # Conectar a MongoDB
@@ -47,34 +48,46 @@ def save_to_mongodb(base, base_url, lista):
     db = client['oechsle']
     collection = db['links']
 
-    # Filtrar por "_id": base y "lista": lista
-    filter_query = { "lista": lista }
+    # Filtrar por "url": base
+    filter_query = { "url": base }
 
     # Verificar si el documento ya existe
     existing_document = collection.find_one(filter_query)
     
     # Imprimir la URL base
     print(base_url)
-    
-    # Si el documento existe, imprimir sus valores
+    base_url = base_url.replace("PS=36&", "PS=50&")
     if existing_document:
-        for key, value in existing_document.items():
-            print(value)
-    else:
-        print("No se encontraron documentos que coincidan con el filtro.")
-
-
-
-    if existing_document:
-        # Actualizar el documento existente con el nuevo base_url
         collection.update_one(filter_query, {"$set": {"json_link": base_url}})
         print(f"Updated document for {base}")
     else:
-        # No hacer nada si el documento no existe
-        print(f"No document found for {base} with lista {lista}, nothing was updated.")
+        print(f"No document found for {base}")
+
+# Ejemplo de llamada a la función
+
+    # else:
+    #     # No hacer nada si el documento no existe
+    #     print(f"No document found for {base} with lista {lista}, nothing was updated.")
+
+    # # Si el documento existe, imprimir sus valores
+    # if existing_document:
+    #     for key, value in existing_document.items():
+    #         print(value)
+    # else:
+    #     print("No se encontraron documentos que coincidan con el filtro.")
+
+
+
+    # if existing_document:
+    #     # Actualizar el documento existente con el nuevo base_url
+    #     collection.update_one(filter_query, {"$set": {"json_link": base_url}})
+    #     print(f"Updated document for {base}")
+    # else:
+    #     # No hacer nada si el documento no existe
+    #     print(f"No document found for {base} with lista {lista}, nothing was updated.")
 
     # Cerrar la conexión a MongoDB
-    client.close()
+
     # else:
     #     # Insertar un nuevo documento (esto en principio no debería ocurrir con los filtros aplicados)
     #     new_document = {"_id": base, "json_link": base_url, "lista": lista}
@@ -82,7 +95,7 @@ def save_to_mongodb(base, base_url, lista):
     #     print(f"Inserted new document for {base}")
 
     # Cerrar la conexión a MongoDB
-    client.close()
+ 
 
 #Ejemplo de uso:
 
@@ -92,3 +105,4 @@ for i in range (20):
         base_link(lista)
     except:
         continue
+

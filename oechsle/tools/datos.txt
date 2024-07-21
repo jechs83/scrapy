@@ -22,3 +22,7 @@ https://www.oechsle.pe/deportes/maquinas-de-gimnasio?search=P:[29%20TO%2012500],
 https://www.oechsle.pe/deportes/bicicletas?search=P:[18%20TO%207740],specificationFilter_4664:Oechsle,specificationFilter_4664:plazaVea&page 11 4
 https://www.oechsle.pe/deportes/skates-scooter-y-patines?search=P:[12%20TO%203779],specificationFilter_4664:Oechsle,specificationFilter_4664:plazaVea&page 11 2
 https://www.oechsle.pe/deportes/adidas/puma/reebok?search=P:[2%20TO%2054179],specificationFilter_4664:Oechsle&page 11 21
+
+
+
+https://www.oechsle.pe/buscapagina?fq=C%3a%2f9%2f16%2f&PS=36&sl=cc1f325c-7406-439c-b922-9b2e850fcc90&cc=36&sm=0&PageNumber=
