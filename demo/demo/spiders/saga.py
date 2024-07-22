@@ -103,14 +103,14 @@ class SagaSpider(scrapy.Spider):
 
 
         
-                # producto = item["brand"].lower()
+                producto = item["brand"].lower()
 
-                # if self.lista[0] == []:
-                #     pass
-                # else:
-                #     if producto not in self.lista[0]:
+                if self.lista[0] == []:
+                    pass
+                else:
+                    if producto not in self.lista[0]:
 
-                #         continue
+                        continue
 
                 item["product"]=  i["displayName"]
 
