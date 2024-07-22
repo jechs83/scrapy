@@ -52,7 +52,11 @@ class MongoPipeline(object):
         result = collection.update_one(filter, update, upsert=True)
         spider.logger.debug('Item updated in MongoDB: %s', result)
         return item
-       
+    
+
+
+
+
    
 
     # def process_item(self, item, spider):

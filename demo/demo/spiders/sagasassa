@@ -53,15 +53,7 @@ class SagaSpider(scrapy.Spider):
     def start_requests(self):
        
         for i, v in enumerate(self.urls):
-            if "tottus" in v[0]:
-                for e in range (v[1]+10):
-                    url = v[0]+ "?subdomain=tottus&page="+str(e+1) +"&store=tottus"
-                    yield scrapy.Request(url, self.parse)
-            if "sodimac" in v[0]:
-                for e in range (v[1]+10):
-                    url = v[0]+ "?subdomain=sodimac&page="+str(e+1)+"&store=sodimac"
-                    yield scrapy.Request(url, self.parse)
-            else:
+         
                 for e in range (v[1]+10):
                     url = v[0]+ "?page="+str(e+1) 
                     yield scrapy.Request(url, self.parse)
@@ -102,14 +94,14 @@ class SagaSpider(scrapy.Spider):
 
 
         
-                producto = item["brand"].lower()
+                # producto = item["brand"].lower()
 
-                if self.lista[0] == []:
-                    pass
-                else:
-                    if producto not in self.lista[0]:
+                # if self.lista[0] == []:
+                #     pass
+                # else:
+                #     if producto not in self.lista[0]:
 
-                        continue
+                #         continue
 
                 item["product"]=  i["displayName"]
 
