@@ -91,7 +91,7 @@ class SagaSpider(scrapy.Spider):
             page_props = json_content.get('props', {}).get('pageProps', {}).get("results",{})
 
         productos = page_props
-        
+        items= []
         for i in productos:
             
                
@@ -112,6 +112,9 @@ class SagaSpider(scrapy.Spider):
                 item["product"]=  i["displayName"]
 
                 item["sku"] = i["skuId"]
+
+
+
                 item["_id"] =i["skuId"]
 
                 if len(i["prices"])== 1:
@@ -167,7 +170,15 @@ class SagaSpider(scrapy.Spider):
                 item["home_list"] = response.url
                 item["card_dsct"] = 0
 
-                yield item
+    
+
+
+                # if item["sku"] == "124383313":
+                #     time.sleep(100)
+                items.append(item)
+
+
+        return items        
          
 
             

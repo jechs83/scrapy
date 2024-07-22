@@ -12,6 +12,8 @@ from datetime import datetime
 from datetime import date
 #from shopstar.spiders.urls_db import *
 from shopstar.spiders.urls_db_json import *
+from shopstar.spiders.test import url_lista
+
 import json
 import requests
 from bs4 import BeautifulSoup
@@ -19,6 +21,7 @@ import pymongo
 from decouple import config
 import time
 #from jsonTolink import productId_extract
+
 
 
 
@@ -82,7 +85,10 @@ class ShopSpider(scrapy.Spider):
 
     def start_requests(self):
 
-        for url,v in enumerate( self.urls):
+        # for url,v in enumerate( self.urls):
+        #     yield scrapy.Request(v, self.parse)
+
+        for url,v in enumerate( url_lista):
             yield scrapy.Request(v, self.parse)
 
     
@@ -104,9 +110,9 @@ class ShopSpider(scrapy.Spider):
             item["product"] = i["productName"]
             item["brand"]= i["brand"]
 #######################################
-            product = item["brand"]
-            if product.lower() not in (self.lista[0]):
-                continue
+            # product = item["brand"]
+            # if product.lower() not in (self.lista[0]):
+            #     continue
 ###############################
             item["image"]=i["items"][0]["images"][0]["imageUrl"]#image
             item["sku"]=i["items"][0]["itemId"]

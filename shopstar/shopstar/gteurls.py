@@ -5,10 +5,10 @@ import requests
 import re
 import json
 import time
-from shopstar.spiders.urls_db import links
+#from shopstar.spiders.urls_db import links
 
 
-#url = 'https://shopstar.pe/tecnologia/televisores?order=OrderByReleaseDateDESC&page=3'
+url = 'https://shopstar.pe/tecnologia/televisores?order=OrderByReleaseDateDESC&page='
 def get_json(url):
     try:
         response = requests.get(url)
@@ -42,7 +42,8 @@ def get_json(url):
 
 
             url = web1 + ''.join(productos)
-
+            "https://shopstar.pe/api/catalog_system/pub/products/search?fq=productId:1768029&"
+    
 
             return url
         
@@ -54,19 +55,22 @@ def get_json(url):
         print(f"Request error: {e}")
 
 
-urls = links()[0]
-lista_urls =[]
-def todas_url(urls):
+# urls = links()[0]
+# lista_urls =[]
+# def todas_url(urls):
 
-    for i, v in enumerate(urls):
-        for e in range(50):
-            url2  = v[0]+"&page="+str(e+1)
+#     for i, v in enumerate(urls):
+#         for e in range(50):
+#             url2  = v[0]+"&page="+str(e+1)
 
-            url = get_json(url2)
-            if url =="https://shopstar.pe/api/catalog_system/pub/products/search?":
-                break
+#             url = get_json(url2)
+#             if url =="https://shopstar.pe/api/catalog_system/pub/products/search?":
+#                 break
 
-            print(url)
+#             print(url)
 
 
-todas_url(urls)
+# todas_url(urls)
+for i in range(50):
+
+    get_json(url+str(i+1))
