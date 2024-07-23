@@ -10,10 +10,10 @@ ITEM_PIPELINES = {
 }
 MONGO_URI = config("MONGODB")
 # MONGO_DATABASE = "saga1"
-# COLLECTION_NAME = "scrap"
+COLLECTION_NAME = "scrap"
 
 MONGO_DATABASE = config("db_saga")
-COLLECTION_NAME = config("collection")
+#COLLECTION_NAME = config("collection")
 #COLLECTION_NAME = "todo"
 
 

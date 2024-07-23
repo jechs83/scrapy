@@ -62,7 +62,9 @@ class SagaSpider(scrapy.Spider):
             #         url = v[0]+ "?subdomain=sodimac&page="+str(e+1)+"&store=sodimac"
             #         yield scrapy.Request(url, self.parse)
             # else:
-                for e in range (v[1]+10):
+                #for e in range (v[1]+10):
+
+                for e in range (1):
                     url = v[0]+ "&page="+str(e+1)  
                     yield scrapy.Request(url, self.parse)
                 
@@ -91,8 +93,13 @@ class SagaSpider(scrapy.Spider):
             page_props = json_content.get('props', {}).get('pageProps', {}).get("results",{})
 
         productos = page_props
+
+
+        total_products_scraped = 0
+        total_products_saved = 0
         
         for i in productos:
+                total_products_scraped += 1
              
                 try:
                     item["brand"]= i["brand"]
@@ -116,8 +123,7 @@ class SagaSpider(scrapy.Spider):
 
                 item["sku"] = i["skuId"]
 
-
-
+          
                 item["_id"] =i["skuId"]
 
                 if len(i["prices"])== 1:
@@ -173,19 +179,31 @@ class SagaSpider(scrapy.Spider):
                 item["home_list"] = response.url
                 item["card_dsct"] = 0
 
+                print()
+                print(i["brand"])
+                print(i["displayName"])
+                print(i["url"])
+                print(item["best_price"])
+                print(item["card_price"] )
+                print(item["list_price"] )
+                print(total_products_scraped)
+                # input("Presiona Enter para continuar...")
 
-                
-                # print(i["url"])
-                # print(item["best_price"])
-                # print(item["card_price"] )
-                # print(item["list_price"] )
                
 
                 # if item["sku"] == "124383313":
                 #     time.sleep(100)
-                
 
-                yield item
+                try:
+                # Attempt to save the item
+                    yield item
+                    total_products_saved += 1
+                except Exception as e:
+                    self.logger.error(f"Error saving product {item['sku']}: {e}")
+               
+
+        self.logger.info(f"Total products scraped: {total_products_scraped}")
+        self.logger.info(f"Total products saved: {total_products_saved}")
          
 
             
