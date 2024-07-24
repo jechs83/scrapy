@@ -6,6 +6,7 @@ from promart.spiders import url_list
 import uuid
 import pymongo
 from decouple import config
+import time
 
 
 
@@ -27,6 +28,13 @@ class ProSpider(scrapy.Spider):
         self.client = pymongo.MongoClient(config("MONGODB"))
         self.db = self.client["promart"]
         self.collection_name = self.db['scrap']
+
+        self.db2 = self.client["brand_allowed"]
+        self.collection_brand = self.db2["todo"]
+        self.lista_marcas =[]
+        for i in self.collection_brand.find():
+            self.lista_marcas.append(i["brand"])
+
         #self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
 
     # def brand_allowed(self):
@@ -110,12 +118,21 @@ class ProSpider(scrapy.Spider):
             item["_id"] =  item["sku"]
 
             item["brand"]= i.css("div.brand.js-brand p::text").get()
-            # product = item["brand"]
-            # if self.lista == []:
-            #     pass
-            # else:
-            #     if product.lower() not in self.lista:
-            #         continue
+
+            product = item["brand"]
+            if self.lista_marcas == []:
+                pass
+            else:
+                if product.lower() not in self.lista_marcas:
+                    print()
+                    print("no se guarda")
+                    print(product)
+
+                    print()
+                    time.sleep(20)
+                    continue
+
+
             item["product"] =i.css("input.insert-sku-quantity::attr(title)").get()
             item["link"] =i.css("a.prod-det-enlace::attr(href)").get()
             item["image"]= i.css("img::attr(src)").get()
