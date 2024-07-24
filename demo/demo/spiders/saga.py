@@ -177,7 +177,7 @@ class SagaSpider(scrapy.Spider):
                 print(item["card_price"] )
                 print(item["list_price"] )
  
-                collection = self.db["scrap3"]
+                collection = self.db["scrap"]
                 filter = { "sku": item["sku"]}
                 update = {'$set': dict(item)}
                 result = collection.update_one(filter, update, upsert=True)
