@@ -28,7 +28,6 @@ class ProSpider(scrapy.Spider):
         self.client = pymongo.MongoClient(config("MONGODB"))
         self.db = self.client["promart"]
         self.collection_name = self.db['scrap']
-
         self.db2 = self.client["brand_allowed"]
         self.collection_brand = self.db2["todo"]
         self.lista_marcas =[]
@@ -36,43 +35,6 @@ class ProSpider(scrapy.Spider):
             self.lista_marcas.append(i["brand"])
 
         #self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
-
-    # def brand_allowed(self):
-    #     collection1 = self.db["todo"]
-    #     collection2 = self.db["electro"]
-    #     collection3 = self.db["tv"]
-    #     collection4 = self.db["cellphone"]
-    #     collection5 = self.db["laptop"]
-    #     collection6 = self.db["consola"]
-    #     collection7 = self.db["audio"]
-    #     collection8 = self.db["colchon"]
-    #     collection9 = self.db["nada"]
-    #     collection10 = self.db["sport"]
-        
-    #     shoes = collection1.find({})
-    #     electro = collection2.find({})
-    #     tv = collection3.find({})
-    #     cellphone = collection4.find({})
-    #     laptop = collection5.find({})
-    #     consola = collection6.find({})
-    #     audio = collection7.find({})
-    #     colchon = collection8.find({})
-    #     nada = collection9.find({})
-    #     sport = collection10.find({})
-
-
-    #     shoes_list = [doc["brand"] for doc in shoes]
-    #     electro_list = [doc["brand"] for doc in electro]
-    #     tv_list = [doc["brand"] for doc in tv]
-    #     cellphone_list = [doc["brand"] for doc in cellphone]
-    #     laptop_list = [doc["brand"] for doc in laptop]
-    #     consola_list = [doc["brand"] for doc in consola]
-    #     audio_list = [doc["brand"] for doc in audio]
-    #     colchon_list = [doc["brand"] for doc in colchon]
-    #     nada_list = [doc["brand"] for doc in nada]
-    #     sport_list = [doc["brand"] for doc in sport]
-    #     return shoes_list ,electro_list,tv_list,cellphone_list,laptop_list, consola_list, audio_list, colchon_list,nada_list,sport_list
-    
 
 
     def start_requests(self):
@@ -124,12 +86,7 @@ class ProSpider(scrapy.Spider):
                 pass
             else:
                 if product.lower() not in self.lista_marcas:
-                    print()
-                    print("no se guarda")
-                    print(product)
-
-                    print()
-                    time.sleep(20)
+                   
                     continue
 
 
