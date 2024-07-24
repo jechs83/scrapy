@@ -9,7 +9,7 @@ from decouple import config
 # Establecer la conexión a MongoDB
 cliente = pymongo.MongoClient(config("MONGODB"))
 base_de_datos = cliente["saga"]
-coleccion = base_de_datos["links"]
+coleccion = base_de_datos["links2"]
 
 lista1=[];lista2=[];lista3=[];lista4=[];lista5=[];lista6=[];lista7=[];lista8=[];lista9=[];lista10=[];lista11=[];lista12=[];lista13=[];lista14=[];lista15=[];lista16=[];lista17=[];lista29=[]=[];lista18=[];lista19=[]; lista20 =[];lista21=[];lista22=[];lista23=[];lista24=[];lista25=[];lista26=[];lista27=[];lista28=[];lista29=[];lista30=[]
 

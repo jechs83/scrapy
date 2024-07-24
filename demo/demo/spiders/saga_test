@@ -1,0 +1,178 @@
+import scrapy
+import sys
+import json
+from demo.items import DemoItem
+from datetime import datetime
+
+import datetime
+import pymongo
+
+from demo.spiders.urls_db import *
+from decouple import config
+from scrapy.exceptions import CloseSpider
+
+import time
+
+
+class SagaSpider(scrapy.Spider):
+    name = 'saga'
+    # start_urls = [
+
+
+    #     "https://www.falabella.com.pe/falabella-pe/category/cat760706/Celulares-y-Telefonos?facetSelected=true&f.derived.variant.sellerId=FALABELLA%3A%3ASODIMAC%3A%3ATOTTUS&page=",
+
+
+    # ]
+    custom_settings = {
+        #'DOWNLOAD_DELAY': 2,  # Añade un retraso entre las solicitudes para evitar ser bloqueado
+        'CONCURRENT_REQUESTS_PER_DOMAIN': 20,  # Limita las solicitudes concurrentes por dominio
+        'ROBOTSTXT_OBEY': True,  # Obey the robots.txt rules
+        'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+        'DEFAULT_REQUEST_HEADERS': {
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
+        }
+    }
+
+    def __init__(self, *args, **kwargs):
+        super(SagaSpider, self).__init__(*args, **kwargs)
+        self.u = int(getattr(self, 'u', '0'))
+        self.client = pymongo.MongoClient(config("MONGODB"))
+        # self.db = self.client["brand_allowed"]
+        #self.lista = self.brand_allowed()
+        self.urls = links()[self.u - 1]
+
+        self.db = self.client['saga']
+        self.collection = self.db['scrap3']
+
+    def start_requests(self):
+        
+        for i, v in enumerate(self.urls):
+
+                for e in range (v[1]+10):
+                    url = v[0]+ "&page="+str(e+1)  
+                    yield scrapy.Request(url, self.parse)
+
+    def parse(self, response):
+    
+            if response.status != 200:
+        # If the response status is not 200, skip processing this link and move to the next one
+                self.logger.warning(f"Skipping URL {response.url} due to non-200 status code: {response.status}")
+                return
+        
+            if "/noResult" in response.url:
+                # Move to the next URL in the array (since it is a "noResult" page)
+                self.logger.info("Skipping this URL and moving to the next one.")
+                return
+            script_tag = response.xpath('//script[@id="__NEXT_DATA__"]/text()').get()
+
+            if script_tag:
+                 json_content = json.loads(script_tag)
+
+            # Assuming the relevant JSON data is under "props" -> "pageProps" in the JSON response
+            page_props = json_content.get('props', {}).get('pageProps', {}).get("results",{})
+
+            results = json_content["props"]["pageProps"]["results"]
+            
+            for result in results:
+                skuId = result.get("skuId", "NO HAY PS")
+                displayName = result.get("displayName", "NO HAY PS")
+                link = result.get("url", "https://www.inboundcycle.com/diccionario-marketing-online/error-404")
+                brand = result.get("brand", "NO HAY PS")
+                try:
+                    mediaUrls = result["mediaUrls"][0]
+                except:
+                    mediaUrls = "https://falabella.scene7.com/is/image/FalabellaPE/defaultPE?wid=1500&hei=1500&qlt=70"
+                
+                # Extraer y limpiar el valor del descuento
+                #discount_badge = result.get("discountBadge", {})
+                #discount_label = discount_badge.get("label", "0.0")
+                #discount_label = discount_label.replace("-", "").replace("%", "").strip()
+
+                # Convertir a flotante y gestionar posibles errores
+                #try:
+                #    descuento = float(discount_label)
+                #except ValueError:
+                #    descuento = 0.0'''
+
+                #try:
+                #    descuento = float(result.get("discountBadge", {}).get("label", "0").replace("-", "").replace("%", ""))
+                #except:
+                #    descuento = 0.0
+                
+                #try:
+                #    descuento = float(result["discountBadge"]["label"].replace("-","").replace("%",""))
+                #except:
+                #    descuento = 0.0
+
+                if "prices" in result:
+                    prices = result["prices"]
+                    if len(prices) > 2:
+                        precio1 = float(prices[1].get("price", ["0"])[0].replace(",", ""))
+                        precio2 = float(prices[2].get("price", ["0"])[0].replace(",", ""))
+                        precio3 = float(prices[0].get("price", ["0"])[0].replace(",", ""))
+                    elif len(prices) > 1:
+                        precio1 = float(prices[0].get("price", ["0"])[0].replace(",", ""))
+                        precio2 = float(prices[1].get("price", ["0"])[0].replace(",", ""))
+                        precio3 = 0.00
+                    elif len(prices) > 0:
+                        #precio1 = 0.00
+                        precio2 = float(prices[0].get("price", ["0"])[0].replace(",", ""))
+                        precio1 = precio2
+                        precio3 = 0.00
+                    else:
+                        precio1 = 0.00
+                        precio2 = 0.00
+                        precio3 = 0.00
+                
+                # Calcular los porcentajes de descuento con condiciones especiales
+                if precio1 == 0.0 or precio1 == precio2:
+                    descuento1 = 0.0
+                else:
+                    descuento1 = ((precio2 - precio1) / precio2) * 100
+
+                if precio3 == 0 or precio3 == precio2:
+                    descuento2 = 0.0
+                else:
+                    descuento2 = ((precio2 - precio3) / precio2) * 100
+
+                # Calcular el mayor descuento
+                descuento = round(float(max(descuento1, descuento2)),0)
+
+                hora_extraccion = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+                producto = {
+                    "ProductId": skuId,
+                    "Producto": displayName,
+                    "link": link,
+                    "brand": brand,
+                    "Preciodelista": precio2,
+                    "Precio": precio1,
+                    "DescuentoEspecifico": precio3,
+                    "Descuento": descuento,
+                    "imageUrl": mediaUrls,
+                    "hora_extraccion": hora_extraccion,
+                    "Descuento2": 0.0
+                }
+                
+                self.collection.insert_one(producto)
+                yield producto
+
+        #     next_page_number = int(response.url.split('=')[-1]) + 1
+        #     next_page_url = url + str(next_page_number)
+        #     yield scrapy.Request(next_page_url, self.parse, meta={'url': url})
+
+        # except Exception as e:
+        #     self.logger.error("Error al procesar la solicitud: %s", e)
+
+'''    def closed(self, reason):
+        try:
+            # Ejecuta el archivo .bat en una nueva terminal
+            subprocess.Popen(['start', 'cmd', '/c', 'fala.bat'], shell=True)
+        except Exception as e:
+            self.logger.error("Error al ejecutar el archivo .bat: %s", e)
+        #finally:
+        #    self.client.close()  # Cerrar la conexión MongoDB
+        #    gc.collect()
+'''
+

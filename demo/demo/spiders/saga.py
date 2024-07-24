@@ -3,25 +3,17 @@ import sys
 import json
 from demo.items import DemoItem
 from datetime import datetime
-from datetime import date
+
+import datetime
 import pymongo
+
 from demo.spiders.urls_db import *
 from decouple import config
+from scrapy.exceptions import CloseSpider
+
 import time
 
 
-
-
-def load_datetime():
-    
-    today = date.today()
-    now = datetime.now()
-    date_now = today.strftime("%d/%m/%Y")  
-    time_now = now.strftime("%H:%M:%S")
-        
-    return date_now, time_now, today
-
-current_day = load_datetime()[0]
 
 class SagaSpider(scrapy.Spider):
     #list_to_skip = skip_brand()
@@ -31,45 +23,42 @@ class SagaSpider(scrapy.Spider):
 
 
     def __init__(self, *args, **kwargs):
-        u = int(getattr(self, 'u', '0'))
-        b = int(getattr(self, 'b', '0'))
         super(SagaSpider, self).__init__(*args, **kwargs)
+        self.u = int(getattr(self, 'u', '0'))
         self.client = pymongo.MongoClient(config("MONGODB"))
-        self.db = self.client["brand_allowed"]
-        self.lista = self.brand_allowed() # Initialize self.lista based on self.b
-        self.urls = links()[int(int(self.u)-1)]
-   
+        self.urls = links()[self.u - 1]
+        self.db = self.client['saga']
+        self.collection_name = self.db['scrap3']
 
-    
-    def brand_allowed(self):
-        collection1 = self.db["todo"]
-        shoes = collection1.find({})
-        shoes_list = [doc["brand"] for doc in shoes]
-        collection1 = self.db["nada"]
-        nada = collection1.find({})
-        return shoes_list ,nada
+        self.seen_skus = set()
+        self.duplicate_count = 0
 
+
+    def page_exists(self, response):
+        # Check if the page contains products or if it's a "no results" page
+        return "/noResult" not in response.url and response.xpath('//script[@id="__NEXT_DATA__"]/text()').get()
 
     def start_requests(self):
-       
+        
         for i, v in enumerate(self.urls):
-            # if "tottus" in v[0]:
-            #     for e in range (v[1]+10):
-            #         url = v[0]+ "?subdomain=tottus&page="+str(e+1) +"&store=tottus"
-            #         yield scrapy.Request(url, self.parse)
-            # if "sodimac" in v[0]:
-            #     for e in range (v[1]+10):
-            #         url = v[0]+ "?subdomain=sodimac&page="+str(e+1)+"&store=sodimac"
-            #         yield scrapy.Request(url, self.parse)
-            # else:
-                #for e in range (v[1]+10):
-
-                for e in range (1):
-                    url = v[0]+ "&page="+str(e+1)  
+                for e in range (v[1]+10):              
+                    url = v[0]+ "&page="+str(e)  
                     yield scrapy.Request(url, self.parse)
-                
+
+
+    def check_page_and_parse(self, response):
+        if self.page_exists(response):
+            yield from self.parse(response)
+        else:
+            # If the page doesn't exist, don't yield any more requests for this URL
+            self.logger.info(f"Reached non-existent page: {response.url}")
+            return            
 
     def parse(self, response):
+
+        if not self.page_exists(response):
+            # If the page doesn't exist, raise a CloseSpider exception to stop the spider
+            raise scrapy.exceptions.CloseSpider(reason='Reached non-existent page')
       
         if response.status != 200:
         # If the response status is not 200, skip processing this link and move to the next one
@@ -94,37 +83,37 @@ class SagaSpider(scrapy.Spider):
 
         productos = page_props
 
-
-        total_products_scraped = 0
-        total_products_saved = 0
-        
         for i in productos:
-                total_products_scraped += 1
              
                 try:
                     item["brand"]= i["brand"]
              
                 except:
                     item["brand"]="generico"
-                    
+
+
 
 
         
-                producto = item["brand"].lower()
+                #producto = item["brand"].lower()
 
-                if self.lista[0] == []:
-                    pass
-                else:
-                    if producto not in self.lista[0]:
+                # if self.lista[0] == []:
+                #     pass
+                # else:
+                #     if producto not in self.lista[0]:
 
-                        continue
-
+                #         continue
+          
                 item["product"]=  i["displayName"]
 
                 item["sku"] = i["skuId"]
 
-          
-                item["_id"] =i["skuId"]
+                if item["sku"] in self.seen_skus:
+                    self.duplicate_count += 1
+                else:
+                    self.seen_skus.add(item["sku"])
+              
+        
 
                 if len(i["prices"])== 1:
 
@@ -174,8 +163,9 @@ class SagaSpider(scrapy.Spider):
                 #     continue
 
                 item["market"]= "saga"
-                item["date"]= load_datetime()[0]
-                item["time"]= load_datetime()[1]
+                current_datetime = datetime.datetime.now()
+                item["date"] = current_datetime.strftime("%d/%m/%Y")
+                item["time"] = current_datetime.strftime("%H:%M:%S")
                 item["home_list"] = response.url
                 item["card_dsct"] = 0
 
@@ -186,27 +176,15 @@ class SagaSpider(scrapy.Spider):
                 print(item["best_price"])
                 print(item["card_price"] )
                 print(item["list_price"] )
-                print(total_products_scraped)
-                # input("Presiona Enter para continuar...")
+ 
+                collection = self.db["scrap3"]
+                filter = { "sku": item["sku"]}
+                update = {'$set': dict(item)}
+                result = collection.update_one(filter, update, upsert=True)
 
-               
 
-                # if item["sku"] == "124383313":
-                #     time.sleep(100)
-
-                try:
-                # Attempt to save the item
-                    yield item
-                    total_products_saved += 1
-                except Exception as e:
-                    self.logger.error(f"Error saving product {item['sku']}: {e}")
-               
-
-        self.logger.info(f"Total products scraped: {total_products_scraped}")
-        self.logger.info(f"Total products saved: {total_products_saved}")
-         
-
-            
-
+    def closed(self, reason):
+        self.logger.info(f"Total de SKUs únicos: {len(self.seen_skus)}")
+        self.logger.info(f"Total de SKUs duplicados: {self.duplicate_count}")
 
 
