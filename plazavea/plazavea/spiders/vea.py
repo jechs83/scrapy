@@ -35,6 +35,12 @@ class VeaSpider(scrapy.Spider):
         #self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
         self.urls = links()[int(int(self.u)-1)]
 
+        self.db2 = self.client["brand_allowed"]
+        self.collection_brand = self.db2["todo"]
+        self.lista_marcas =[]
+        for i in self.collection_brand.find():
+            self.lista_marcas.append(i["brand"])
+
     def brand_allowed(self):
         collection1 = self.db["todo"]
         shoes = collection1.find({})
@@ -69,14 +75,14 @@ class VeaSpider(scrapy.Spider):
             item["brand"]=  i["brand"]
 
 
-            # product = item["brand"].lower()
-            # marca_not_allowed = []
-            # if self.lista == []:
-            #     pass
-            # else:
-            #     if product not in self.lista:
+            product = item["brand"].lower()
+  
+            if self.lista_marcas == []:
+                pass
+            else:
+                if product not in self.lista_marcas:
 
-            #         continue
+                    continue
 
             item["link"]=  i["link"]
             item["sku"] = i["productReference"]
