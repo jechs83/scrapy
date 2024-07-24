@@ -132,16 +132,18 @@ class WongSpider(scrapy.Spider):
             item["time"] = current_time
             item["market"] = "wong"
 
-            print()
-            print(item["brand"])
-            print(item["product"])
-            print(item["link"])
-            print(item["best_price"])
-            print(item["card_price"] )
-            print(item["list_price"] )
 
-            collection = self.db["scrap"]
-            filter = { "sku": item["sku"]}
-            update = {'$set': dict(item)}
-            result = collection.update_one(filter, update, upsert=True)
+            yield item
+            # print()
+            # print(item["brand"])
+            # print(item["product"])
+            # print(item["link"])
+            # print(item["best_price"])
+            # print(item["card_price"] )
+            # print(item["list_price"] )
+
+            # collection = self.db["scrap"]
+            # filter = { "sku": item["sku"]}
+            # update = {'$set': dict(item)}
+            # result = collection.update_one(filter, update, upsert=True)
    
