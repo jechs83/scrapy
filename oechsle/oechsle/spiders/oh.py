@@ -134,13 +134,19 @@ class OhSpider(scrapy.Spider):
             item["time"] = current_datetime.strftime("%H:%M:%S")
 
 
-            print(count)
-            print("##############")
+            print()
+            print(item["brand"])
+            print(item["product"])
+            print(item["link"])
+            print(item["best_price"])
+            print(item["card_price"] )
+            print(item["list_price"] )
 
+            collection = self.db["scrap"]
+            filter = { "sku": item["sku"]}
+            update = {'$set': dict(item)}
+            result = collection.update_one(filter, update, upsert=True)
 
-            
-            
-            yield item
             print(count+1)
  
    
