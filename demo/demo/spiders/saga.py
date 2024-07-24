@@ -30,6 +30,13 @@ class SagaSpider(scrapy.Spider):
         self.db = self.client['saga']
         self.collection_name = self.db['scrap3']
 
+        self.db2 = self.client["brand_allowed"]
+        self.collection_brand = self.db2["todo"]
+        self.lista_marcas =[]
+        for i in self.collection_brand.find():
+            self.lista_marcas.append(i["brand"])
+
+ 
         self.seen_skus = set()
         self.duplicate_count = 0
 
@@ -95,14 +102,14 @@ class SagaSpider(scrapy.Spider):
 
 
         
-                #producto = item["brand"].lower()
+                producto = item["brand"].lower()
 
-                # if self.lista[0] == []:
-                #     pass
-                # else:
-                #     if producto not in self.lista[0]:
+                if self.lista_marcas == []:
+                    pass
+                else:
+                    if producto not in self.lista_marcas:
 
-                #         continue
+                        continue
           
                 item["product"]=  i["displayName"]
 
