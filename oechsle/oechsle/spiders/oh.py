@@ -16,18 +16,19 @@ class OhSpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super(OhSpider, self).__init__(*args, **kwargs)
+        self.u = int(getattr(self, 'u', '0'))
         self.client = pymongo.MongoClient(config("MONGODB"))
-        self.db = self.client["brand_allowed"]
-        self.lista = self.brand_allowed() # Initialize self.lista based on self.b
-        self.urls = links()[int(int(self.u)-1)]
+        self.urls = links()[self.u - 1]
+        self.db = self.client['oechsle']
+        self.collection_name = self.db['scrap']
 
-    def brand_allowed(self):
-        collection1 = self.db["todo"]
-        shoes = collection1.find({})
-        shoes_list = [doc["brand"] for doc in shoes]
-        collection1 = self.db["nada"]
-        x = collection1.find({})
-        return shoes_list , x
+    # def brand_allowed(self):
+    #     collection1 = self.db["todo"]
+    #     shoes = collection1.find({})
+    #     shoes_list = [doc["brand"] for doc in shoes]
+    #     collection1 = self.db["nada"]
+    #     x = collection1.find({})
+    #     return shoes_list , x
     
     def start_requests(self):
         u = int(getattr(self, 'u', '0'))
@@ -79,19 +80,19 @@ class OhSpider(scrapy.Spider):
             if vendedor.lower() not in ["plazavea", "oechsle", "promart"]:
                 continue
 
-            # i["market"] = "oechsle"
+            i["market"] = "oechsle"
             
 
 
-            pro = item["brand"].lower()
+            # pro = item["brand"].lower()
         
 
         
-            if pro.lower()  in self.lista[0]:
-                    # print("ASLATA AL OTRO PRODUCTO ")
-                    pass
-            else:
-                    continue
+            # if pro.lower()  in self.lista[0]:
+            #         # print("ASLATA AL OTRO PRODUCTO ")
+            #         pass
+            # else:
+            #         continue
            
 
             item["link"]=  i["link"]
