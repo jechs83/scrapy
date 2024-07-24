@@ -36,7 +36,7 @@ class SagaSpider(scrapy.Spider):
         for i in self.collection_brand.find():
             self.lista_marcas.append(i["brand"])
 
- 
+        print(self.lista_marcas)
         self.seen_skus = set()
         self.duplicate_count = 0
 
@@ -108,7 +108,7 @@ class SagaSpider(scrapy.Spider):
                     pass
                 else:
                     if producto not in self.lista_marcas:
-
+                       
                         continue
           
                 item["product"]=  i["displayName"]
