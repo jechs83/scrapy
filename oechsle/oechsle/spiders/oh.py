@@ -68,17 +68,17 @@ class OhSpider(scrapy.Spider):
             item["image"]=  i["items"][0]["images"][0]["imageUrl"]
             item["brand"]=  i["brand"]
 
-            try:
-                seller = i["Vendido por"]
-                item["market"] = str(seller[0]).lower()
-            except:
+            # try:
+            #     seller = i["Vendido por"]
+            #     item["market"] = str(seller[0]).lower()
+            # except:
               
-                continue
+            #     continue
             #print(seller)
-            vendedor = seller[0]
+            # vendedor = seller[0]
 
-            if vendedor.lower() not in ["plazavea", "oechsle", "promart"]:
-                continue
+            # if vendedor.lower() not in ["plazavea", "oechsle", "promart"]:
+            #     continue
 
             i["market"] = "oechsle"
             
