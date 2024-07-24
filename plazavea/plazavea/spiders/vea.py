@@ -30,8 +30,9 @@ class VeaSpider(scrapy.Spider):
 
         super(VeaSpider, self).__init__(*args, **kwargs)
         self.client = pymongo.MongoClient(config("MONGODB"))
-        self.db = self.client["brand_allowed"]
-        self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
+        self.db = self.client['plazavea']
+        self.collection_name = self.db['scrap']
+        #self.lista = self.brand_allowed()[int(self.b)]  # Initialize self.lista based on self.b
         self.urls = links()[int(int(self.u)-1)]
 
     def brand_allowed(self):
@@ -68,14 +69,14 @@ class VeaSpider(scrapy.Spider):
             item["brand"]=  i["brand"]
 
 
-            product = item["brand"].lower()
-            marca_not_allowed = []
-            if self.lista == []:
-                pass
-            else:
-                if product not in self.lista:
+            # product = item["brand"].lower()
+            # marca_not_allowed = []
+            # if self.lista == []:
+            #     pass
+            # else:
+            #     if product not in self.lista:
 
-                    continue
+            #         continue
 
             item["link"]=  i["link"]
             item["sku"] = i["productReference"]
@@ -117,5 +118,17 @@ class VeaSpider(scrapy.Spider):
             item["date"] = current_day
             item["time"] = current_time
             item["market"] = "plazavea"
-            yield item
+            
+            print()
+            print(item["brand"])
+            print(item["product"])
+            print(item["link"])
+            print(item["best_price"])
+            print(item["card_price"] )
+            print(item["list_price"] )
+
+            collection = self.db["scrap"]
+            filter = { "sku": item["sku"]}
+            update = {'$set': dict(item)}
+            result = collection.update_one(filter, update, upsert=True)
    
