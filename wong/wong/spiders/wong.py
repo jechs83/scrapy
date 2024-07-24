@@ -36,8 +36,14 @@ class WongSpider(scrapy.Spider):
         b = int(getattr(self, 'b', '0'))
         super(WongSpider, self).__init__(*args, **kwargs)
         self.client = pymongo.MongoClient(config("MONGODB"))
-        self.db = self.client["brand_allowed"]
-        self.lista = self.brand_allowed() # Initialize self.lista based on self.b
+        self.db = self.client['wong']
+        self.collection_name = self.db['scrap']
+        self.db2 = self.client["brand_allowed"]
+        self.collection_brand = self.db2["todo"]
+        self.lista_marcas =[]
+        for i in self.collection_brand.find():
+            self.lista_marcas.append(i["brand"])
+
         self.urls = links()[int(int(self.u)-1)]
     
     def brand_allowed(self):
@@ -83,10 +89,10 @@ class WongSpider(scrapy.Spider):
             item["image"]=  i["items"][0]["images"][0]["imageUrl"]
             item["brand"]=  i["brand"]
 
-            product = item["brand"].lower()
-            if product not in self.lista[0]:
+            # product = item["brand"].lower()
+            # if product not in self.lista[0]:
                 
-                continue
+            #     continue
 
             item["link"]=  i["link"]
             item["sku"] = i["productReference"]
@@ -126,6 +132,16 @@ class WongSpider(scrapy.Spider):
             item["time"] = current_time
             item["market"] = "wong"
 
+            print()
+            print(item["brand"])
+            print(item["product"])
+            print(item["link"])
+            print(item["best_price"])
+            print(item["card_price"] )
+            print(item["list_price"] )
 
-            yield item
+            collection = self.db["scrap"]
+            filter = { "sku": item["sku"]}
+            update = {'$set': dict(item)}
+            result = collection.update_one(filter, update, upsert=True)
    
