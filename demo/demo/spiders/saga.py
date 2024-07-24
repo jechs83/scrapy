@@ -28,8 +28,7 @@ class SagaSpider(scrapy.Spider):
         self.client = pymongo.MongoClient(config("MONGODB"))
         self.urls = links()[self.u - 1]
         self.db = self.client['saga']
-        self.collection_name = self.db['scrap3']
-
+        self.collection_name = self.db['scrap']
         self.db2 = self.client["brand_allowed"]
         self.collection_brand = self.db2["todo"]
         self.lista_marcas =[]
